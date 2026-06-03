@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work — Applied AI Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:       #FFFFFF;
+            --bg-alt:   #F7F5F1;
+            --ink:      #0A0908;
+            --ink-mid:  #6B6763;
+            --ink-soft: #AEABA5;
+            --gold:     #C4975A;
+            --rule:     rgba(10,9,8,0.08);
+            --rule-md:  rgba(10,9,8,0.13);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Manrope', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.625rem 4rem;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--rule);
+        }
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500; font-size: 0.9rem;
+            letter-spacing: -0.01em;
+            color: var(--ink); text-decoration: none;
+        }
+        .nav-links {
+            display: flex; align-items: center;
+            gap: 2.5rem; list-style: none;
+        }
+        .nav-links a {
+            font-size: 0.8125rem; font-weight: 400;
+            color: var(--ink-mid); text-decoration: none;
+            letter-spacing: 0.01em; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-links a.active { color: var(--ink); font-weight: 500; }
+        .btn-nav {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.8125rem; font-weight: 400;
+            background: var(--ink); color: #fff;
+            padding: 0.6rem 1.25rem; border-radius: 3px;
+            text-decoration: none; transition: background 0.2s;
+        }
+        .btn-nav:hover { background: #2A2927; }
+
+        /* ── PAGE HEADER ── */
+        .page-header {
+            padding: 11rem 4rem 5rem;
+            border-bottom: 1px solid var(--rule);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 2rem;
+        }
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 24px; height: 1px;
+            background: var(--gold); flex-shrink: 0;
+        }
+        .page-header h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 400;
+            letter-spacing: -0.03em;
+            line-height: 1.0;
+            color: var(--ink);
+            font-variation-settings: 'opsz' 72;
+        }
+        .page-header h1 em {
+            font-style: italic; font-weight: 300;
+            color: var(--ink-mid);
+            font-variation-settings: 'opsz' 72;
+        }
+        .header-note {
+            font-size: 0.9rem;
+            color: var(--ink-mid);
+            max-width: 320px;
+            line-height: 1.75;
+            align-self: flex-end;
+            padding-bottom: 0.25rem;
+        }
+
+        /* ── PROJECT LIST ── */
+        .projects {
+            padding: 0 4rem;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 5rem;
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--rule);
+            align-items: start;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .project.on { opacity: 1; transform: none; }
+
+        .project-meta {
+            position: sticky;
+            top: 7rem;
+        }
+        .project-num {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: var(--ink-soft);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .project-category {
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        .project-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+        }
+        .tag {
+            font-size: 0.72rem;
+            color: var(--ink-soft);
+            padding: 0.3rem 0;
+            border-top: 1px solid var(--rule);
+        }
+        .tag:last-child { border-bottom: 1px solid var(--rule); }
+
+        .project-body {}
+        .project-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            font-variation-settings: 'opsz' 32;
+        }
+        .project-title em {
+            font-style: italic; font-weight: 300;
+            color: var(--ink-mid);
+        }
+        .project-desc {
+            font-size: 1rem;
+            color: var(--ink-mid);
+            line-height: 1.8;
+            max-width: 580px;
+            margin-bottom: 2.5rem;
+        }
+
+        .project-outcomes {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 580px;
+        }
+        .outcome {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--rule);
+            font-size: 0.875rem;
+            color: var(--ink-mid);
+            line-height: 1.6;
+        }
+        .outcome:last-child { border-bottom: 1px solid var(--rule); }
+        .outcome-dot {
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+            margin-top: 0.45rem;
+        }
+
+        /* ── CTA ── */
+        .work-cta {
+            padding: 8rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            background: var(--bg-alt);
+        }
+        .work-cta h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            font-weight: 400;
+            letter-spacing: -0.025em;
+            line-height: 1.08;
+            color: var(--ink);
+            font-variation-settings: 'opsz' 48;
+            max-width: 500px;
+        }
+        .work-cta h2 em {
+            font-style: italic; font-weight: 300; color: var(--ink-mid);
+        }
+        .cta-buttons { display: flex; flex-direction: column; gap: 0.875rem; align-items: flex-start; }
+        .btn-dark {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.9rem; font-weight: 400;
+            background: var(--ink); color: #fff;
+            padding: 0.875rem 2rem; border-radius: 3px;
+            text-decoration: none; transition: background 0.2s;
+            display: inline-flex; align-items: center;
+        }
+        .btn-dark:hover { background: #2A2927; }
+        .btn-text {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.8rem; font-weight: 400;
+            color: var(--ink-soft); text-decoration: none;
+            transition: color 0.2s;
+            display: inline-flex; align-items: center;
+        }
+        .btn-text:hover { color: var(--ink-mid); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--rule);
+            padding: 2.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .footer-logo {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 500; font-size: 0.875rem;
+            color: var(--ink); text-decoration: none;
+        }
+        footer p { font-size: 0.75rem; color: var(--ink-soft); }
+        .footer-links { display: flex; gap: 2rem; }
+        .footer-links a {
+            font-size: 0.75rem; color: var(--ink-soft);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--ink-mid); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            nav { padding: 1.125rem 1.5rem; }
+            .nav-links { display: none; }
+            .page-header { padding: 7.5rem 1.5rem 3.5rem; flex-direction: column; gap: 1.5rem; }
+            .header-note { max-width: 100%; }
+            .projects { padding: 0 1.5rem; }
+            .project { grid-template-columns: 1fr; gap: 1.75rem; padding: 3.5rem 0; }
+            .project-meta { position: static; display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+            .project-tags { flex-direction: row; flex-wrap: wrap; gap: 0; }
+            .tag { border: none; border-right: 1px solid var(--rule); padding: 0 0.75rem 0 0; margin-right: 0.75rem; }
+            .tag:last-child { border: none; margin: 0; padding: 0; }
+            .work-cta { padding: 4rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 2rem; }
+            footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+        }
+        @media (max-width: 580px) {
+            .page-header { padding: 6.5rem 1.25rem 3rem; }
+            .page-header h1 { font-size: clamp(2.5rem, 9vw, 3.5rem); }
+            .projects { padding: 0 1.25rem; }
+            .project { padding: 3rem 0; gap: 1.25rem; }
+            .project-title { font-size: clamp(1.5rem, 6vw, 2rem); }
+            .project-desc { font-size: 0.9rem; }
+            .outcome { font-size: 0.8125rem; }
+            .work-cta { padding: 3.5rem 1.25rem; }
+            .work-cta h2 { font-size: clamp(1.75rem, 7vw, 2.25rem); }
+            .btn-dark, .btn-text { width: 100%; justify-content: center; }
+            footer { padding: 1.75rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="logo">Applied AI Agent</a>
+    <ul class="nav-links">
+        <li><a href="index.html#about">What We Do</a></li>
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn-nav">Request a Demo</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+    <div>
+        <p class="section-label">Selected Work</p>
+        <h1>Real problems.<br><em>Real solutions.</em></h1>
+    </div>
+    <p class="header-note">Every project here started with a business owner who had a specific problem. What we built was shaped entirely around how they work.</p>
+</div>
+
+<!-- PROJECTS -->
+<div class="projects">
+
+    <!-- PROJECT 1 -->
+    <div class="project">
+        <div class="project-meta">
+            <span class="project-num">01</span>
+            <span class="project-category">Automation</span>
+            <div class="project-tags">
+                <span class="tag">Plumbing</span>
+                <span class="tag">Scheduling</span>
+                <span class="tag">Customer Notifications</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <h2 class="project-title">Water Heater Maintenance<br><em>Scheduler</em></h2>
+            <p class="project-desc">A plumbing company was losing repeat business simply because no one was following up with past customers. We built an automated system that tracks installation dates, sends maintenance reminders at the right intervals, and books appointments without anyone lifting a finger.</p>
+            <div class="project-outcomes">
+                <div class="outcome"><span class="outcome-dot"></span>Automated outreach to existing customer base with zero manual effort</div>
+                <div class="outcome"><span class="outcome-dot"></span>Appointment booking integrated directly with existing scheduling software</div>
+                <div class="outcome"><span class="outcome-dot"></span>Recurring revenue from customers who would have otherwise gone elsewhere</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project">
+        <div class="project-meta">
+            <span class="project-num">02</span>
+            <span class="project-category">Custom Tools</span>
+            <div class="project-tags">
+                <span class="tag">Landscaping</span>
+                <span class="tag">Operations</span>
+                <span class="tag">Bilingual</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <h2 class="project-title">Landscaping Operations<br><em>Suite</em></h2>
+            <p class="project-desc">A landscaping owner was managing routes in his head, tracking hours on paper, and losing photos of completed jobs. We built a full operations suite: an owner dashboard with daily route optimization, and a bilingual crew app in English and Spanish for time tracking, photo documentation, and job sign-off.</p>
+            <div class="project-outcomes">
+                <div class="outcome"><span class="outcome-dot"></span>Owner dashboard with real-time crew locations and optimized daily routes</div>
+                <div class="outcome"><span class="outcome-dot"></span>Crew app available in English and Spanish — no translation barrier</div>
+                <div class="outcome"><span class="outcome-dot"></span>Built-in photo capture and time tracking per job, replacing paper entirely</div>
+                <div class="outcome"><span class="outcome-dot"></span>Payroll export that connects directly to accounting software</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project">
+        <div class="project-meta">
+            <span class="project-num">03</span>
+            <span class="project-category">Integration</span>
+            <div class="project-tags">
+                <span class="tag">QuickBooks</span>
+                <span class="tag">Construction</span>
+                <span class="tag">Accounting</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <h2 class="project-title">QuickBooks<br><em>Integration Suite</em></h2>
+            <p class="project-desc">A construction company was manually re-entering the same job data across three different systems — their CRM, their scheduling tool, and QuickBooks. We connected all three so that a new job created in one place flows automatically into the others, invoices generate on job completion, and nothing falls through the cracks.</p>
+            <div class="project-outcomes">
+                <div class="outcome"><span class="outcome-dot"></span>Eliminated double and triple data entry across all business systems</div>
+                <div class="outcome"><span class="outcome-dot"></span>Automatic invoice generation tied to job status updates</div>
+                <div class="outcome"><span class="outcome-dot"></span>Real-time financial visibility without waiting on manual reconciliation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="project">
+        <div class="project-meta">
+            <span class="project-num">04</span>
+            <span class="project-category">Web</span>
+            <div class="project-tags">
+                <span class="tag">Design</span>
+                <span class="tag">Development</span>
+                <span class="tag">Launch</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <h2 class="project-title">Website Design<br><em>&amp; Launch</em></h2>
+            <p class="project-desc">Several businesses came to us with either no website, or one that hadn't been updated in years and wasn't bringing in work. We design and build clean, fast, professional sites that are built to convert — not just look good. Typically live within two weeks.</p>
+            <div class="project-outcomes">
+                <div class="outcome"><span class="outcome-dot"></span>Custom design tailored to the business and its customers</div>
+                <div class="outcome"><span class="outcome-dot"></span>Built-in lead capture, contact forms, and booking integration</div>
+                <div class="outcome"><span class="outcome-dot"></span>Optimized for local search from day one</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 5 -->
+    <div class="project">
+        <div class="project-meta">
+            <span class="project-num">05</span>
+            <span class="project-category">Automation</span>
+            <div class="project-tags">
+                <span class="tag">AI Agents</span>
+                <span class="tag">Multi-industry</span>
+                <span class="tag">Repetitive Tasks</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <h2 class="project-title">AI Agents for<br><em>Daily Operations</em></h2>
+            <p class="project-desc">Across multiple clients, we've deployed AI agents that handle the small, repetitive tasks that quietly drain hours from a business week. Answering common customer inquiries, triaging inbound messages, generating first drafts of estimates, and routing requests to the right person — all without anyone having to manage it.</p>
+            <div class="project-outcomes">
+                <div class="outcome"><span class="outcome-dot"></span>Inbound inquiries handled and routed automatically 24/7</div>
+                <div class="outcome"><span class="outcome-dot"></span>Estimate and proposal drafts generated in seconds, not hours</div>
+                <div class="outcome"><span class="outcome-dot"></span>Staff time redirected from admin to billable work</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 6 -->
+    <div class="project">
+        <div class="project-meta">
+            <span class="project-num">06</span>
+            <span class="project-category">Growth</span>
+            <div class="project-tags">
+                <span class="tag">SEO</span>
+                <span class="tag">Local Search</span>
+                <span class="tag">Ongoing</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <h2 class="project-title">Automated SEO<br><em>Improvement</em></h2>
+            <p class="project-desc">Most small business websites sit invisible in search results because no one has time to maintain them. We set up an automated system that continuously improves search rankings — updating content, building local citations, responding to reviews, and monitoring keyword positions — without the business owner ever thinking about it.</p>
+            <div class="project-outcomes">
+                <div class="outcome"><span class="outcome-dot"></span>Automated content updates that keep the site fresh in Google's eyes</div>
+                <div class="outcome"><span class="outcome-dot"></span>Local citation building across directories and map platforms</div>
+                <div class="outcome"><span class="outcome-dot"></span>Review monitoring and response drafts sent for approval</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT 7 -->
+    <div class="project">
+        <div class="project-meta">
+            <span class="project-num">07</span>
+            <span class="project-category">Automation</span>
+            <div class="project-tags">
+                <span class="tag">Follow-ups</span>
+                <span class="tag">Customer Retention</span>
+                <span class="tag">Multi-industry</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <h2 class="project-title">Automated Follow-up<br><em>&amp; Customer Outreach</em></h2>
+            <p class="project-desc">The best time to reach a customer is right after a job is done — and most businesses miss it because they're already on to the next one. We built automated follow-up sequences that send at the right moment: post-job satisfaction checks, review requests, seasonal service reminders, and re-engagement campaigns for customers who've gone quiet.</p>
+            <div class="project-outcomes">
+                <div class="outcome"><span class="outcome-dot"></span>Post-job follow-ups sent automatically within hours of completion</div>
+                <div class="outcome"><span class="outcome-dot"></span>Review requests timed to maximize response rates</div>
+                <div class="outcome"><span class="outcome-dot"></span>Seasonal campaigns that bring back past customers without any manual effort</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- CTA -->
+<div class="work-cta">
+    <h2>Have a problem that<br>needs a <em>specific solution?</em></h2>
+    <div class="cta-buttons">
+        <a href="contact.html" class="btn-dark">Request a Free Demo</a>
+        <a href="contact.html" class="btn-text">Or send us a message →</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <a href="index.html" class="footer-logo">Applied AI Agent</a>
+    <p>© 2025 Applied AI Agent &nbsp;·&nbsp; appliedaiagent.ai</p>
+    <div class="footer-links">
+        <a href="index.html#services">Services</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</footer>
+
+<script>
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('on'), i * 100);
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.project').forEach(el => obs.observe(el));
+</script>
+
+
+</body>
+</html>
