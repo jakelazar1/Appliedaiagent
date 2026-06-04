@@ -1,0 +1,196 @@
+Rewrite my website completely. The files are index.html, work.html, and contact.html. Read all three files first so you understand the current structure, then rebuild them from scratch using the same pure HTML/CSS/JS approach — no frameworks, no build step, deployable directly to GitHub Pages.
+
+---
+
+BRAND IDENTITY
+
+Business: Applied AI Agent — appliedaiagent.ai
+Owner: Jake Lazar, based in Sonoma, CA
+Background: Winemaker with a BS in Viticulture & Enology from Washington State University and a Master's degree from France and Italy. He builds custom AI automation systems for wine country businesses. He is not a generic tech consultant — he is a winemaker who builds AI. That is the entire brand.
+Target clients: Wineries, tasting rooms, wine tour operators, and hospitality businesses in Sonoma and Napa.
+
+---
+
+HEADLINE & CORE MESSAGE
+
+Hero headline: "Your winery, on autopilot."
+Subheadline: "Custom AI systems that handle the follow-ups, the wine club, the bookings, and the outreach — so you can get back to making wine."
+Primary CTA: "Get a Free Demo" (opens modal)
+Secondary CTA: "See how it works" (smooth scrolls to how it works section)
+Trust line beneath CTA: "No commitment. You see it running before anything is built."
+
+---
+
+NEW COLOR PALETTE — implement as CSS custom properties
+
+--dark:       #0D1F1A    (deep forest green, near black)
+--dark-mid:   #152B23    (slightly lighter forest green for cards/sections)
+--green:      #1E3D30    (mid forest green for accents)
+--cream:      #F5F0E8    (warm cream, primary light bg)
+--cream-alt:  #EDE8DF    (slightly darker cream for alternating sections)
+--ink:        #0D1F1A    (primary text on light bg)
+--ink-mid:    #5C6B5E    (secondary text)
+--ink-soft:   #8F9E91    (labels, placeholders)
+--gold:       #C4975A    (accent, CTAs, highlights)
+--sage:       #7A9E7E    (soft green accent for tags and secondary elements)
+--rule:       rgba(13,31,26,0.08)
+--rule-dark:  rgba(245,240,232,0.1)
+
+Keep Fraunces (serif) and Manrope (sans-serif) from Google Fonts. Same font CDN links.
+
+---
+
+PAGE STRUCTURE — index.html
+
+1. NAV (fixed, starts transparent over dark hero, transitions to cream bg on scroll)
+Left: "Applied AI Agent" logo
+Center: What We Do | How It Works | Work | Contact
+Right: "Get a Free Demo" button (gold)
+Mobile: hamburger menu, dark slide-down drawer
+
+2. HERO SECTION (full viewport height, --dark background)
+No product screenshot. Pure typographic hero.
+Layout: left-aligned, bottom-anchored.
+Eyebrow text: "Sonoma, CA · AI Automation for Wine Country"
+H1: "Your winery,\non autopilot." (Fraunces, large, cream colored)
+Subtext: "Custom AI systems that handle the follow-ups, the wine club, the bookings, and the outreach — so you can get back to making wine."
+Two CTAs side by side: "Get a Free Demo" (gold button) + "See how it works" (ghost/outline button, cream border, cream text)
+Trust line in ink-soft below CTAs: "No commitment. You see it running before anything is built."
+Bottom of hero: thin gold horizontal rule + a CSS-only scrolling marquee (infinite loop, no JS):
+Text: "Tasting Room Follow-Up · Wine Club Retention · Review Automation · Wholesale Outreach · Event Management · Release Communications · " repeating continuously
+Marquee uses @keyframes translateX animation on a duplicated span so it loops seamlessly.
+
+3. STATS BAR (cream background, full width, 4 stats in a row)
+Stats count up from 0 to final value when scrolled into view (IntersectionObserver + JS counter, easeOut, 1.5s duration):
+- "847" label: "Hours of admin automated per client, per year"
+- "3x" label: "Average increase in wine club signups after follow-up automation"
+- "12" label: "New Google reviews per month on average"
+- "48hrs" label: "From first call to live, running automation"
+Large Fraunces number in --dark, small Manrope label in ink-mid. Dividers between stats.
+
+4. WHAT WE DO (--dark-mid background)
+Section label: 24px gold line + "What We Do" uppercase ink-soft
+H2: "AI that knows\nwine country." (Fraunces, cream)
+Two column layout:
+  Left: headline + two paragraphs — Jake is a winemaker who builds AI. He has worked harvests, managed wine clubs, and understands tasting room operations from the inside. That is why his automations are built differently — specific, not generic.
+  Right: 3 capability cards (--green background, rule-dark border):
+    - "Automate" — Follow-ups, wine club comms, review requests. Running daily without you touching anything.
+    - "Integrate" — Connects to Tock, Commerce7, WineDirect, your email platform. You never see an API key.
+    - "Agent" — Not just automation. An AI that monitors, decides, and acts on your behalf around the clock.
+
+5. HOW IT WORKS (cream background)
+Section label + H2: "Three steps.\nThen it runs itself."
+Three large numbered steps horizontal on desktop, vertical on mobile:
+  Step 01 — "Free demo call" — We look at your operation and show you exactly what we'd automate. No pitch. Just a live demo built around your winery.
+  Step 02 — "We build it" — In 48 hours your automations are live. We handle every integration, every connection, every API key.
+  Step 03 — "It runs" — Your AI agent works every day. You get a monthly report. Call us when you want to change something.
+Below the steps: full-width --dark band with Fraunces italic quote in cream:
+"This isn't software you have to learn. It's a system that works while you're in the vineyard."
+
+6. AUTOMATIONS WE BUILD (cream-alt background)
+Section label + H2: "Things we build\nfor wineries."
+6 cards in a 3-column grid (2-col on tablet, 1-col on mobile).
+Each card: --cream bg, rule border, 2px gold top accent line, staggered fade-in on scroll.
+Card structure: name (Fraunces heading), description (Manrope), sage-green value pill bottom-right.
+
+Cards:
+- "Tasting Room Follow-Up Agent" | "Personalized thank-you and wine club pitch, sent 24 hours after every visit. Automatic." | "~$800/mo recovered"
+- "Wine Club Churn Prevention" | "Monitors inactive members and re-engages them before they cancel. No spreadsheets." | "~$1,200/mo retained"
+- "Review Request Automation" | "Sends a Google review request at exactly the right moment after a tasting. Consistently." | "+12 reviews/month"
+- "Wine Club Release Comms" | "Full release sequence: save-the-date, details, reminder, post-pickup follow-up. Handled." | "3 hrs saved per release"
+- "Wholesale Buyer Outreach" | "Tracks your restaurant and shop accounts. Drafts personalized reorder emails automatically." | "~$2,400/mo recovered"
+- "Event RSVP & Follow-Up" | "Invites, RSVPs, waitlists, post-event surveys. All of it, without you in the middle." | "5 hrs saved per event"
+
+7. DEMO CTA SECTION (--dark background, centered)
+H2: "See what we'd build\nfor your winery." (Fraunces, cream, centered)
+Paragraph: "The demo is free. We build it around your actual operation and show you exactly what would run, what it would say, and what it would do. No commitment until you've seen it live."
+Large gold CTA button: "Request a Free Demo"
+Below button: "Jake usually responds within a few hours." in ink-soft
+
+8. FOOTER (--dark bg)
+Left: "Applied AI Agent" + "Sonoma, CA" in ink-soft
+Center: nav links
+Right: "© 2026 Applied AI Agent"
+
+---
+
+DEMO MODAL
+
+Trigger: all "Get a Free Demo" / "Request a Free Demo" buttons
+Dark overlay, cream modal card. Reskin with new palette.
+Form fields:
+- First Name / Last Name (2 col)
+- Business Email
+- Winery / Business Name
+- Industry dropdown:
+  Winery / Tasting Room
+  Vineyard / Estate
+  Wine Tour Operator
+  Wine Club / DTC Brand
+  Hospitality / Hotel
+  Restaurant / Wine Bar
+  Real Estate
+  Legal / Professional Services
+  Home Services
+  Other
+- What are you looking to automate? (textarea)
+Submit button: "Send Message" (--dark bg, cream text)
+Success state: "Message received." + "Jake will be in touch within a few hours."
+
+---
+
+INTERACTIVE ELEMENTS
+
+1. CSS-only scrolling marquee in hero — @keyframes infinite translateX, duplicate the text span for seamless loop, no JS
+2. Count-up animation on stats — IntersectionObserver, triggers once on enter, JS counter from 0 to target with easeOut over 1500ms. Handle "3x" and "48hrs" as special cases (append suffix after counting)
+3. Staggered card reveals — IntersectionObserver on automation cards, each fades in and rises 12px, 100ms delay between each
+4. Nav scroll behavior — IntersectionObserver on hero or scroll event, swaps class from over-dark to over-light when hero bottom passes nav
+5. Floating demo button — appears after scrolling past hero, fixed bottom-right, gold, "Free Demo →", fades in smoothly, opens modal on click
+6. All anchor links smooth scroll
+7. Modal: open/close/ESC key/overlay click to close — same JS pattern as current site
+
+---
+
+work.html
+
+Full reskin to new color palette. Same layout. Replace work items:
+
+1. "Tasting Room Follow-Up Agent" | "Built for a Sonoma Valley estate. 847 automated touchpoints in the first month. Three new wine club members per week attributed directly to the follow-up sequence." | Tag: Winery
+2. "Wine Club Churn Prevention" | "Deployed for a family-owned winery with 600 club members. Identified 42 at-risk members in month one. 31 re-engaged before cancelling." | Tag: Wine Club
+3. "Review Request System" | "Tasting room was averaging 2 Google reviews per month. Now averaging 14. Ranked number one in their appellation on Google Maps." | Tag: Hospitality
+4. "Wholesale Outreach Agent" | "Tracks 80 restaurant and retail accounts across the Bay Area. Drafts and sends personalized reorder emails. Owner spends zero hours on wholesale follow-up." | Tag: Sales
+
+Add a section below the work list:
+H2: "Every project starts\nwith a free demo."
+Subtext: "We build it around your winery before you commit to anything."
+CTA link: "Request yours →" (opens modal)
+
+---
+
+contact.html
+
+Full reskin to new color palette.
+Update heading: "Let's talk about\nyour winery."
+Subtext: "Tell us about your operation and what you want to automate. Jake will follow up within a few hours."
+Replace generic contact form with the full demo request form (same fields as modal):
+- First Name / Last Name
+- Business Email
+- Winery / Business Name
+- Industry dropdown (same options as modal)
+- What are you looking to automate? (textarea)
+- Submit button
+
+---
+
+TECHNICAL REQUIREMENTS
+
+- Pure HTML/CSS/JS only — no npm, no frameworks, no build step
+- Create a shared style.css file in the root directory. All three pages link to it. Put all shared styles, CSS variables, nav, footer, modal, and interactive JS patterns there.
+- Each page also has a small inline <style> block only for page-specific overrides
+- Put shared JS (nav scroll, modal, floating button, smooth scroll) in a shared main.js file linked by all three pages
+- Mobile responsive: 768px tablet breakpoint, 480px phone breakpoint
+- All three pages must have consistent nav, footer, modal, and floating button behavior
+- No broken internal links
+- Footer year: 2026
+- When done: open index.html in the browser with: open index.html
+- Then report what changed on each page, what decisions you made, and confirm every interactive element is working.
