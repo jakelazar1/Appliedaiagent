@@ -29,7 +29,7 @@ async function submitModal() {
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     const data = new FormData(f);
     try {
-        const res = await fetch('https://formspree.io/jake@appliedaiagent.ai', {
+        const res = await fetch('https://formspree.io/f/xldblwpn', {
             method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
         if (res.ok || res.status === 0) { f.style.display = 'none'; s.style.display = 'block'; }
@@ -47,7 +47,7 @@ async function submitContactForm() {
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     const data = new FormData(f);
     try {
-        const res = await fetch('https://formspree.io/jake@appliedaiagent.ai', {
+        const res = await fetch('https://formspree.io/f/xldblwpn', {
             method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
         if (res.ok || res.status === 0) { f.style.display = 'none'; s.style.display = 'block'; }
