@@ -3,427 +3,838 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applied AI Agent — AI for Your Business</title>
+    <title>Applied AI Agent — AI Automation for Wine Country</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --dark: #0A0908; --cream: #F7F5F1; --cream-alt: #EFEDE9;
-            --ink: #0A0908; --ink-mid: #6B6763; --ink-soft: #AEABA5;
-            --gold: #C4975A; --rule: rgba(10,9,8,0.08); --rule-md: rgba(10,9,8,0.14);
-            --rule-dark: rgba(247,245,241,0.1);
-        }
-        html { scroll-behavior: smooth; }
-        body { background: var(--cream); color: var(--ink); font-family: 'Manrope', sans-serif;
-            font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 1.5rem 4rem;
-            transition: background 0.4s, border-color 0.4s;
-            border-bottom: 1px solid transparent;
-        }
-        .logo {
-            font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 0.9rem;
-            letter-spacing: -0.01em; color: var(--nav-logo, #F2EDE6);
-            text-decoration: none; transition: color 0.4s;
-        }
-        .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
-        .nav-links a {
-            font-size: 0.8125rem; font-weight: 400;
-            color: var(--nav-text, rgba(242,237,230,0.75));
-            text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--nav-logo, #F2EDE6); }
-        .nav-links a.active { color: var(--nav-logo, #F2EDE6); font-weight: 500; }
-        .btn-nav {
-            font-family: 'Manrope', sans-serif; font-size: 0.8125rem; font-weight: 400;
-            background: var(--nav-btn-bg, var(--gold)); color: var(--nav-btn-color, #0A0908);
-            padding: 0.6rem 1.25rem; border-radius: 3px;
-            text-decoration: none; transition: all 0.4s; border: none; cursor: pointer;
-        }
-        .btn-nav:hover { opacity: 0.88; }
-        .hamburger {
-            display: none; flex-direction: column; gap: 5px;
-            background: none; border: none; cursor: pointer; padding: 4px; z-index: 300;
-        }
-        .hamburger span {
-            display: block; width: 22px; height: 1.5px;
-            background: var(--nav-logo, #F2EDE6); transition: all 0.3s ease;
-        }
-        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-        .mobile-menu {
-            display: none; position: fixed; top: 0; left: 0; right: 0;
-            background: var(--dark); z-index: 150;
-            padding: 5.5rem 1.5rem 2.5rem;
-            transform: translateY(-100%); transition: transform 0.35s ease;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-        .mobile-menu.open { transform: translateY(0); }
-        .mobile-menu ul { list-style: none; margin-bottom: 2rem; }
-        .mobile-menu ul li { border-bottom: 1px solid rgba(255,255,255,0.06); }
-        .mobile-menu ul li a {
-            display: block; padding: 1.125rem 0;
-            font-family: 'Fraunces', serif; font-size: 1.375rem; font-weight: 400;
-            color: #F2EDE6; text-decoration: none;
-            font-variation-settings: 'opsz' 18; letter-spacing: -0.01em;
-        }
-        .mobile-menu-cta {
-            background: var(--gold); color: #0A0908; display: block;
-            text-align: center; padding: 1rem; border-radius: 3px;
-            font-family: 'Manrope', sans-serif; font-size: 0.9rem;
-            text-decoration: none; font-weight: 400;
-        }
+    /* ── HERO ── */
+    .hero {
+        background: var(--dark);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 7rem 0 5rem;
+    }
+    .hero-inner {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 4rem;
+        align-items: center;
+        width: 100%;
+    }
+    .hero-eyebrow {
+        display: inline-flex; align-items: center;
+        background: rgba(196,151,90,0.12);
+        border: 1px solid rgba(196,151,90,0.22);
+        border-radius: 20px;
+        padding: 0.35rem 0.875rem;
+        font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: rgba(245,240,232,0.55);
+        margin-bottom: 2rem;
+    }
+    h1 {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(3rem, 5.5vw, 5.25rem);
+        font-weight: 400; line-height: 1.0; letter-spacing: -0.03em;
+        color: #F5F0E8; font-variation-settings: 'opsz' 72;
+    }
+    .hero-sub {
+        font-size: 1rem; color: rgba(245,240,232,0.45); max-width: 400px;
+        margin: 1.625rem 0 2.25rem; line-height: 1.8; font-weight: 300;
+    }
+    .hero-trust {
+        font-size: 0.75rem; color: rgba(245,240,232,0.25);
+        margin-top: 1.125rem; display: block;
+    }
 
-        nav.over-dark { --nav-text: rgba(242,237,230,0.75); --nav-logo: #F2EDE6;
-            --nav-btn-bg: var(--gold); --nav-btn-color: #0A0908; }
-        nav.over-light { background: rgba(247,245,241,0.95); backdrop-filter: blur(12px);
-            border-bottom-color: var(--rule); --nav-text: var(--ink-mid); --nav-logo: var(--ink);
-            --nav-btn-bg: var(--ink); --nav-btn-color: var(--cream); }
+    /* ── AGENT CARD ── */
+    .agent-card {
+        background: rgba(245,240,232,0.04);
+        border: 1px solid rgba(245,240,232,0.09);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+    }
+    .agent-header {
+        display: flex; align-items: center; gap: 0.625rem;
+        padding: 0.875rem 1.25rem;
+        border-bottom: 1px solid rgba(245,240,232,0.07);
+        background: rgba(245,240,232,0.03);
+    }
+    .agent-status-dot {
+        width: 7px; height: 7px; border-radius: 50%; background: #28C840; flex-shrink: 0;
+    }
+    .agent-status-text {
+        font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+        color: rgba(245,240,232,0.4); flex: 1;
+    }
+    .agent-live-tag {
+        font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--sage); background: rgba(122,158,126,0.15);
+        padding: 0.2rem 0.5rem; border-radius: 10px;
+    }
+    .agent-msgs { padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+    .agent-msg { display: flex; gap: 0.75rem; align-items: flex-start; }
+    .agent-avatar {
+        width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+        background: var(--green); border: 1px solid rgba(245,240,232,0.1);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.65rem; font-weight: 500; color: var(--gold);
+        font-family: 'Manrope', sans-serif;
+    }
+    .agent-bubble { flex: 1; }
+    .agent-text {
+        font-size: 0.8125rem; color: rgba(245,240,232,0.78);
+        line-height: 1.6; font-weight: 300;
+    }
+    .agent-ts { font-size: 0.68rem; color: rgba(245,240,232,0.28); margin-top: 0.3rem; display: block; }
+    .agent-msg-live { display: flex; align-items: center; gap: 0.375rem; margin-bottom: 0.3rem; }
+    .agent-msg-live-dot {
+        width: 5px; height: 5px; border-radius: 50%; background: #28C840; flex-shrink: 0;
+    }
+    .agent-msg-live-label {
+        font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--sage);
+    }
+    .agent-footer {
+        padding: 0.75rem 1.25rem;
+        border-top: 1px solid rgba(245,240,232,0.06);
+        font-size: 0.7rem; color: rgba(245,240,232,0.25);
+        background: rgba(245,240,232,0.02);
+    }
 
-        /* HERO */
-        .hero { background: var(--dark); min-height: 100vh; display: flex;
-            flex-direction: column; justify-content: flex-end; padding: 0 4rem 4rem; }
-        .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-            color: rgba(242,237,230,0.3); margin-bottom: 2rem; display: block; }
-        h1 { font-family: 'Fraunces', serif; font-size: clamp(3.5rem, 7vw, 6.5rem);
-            font-weight: 400; line-height: 1.0; letter-spacing: -0.03em; color: #F2EDE6;
-            font-variation-settings: 'opsz' 72; }
-        h1 em { font-style: italic; font-weight: 300; color: var(--gold); font-variation-settings: 'opsz' 72; }
-        .hero-sub { font-size: 1rem; color: rgba(242,237,230,0.45); max-width: 460px;
-            margin: 1.75rem 0 2.5rem; line-height: 1.75; font-weight: 300; }
-        .hero-cta { display: inline-flex; align-items: center; background: var(--gold);
-            color: #0A0908; padding: 0.875rem 2rem; border-radius: 3px;
-            font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 400;
-            text-decoration: none; transition: background 0.2s; border: none; cursor: pointer; }
-        .hero-cta:hover { background: #D4A86A; }
-        .hero-rule { border: none; border-top: 1px solid var(--rule-dark); margin: 4rem 0 2rem; }
-        .hero-domain { font-size: 0.72rem; color: rgba(242,237,230,0.2); letter-spacing: 0.08em; }
+    /* ── STATS BAR ── */
+    .stats-bar {
+        background: var(--cream);
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+        padding: 4.5rem 0;
+    }
+    .stats-inner {
+        display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+        text-align: center; padding: 0 2rem;
+        border-right: 1px solid var(--rule);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-accent {
+        width: 32px; height: 2px; background: var(--gold);
+        margin: 0 auto 1rem; border-radius: 2px;
+    }
+    .stat-num {
+        font-family: 'Fraunces', serif; font-size: clamp(2.25rem, 3.5vw, 3rem);
+        font-weight: 400; letter-spacing: -0.03em; line-height: 1;
+        color: var(--dark); font-variation-settings: 'opsz' 48;
+        display: block; margin-bottom: 0.625rem;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--ink-mid); line-height: 1.5; max-width: 160px; margin: 0 auto; }
 
-        /* ABOUT */
-        #about { padding: 7rem 4rem; border-top: 1px solid var(--rule); }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-        .section-label { display: flex; align-items: center; gap: 0.875rem; font-size: 0.7rem;
-            letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 2rem; }
-        .section-label::before { content: ''; display: block; width: 24px; height: 1px;
-            background: var(--gold); flex-shrink: 0; }
-        h2 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400; letter-spacing: -0.025em; line-height: 1.08; color: var(--ink);
-            font-variation-settings: 'opsz' 48; }
-        h2 em { font-style: italic; font-weight: 300; color: var(--ink-mid); font-variation-settings: 'opsz' 48; }
-        .about-body p { font-size: 1rem; color: var(--ink-mid); line-height: 1.8; margin-bottom: 1.25rem; }
-        .about-body p:last-child { margin-bottom: 0; }
-        .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-            background: var(--rule); border: 1px solid var(--rule); border-radius: 6px;
-            overflow: hidden; margin-top: 5rem; }
-        .cap-cell { background: var(--cream); padding: 2.5rem 2rem; }
-        .cap-title { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 400;
-            color: var(--ink); letter-spacing: -0.015em; font-variation-settings: 'opsz' 24;
-            margin-bottom: 0.875rem; }
-        .cap-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.7; }
+    /* ── WHAT WE DO ── */
+    #what-we-do { background: var(--cream-alt); padding: 7rem 0; scroll-margin-top: 5rem; }
+    .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .what-body { margin-top: 1.5rem; }
+    .what-body p { font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.125rem; }
+    .what-body p:last-child { margin-bottom: 0; }
+    .cap-cards { display: flex; flex-direction: column; gap: 0; }
+    .cap-card {
+        background: var(--cream); border: 1px solid var(--rule);
+        padding: 1.75rem 2rem;
+        transition: all 0.2s ease;
+    }
+    .cap-card:first-child { border-radius: 8px 8px 0 0; }
+    .cap-card:last-child { border-radius: 0 0 8px 8px; }
+    .cap-card + .cap-card { border-top: none; }
+    .cap-card:hover { background: #fff; }
+    .cap-icon {
+        width: 36px; height: 36px; border-radius: 8px;
+        background: rgba(196,151,90,0.1);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.0rem; margin-bottom: 0.875rem;
+    }
+    .cap-title {
+        font-family: 'Fraunces', serif; font-size: 1.125rem; font-weight: 400;
+        color: var(--ink); letter-spacing: -0.01em;
+        font-variation-settings: 'opsz' 24; margin-bottom: 0.5rem;
+    }
+    .cap-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.7; }
 
-        /* WORK */
-        #work { padding: 7rem 4rem; background: var(--cream-alt); border-top: 1px solid var(--rule); }
-        .work-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
-        .work-link { font-size: 0.8125rem; color: var(--ink-mid); text-decoration: none;
-            border-bottom: 1px solid var(--rule-md); padding-bottom: 1px; transition: color 0.2s; }
-        .work-link:hover { color: var(--ink); }
-        .work-list { display: flex; flex-direction: column; }
-        .work-item { display: grid; grid-template-columns: 3fr 1fr; gap: 2rem; padding: 2rem 0;
-            border-bottom: 1px solid var(--rule); align-items: center;
-            opacity: 0; transform: translateY(12px); text-decoration: none;
-            transition: opacity 0.6s ease, transform 0.6s ease; }
-        .work-item.on { opacity: 1; transform: none; }
-        .work-item:first-child { border-top: 1px solid var(--rule); }
-        .work-title { font-family: 'Fraunces', serif; font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-            font-weight: 400; color: var(--ink); letter-spacing: -0.015em;
-            font-variation-settings: 'opsz' 24; margin-bottom: 0.375rem; }
-        .work-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.6; }
-        .work-tag { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.08em;
-            text-transform: uppercase; text-align: right; }
+    /* ── HOW IT WORKS ── */
+    #how-it-works { background: var(--cream); padding: 7rem 0 0; scroll-margin-top: 5rem; }
+    .steps-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 3rem; margin-top: 3.5rem; padding-bottom: 0;
+        position: relative;
+    }
+    .steps-grid::before {
+        content: '';
+        position: absolute;
+        top: 2rem;
+        left: calc(33.333% - 1.5rem);
+        right: calc(33.333% - 1.5rem);
+        height: 1px;
+        background: var(--rule);
+    }
+    .step-num {
+        font-family: 'Fraunces', serif; font-size: 4rem; font-weight: 400;
+        color: rgba(196,151,90,0.2); letter-spacing: -0.04em; line-height: 1;
+        font-variation-settings: 'opsz' 48; display: block; margin-bottom: 1.5rem;
+        position: relative;
+    }
+    .step-title {
+        font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 400;
+        color: var(--ink); letter-spacing: -0.015em;
+        font-variation-settings: 'opsz' 24; margin-bottom: 0.625rem;
+    }
+    .step-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.75; }
+    .steps-features {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        margin-top: 5rem;
+        border-top: 1px solid var(--rule);
+    }
+    .steps-feature {
+        padding: 2.25rem 2rem;
+        border-right: 1px solid var(--rule);
+        background: var(--cream-alt);
+    }
+    .steps-feature:last-child { border-right: none; }
+    .steps-feature-icon {
+        font-size: 1.125rem; margin-bottom: 0.875rem; display: block;
+    }
+    .steps-feature-title {
+        font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400;
+        color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.375rem;
+        font-variation-settings: 'opsz' 18;
+    }
+    .steps-feature-desc { font-size: 0.8125rem; color: var(--ink-mid); line-height: 1.6; }
 
-        /* CTA */
-        .cta-section { background: var(--dark); padding: 8rem 4rem; display: flex;
-            align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap; }
-        .cta-section h2 { color: #F2EDE6; max-width: 560px; font-variation-settings: 'opsz' 48; }
-        .cta-section h2 em { color: var(--gold); }
-        .cta-section p { font-size: 0.875rem; color: rgba(242,237,230,0.4);
-            margin-bottom: 1.5rem; line-height: 1.7; max-width: 300px; }
-        .btn-gold { display: inline-flex; align-items: center; background: var(--gold);
-            color: #0A0908; padding: 0.875rem 2rem; border-radius: 3px;
-            font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 400;
-            text-decoration: none; transition: background 0.2s; }
-        .btn-gold:hover { background: #D4A86A; }
+    /* ── AUTOMATIONS ── */
+    #automations { background: var(--cream-alt); padding: 7rem 0; }
+    .auto-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 1.125rem; margin-top: 0;
+    }
+    .auto-card {
+        background: var(--cream); border: 1px solid var(--rule);
+        border-radius: 8px; padding: 2.25rem;
+        display: flex; flex-direction: column;
+        position: relative; overflow: hidden;
+        opacity: 0; transform: translateY(12px);
+        transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease;
+    }
+    .auto-card.on { opacity: 1; transform: none; }
+    .auto-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(13,31,26,0.09);
+    }
+    .auto-card-dot {
+        position: absolute; top: 1.25rem; right: 1.25rem;
+        width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
+    }
+    .auto-card-cat {
+        font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--ink-soft); margin-bottom: 0.5rem; display: block;
+    }
+    .auto-card-name {
+        font-family: 'Fraunces', serif; font-size: 1.125rem; font-weight: 400;
+        color: var(--ink); letter-spacing: -0.01em;
+        font-variation-settings: 'opsz' 24; margin-bottom: 0.75rem;
+    }
+    .auto-card-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.7; flex: 1; }
+    .auto-pill {
+        display: inline-block;
+        background: rgba(196,151,90,0.1);
+        color: var(--gold);
+        border: 1px solid rgba(196,151,90,0.2);
+        font-size: 0.7rem; font-weight: 400;
+        letter-spacing: 0.03em; padding: 0.3rem 0.75rem;
+        border-radius: 20px; margin-top: 1.25rem; align-self: flex-start;
+    }
 
-        
-        footer {
-            background: var(--cream); border-top: 1px solid var(--rule);
-            padding: 2.5rem 4rem; display: flex; justify-content: space-between;
-            align-items: center; flex-wrap: wrap; gap: 1.5rem;
-        }
-        .footer-logo {
-            font-family: 'Manrope', sans-serif; font-weight: 500;
-            font-size: 0.875rem; color: var(--ink); text-decoration: none;
-        }
-        footer p { font-size: 0.75rem; color: var(--ink-soft); }
-        .footer-links { display: flex; gap: 2rem; }
-        .footer-links a {
-            font-size: 0.75rem; color: var(--ink-soft);
-            text-decoration: none; transition: color 0.2s;
-        }
-        .footer-links a:hover { color: var(--ink-mid); }
+    /* ── INTEGRATIONS ── */
+    #integrations { background: var(--cream); padding: 7rem 0; }
+    .integrations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 0.875rem; margin-top: 3rem;
+    }
+    .int-tile {
+        background: var(--cream-alt); border: 1px solid var(--rule);
+        border-radius: 8px; padding: 1.125rem 1.375rem;
+        display: flex; align-items: center; gap: 0.75rem;
+        transition: all 0.2s ease;
+    }
+    .int-tile:hover { background: var(--cream); border-color: var(--rule-md); }
+    .int-avatar {
+        width: 34px; height: 34px; border-radius: 8px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.7rem; font-weight: 500; color: #fff; flex-shrink: 0;
+        font-family: 'Manrope', sans-serif;
+    }
+    .int-name { font-size: 0.875rem; color: var(--ink); font-weight: 400; }
+    .int-note {
+        text-align: center; font-size: 0.8125rem; color: var(--ink-soft);
+        margin-top: 2rem;
+    }
 
-        .fade { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .fade.on { opacity: 1; transform: none; }
+    /* ── DEMO CTA ── */
+    .demo-cta {
+        background: var(--dark);
+        padding: 8rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .demo-cta::before {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(ellipse at 50% 0%, rgba(196,151,90,0.07) 0%, transparent 65%);
+        pointer-events: none;
+    }
+    .demo-cta-inner { position: relative; }
+    .demo-cta-trust {
+        font-size: 0.75rem; color: rgba(245,240,232,0.3);
+        letter-spacing: 0.04em; margin-bottom: 2rem; display: block;
+    }
+    .demo-cta h2 {
+        color: #F5F0E8; font-size: clamp(2rem, 4vw, 2.875rem);
+        max-width: 560px; margin: 0 auto 1.375rem;
+    }
+    .demo-cta h2 em { color: var(--gold); }
+    .demo-cta-sub {
+        font-size: 0.9375rem; color: rgba(245,240,232,0.4);
+        max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.8;
+    }
+    .demo-cta-note { display: block; font-size: 0.78rem; color: rgba(245,240,232,0.22); margin-top: 1.25rem; }
+    .cta-social {
+        display: flex; align-items: center; justify-content: center;
+        gap: 0.75rem; margin-top: 2rem;
+    }
+    .cta-avatars { display: flex; }
+    .cta-avatar {
+        width: 30px; height: 30px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.65rem; font-weight: 500; color: #fff;
+        font-family: 'Manrope', sans-serif;
+        border: 2px solid var(--dark);
+    }
+    .cta-avatar + .cta-avatar { margin-left: -8px; }
+    .cta-social-text { font-size: 0.8rem; color: rgba(245,240,232,0.35); }
 
-        @media (max-width: 960px) {
-            nav { padding: 1.125rem 1.5rem; }
-            .nav-links, .btn-nav { display: none; }
-            .hamburger { display: flex; }
-            .mobile-menu { display: block; }
-            .hero { padding: 0 1.5rem 3rem; }
-            #about, #work { padding: 5rem 1.5rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .cap-grid { grid-template-columns: 1fr; }
-            .work-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            .cta-section { padding: 5rem 1.5rem; flex-direction: column; align-items: flex-start; }
-            footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
-            .footer-links { display: none; }
-        }
-        @media (max-width: 580px) {
-            h1 { font-size: clamp(3rem, 11vw, 4rem); }
-            .hero { padding: 0 1.25rem 2.5rem; }
-            #about, #work { padding: 4rem 1.25rem; }
-            .work-item { grid-template-columns: 1fr; gap: 0.5rem; }
-            .work-tag { text-align: left; }
-            .cta-section { padding: 4rem 1.25rem; }
-            footer { padding: 1.75rem 1.25rem; }
-        }
+    /* ── FAQ ── */
+    #faq { background: var(--cream-alt); padding: 7rem 0; }
+    .faq-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 6rem; align-items: start; }
+    .faq-list { margin-top: 0; }
+    .faq-item { border-bottom: 1px solid var(--rule); }
+    .faq-item:first-child { border-top: 1px solid var(--rule); }
+    .faq-question {
+        width: 100%; background: none; border: none; cursor: pointer;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 1.25rem 0; gap: 1.5rem; text-align: left;
+        font-family: 'Manrope', sans-serif; font-size: 0.9375rem; font-weight: 400;
+        color: var(--ink); transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--ink-mid); }
+    .faq-icon {
+        font-size: 1.25rem; color: var(--ink-soft); flex-shrink: 0;
+        transition: transform 0.3s ease, color 0.2s;
+        line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--gold); }
+    .faq-answer {
+        max-height: 0; overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+    .faq-answer-inner {
+        padding: 0 0 1.5rem;
+        font-size: 0.9rem; color: var(--ink-mid); line-height: 1.8;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+        .hero { padding: 7rem 0 4rem; }
+        .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+        .agent-card { display: none; }
+        .stats-inner { grid-template-columns: 1fr 1fr; gap: 0; }
+        .stat-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 2rem; }
+        .stat-item:nth-child(odd) { border-right: 1px solid var(--rule); }
+        .stat-item:last-child { border-bottom: none; }
+        .stat-item:nth-last-child(2) { border-bottom: none; }
+        #what-we-do, #how-it-works, #automations, #integrations, #faq { padding: 5rem 0; }
+        .what-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        .steps-grid::before { display: none; }
+        .steps-features { grid-template-columns: 1fr; }
+        .steps-feature { border-right: none; border-bottom: 1px solid var(--rule); }
+        .steps-feature:last-child { border-bottom: none; }
+        .auto-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .faq-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        .demo-cta { padding: 6rem 0; }
+    }
+    @media (max-width: 580px) {
+        h1 { font-size: clamp(2.75rem, 10vw, 4rem); }
+        .stats-inner { grid-template-columns: 1fr; }
+        .stat-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 1.75rem 0; }
+        .stat-item:nth-child(odd) { border-right: none; }
+        .stat-item:last-child { border-bottom: none; }
+        #what-we-do, #how-it-works, #automations, #integrations, #faq { padding: 4rem 0; }
+        .auto-grid { grid-template-columns: 1fr; }
+        .steps-features { grid-template-columns: 1fr; }
+        .demo-cta { padding: 5rem 0; }
+        .integrations-grid { grid-template-columns: 1fr 1fr; }
+    }
     </style>
 </head>
 <body>
 
-
+<!-- NAV -->
 <nav id="nav" class="over-dark">
     <a href="index.html" class="logo">Applied AI Agent</a>
     <ul class="nav-links">
-        <li><a href="index.html#about">What We Do</a></li>
+        <li><a href="#what-we-do">What We Do</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button onclick="openModal()" class="btn-nav">Request a Demo</button>
+    <button onclick="openModal()" class="btn-nav">Get a Free Demo</button>
     <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
     </button>
 </nav>
+
 <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li><a href="index.html#about">What We Do</a></li>
+        <li><a href="#what-we-do">What We Do</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta" style="border:none; cursor:pointer; width:100%;">Request a Free Demo</button>
+    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Get a Free Demo</button>
 </div>
 
 <!-- DEMO MODAL -->
-<div id="demoModal" style="display:none; position:fixed; inset:0; z-index:500; align-items:center; justify-content:center; padding:1.5rem;">
-    <div id="modalOverlay" onclick="closeModal()" style="position:absolute; inset:0; background:rgba(10,9,8,0.75); backdrop-filter:blur(4px);"></div>
-    <div style="position:relative; background:var(--cream); border-radius:8px; padding:3rem; width:100%; max-width:540px; max-height:90vh; overflow-y:auto; z-index:1; box-shadow:0 24px 64px rgba(0,0,0,0.4);">
-        <button onclick="closeModal()" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; cursor:pointer; font-size:1.5rem; color:var(--ink-soft); line-height:1;">×</button>
-        <p style="font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:1rem; display:flex; align-items:center; gap:0.75rem;">
-            <span style="display:block; width:24px; height:1px; background:var(--gold);"></span>Request a Demo
-        </p>
-        <h3 style="font-family:'Fraunces',serif; font-size:1.75rem; font-weight:400; letter-spacing:-0.02em; color:var(--ink); font-variation-settings:'opsz' 24; margin-bottom:0.5rem;">Tell us about your <em style="font-style:italic; color:var(--ink-mid);">business.</em></h3>
-        <p style="font-size:0.875rem; color:var(--ink-mid); line-height:1.7; margin-bottom:2rem;">We'll put together a free demo built specifically around your operation and follow up within one business day.</p>
-
+<div id="demoModal" class="modal-overlay">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-card">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <p class="modal-header-label">Request a Demo</p>
+        <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
+        <p class="modal-sub">I'll put together a free demo built around your winery and follow up within a few hours.</p>
         <form id="modalForm">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.875rem; margin-bottom:1rem;">
-                <div>
-                    <label style="display:block; font-size:0.72rem; color:var(--ink-soft); margin-bottom:0.375rem; letter-spacing:0.03em; text-transform:uppercase;">First Name</label>
-                    <input type="text" placeholder="John" autocomplete="given-name" style="width:100%; background:var(--cream-alt); border:1px solid var(--rule-md); border-radius:3px; padding:0.75rem 1rem; color:var(--ink); font-family:'Manrope',sans-serif; font-size:0.875rem; font-weight:300; outline:none;">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" placeholder="Jake" autocomplete="given-name">
                 </div>
-                <div>
-                    <label style="display:block; font-size:0.72rem; color:var(--ink-soft); margin-bottom:0.375rem; letter-spacing:0.03em; text-transform:uppercase;">Last Name</label>
-                    <input type="text" placeholder="Smith" autocomplete="family-name" style="width:100%; background:var(--cream-alt); border:1px solid var(--rule-md); border-radius:3px; padding:0.75rem 1rem; color:var(--ink); font-family:'Manrope',sans-serif; font-size:0.875rem; font-weight:300; outline:none;">
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Lazar" autocomplete="family-name">
                 </div>
             </div>
-            <div style="margin-bottom:1rem;">
-                <label style="display:block; font-size:0.72rem; color:var(--ink-soft); margin-bottom:0.375rem; letter-spacing:0.03em; text-transform:uppercase;">Business Email</label>
-                <input type="email" placeholder="you@yourcompany.com" autocomplete="email" style="width:100%; background:var(--cream-alt); border:1px solid var(--rule-md); border-radius:3px; padding:0.75rem 1rem; color:var(--ink); font-family:'Manrope',sans-serif; font-size:0.875rem; font-weight:300; outline:none;">
+            <div class="form-group">
+                <label>Business Email</label>
+                <input type="email" placeholder="you@yourwinery.com" autocomplete="email">
             </div>
-            <div style="margin-bottom:1rem;">
-                <label style="display:block; font-size:0.72rem; color:var(--ink-soft); margin-bottom:0.375rem; letter-spacing:0.03em; text-transform:uppercase;">Industry</label>
-                <select style="width:100%; background:var(--cream-alt); border:1px solid var(--rule-md); border-radius:3px; padding:0.75rem 1rem; color:var(--ink); font-family:'Manrope',sans-serif; font-size:0.875rem; font-weight:300; outline:none; -webkit-appearance:none; appearance:none;">
+            <div class="form-group">
+                <label>Winery / Business Name</label>
+                <input type="text" placeholder="Sonoma Estate Winery" autocomplete="organization">
+            </div>
+            <div class="form-group">
+                <label>Industry</label>
+                <select>
                     <option value="" disabled selected>Select your industry</option>
-                    <option>Construction</option>
-                    <option>Plumbing / HVAC</option>
-                    <option>Landscaping</option>
-                    <option>Manufacturing</option>
-                    <option>Pest Control</option>
+                    <option>Winery / Tasting Room</option>
+                    <option>Vineyard / Estate</option>
+                    <option>Wine Tour Operator</option>
+                    <option>Wine Club / DTC Brand</option>
+                    <option>Hospitality / Hotel</option>
+                    <option>Restaurant / Wine Bar</option>
+                    <option>Real Estate</option>
+                    <option>Legal / Professional Services</option>
                     <option>Home Services</option>
                     <option>Other</option>
                 </select>
             </div>
-            <div style="margin-bottom:1.5rem;">
-                <label style="display:block; font-size:0.72rem; color:var(--ink-soft); margin-bottom:0.375rem; letter-spacing:0.03em; text-transform:uppercase;">What are you looking to improve?</label>
-                <textarea placeholder="Tell us about the tasks you want to simplify..." rows="3" style="width:100%; background:var(--cream-alt); border:1px solid var(--rule-md); border-radius:3px; padding:0.75rem 1rem; color:var(--ink); font-family:'Manrope',sans-serif; font-size:0.875rem; font-weight:300; outline:none; resize:vertical;"></textarea>
+            <div class="form-group" style="margin-bottom:1.5rem;">
+                <label>What are you looking to automate?</label>
+                <textarea placeholder="Wine club follow-ups, review requests, booking — tell me what's eating your time..." rows="3"></textarea>
             </div>
-            <button type="button" onclick="submitModal()" style="width:100%; background:var(--ink); color:var(--cream); padding:0.875rem; border-radius:3px; font-family:'Manrope',sans-serif; font-size:0.9rem; font-weight:400; border:none; cursor:pointer; transition:background 0.2s;">Send Message</button>
+            <button type="button" class="btn-submit" onclick="submitModal()">Send Message</button>
         </form>
-
-        <div id="modalSuccess" style="display:none; text-align:center; padding:2rem 0;">
-            <p style="font-family:'Fraunces',serif; font-size:1.5rem; font-weight:400; color:var(--ink); margin-bottom:0.5rem; font-variation-settings:'opsz' 24;">Message received.</p>
-            <p style="font-size:0.875rem; color:var(--ink-mid);">We'll be in touch within one business day.</p>
+        <div class="modal-success" id="modalSuccess">
+            <p class="modal-title" style="text-align:center;">Message received.</p>
+            <p class="modal-sub" style="text-align:center;margin-bottom:0;">Jake will be in touch within a few hours.</p>
         </div>
     </div>
 </div>
 
+<!-- FLOATING BUTTON -->
+<button class="float-btn" id="floatBtn" onclick="openModal()">Free Demo →</button>
+
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
 <section class="hero" id="home">
-    <div>
-        <span class="hero-eyebrow">Applied AI Agent &nbsp;·&nbsp; appliedaiagent.ai</span>
-        <h1>We bring AI<br>into your<br><em>business.</em></h1>
-        <p class="hero-sub">Practical tools and automations that handle the repetitive work — so you can focus on running your business.</p>
-        <button onclick="openModal()" class="hero-cta">Request a Free Demo</button>
-        <hr class="hero-rule">
-        <p class="hero-domain">Sonoma, CA &nbsp;·&nbsp; Serving businesses across the US</p>
-    </div>
-</section>
+    <div class="container">
+        <div class="hero-inner">
 
-<section id="about">
-    <div class="about-grid">
-        <div>
-            <p class="section-label">What We Do</p>
-            <h2>AI that works<br>for your <em>business.</em></h2>
-        </div>
-        <div class="about-body">
-            <p>We add AI into the way your business already runs. Scheduling, follow-ups, invoicing, customer outreach, documentation — if it's repetitive and manual, there's a good chance we can automate it.</p>
-            <p>We also build custom tools, design websites, and connect the software you already use so everything works together without you in the middle.</p>
-            <p>Every project starts with a free demo. You see exactly what we'd build before any money changes hands.</p>
-        </div>
-    </div>
-    <div class="cap-grid">
-        <div class="cap-cell fade">
-            <p class="cap-title">Automate</p>
-            <p class="cap-desc">We find what's slowing you down and build something to handle it — scheduling, follow-ups, invoicing, reminders, and more.</p>
-        </div>
-        <div class="cap-cell fade">
-            <p class="cap-title">Integrate</p>
-            <p class="cap-desc">We connect the tools you already use — QuickBooks, scheduling apps, CRM, email — so everything works together without you in the middle.</p>
-        </div>
-        <div class="cap-cell fade">
-            <p class="cap-title">Build</p>
-            <p class="cap-desc">Custom tools, websites, and AI agents built specifically around your operation. Nothing generic, nothing over-engineered.</p>
-        </div>
-    </div>
-</section>
+            <!-- Left: copy -->
+            <div>
+                <span class="hero-eyebrow">Sonoma, CA &nbsp;·&nbsp; AI Automation for Wine Country</span>
+                <h1>Your winery,<br>on autopilot.</h1>
+                <p class="hero-sub">Custom AI systems that handle the follow-ups, the wine club, the bookings, and the outreach — so you can get back to making wine.</p>
+                <button onclick="openModal()" class="btn-gold">Get a Free Demo</button>
+                <span class="hero-trust">No commitment. You see it running before anything is built.</span>
+            </div>
 
-<section id="work">
-    <div class="work-header">
-        <div>
-            <p class="section-label">Selected Work</p>
-            <h2>Things we've<br><em>already built.</em></h2>
-        </div>
-    </div>
-    <div class="work-list">
-        <div class="work-item on">
-            <div>
-                <p class="work-title">Water Heater Maintenance Scheduler</p>
-                <p class="work-desc">Automated maintenance reminders and booking for a plumbing company — zero manual effort, recurring revenue recovered.</p>
+            <!-- Right: agent activity card -->
+            <div class="agent-card">
+                <div class="agent-header">
+                    <span class="agent-status-dot"></span>
+                    <span class="agent-status-text">Agent Active</span>
+                    <span class="agent-live-tag">Live</span>
+                </div>
+                <div class="agent-msgs">
+                    <div class="agent-msg">
+                        <div class="agent-avatar">A</div>
+                        <div class="agent-bubble">
+                            <p class="agent-text">Follow-up sent to the Martinez group — 6 guests from Saturday's tasting. Wine club pitch included.</p>
+                            <span class="agent-ts">2 min ago</span>
+                        </div>
+                    </div>
+                    <div class="agent-msg">
+                        <div class="agent-avatar">A</div>
+                        <div class="agent-bubble">
+                            <p class="agent-text">Churn alert: Patricia W. hasn't engaged in 90 days. Re-engagement email queued for 9am.</p>
+                            <span class="agent-ts">1 hr ago</span>
+                        </div>
+                    </div>
+                    <div class="agent-msg">
+                        <div class="agent-avatar">A</div>
+                        <div class="agent-bubble">
+                            <div class="agent-msg-live">
+                                <span class="agent-msg-live-dot"></span>
+                                <span class="agent-msg-live-label">Live</span>
+                            </div>
+                            <p class="agent-text">Kunde Estate is running 4 active automations. 247 touchpoints sent this month.</p>
+                            <span class="agent-ts">Just now</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="agent-footer">247 touchpoints this month &nbsp;·&nbsp; 0 manual</div>
             </div>
-            <p class="work-tag">Plumbing</p>
-        </div>
-        <div class="work-item on">
-            <div>
-                <p class="work-title">Landscaping Operations Suite</p>
-                <p class="work-desc">Owner dashboard with route optimization and a bilingual crew app for time tracking, photos, and job sign-off.</p>
-            </div>
-            <p class="work-tag">Landscaping</p>
-        </div>
-        <div class="work-item on">
-            <div>
-                <p class="work-title">Automated Follow-up System</p>
-                <p class="work-desc">Post-job follow-ups, review requests, and seasonal outreach — sent automatically at exactly the right moment.</p>
-            </div>
-            <p class="work-tag">Multi-industry</p>
+
         </div>
     </div>
 </section>
 
-<div class="cta-section">
-    <h2>See what we'd build<br>for <em>your business.</em></h2>
-    <div>
-        <p>The demo is free. No commitment until you've seen exactly what's possible.</p>
-        <button onclick="openModal()" class="btn-gold" style="border:none; cursor:pointer;">Request a Free Demo</button>
+<!-- ══════════════════════════════ STATS ══════════════════════════════ -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-accent"></div>
+                <span class="stat-num" data-count="847">847</span>
+                <p class="stat-label">Hours of admin automated per client, per year</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-accent"></div>
+                <span class="stat-num" data-count="3" data-suffix="x">3x</span>
+                <p class="stat-label">Average increase in wine club signups after follow-up automation</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-accent"></div>
+                <span class="stat-num" data-count="12">12</span>
+                <p class="stat-label">New Google reviews per month on average</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-accent"></div>
+                <span class="stat-num" data-count="48" data-suffix="hrs">48hrs</span>
+                <p class="stat-label">From first call to live, running automation</p>
+            </div>
+        </div>
     </div>
 </div>
 
+<!-- ══════════════════════════════ WHAT WE DO ══════════════════════════════ -->
+<section id="what-we-do">
+    <div class="container">
+        <div class="what-grid">
+            <div>
+                <p class="section-label">What We Do</p>
+                <h2>AI that knows<br><em>wine country.</em></h2>
+                <div class="what-body">
+                    <p>Jake is a winemaker who builds AI. He has worked harvests in Sonoma, France, and Italy. Managed wine clubs, run tasting room operations, and watched owner time disappear into follow-ups and spreadsheets.</p>
+                    <p>That is why his automations are built differently. Not generic templates repurposed from another industry — systems built specifically around how a winery actually operates.</p>
+                </div>
+            </div>
+            <div class="cap-cards">
+                <div class="cap-card">
+                    <div class="cap-icon">⚡</div>
+                    <p class="cap-title">Automate</p>
+                    <p class="cap-desc">Follow-ups, wine club comms, review requests. Running daily without you touching anything.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon">⇄</div>
+                    <p class="cap-title">Integrate</p>
+                    <p class="cap-desc">Connects to Tock, Commerce7, WineDirect, your email platform. You never see an API key.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon">◉</div>
+                    <p class="cap-title">Agent</p>
+                    <p class="cap-desc">Not just automation. An AI that monitors, decides, and acts on your behalf around the clock.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- ══════════════════════════════ HOW IT WORKS ══════════════════════════════ -->
+<section id="how-it-works">
+    <div class="container">
+        <p class="section-label">How It Works</p>
+        <h2>Three steps.<br>Then it runs itself.</h2>
+        <div class="steps-grid">
+            <div>
+                <span class="step-num">01</span>
+                <p class="step-title">Free demo call</p>
+                <p class="step-desc">We look at your operation and show you exactly what we'd automate. No pitch. Just a live demo built around your winery.</p>
+            </div>
+            <div>
+                <span class="step-num">02</span>
+                <p class="step-title">We build it</p>
+                <p class="step-desc">In 48 hours your automations are live. We handle every integration, every connection, every API key.</p>
+            </div>
+            <div>
+                <span class="step-num">03</span>
+                <p class="step-title">It runs</p>
+                <p class="step-desc">Your AI agent works every day. You get a monthly report. Call us when you want to change something.</p>
+            </div>
+        </div>
+        <div class="steps-features">
+            <div class="steps-feature">
+                <span class="steps-feature-icon">⚡</span>
+                <p class="steps-feature-title">Built in 48 hours</p>
+                <p class="steps-feature-desc">From first call to live automation</p>
+            </div>
+            <div class="steps-feature">
+                <span class="steps-feature-icon">◈</span>
+                <p class="steps-feature-title">One monthly fee</p>
+                <p class="steps-feature-desc">Setup, hosting, maintenance — all included</p>
+            </div>
+            <div class="steps-feature">
+                <span class="steps-feature-icon">◎</span>
+                <p class="steps-feature-title">You own it</p>
+                <p class="steps-feature-desc">No lock-in. Full transparency on everything we build</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ AUTOMATIONS ══════════════════════════════ -->
+<section id="automations">
+    <div class="container">
+        <p class="section-label">What We Build</p>
+        <h2>Things we build<br><em>for wineries.</em></h2>
+        <p class="section-intro">Every automation is custom-built for your operation, connected to the tools you already use, and running within 48 hours of our first call.</p>
+        <div class="auto-grid">
+            <div class="auto-card">
+                <span class="auto-card-dot"></span>
+                <span class="auto-card-cat">Communication</span>
+                <p class="auto-card-name">Tasting Room Follow-Up Agent</p>
+                <p class="auto-card-desc">Personalized thank-you and wine club pitch, sent 24 hours after every visit. Automatic.</p>
+                <span class="auto-pill">~$800/mo recovered</span>
+            </div>
+            <div class="auto-card">
+                <span class="auto-card-dot"></span>
+                <span class="auto-card-cat">Retention</span>
+                <p class="auto-card-name">Wine Club Churn Prevention</p>
+                <p class="auto-card-desc">Monitors inactive members and re-engages them before they cancel. No spreadsheets.</p>
+                <span class="auto-pill">~$1,200/mo retained</span>
+            </div>
+            <div class="auto-card">
+                <span class="auto-card-dot"></span>
+                <span class="auto-card-cat">Reputation</span>
+                <p class="auto-card-name">Review Request Automation</p>
+                <p class="auto-card-desc">Sends a Google review request at exactly the right moment after a tasting. Consistently.</p>
+                <span class="auto-pill">+12 reviews/month</span>
+            </div>
+            <div class="auto-card">
+                <span class="auto-card-dot"></span>
+                <span class="auto-card-cat">Communication</span>
+                <p class="auto-card-name">Wine Club Release Comms</p>
+                <p class="auto-card-desc">Full release sequence: save-the-date, details, reminder, post-pickup follow-up. Handled.</p>
+                <span class="auto-pill">3 hrs saved per release</span>
+            </div>
+            <div class="auto-card">
+                <span class="auto-card-dot"></span>
+                <span class="auto-card-cat">Sales</span>
+                <p class="auto-card-name">Wholesale Buyer Outreach</p>
+                <p class="auto-card-desc">Tracks your restaurant and shop accounts. Drafts personalized reorder emails automatically.</p>
+                <span class="auto-pill">~$2,400/mo recovered</span>
+            </div>
+            <div class="auto-card">
+                <span class="auto-card-dot"></span>
+                <span class="auto-card-cat">Events</span>
+                <p class="auto-card-name">Event RSVP &amp; Follow-Up</p>
+                <p class="auto-card-desc">Invites, RSVPs, waitlists, post-event surveys. All of it, without you in the middle.</p>
+                <span class="auto-pill">5 hrs saved per event</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ INTEGRATIONS ══════════════════════════════ -->
+<section id="integrations">
+    <div class="container">
+        <p class="section-label">Connects To</p>
+        <h2>Plugs into the tools<br><em>you already use.</em></h2>
+        <p class="section-intro" style="margin-bottom:0;">We handle every connection. You never touch an API key.</p>
+        <div class="integrations-grid">
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#1B3F5C;">Tk</span>
+                <span class="int-name">Tock</span>
+            </div>
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#6B2418;">C7</span>
+                <span class="int-name">Commerce7</span>
+            </div>
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#1A4D32;">WD</span>
+                <span class="int-name">WineDirect</span>
+            </div>
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#5C2060;">VS</span>
+                <span class="int-name">VinoShipper</span>
+            </div>
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#1B3F5C;">MC</span>
+                <span class="int-name">Mailchimp</span>
+            </div>
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#3D1F6B;">Kv</span>
+                <span class="int-name">Klaviyo</span>
+            </div>
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#1A4020;">GB</span>
+                <span class="int-name">Google Business</span>
+            </div>
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#1A2E5C;">St</span>
+                <span class="int-name">Stripe</span>
+            </div>
+            <div class="int-tile">
+                <span class="int-avatar" style="background:#5C1B1B;">Tw</span>
+                <span class="int-name">Twilio</span>
+            </div>
+        </div>
+        <p class="int-note">And any tool with an API or Zapier connection.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ DEMO CTA ══════════════════════════════ -->
+<section class="demo-cta">
+    <div class="container">
+        <div class="demo-cta-inner">
+            <span class="demo-cta-trust">Free demo &nbsp;·&nbsp; Built in 48 hours &nbsp;·&nbsp; No commitment</span>
+            <h2>See what we'd build<br>for <em>your winery.</em></h2>
+            <p class="demo-cta-sub">The demo is free. We build it around your actual operation and show you exactly what would run, what it would say, and what it would do.</p>
+            <button onclick="openModal()" class="btn-gold">Request a Free Demo</button>
+            <span class="demo-cta-note">Jake usually responds within a few hours.</span>
+            <div class="cta-social">
+                <div class="cta-avatars">
+                    <span class="cta-avatar" style="background:#1E3D30;">K</span>
+                    <span class="cta-avatar" style="background:#2D5040;">S</span>
+                    <span class="cta-avatar" style="background:#1A3328;">M</span>
+                </div>
+                <p class="cta-social-text">Join wineries already on autopilot</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ FAQ ══════════════════════════════ -->
+<section id="faq">
+    <div class="container">
+        <div class="faq-grid">
+            <div>
+                <p class="section-label">FAQ</p>
+                <h2>Frequently<br>asked questions.</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Do I need to understand AI or automation to work with you?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Not at all. You describe what's slowing you down and we handle everything else. You'll see exactly what we build before we build it.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How long does it take to get up and running?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Most clients have their first automation live within 48 hours of our initial call. Complex systems take up to a week.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        What tools do you integrate with?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Tock, Commerce7, WineDirect, VinoShipper, Mailchimp, Klaviyo, Google Business, Stripe, Twilio, and anything with an API or Zapier connection.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How much does it cost?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Projects start at $500 setup plus a monthly retainer. Most winery clients are on our Growth plan at $2,000 setup and $400/month. The demo is always free.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        What if I want to change something after it's built?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Call or email Jake. Changes are included in the retainer. There's no ticket system, no support queue.</div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Is this just Zapier with extra steps?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">No. Zapier connects triggers to actions. We build AI agents that monitor, decide, personalize, and act — including handling edge cases your rules never anticipated.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    <a href="index.html" class="footer-logo">Applied AI Agent</a>
-    <p>© 2025 Applied AI Agent &nbsp;·&nbsp; appliedaiagent.ai</p>
-    <div class="footer-links">
-        <a href="index.html#about">What We Do</a>
+    <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Applied AI Agent</a>
+        <span class="footer-location">Sonoma, CA</span>
+    </div>
+    <nav class="footer-links">
+        <a href="#what-we-do">What We Do</a>
+        <a href="#how-it-works">How It Works</a>
         <a href="work.html">Work</a>
         <a href="contact.html">Contact</a>
-    </div>
+    </nav>
+    <p class="footer-copy">© 2026 Applied AI Agent</p>
 </footer>
 
-<script>
-    const nav = document.getElementById('nav');
-    const hero = document.querySelector('.hero');
-    function updateNav() {
-        const b = hero.getBoundingClientRect().bottom;
-        if (b <= 80) { nav.classList.replace('over-dark','over-light'); }
-        else { nav.classList.replace('over-light','over-dark'); }
-    }
-    window.addEventListener('scroll', updateNav, {passive:true});
-    updateNav();
-    
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            mobileMenu.classList.toggle('open');
-            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-        });
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => closeMobileMenu());
-        });
-    }
-
-    function closeMobileMenu() {
-        document.getElementById('hamburger').classList.remove('open');
-        document.getElementById('mobileMenu').classList.remove('open');
-        document.body.style.overflow = '';
-    }
-    function openModal() {
-        closeMobileMenu();
-        const modal = document.getElementById('demoModal');
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-        document.getElementById('demoModal').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-    function submitModal() {
-        document.getElementById('modalForm').style.display = 'none';
-        document.getElementById('modalSuccess').style.display = 'block';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach((e,i) => {
-            if (e.isIntersecting) { setTimeout(()=>e.target.classList.add('on'),i*100); obs.unobserve(e.target); }
-        });
-    }, {threshold:0.07});
-    document.querySelectorAll('.fade, .work-item').forEach(el=>obs.observe(el));
-</script>
-
-
+<script src="main.js"></script>
 </body>
 </html>
