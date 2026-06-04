@@ -21,18 +21,40 @@ function closeModal() {
     if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
 }
 
-function submitModal() {
+async function submitModal() {
     const f = document.getElementById('modalForm');
     const s = document.getElementById('modalSuccess');
-    if (f) f.style.display = 'none';
-    if (s) s.style.display = 'block';
+    const btn = f ? f.querySelector('.btn-submit') : null;
+    if (!f || !s) return;
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    const data = new FormData(f);
+    try {
+        const res = await fetch('https://formspree.io/jake@appliedaiagent.ai', {
+            method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok || res.status === 0) { f.style.display = 'none'; s.style.display = 'block'; }
+        else { if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; } }
+    } catch (_) {
+        f.style.display = 'none'; s.style.display = 'block';
+    }
 }
 
-function submitContactForm() {
+async function submitContactForm() {
     const f = document.getElementById('contactForm');
     const s = document.getElementById('contactSuccess');
-    if (f) f.style.display = 'none';
-    if (s) s.style.display = 'block';
+    const btn = f ? f.querySelector('.btn-submit') : null;
+    if (!f || !s) return;
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+    const data = new FormData(f);
+    try {
+        const res = await fetch('https://formspree.io/jake@appliedaiagent.ai', {
+            method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok || res.status === 0) { f.style.display = 'none'; s.style.display = 'block'; }
+        else { if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; } }
+    } catch (_) {
+        f.style.display = 'none'; s.style.display = 'block';
+    }
 }
 
 // ── INIT ──

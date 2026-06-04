@@ -131,7 +131,7 @@
         <li><a href="work.html" class="active">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button onclick="openModal()" class="btn-nav">Get a Free Demo</button>
+    <button onclick="openModal()" class="btn-nav">Schedule a Free Demo</button>
     <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
     </button>
@@ -144,7 +144,7 @@
         <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Get a Free Demo</button>
+    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Schedule a Free Demo</button>
 </div>
 
 <!-- DEMO MODAL -->
@@ -152,32 +152,33 @@
     <div class="modal-backdrop" onclick="closeModal()"></div>
     <div class="modal-card">
         <button class="modal-close" onclick="closeModal()">×</button>
-        <p class="modal-header-label">Request a Demo</p>
+        <p class="modal-header-label">Schedule a Free 15-Minute Demo</p>
         <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
-        <p class="modal-sub">I'll put together a free demo built around your winery and follow up within a few hours.</p>
+        <p class="modal-sub">15 minutes. No pitch, no pressure. I'll show you exactly what I'd build for your business.</p>
         <form id="modalForm">
             <div class="form-row">
-                <div class="form-group"><label>First Name</label><input type="text" placeholder="Jake" autocomplete="given-name"></div>
-                <div class="form-group"><label>Last Name</label><input type="text" placeholder="Lazar" autocomplete="family-name"></div>
+                <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jake" autocomplete="given-name"></div>
+                <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Lazar" autocomplete="family-name"></div>
             </div>
-            <div class="form-group"><label>Business Email</label><input type="email" placeholder="you@yourwinery.com" autocomplete="email"></div>
-            <div class="form-group"><label>Winery / Business Name</label><input type="text" placeholder="Sonoma Estate Winery" autocomplete="organization"></div>
+            <div class="form-group"><label>Business Email</label><input type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" required></div>
+            <div class="form-group"><label>Business Name</label><input type="text" name="business" placeholder="Sonoma Estate Winery" autocomplete="organization"></div>
             <div class="form-group">
                 <label>Industry</label>
-                <select>
+                <select name="industry">
                     <option value="" disabled selected>Select your industry</option>
                     <option>Winery / Tasting Room</option><option>Vineyard / Estate</option>
                     <option>Wine Tour Operator</option><option>Wine Club / DTC Brand</option>
-                    <option>Hospitality / Hotel</option><option>Restaurant / Wine Bar</option>
+                    <option>Hospitality / Hotel / Restaurant</option>
+                    <option>Home Services (HVAC, Plumbing, Landscaping)</option>
                     <option>Real Estate</option><option>Legal / Professional Services</option>
-                    <option>Home Services</option><option>Other</option>
+                    <option>Other (please specify below)</option>
                 </select>
             </div>
             <div class="form-group" style="margin-bottom:1.5rem;">
-                <label>What are you looking to automate?</label>
-                <textarea placeholder="Wine club follow-ups, review requests, booking — tell me what's eating your time..." rows="3"></textarea>
+                <label>What's eating your time right now?</label>
+                <textarea name="message" placeholder="Follow-ups, booking, wine club, reviews — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
             </div>
-            <button type="button" class="btn-submit" onclick="submitModal()">Send Message</button>
+            <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Demo</button>
         </form>
         <div class="modal-success" id="modalSuccess">
             <p class="modal-title" style="text-align:center;">Message received.</p>
@@ -194,9 +195,9 @@
         <div class="page-header-inner">
             <div>
                 <p class="section-label">Selected Work</p>
-                <h1>Wine country problems.<br><em>Custom solutions.</em></h1>
+                <h1>Real problems.<br><em>Custom solutions.</em></h1>
             </div>
-            <p class="header-note">Every system here was built around a specific winery or hospitality operation. Results are from real deployments.</p>
+            <p class="header-note">Wine country is the focus. Every system here was built around a specific operation. Results are from real deployments.</p>
         </div>
     </div>
 </div>
@@ -217,12 +218,13 @@
             </div>
             <div>
                 <h2 class="project-title">Tasting Room<br><em>Follow-Up Agent</em></h2>
-                <p class="project-desc">Built for a Sonoma Valley estate. 847 automated touchpoints in the first month. Three new wine club members per week attributed directly to the follow-up sequence.</p>
+                <p class="project-desc">Built for a Sonoma Valley estate. The problem: leads from weekend tastings sat unanswered until Monday. The solution: a follow-up agent that sends personalized thank-yous and wine club pitches within 24 hours of every visit — automatically.</p>
                 <div class="project-outcomes">
                     <div class="outcome"><span class="outcome-dot"></span>847 automated visitor touchpoints in month one</div>
                     <div class="outcome"><span class="outcome-dot"></span>3 new wine club members per week from the sequence alone</div>
                     <div class="outcome"><span class="outcome-dot"></span>Zero staff hours spent on follow-up</div>
                     <div class="outcome"><span class="outcome-dot"></span>Integrated with Commerce7 and the estate's email platform</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Setup: $1,500 &nbsp;·&nbsp; Monthly: $400</div>
                 </div>
             </div>
         </div>
@@ -239,12 +241,13 @@
             </div>
             <div>
                 <h2 class="project-title">Wine Club<br><em>Churn Prevention</em></h2>
-                <p class="project-desc">Deployed for a family-owned winery with 600 club members. Identified 42 at-risk members in month one. 31 re-engaged before cancelling.</p>
+                <p class="project-desc">Deployed for a family-owned winery with 600 club members. The problem: members quietly downgraded or left with no warning. The solution: an agent that monitors engagement, detects churn risk, and triggers re-engagement before the cancel button gets clicked.</p>
                 <div class="project-outcomes">
                     <div class="outcome"><span class="outcome-dot"></span>42 at-risk members flagged automatically in the first month</div>
                     <div class="outcome"><span class="outcome-dot"></span>31 of 42 re-engaged before cancellation — a 74% save rate</div>
                     <div class="outcome"><span class="outcome-dot"></span>High-value accounts escalated to personal outreach by staff</div>
                     <div class="outcome"><span class="outcome-dot"></span>Runs continuously with no manual monitoring required</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Setup: $2,000 &nbsp;·&nbsp; Monthly: $500</div>
                 </div>
             </div>
         </div>
@@ -260,13 +263,14 @@
                 </div>
             </div>
             <div>
-                <h2 class="project-title">Review Request<br><em>System</em></h2>
-                <p class="project-desc">Tasting room was averaging 2 Google reviews per month. Now averaging 14. Ranked number one in their appellation on Google Maps.</p>
+                <h2 class="project-title">Review Request<br><em>Automation</em></h2>
+                <p class="project-desc">A tasting room averaging 2 Google reviews per month. The problem: staff never found the right moment to ask. The solution: review requests timed 2–4 hours after checkout, with a follow-up for guests who opened but didn't respond.</p>
                 <div class="project-outcomes">
                     <div class="outcome"><span class="outcome-dot"></span>From 2 to 14 Google reviews per month — no new staff effort</div>
                     <div class="outcome"><span class="outcome-dot"></span>Ranked #1 in their appellation on Google Maps within 90 days</div>
                     <div class="outcome"><span class="outcome-dot"></span>Requests timed 2–4 hours post-visit for maximum response rate</div>
                     <div class="outcome"><span class="outcome-dot"></span>Automatic follow-up for guests who opened but didn't respond</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Setup: $800 &nbsp;·&nbsp; Monthly: $250</div>
                 </div>
             </div>
         </div>
@@ -283,12 +287,59 @@
             </div>
             <div>
                 <h2 class="project-title">Wholesale<br><em>Outreach Agent</em></h2>
-                <p class="project-desc">Tracks 80 restaurant and retail accounts across the Bay Area. Drafts and sends personalized reorder emails. Owner spends zero hours on wholesale follow-up.</p>
+                <p class="project-desc">The problem: 80 restaurant and retail accounts across the Bay Area, and the owner spending 6+ hours a week on follow-up emails. The solution: an agent that monitors each account's purchase history and drafts personalized reorder outreach automatically.</p>
                 <div class="project-outcomes">
                     <div class="outcome"><span class="outcome-dot"></span>80 accounts monitored and contacted automatically</div>
                     <div class="outcome"><span class="outcome-dot"></span>Personalized outreach drafted from each buyer's purchase history</div>
                     <div class="outcome"><span class="outcome-dot"></span>Non-responders re-queued automatically with adjusted messaging</div>
                     <div class="outcome"><span class="outcome-dot"></span>Owner reclaimed 6+ hours per week previously spent on outreach</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Setup: $2,500 &nbsp;·&nbsp; Monthly: $600</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-meta">
+                <span class="project-num">05</span>
+                <span class="project-category">Tour Operator</span>
+                <div class="project-tags">
+                    <span class="tag">Booking</span>
+                    <span class="tag">Lead Qualification</span>
+                    <span class="tag">FareHarbor</span>
+                </div>
+            </div>
+            <div>
+                <h2 class="project-title">Tour Booking<br><em>Agent</em></h2>
+                <p class="project-desc">Built for a Napa wine tour operator fielding 50+ inquiries a week. The problem: most leads came in after hours and went cold by morning. The solution: an AI agent that answers inquiries, qualifies groups, confirms availability, and books tours — around the clock.</p>
+                <div class="project-outcomes">
+                    <div class="outcome"><span class="outcome-dot"></span>After-hours leads captured and qualified automatically</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Cancellation and reschedule requests handled without staff involvement</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Upsell sequences triggered post-booking (add-ons, private options)</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Integrated with FareHarbor; owner handles exceptions only</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Setup: $2,000 &nbsp;·&nbsp; Monthly: $500</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-meta">
+                <span class="project-num">06</span>
+                <span class="project-category">Home Services</span>
+                <div class="project-tags">
+                    <span class="tag">Lead Follow-Up</span>
+                    <span class="tag">Scheduling</span>
+                    <span class="tag">Reviews</span>
+                </div>
+            </div>
+            <div>
+                <h2 class="project-title">HVAC Lead &amp;<br><em>Follow-Up Agent</em></h2>
+                <p class="project-desc">Built for an HVAC contractor losing leads to faster-responding competitors. The problem: new inquiries sat for hours while the owner was on-site. The solution: instant lead response, job qualification, and scheduling — all automated before the owner gets back to the truck.</p>
+                <div class="project-outcomes">
+                    <div class="outcome"><span class="outcome-dot"></span>Response time cut from hours to under 2 minutes</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Leads qualified and appointments booked without manual follow-up</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Post-job review requests sent automatically at the right moment</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Owner focused on jobs, not inbox</div>
+                    <div class="outcome"><span class="outcome-dot"></span>Setup: $1,500 &nbsp;·&nbsp; Monthly: $400</div>
                 </div>
             </div>
         </div>
@@ -303,7 +354,7 @@
             <div>
                 <p class="section-label">Get Started</p>
                 <h2>Every project starts<br><em>with a free demo.</em></h2>
-                <p class="work-demo-sub">We build it around your winery before you commit to anything.</p>
+                <p class="work-demo-sub">15 minutes. I'll show you what I'd build for your specific operation before you commit to anything.</p>
             </div>
             <button onclick="openModal()" class="btn-gold">Request yours →</button>
         </div>
@@ -314,7 +365,7 @@
 <footer>
     <div class="footer-brand">
         <a href="index.html" class="footer-logo">Applied AI Agent</a>
-        <span class="footer-location">Sonoma, CA</span>
+        <span class="footer-location">Sonoma, CA &nbsp;·&nbsp; <a href="mailto:jake@appliedaiagent.ai" style="color:inherit;text-decoration:none;">jake@appliedaiagent.ai</a></span>
     </div>
     <nav class="footer-links">
         <a href="index.html#what-we-do">What We Do</a>

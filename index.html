@@ -163,19 +163,11 @@
     /* ── HOW IT WORKS ── */
     #how-it-works { background: var(--cream); padding: 7rem 0 0; scroll-margin-top: 5rem; }
     .steps-grid {
-        display: grid; grid-template-columns: repeat(3, 1fr);
-        gap: 3rem; margin-top: 3.5rem; padding-bottom: 0;
+        display: grid; grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 5rem; margin-top: 3.5rem; padding-bottom: 0;
         position: relative;
     }
-    .steps-grid::before {
-        content: '';
-        position: absolute;
-        top: 2rem;
-        left: calc(33.333% - 1.5rem);
-        right: calc(33.333% - 1.5rem);
-        height: 1px;
-        background: var(--rule);
-    }
+    .steps-grid::before { display: none; }
     .step-num {
         font-family: 'Fraunces', serif; font-size: 4rem; font-weight: 400;
         color: rgba(196,151,90,0.2); letter-spacing: -0.04em; line-height: 1;
@@ -364,7 +356,6 @@
         #what-we-do, #how-it-works, #automations, #integrations, #faq { padding: 5rem 0; }
         .what-grid { grid-template-columns: 1fr; gap: 2.5rem; }
         .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-        .steps-grid::before { display: none; }
         .steps-features { grid-template-columns: 1fr; }
         .steps-feature { border-right: none; border-bottom: 1px solid var(--rule); }
         .steps-feature:last-child { border-bottom: none; }
@@ -397,7 +388,7 @@
         <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button onclick="openModal()" class="btn-nav">Get a Free Demo</button>
+    <button onclick="openModal()" class="btn-nav">Schedule a Free Demo</button>
     <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
     </button>
@@ -410,7 +401,7 @@
         <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Get a Free Demo</button>
+    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Schedule a Free Demo</button>
 </div>
 
 <!-- DEMO MODAL -->
@@ -418,49 +409,48 @@
     <div class="modal-backdrop" onclick="closeModal()"></div>
     <div class="modal-card">
         <button class="modal-close" onclick="closeModal()">×</button>
-        <p class="modal-header-label">Request a Demo</p>
+        <p class="modal-header-label">Schedule a Free 15-Minute Demo</p>
         <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
-        <p class="modal-sub">I'll put together a free demo built around your winery and follow up within a few hours.</p>
+        <p class="modal-sub">15 minutes. No pitch, no pressure. I'll show you exactly what I'd build for your business.</p>
         <form id="modalForm">
             <div class="form-row">
                 <div class="form-group">
                     <label>First Name</label>
-                    <input type="text" placeholder="Jake" autocomplete="given-name">
+                    <input type="text" name="first_name" placeholder="Jake" autocomplete="given-name">
                 </div>
                 <div class="form-group">
                     <label>Last Name</label>
-                    <input type="text" placeholder="Lazar" autocomplete="family-name">
+                    <input type="text" name="last_name" placeholder="Lazar" autocomplete="family-name">
                 </div>
             </div>
             <div class="form-group">
                 <label>Business Email</label>
-                <input type="email" placeholder="you@yourwinery.com" autocomplete="email">
+                <input type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" required>
             </div>
             <div class="form-group">
-                <label>Winery / Business Name</label>
-                <input type="text" placeholder="Sonoma Estate Winery" autocomplete="organization">
+                <label>Business Name</label>
+                <input type="text" name="business" placeholder="Sonoma Estate Winery" autocomplete="organization">
             </div>
             <div class="form-group">
                 <label>Industry</label>
-                <select>
+                <select name="industry">
                     <option value="" disabled selected>Select your industry</option>
                     <option>Winery / Tasting Room</option>
                     <option>Vineyard / Estate</option>
                     <option>Wine Tour Operator</option>
                     <option>Wine Club / DTC Brand</option>
-                    <option>Hospitality / Hotel</option>
-                    <option>Restaurant / Wine Bar</option>
+                    <option>Hospitality / Hotel / Restaurant</option>
+                    <option>Home Services (HVAC, Plumbing, Landscaping)</option>
                     <option>Real Estate</option>
                     <option>Legal / Professional Services</option>
-                    <option>Home Services</option>
-                    <option>Other</option>
+                    <option>Other (please specify below)</option>
                 </select>
             </div>
             <div class="form-group" style="margin-bottom:1.5rem;">
-                <label>What are you looking to automate?</label>
-                <textarea placeholder="Wine club follow-ups, review requests, booking — tell me what's eating your time..." rows="3"></textarea>
+                <label>What's eating your time right now?</label>
+                <textarea name="message" placeholder="Follow-ups, booking, wine club, reviews — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
             </div>
-            <button type="button" class="btn-submit" onclick="submitModal()">Send Message</button>
+            <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Demo</button>
         </form>
         <div class="modal-success" id="modalSuccess">
             <p class="modal-title" style="text-align:center;">Message received.</p>
@@ -479,11 +469,11 @@
 
             <!-- Left: copy -->
             <div>
-                <span class="hero-eyebrow">Sonoma, CA &nbsp;·&nbsp; AI Automation for Wine Country</span>
+                <span class="hero-eyebrow">Sonoma, CA &nbsp;·&nbsp; Winemaker-built AI for owner-operated businesses</span>
                 <h1>Your winery,<br>on autopilot.</h1>
-                <p class="hero-sub">Custom AI systems that handle the follow-ups, the wine club, the bookings, and the outreach — so you can get back to making wine.</p>
-                <button onclick="openModal()" class="btn-gold">Get a Free Demo</button>
-                <span class="hero-trust">No commitment. You see it running before anything is built.</span>
+                <p class="hero-sub">I'm a winemaker who builds AI agents. I know how owner-operated businesses actually work — and I build custom systems that handle the admin so you can focus on what matters.</p>
+                <button onclick="openModal()" class="btn-gold">Schedule a Free 15-Minute Demo</button>
+                <span class="hero-trust">Free demo first. You see it running before you pay a dollar.</span>
             </div>
 
             <!-- Right: agent activity card -->
@@ -563,8 +553,8 @@
                 <p class="section-label">What We Do</p>
                 <h2>AI that knows<br><em>wine country.</em></h2>
                 <div class="what-body">
-                    <p>Jake is a winemaker who builds AI. He has worked harvests in Sonoma, France, and Italy. Managed wine clubs, run tasting room operations, and watched owner time disappear into follow-ups and spreadsheets.</p>
-                    <p>That is why his automations are built differently. Not generic templates repurposed from another industry — systems built specifically around how a winery actually operates.</p>
+                    <p>I spent 10 years as a winemaker in Sonoma. I worked harvests in France and Italy, managed wine clubs, and ran tasting room operations. I watched brilliant owners spend 20+ hours a week on admin that should never have required a human.</p>
+                    <p>So I learned to build AI agents. Not generic templates — custom systems built around how your business actually operates. You own what I build. I stay involved to optimize it. No platform, no black box.</p>
                 </div>
             </div>
             <div class="cap-cards">
@@ -592,39 +582,44 @@
 <section id="how-it-works">
     <div class="container">
         <p class="section-label">How It Works</p>
-        <h2>Three steps.<br>Then it runs itself.</h2>
+        <h2>Transparent process.<br><em>No surprises.</em></h2>
         <div class="steps-grid">
             <div>
                 <span class="step-num">01</span>
-                <p class="step-title">Free demo call</p>
-                <p class="step-desc">We look at your operation and show you exactly what we'd automate. No pitch. Just a live demo built around your winery.</p>
+                <p class="step-title">Free demo (15 min)</p>
+                <p class="step-desc">I walk you through your current workflow, talk through what's slowing you down, and show you what's possible. No pitch. No pressure. Just a real conversation.</p>
             </div>
             <div>
                 <span class="step-num">02</span>
-                <p class="step-title">We build it</p>
-                <p class="step-desc">In 48 hours your automations are live. We handle every integration, every connection, every API key.</p>
+                <p class="step-title">Custom build (1–2 weeks)</p>
+                <p class="step-desc">I design the AI agent around your business — connecting to your existing tools, testing edge cases, and running it live before you pay. Setup: $500–$8k depending on complexity.</p>
             </div>
             <div>
                 <span class="step-num">03</span>
-                <p class="step-title">It runs</p>
-                <p class="step-desc">Your AI agent works every day. You get a monthly report. Call us when you want to change something.</p>
+                <p class="step-title">Launch & optimize</p>
+                <p class="step-desc">We go live. I monitor the first month closely, catch edge cases, and make sure your team knows how to use it. The goal is for it to run without you thinking about it.</p>
+            </div>
+            <div>
+                <span class="step-num">04</span>
+                <p class="step-title">Ongoing support ($300–$1.5k/mo)</p>
+                <p class="step-desc">I stay involved. New automation requests, process improvements, quarterly reviews of what's working. You own the system. I stay to make it better.</p>
             </div>
         </div>
         <div class="steps-features">
             <div class="steps-feature">
                 <span class="steps-feature-icon">⚡</span>
-                <p class="steps-feature-title">Built in 48 hours</p>
-                <p class="steps-feature-desc">From first call to live automation</p>
+                <p class="steps-feature-title">Free demo first</p>
+                <p class="steps-feature-desc">You see it running before you pay anything</p>
             </div>
             <div class="steps-feature">
                 <span class="steps-feature-icon">◈</span>
-                <p class="steps-feature-title">One monthly fee</p>
-                <p class="steps-feature-desc">Setup, hosting, maintenance — all included</p>
+                <p class="steps-feature-title">Not a platform</p>
+                <p class="steps-feature-desc">No black box. Full transparency on everything I build</p>
             </div>
             <div class="steps-feature">
                 <span class="steps-feature-icon">◎</span>
                 <p class="steps-feature-title">You own it</p>
-                <p class="steps-feature-desc">No lock-in. Full transparency on everything we build</p>
+                <p class="steps-feature-desc">No lock-in. Take it with you if you ever move on</p>
             </div>
         </div>
     </div>
@@ -735,18 +730,18 @@
 <section class="demo-cta">
     <div class="container">
         <div class="demo-cta-inner">
-            <span class="demo-cta-trust">Free demo &nbsp;·&nbsp; Built in 48 hours &nbsp;·&nbsp; No commitment</span>
-            <h2>See what we'd build<br>for <em>your winery.</em></h2>
-            <p class="demo-cta-sub">The demo is free. We build it around your actual operation and show you exactly what would run, what it would say, and what it would do.</p>
-            <button onclick="openModal()" class="btn-gold">Request a Free Demo</button>
-            <span class="demo-cta-note">Jake usually responds within a few hours.</span>
+            <span class="demo-cta-trust">Free demo &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; You see it running before you pay</span>
+            <h2>15 minutes to see<br>what's <em>possible.</em></h2>
+            <p class="demo-cta-sub">The demo is free. I build it around your actual operation and show you exactly what would run, what it would say, and what it would handle — before you spend a dollar.</p>
+            <button onclick="openModal()" class="btn-gold">Schedule a Free 15-Minute Demo</button>
+            <span class="demo-cta-note">Jake responds within a few hours. jake@appliedaiagent.ai</span>
             <div class="cta-social">
                 <div class="cta-avatars">
                     <span class="cta-avatar" style="background:#1E3D30;">K</span>
                     <span class="cta-avatar" style="background:#2D5040;">S</span>
                     <span class="cta-avatar" style="background:#1A3328;">M</span>
                 </div>
-                <p class="cta-social-text">Join wineries already on autopilot</p>
+                <p class="cta-social-text">Wineries already on autopilot</p>
             </div>
         </div>
     </div>
@@ -824,7 +819,7 @@
 <footer>
     <div class="footer-brand">
         <a href="index.html" class="footer-logo">Applied AI Agent</a>
-        <span class="footer-location">Sonoma, CA</span>
+        <span class="footer-location">Sonoma, CA &nbsp;·&nbsp; <a href="mailto:jake@appliedaiagent.ai" style="color:inherit;text-decoration:none;">jake@appliedaiagent.ai</a></span>
     </div>
     <nav class="footer-links">
         <a href="#what-we-do">What We Do</a>
