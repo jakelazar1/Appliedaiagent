@@ -19,6 +19,13 @@
         display: flex; justify-content: space-between; align-items: flex-end;
         gap: 4rem; flex-wrap: wrap;
     }
+    @media (max-width: 768px) {
+        .page-header-inner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+    }
     h1 {
         font-family: 'Fraunces', serif; font-size: clamp(2.75rem, 6vw, 4.5rem);
         font-weight: 400; letter-spacing: -0.03em; line-height: 1.0;
@@ -33,11 +40,19 @@
     /* ── PROJECTS ── */
     .projects { background: var(--cream); padding: 0; }
     .project {
-        display: grid; grid-template-columns: 220px 1fr;
+        display: grid; 
+        grid-template-columns: 220px 1fr;
         gap: 5rem; padding: 5rem 0;
         border-bottom: 1px solid var(--rule); align-items: start;
         opacity: 0; transform: translateY(14px);
         transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    @media (max-width: 768px) {
+        .project {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+        }
     }
     .project.on { opacity: 1; transform: none; }
     .project-meta { position: sticky; top: 6.5rem; }
