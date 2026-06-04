@@ -39,7 +39,7 @@ body {
 }
 
 /* ── NAV ── */
-nav {
+nav#nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.375rem 3rem;
@@ -70,13 +70,13 @@ nav {
 }
 .btn-nav:hover { opacity: 0.88; }
 
-nav.over-dark {
+nav#nav.over-dark {
     --nav-text:      rgba(245,240,232,0.7);
     --nav-logo:      #F5F0E8;
     --nav-btn-bg:    var(--gold);
     --nav-btn-color: var(--dark);
 }
-nav.over-light {
+nav#nav.over-light {
     background: rgba(245,240,232,0.96);
     backdrop-filter: blur(16px);
     border-bottom-color: var(--rule);
@@ -291,14 +291,14 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
-    nav { padding: 1.125rem 2rem; }
-    .nav-links { gap: 1.5rem; }
+    nav#nav { padding: 1.125rem 2rem; }
+    .nav-links { gap: 1.25rem; }
     .nav-links a { font-size: 0.75rem; }
     .container { padding: 0 2rem; }
     footer { padding: 2rem 2rem; }
 }
 @media (max-width: 768px) {
-    nav { padding: 1.125rem 1.5rem; }
+    nav#nav { padding: 1.125rem 1.5rem; }
     .nav-links, .btn-nav { display: none; }
     .hamburger { display: flex; }
     .mobile-menu { display: block; }
