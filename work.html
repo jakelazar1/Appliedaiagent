@@ -3,135 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work — Applied AI Agent</title>
+    <title>Use Cases — Applied AI Agent</title>
+    <meta name="description" content="What I build: AI automation for scheduling, lead follow-up, customer communications, operations dashboards, retention, and reporting.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+
     /* ── PAGE HEADER ── */
     .page-header {
-        background: var(--cream);
+        background: var(--surface);
         padding: 10rem 0 5rem;
         border-bottom: 1px solid var(--rule);
     }
     .page-header-inner {
-        display: flex; justify-content: space-between; align-items: flex-end;
-        gap: 4rem; flex-wrap: wrap;
-    }
-    @media (max-width: 768px) {
-        .page-header-inner {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2rem;
-        }
+        max-width: 680px;
     }
     h1 {
-        font-family: 'Fraunces', serif; font-size: clamp(2.75rem, 6vw, 4.5rem);
+        font-family: 'Fraunces', serif;
+        font-size: clamp(2.75rem, 5.5vw, 4.25rem);
         font-weight: 400; letter-spacing: -0.03em; line-height: 1.0;
         color: var(--ink); font-variation-settings: 'opsz' 72;
+        text-wrap: balance;
     }
     h1 em { font-style: italic; font-weight: 300; color: var(--ink-mid); }
-    .header-note {
-        font-size: 0.9rem; color: var(--ink-mid); max-width: 300px;
-        line-height: 1.75; align-self: flex-end; padding-bottom: 0.25rem;
+    .page-header-sub {
+        font-size: 1.0625rem; color: var(--ink-soft);
+        line-height: 1.8; margin-top: 1.5rem; max-width: 520px;
     }
 
-    /* ── PROJECTS ── */
-    .projects { background: var(--cream); padding: 0; }
-    .project {
-        display: grid; 
-        grid-template-columns: 220px 1fr;
-        gap: 5rem; padding: 5rem 0;
-        border-bottom: 1px solid var(--rule); align-items: start;
-        opacity: 0; transform: translateY(14px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
+    /* ── USE CASES GRID ── */
+    .use-cases { background: var(--surface-alt); padding: 6rem 0 8rem; }
+    .use-cases-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 3.5rem;
     }
-    @media (max-width: 768px) {
-        .project {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            padding: 3rem 0;
-        }
+    .use-case-card {
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        border-radius: 12px;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+        opacity: 0; transform: translateY(12px);
+        transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease;
     }
-    .project.on { opacity: 1; transform: none; }
-    .project-meta { position: sticky; top: 6.5rem; }
-    .project-num {
-        font-size: 0.7rem; letter-spacing: 0.1em;
-        color: var(--ink-soft); display: block; margin-bottom: 0.5rem;
+    .use-case-card.on { opacity: 1; transform: none; }
+    .use-case-card:hover {
+        box-shadow: 0 8px 32px rgba(13,31,26,0.1);
+        transform: translateY(-2px);
     }
-    .project-category {
-        font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase;
-        color: var(--gold); display: block; margin-bottom: 1.5rem;
+    .use-case-tag {
+        display: inline-block;
+        font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--ink-soft);
+        margin-bottom: 1.25rem;
     }
-    .project-tags { display: flex; flex-direction: column; gap: 0; }
-    .tag {
-        font-size: 0.72rem; color: var(--ink-soft);
-        padding: 0.3rem 0; border-top: 1px solid var(--rule);
+    .use-case-headline {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(1.375rem, 2vw, 1.625rem);
+        font-weight: 400; letter-spacing: -0.02em; line-height: 1.15;
+        color: var(--ink); font-variation-settings: 'opsz' 32;
+        margin-bottom: 0.875rem;
+        text-wrap: balance;
     }
-    .tag:last-child { border-bottom: 1px solid var(--rule); }
-    .project-title {
-        font-family: 'Fraunces', serif; font-size: clamp(1.625rem, 3vw, 2.375rem);
-        font-weight: 400; color: var(--ink); line-height: 1.1;
-        letter-spacing: -0.02em; margin-bottom: 1.25rem;
-        font-variation-settings: 'opsz' 32;
+    .use-case-desc {
+        font-size: 0.9rem; color: var(--ink-soft);
+        line-height: 1.75; margin-bottom: 1.75rem; flex: 1;
     }
-    .project-title em { font-style: italic; font-weight: 300; color: var(--ink-mid); }
-    .project-desc {
-        font-size: 1rem; color: var(--ink-mid); line-height: 1.8;
-        max-width: 560px; margin-bottom: 2.25rem;
-    }
-    .project-outcomes { display: flex; flex-direction: column; max-width: 560px; }
-    .outcome {
-        display: flex; align-items: baseline; gap: 1rem;
-        padding: 1rem 0; border-top: 1px solid var(--rule);
-        font-size: 0.875rem; color: var(--ink-mid); line-height: 1.6;
-    }
-    .outcome:last-child { border-bottom: 1px solid var(--rule); }
-    .outcome-dot {
-        width: 4px; height: 4px; border-radius: 50%;
-        background: var(--gold); flex-shrink: 0; margin-top: 0.45rem;
-    }
-
-    /* ── FREE DEMO SECTION ── */
-    .work-demo {
-        background: var(--cream-alt); padding: 7rem 0;
+    .use-case-handles {
         border-top: 1px solid var(--rule);
+        padding-top: 1.375rem;
+        list-style: none;
+        display: flex; flex-direction: column; gap: 0.5rem;
     }
-    .work-demo-inner {
-        display: flex; justify-content: space-between; align-items: center;
-        gap: 3rem; flex-wrap: wrap;
+    .use-case-handles li {
+        font-size: 0.8125rem; color: var(--ink-mid);
+        display: flex; align-items: baseline; gap: 0.625rem;
+        line-height: 1.5;
     }
-    .work-demo-sub {
-        font-size: 0.9rem; color: var(--ink-mid); line-height: 1.7;
-        max-width: 300px; margin-top: 0.75rem;
+    .use-case-handles li::before {
+        content: '';
+        display: block; width: 4px; height: 4px;
+        border-radius: 50%; background: var(--gold);
+        flex-shrink: 0; margin-top: 0.45rem;
     }
-    .btn-link {
-        font-family: 'Manrope', sans-serif; font-size: 0.9375rem; font-weight: 400;
-        color: var(--gold); text-decoration: none; border: none; background: none;
-        cursor: pointer; padding: 0; transition: color 0.2s;
+
+    /* ── DASHBOARD CALLOUT ── (featured card, full width) */
+    .use-case-card.featured {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+        background: var(--dark);
+        border-color: transparent;
     }
-    .btn-link:hover { color: #D4A86A; }
+    .use-case-card.featured .use-case-tag { color: rgba(245,240,232,0.4); }
+    .use-case-card.featured .use-case-headline { color: #F5F0E8; }
+    .use-case-card.featured .use-case-desc { color: rgba(245,240,232,0.5); }
+    .use-case-card.featured .use-case-handles { border-color: rgba(245,240,232,0.1); }
+    .use-case-card.featured .use-case-handles li { color: rgba(245,240,232,0.65); }
+    .use-case-card.featured .use-case-handles li::before { background: var(--gold); }
+    .featured-right { display: flex; flex-direction: column; gap: 0; }
+    .dashboard-preview {
+        background: rgba(245,240,232,0.04);
+        border: 1px solid rgba(245,240,232,0.08);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .dp-header {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(245,240,232,0.07);
+        display: flex; align-items: center; gap: 0.5rem;
+    }
+    .dp-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,240,232,0.15); }
+    .dp-title { font-size: 0.7rem; color: rgba(245,240,232,0.3); letter-spacing: 0.04em; }
+    .dp-metrics {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 0; padding: 1.25rem;
+    }
+    .dp-metric {
+        padding: 0.75rem 1rem;
+        border-right: 1px solid rgba(245,240,232,0.07);
+    }
+    .dp-metric:last-child { border-right: none; }
+    .dp-metric-val {
+        font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 400;
+        color: #F5F0E8; letter-spacing: -0.03em; display: block;
+        font-variation-settings: 'opsz' 24;
+    }
+    .dp-metric-label { font-size: 0.7rem; color: rgba(245,240,232,0.3); margin-top: 0.25rem; display: block; }
+    .dp-activity { padding: 0 1.25rem 1.25rem; }
+    .dp-row {
+        display: flex; justify-content: space-between;
+        padding: 0.5rem 0;
+        border-top: 1px solid rgba(245,240,232,0.05);
+        font-size: 0.75rem; color: rgba(245,240,232,0.4);
+    }
+    .dp-row-dot { width: 5px; height: 5px; border-radius: 50%; background: #5E8A62; margin-right: 0.5rem; flex-shrink: 0; margin-top: 0.35rem; }
+    .dp-row-text { display: flex; align-items: baseline; gap: 0; flex: 1; }
+
+    /* ── HOW I BUILD ── */
+    .how-i-build { background: var(--surface); padding: 7rem 0; border-top: 1px solid var(--rule); }
+    .build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-top: 3rem; }
+    .build-list { display: flex; flex-direction: column; }
+    .build-item { padding: 1.375rem 0; border-top: 1px solid var(--rule); }
+    .build-item:last-child { border-bottom: 1px solid var(--rule); }
+    .build-item-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.3rem; font-variation-settings: 'opsz' 18; }
+    .build-item-desc { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.65; }
+    .build-note { font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.85; }
+    .build-note p { margin-bottom: 1rem; }
+    .build-note p:last-child { margin-bottom: 0; }
+
+    /* ── DEMO CTA ── */
+    .work-demo { background: var(--dark); padding: 8rem 0; }
+    .work-demo-inner { max-width: 580px; }
+    .work-demo h2 { color: #F5F0E8; }
+    .work-demo h2 em { color: var(--gold); }
+    .work-demo-sub { font-size: 1rem; color: rgba(245,240,232,0.45); line-height: 1.8; margin-top: 1rem; margin-bottom: 2.5rem; max-width: 420px; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-        .page-header { padding: 8rem 0 3.5rem; }
-        .page-header-inner { flex-direction: column; gap: 1.5rem; }
-        .header-note { max-width: 100%; }
-        .project { grid-template-columns: 1fr; gap: 1.75rem; padding: 3.5rem 0; }
-        .project-meta { position: static; display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
-        .project-tags { flex-direction: row; flex-wrap: wrap; gap: 0; }
-        .tag { border: none; border-right: 1px solid var(--rule); padding: 0 0.75rem 0 0; margin-right: 0.75rem; }
-        .tag:last-child { border: none; margin: 0; padding: 0; }
-        .work-demo { padding: 5rem 0; }
-        .work-demo-inner { flex-direction: column; align-items: flex-start; }
+        .page-header { padding: 8rem 0 4rem; }
+        .use-cases-grid { grid-template-columns: 1fr; }
+        .use-case-card.featured { grid-template-columns: 1fr; gap: 2rem; }
+        .build-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        .use-cases { padding: 5rem 0 6rem; }
+        .how-i-build { padding: 5rem 0; }
+        .work-demo { padding: 6rem 0; }
     }
     @media (max-width: 480px) {
         .page-header { padding: 7rem 0 3rem; }
         h1 { font-size: clamp(2.25rem, 9vw, 3rem); }
-        .project { padding: 3rem 0; gap: 1.25rem; }
-        .project-title { font-size: clamp(1.375rem, 6vw, 1.875rem); }
-        .work-demo { padding: 4rem 0; }
+        .use-case-card { padding: 2rem 1.5rem; }
+        .use-case-card.featured { padding: 2rem 1.5rem; }
+        .dp-metrics { grid-template-columns: 1fr 1fr; }
+        .dp-metric:nth-child(2) { border-right: none; }
+        .work-demo { padding: 5rem 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .use-case-card { transition: none; opacity: 1; transform: none; }
     }
     </style>
 </head>
@@ -143,7 +200,7 @@
     <ul class="nav-links">
         <li><a href="index.html#what-we-do">What We Do</a></li>
         <li><a href="index.html#how-it-works">How It Works</a></li>
-        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="work.html" class="active">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
     <button onclick="openModal()" class="btn-nav">Schedule a Free Demo</button>
@@ -156,7 +213,7 @@
     <ul>
         <li><a href="index.html#what-we-do">What We Do</a></li>
         <li><a href="index.html#how-it-works">How It Works</a></li>
-        <li><a href="work.html">Work</a></li>
+        <li><a href="work.html">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
     <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Schedule a Free Demo</button>
@@ -171,27 +228,30 @@
         <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
         <p class="modal-sub">15 minutes. No pitch, no pressure. I'll show you exactly what I'd build for your business.</p>
         <form id="modalForm">
+            <input type="hidden" name="_replyto" value="jake@appliedaiagent.ai">
+            <input type="hidden" name="_subject" value="New demo request — Applied AI Agent">
             <div class="form-row">
                 <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jake" autocomplete="given-name"></div>
                 <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Lazar" autocomplete="family-name"></div>
             </div>
             <div class="form-group"><label>Business Email</label><input type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" required></div>
-            <div class="form-group"><label>Business Name</label><input type="text" name="business" placeholder="Sonoma Estate Winery" autocomplete="organization"></div>
+            <div class="form-group"><label>Business Name</label><input type="text" name="business" placeholder="Your Business" autocomplete="organization"></div>
             <div class="form-group">
                 <label>Industry</label>
                 <select name="industry">
                     <option value="" disabled selected>Select your industry</option>
-                    <option>Winery / Tasting Room</option><option>Vineyard / Estate</option>
-                    <option>Wine Tour Operator</option><option>Wine Club / DTC Brand</option>
-                    <option>Hospitality / Hotel / Restaurant</option>
-                    <option>Home Services (HVAC, Plumbing, Landscaping)</option>
-                    <option>Real Estate</option><option>Legal / Professional Services</option>
+                    <option>Tour Operator</option>
+                    <option>HVAC / Plumbing</option>
+                    <option>Real Estate</option>
+                    <option>Landscaping / Outdoor Services</option>
+                    <option>Restaurant / Hospitality</option>
+                    <option>Contractor / Trades</option>
                     <option>Other (please specify below)</option>
                 </select>
             </div>
             <div class="form-group" style="margin-bottom:1.5rem;">
                 <label>What's eating your time right now?</label>
-                <textarea name="message" placeholder="Follow-ups, booking, wine club, reviews — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
+                <textarea name="message" placeholder="Follow-ups, bookings, scheduling, customer communication — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
             </div>
             <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Demo</button>
         </form>
@@ -202,176 +262,208 @@
     </div>
 </div>
 
-<button class="float-btn" id="floatBtn" onclick="openModal()">Free Demo →</button>
+<button class="float-btn" id="floatBtn" onclick="openModal()">Free Demo</button>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
     <div class="container">
         <div class="page-header-inner">
-            <div>
-                <p class="section-label">Selected Work</p>
-                <h1>Real problems.<br><em>Custom solutions.</em></h1>
-            </div>
-            <p class="header-note">Wine country is the focus. Every system here was built around a specific operation. Results are from real deployments.</p>
+            <h1>What I <em>build.</em></h1>
+            <p class="page-header-sub">Six categories of automation I build for owner-operated businesses. Each one is custom — connected to your tools, built around your workflow, running within 48 hours of the first call.</p>
         </div>
     </div>
 </div>
 
-<!-- PROJECTS -->
-<div class="projects">
+<!-- USE CASES -->
+<div class="use-cases">
     <div class="container">
+        <div class="use-cases-grid">
 
-        <div class="project">
-            <div class="project-meta">
-                <span class="project-num">01</span>
-                <span class="project-category">Winery</span>
-                <div class="project-tags">
-                    <span class="tag">Tasting Room</span>
-                    <span class="tag">Wine Club</span>
-                    <span class="tag">Follow-Up</span>
+            <!-- Scheduling -->
+            <div class="use-case-card fade">
+                <span class="use-case-tag">Scheduling</span>
+                <h2 class="use-case-headline">Your calendar, handled.</h2>
+                <p class="use-case-desc">New requests acknowledged in minutes. Confirmation and reminder sequences go out automatically. No more back-and-forth over availability, no more no-shows that catch you off guard.</p>
+                <ul class="use-case-handles">
+                    <li>Booking confirmation sent immediately on request</li>
+                    <li>Reminder sequence: 24 hrs out, 2 hrs out, post-appointment</li>
+                    <li>Reschedule and cancellation handling without phone tag</li>
+                    <li>Capacity monitoring and waitlist management</li>
+                    <li>Connects to Calendly, Google Calendar, Tock, FareHarbor</li>
+                </ul>
+            </div>
+
+            <!-- Lead Follow-Up -->
+            <div class="use-case-card fade">
+                <span class="use-case-tag">Lead Follow-Up</span>
+                <h2 class="use-case-headline">Your leads never go cold.</h2>
+                <p class="use-case-desc">Every new inquiry gets an instant, personal response. A follow-up sequence runs until they book or opt out. No leads falling through the cracks while you're on a job or running an event.</p>
+                <ul class="use-case-handles">
+                    <li>Response under 5 minutes, any hour, any day</li>
+                    <li>Qualification questions asked automatically</li>
+                    <li>Warm leads escalated to you at the right moment</li>
+                    <li>Dead leads archived, follow-up paused cleanly</li>
+                    <li>Connects to HubSpot, Gmail, any CRM with an API</li>
+                </ul>
+            </div>
+
+            <!-- Customer Communications -->
+            <div class="use-case-card fade">
+                <span class="use-case-tag">Customer Communications</span>
+                <h2 class="use-case-headline">The right message, at the right time.</h2>
+                <p class="use-case-desc">Post-visit emails, review requests, seasonal outreach. Triggered by what your customers actually do — not a blast calendar you have to remember to update.</p>
+                <ul class="use-case-handles">
+                    <li>Post-visit thank-you and follow-up sequence</li>
+                    <li>Review request timed for peak response rate</li>
+                    <li>Re-engagement campaigns triggered by inactivity</li>
+                    <li>Seasonal and event-based outreach, automated</li>
+                    <li>Connects to Mailchimp, Klaviyo, Twilio, Google Business</li>
+                </ul>
+            </div>
+
+            <!-- Retention -->
+            <div class="use-case-card fade">
+                <span class="use-case-tag">Customer Retention</span>
+                <h2 class="use-case-headline">Keep the customers you have.</h2>
+                <p class="use-case-desc">An agent that watches engagement signals, identifies at-risk customers before they quietly disappear, and triggers the right outreach before the relationship goes cold.</p>
+                <ul class="use-case-handles">
+                    <li>Engagement monitoring across email, bookings, and purchases</li>
+                    <li>Churn signal detection before cancellation</li>
+                    <li>Personalized re-engagement sequence triggered automatically</li>
+                    <li>High-value accounts flagged for personal follow-up</li>
+                    <li>Win-back campaigns for lapsed customers</li>
+                </ul>
+            </div>
+
+            <!-- Operations Dashboard — featured full-width card -->
+            <div class="use-case-card featured fade">
+                <div>
+                    <span class="use-case-tag">Operations Dashboard</span>
+                    <h2 class="use-case-headline">See your business in real time.</h2>
+                    <p class="use-case-desc">A custom dashboard showing everything happening in your operation — automations running, leads in progress, revenue trends, customer activity. Built for your business, not a generic template.</p>
+                    <ul class="use-case-handles">
+                        <li>Live automation activity feed</li>
+                        <li>Key metric tracking: revenue, bookings, leads, engagement</li>
+                        <li>Weekly email digest delivered to your inbox Monday morning</li>
+                        <li>Custom reports for your specific operation</li>
+                        <li>Built in React — clean, fast, mobile-friendly</li>
+                    </ul>
+                </div>
+                <div class="featured-right">
+                    <div class="dashboard-preview">
+                        <div class="dp-header">
+                            <span class="dp-dot"></span>
+                            <span class="dp-dot"></span>
+                            <span class="dp-dot"></span>
+                            <span class="dp-title" style="margin-left:0.5rem;">Operations Dashboard</span>
+                        </div>
+                        <div class="dp-metrics">
+                            <div class="dp-metric">
+                                <span class="dp-metric-val">183</span>
+                                <span class="dp-metric-label">Touchpoints this month</span>
+                            </div>
+                            <div class="dp-metric">
+                                <span class="dp-metric-val">94%</span>
+                                <span class="dp-metric-label">Automation uptime</span>
+                            </div>
+                            <div class="dp-metric">
+                                <span class="dp-metric-val">3</span>
+                                <span class="dp-metric-label">Active agents</span>
+                            </div>
+                        </div>
+                        <div class="dp-activity">
+                            <div class="dp-row">
+                                <div class="dp-row-text">
+                                    <span class="dp-row-dot"></span>
+                                    Follow-up sent to Garcia group
+                                </div>
+                                <span>2m ago</span>
+                            </div>
+                            <div class="dp-row">
+                                <div class="dp-row-text">
+                                    <span class="dp-row-dot"></span>
+                                    Review request delivered — Martinez
+                                </div>
+                                <span>41m ago</span>
+                            </div>
+                            <div class="dp-row">
+                                <div class="dp-row-text">
+                                    <span class="dp-row-dot"></span>
+                                    Re-engagement email queued — David M.
+                                </div>
+                                <span>1h ago</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <h2 class="project-title">Tasting Room<br><em>Follow-Up Agent</em></h2>
-                <p class="project-desc">Built for a Sonoma Valley estate. The problem: leads from weekend tastings sat unanswered until Monday. The solution: a follow-up agent that sends personalized thank-yous and wine club pitches within 24 hours of every visit — automatically.</p>
-                <div class="project-outcomes">
-                    <div class="outcome"><span class="outcome-dot"></span>847 automated visitor touchpoints in month one</div>
-                    <div class="outcome"><span class="outcome-dot"></span>3 new wine club members per week from the sequence alone</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Zero staff hours spent on follow-up</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Integrated with Commerce7 and the estate's email platform</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Setup: $1,500 &nbsp;·&nbsp; Monthly: $400</div>
+
+            <!-- Reporting & Intelligence -->
+            <div class="use-case-card fade" style="grid-column: 1 / -1;">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items:start;">
+                    <div>
+                        <span class="use-case-tag">Reporting &amp; Intelligence</span>
+                        <h2 class="use-case-headline">Your weekly briefing, written for you.</h2>
+                        <p class="use-case-desc">Every Monday morning: what came in, what was sent, what's trending, what needs attention. No dashboards to check, no reports to pull. It just arrives.</p>
+                    </div>
+                    <ul class="use-case-handles" style="border-top:none; padding-top:0; margin-top:2rem;">
+                        <li>Weekly performance summary emailed every Monday</li>
+                        <li>Lead pipeline snapshot: new, active, converted, cold</li>
+                        <li>Automation health check: what ran, what didn't, why</li>
+                        <li>Revenue and booking trends, week over week</li>
+                        <li>Flags for anything that needs your attention</li>
+                    </ul>
                 </div>
             </div>
+
         </div>
-
-        <div class="project">
-            <div class="project-meta">
-                <span class="project-num">02</span>
-                <span class="project-category">Wine Club</span>
-                <div class="project-tags">
-                    <span class="tag">Retention</span>
-                    <span class="tag">Re-Engagement</span>
-                    <span class="tag">Commerce7</span>
-                </div>
-            </div>
-            <div>
-                <h2 class="project-title">Wine Club<br><em>Churn Prevention</em></h2>
-                <p class="project-desc">Deployed for a family-owned winery with 600 club members. The problem: members quietly downgraded or left with no warning. The solution: an agent that monitors engagement, detects churn risk, and triggers re-engagement before the cancel button gets clicked.</p>
-                <div class="project-outcomes">
-                    <div class="outcome"><span class="outcome-dot"></span>42 at-risk members flagged automatically in the first month</div>
-                    <div class="outcome"><span class="outcome-dot"></span>31 of 42 re-engaged before cancellation — a 74% save rate</div>
-                    <div class="outcome"><span class="outcome-dot"></span>High-value accounts escalated to personal outreach by staff</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Runs continuously with no manual monitoring required</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Setup: $2,000 &nbsp;·&nbsp; Monthly: $500</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="project-meta">
-                <span class="project-num">03</span>
-                <span class="project-category">Hospitality</span>
-                <div class="project-tags">
-                    <span class="tag">Google Reviews</span>
-                    <span class="tag">Post-Visit</span>
-                    <span class="tag">Reputation</span>
-                </div>
-            </div>
-            <div>
-                <h2 class="project-title">Review Request<br><em>Automation</em></h2>
-                <p class="project-desc">A tasting room averaging 2 Google reviews per month. The problem: staff never found the right moment to ask. The solution: review requests timed 2–4 hours after checkout, with a follow-up for guests who opened but didn't respond.</p>
-                <div class="project-outcomes">
-                    <div class="outcome"><span class="outcome-dot"></span>From 2 to 14 Google reviews per month — no new staff effort</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Ranked #1 in their appellation on Google Maps within 90 days</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Requests timed 2–4 hours post-visit for maximum response rate</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Automatic follow-up for guests who opened but didn't respond</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Setup: $800 &nbsp;·&nbsp; Monthly: $250</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="project-meta">
-                <span class="project-num">04</span>
-                <span class="project-category">Sales</span>
-                <div class="project-tags">
-                    <span class="tag">Wholesale</span>
-                    <span class="tag">Bay Area</span>
-                    <span class="tag">Outreach</span>
-                </div>
-            </div>
-            <div>
-                <h2 class="project-title">Wholesale<br><em>Outreach Agent</em></h2>
-                <p class="project-desc">The problem: 80 restaurant and retail accounts across the Bay Area, and the owner spending 6+ hours a week on follow-up emails. The solution: an agent that monitors each account's purchase history and drafts personalized reorder outreach automatically.</p>
-                <div class="project-outcomes">
-                    <div class="outcome"><span class="outcome-dot"></span>80 accounts monitored and contacted automatically</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Personalized outreach drafted from each buyer's purchase history</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Non-responders re-queued automatically with adjusted messaging</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Owner reclaimed 6+ hours per week previously spent on outreach</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Setup: $2,500 &nbsp;·&nbsp; Monthly: $600</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="project-meta">
-                <span class="project-num">05</span>
-                <span class="project-category">Tour Operator</span>
-                <div class="project-tags">
-                    <span class="tag">Booking</span>
-                    <span class="tag">Lead Qualification</span>
-                    <span class="tag">FareHarbor</span>
-                </div>
-            </div>
-            <div>
-                <h2 class="project-title">Tour Booking<br><em>Agent</em></h2>
-                <p class="project-desc">Built for a Napa wine tour operator fielding 50+ inquiries a week. The problem: most leads came in after hours and went cold by morning. The solution: an AI agent that answers inquiries, qualifies groups, confirms availability, and books tours — around the clock.</p>
-                <div class="project-outcomes">
-                    <div class="outcome"><span class="outcome-dot"></span>After-hours leads captured and qualified automatically</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Cancellation and reschedule requests handled without staff involvement</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Upsell sequences triggered post-booking (add-ons, private options)</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Integrated with FareHarbor; owner handles exceptions only</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Setup: $2,000 &nbsp;·&nbsp; Monthly: $500</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="project-meta">
-                <span class="project-num">06</span>
-                <span class="project-category">Home Services</span>
-                <div class="project-tags">
-                    <span class="tag">Lead Follow-Up</span>
-                    <span class="tag">Scheduling</span>
-                    <span class="tag">Reviews</span>
-                </div>
-            </div>
-            <div>
-                <h2 class="project-title">HVAC Lead &amp;<br><em>Follow-Up Agent</em></h2>
-                <p class="project-desc">Built for an HVAC contractor losing leads to faster-responding competitors. The problem: new inquiries sat for hours while the owner was on-site. The solution: instant lead response, job qualification, and scheduling — all automated before the owner gets back to the truck.</p>
-                <div class="project-outcomes">
-                    <div class="outcome"><span class="outcome-dot"></span>Response time cut from hours to under 2 minutes</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Leads qualified and appointments booked without manual follow-up</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Post-job review requests sent automatically at the right moment</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Owner focused on jobs, not inbox</div>
-                    <div class="outcome"><span class="outcome-dot"></span>Setup: $1,500 &nbsp;·&nbsp; Monthly: $400</div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
 
-<!-- FREE DEMO -->
+<!-- HOW I BUILD -->
+<div class="how-i-build">
+    <div class="container">
+        <div class="build-grid">
+            <div>
+                <h2>Tools I build<br><em>with and on top of.</em></h2>
+                <p class="build-note" style="margin-top:1.5rem;">
+                    <p>I use n8n and Zapier for automation orchestration, the Claude API for AI decision-making and copy generation, and React for custom dashboards. Everything connects to the tools you already use.</p>
+                    <p>No proprietary platform. No lock-in. You own what gets built.</p>
+                </p>
+            </div>
+            <div class="build-list">
+                <div class="build-item">
+                    <p class="build-item-name">Automation</p>
+                    <p class="build-item-desc">n8n, Zapier, Make — workflow orchestration that runs 24/7</p>
+                </div>
+                <div class="build-item">
+                    <p class="build-item-name">AI Layer</p>
+                    <p class="build-item-desc">Claude API — decision-making, copywriting, personalization</p>
+                </div>
+                <div class="build-item">
+                    <p class="build-item-name">Dashboards</p>
+                    <p class="build-item-desc">React — custom operations dashboards built for your team</p>
+                </div>
+                <div class="build-item">
+                    <p class="build-item-name">Communication</p>
+                    <p class="build-item-desc">Twilio, Mailchimp, Klaviyo — email and SMS at the right moment</p>
+                </div>
+                <div class="build-item">
+                    <p class="build-item-name">CRM &amp; Booking</p>
+                    <p class="build-item-desc">HubSpot, Tock, FareHarbor, Calendly, Google Calendar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
 <div class="work-demo">
     <div class="container">
         <div class="work-demo-inner">
-            <div>
-                <p class="section-label">Get Started</p>
-                <h2>Every project starts<br><em>with a free demo.</em></h2>
-                <p class="work-demo-sub">15 minutes. I'll show you what I'd build for your specific operation before you commit to anything.</p>
-            </div>
-            <button onclick="openModal()" class="btn-gold">Request yours →</button>
+            <h2 class="h2-light">Every project starts<br><em>with a free demo.</em></h2>
+            <p class="work-demo-sub">15 minutes. I'll show you what I'd build for your specific operation — connected to your actual tools, running on your data.</p>
+            <button onclick="openModal()" class="btn-gold">Schedule a free demo</button>
         </div>
     </div>
 </div>
@@ -385,7 +477,7 @@
     <nav class="footer-links">
         <a href="index.html#what-we-do">What We Do</a>
         <a href="index.html#how-it-works">How It Works</a>
-        <a href="work.html">Work</a>
+        <a href="work.html">Use Cases</a>
         <a href="contact.html">Contact</a>
     </nav>
     <p class="footer-copy">© 2026 Applied AI Agent</p>

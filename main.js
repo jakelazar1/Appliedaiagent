@@ -29,7 +29,7 @@ async function submitModal() {
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     const data = new FormData(f);
     try {
-        const res = await fetch('https://formspree.io/f/xldblwpn', {
+        const res = await fetch('https://formspree.io/jake@appliedaiagent.ai', {
             method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
         if (res.ok || res.status === 0) { f.style.display = 'none'; s.style.display = 'block'; }
@@ -47,7 +47,7 @@ async function submitContactForm() {
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     const data = new FormData(f);
     try {
-        const res = await fetch('https://formspree.io/f/xldblwpn', {
+        const res = await fetch('https://formspree.io/jake@appliedaiagent.ai', {
             method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
         if (res.ok || res.status === 0) { f.style.display = 'none'; s.style.display = 'block'; }
@@ -113,22 +113,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade, .project').forEach(el => fadeObs.observe(el));
 
-    // STAGGERED CARD REVEAL — threshold 0 + failsafe timeout
-    const cards = document.querySelectorAll('.auto-card');
+    // STAGGERED ROW REVEAL — threshold 0 + failsafe timeout
+    const cards = document.querySelectorAll('.auto-card, .vertical-row');
     if (cards.length) {
         const cardObs = new IntersectionObserver((entries) => {
             entries.forEach((e, i) => {
                 if (e.isIntersecting) {
-                    setTimeout(() => e.target.classList.add('on'), i * 100);
+                    setTimeout(() => e.target.classList.add('on'), i * 80);
                     cardObs.unobserve(e.target);
                 }
             });
         }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
         cards.forEach(el => cardObs.observe(el));
 
-        // Failsafe: force all cards visible after 3 seconds
+        // Failsafe: force all visible after 3 seconds
         setTimeout(() => {
-            document.querySelectorAll('.auto-card, .fade').forEach(el => el.classList.add('on'));
+            document.querySelectorAll('.auto-card, .vertical-row, .fade').forEach(el => el.classList.add('on'));
         }, 3000);
     }
 

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
     /* ── PAGE HEADER ── */
-    .page-header { background: var(--cream); padding: 10rem 0 5rem; border-bottom: 1px solid var(--rule); }
+    .page-header { background: var(--surface); padding: 10rem 0 5rem; border-bottom: 1px solid var(--rule); }
     h1 {
         font-family: 'Fraunces', serif; font-size: clamp(2.75rem, 6vw, 4.5rem);
         font-weight: 400; letter-spacing: -0.03em; line-height: 1.0;
@@ -24,7 +24,7 @@
 
     /* ── EMAIL BAR ── */
     .email-bar {
-        background: var(--cream-alt);
+        background: var(--surface-alt);
         border-bottom: 1px solid var(--rule);
         padding: 2.5rem 0;
     }
@@ -46,7 +46,7 @@
     .email-bar-note { font-size: 0.8125rem; color: var(--ink-soft); max-width: 240px; line-height: 1.65; }
 
     /* ── FORM SECTION ── */
-    .form-section { background: var(--cream); padding: 7rem 0; }
+    .form-section { background: var(--surface); padding: 7rem 0; }
     .form-layout { display: grid; grid-template-columns: 2fr 3fr; gap: 6rem; align-items: start; }
     .form-aside { padding-top: 0.5rem; }
     .form-aside h2 {
@@ -86,7 +86,7 @@
     <ul class="nav-links">
         <li><a href="index.html#what-we-do">What We Do</a></li>
         <li><a href="index.html#how-it-works">How It Works</a></li>
-        <li><a href="work.html">Work</a></li>
+        <li><a href="work.html">Use Cases</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
     <button onclick="openModal()" class="btn-nav">Schedule a Free Demo</button>
@@ -99,7 +99,7 @@
     <ul>
         <li><a href="index.html#what-we-do">What We Do</a></li>
         <li><a href="index.html#how-it-works">How It Works</a></li>
-        <li><a href="work.html">Work</a></li>
+        <li><a href="work.html">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
     <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Schedule a Free Demo</button>
@@ -114,27 +114,30 @@
         <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
         <p class="modal-sub">15 minutes. No pitch, no pressure. I'll show you exactly what I'd build for your business.</p>
         <form id="modalForm">
+            <input type="hidden" name="_replyto" value="jake@appliedaiagent.ai">
+            <input type="hidden" name="_subject" value="New demo request — Applied AI Agent">
             <div class="form-row">
                 <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Jake" autocomplete="given-name"></div>
                 <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Lazar" autocomplete="family-name"></div>
             </div>
             <div class="form-group"><label>Business Email</label><input type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" required></div>
-            <div class="form-group"><label>Business Name</label><input type="text" name="business" placeholder="Sonoma Estate Winery" autocomplete="organization"></div>
+            <div class="form-group"><label>Business Name</label><input type="text" name="business" placeholder="Your Business" autocomplete="organization"></div>
             <div class="form-group">
                 <label>Industry</label>
                 <select name="industry">
                     <option value="" disabled selected>Select your industry</option>
-                    <option>Winery / Tasting Room</option><option>Vineyard / Estate</option>
-                    <option>Wine Tour Operator</option><option>Wine Club / DTC Brand</option>
-                    <option>Hospitality / Hotel / Restaurant</option>
-                    <option>Home Services (HVAC, Plumbing, Landscaping)</option>
-                    <option>Real Estate</option><option>Legal / Professional Services</option>
+                    <option>Tour Operator</option>
+                    <option>HVAC / Plumbing</option>
+                    <option>Real Estate</option>
+                    <option>Landscaping / Outdoor Services</option>
+                    <option>Restaurant / Hospitality</option>
+                    <option>Contractor / Trades</option>
                     <option>Other (please specify below)</option>
                 </select>
             </div>
             <div class="form-group" style="margin-bottom:1.5rem;">
                 <label>What's eating your time right now?</label>
-                <textarea name="message" placeholder="Follow-ups, booking, wine club, reviews — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
+                <textarea name="message" placeholder="Follow-ups, bookings, scheduling, customer communication — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
             </div>
             <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Demo</button>
         </form>
@@ -150,7 +153,6 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
     <div class="container">
-        <p class="section-label">Contact</p>
         <h1>Let's talk about<br>your <em>business.</em></h1>
         <p>Tell me what's eating your time. I'll follow up within a few hours — usually sooner.</p>
     </div>
@@ -174,12 +176,13 @@
     <div class="container">
         <div class="form-layout">
             <div class="form-aside">
-                <p class="section-label">Demo Request</p>
                 <h2>Schedule a <em>free 15-minute demo</em></h2>
                 <p>Tell me what's slowing you down. I'll put together a demo built specifically around your operation — no generic slides, no sales pitch.</p>
             </div>
             <div>
                 <form id="contactForm">
+                    <input type="hidden" name="_replyto" value="jake@appliedaiagent.ai">
+                    <input type="hidden" name="_subject" value="New contact — Applied AI Agent">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="fname">First Name</label>
@@ -191,32 +194,30 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Business Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@yourwinery.com" required autocomplete="email">
+                        <label for="cemail">Business Email</label>
+                        <input type="email" id="cemail" name="email" placeholder="you@yourbusiness.com" required autocomplete="email">
                     </div>
                     <div class="form-group">
-                        <label for="biz">Winery / Business Name</label>
-                        <input type="text" id="biz" name="business" placeholder="Sonoma Estate Winery" autocomplete="organization">
+                        <label for="biz">Business Name</label>
+                        <input type="text" id="biz" name="business" placeholder="Your Business" autocomplete="organization">
                     </div>
                     <div class="form-group">
                         <label for="industry">Industry</label>
                         <select id="industry" name="industry">
                             <option value="" disabled selected>Select your industry</option>
-                            <option>Winery / Tasting Room</option>
-                            <option>Vineyard / Estate</option>
-                            <option>Wine Tour Operator</option>
-                            <option>Wine Club / DTC Brand</option>
-                            <option>Hospitality / Hotel / Restaurant</option>
-                            <option>Home Services (HVAC, Plumbing, Landscaping)</option>
+                            <option>Tour Operator</option>
+                            <option>HVAC / Plumbing</option>
                             <option>Real Estate</option>
-                            <option>Legal / Professional Services</option>
+                            <option>Landscaping / Outdoor Services</option>
+                            <option>Restaurant / Hospitality</option>
+                            <option>Contractor / Trades</option>
                             <option>Other (please specify below)</option>
                         </select>
                     </div>
                     <div class="form-group" style="margin-bottom:1.5rem;">
                         <label for="message">What's eating your time right now?</label>
                         <textarea id="message" name="message" style="min-height:130px;"
-                            placeholder="Follow-ups, bookings, wine club, reviews, wholesale outreach — tell me what you wish you didn't have to deal with..."></textarea>
+                            placeholder="Follow-ups, bookings, scheduling, customer communication — tell me what you wish you didn't have to deal with..."></textarea>
                     </div>
                     <button type="button" class="btn-submit" onclick="submitContactForm()">Schedule My Free Demo</button>
                 </form>

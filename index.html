@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applied AI Agent — AI Automation for Wine Country</title>
+    <title>Applied AI Agent — AI Automation for Owner-Operated Businesses</title>
+    <meta name="description" content="Jake Lazar builds custom AI agents that add an intelligence layer to owner-operated businesses. Custom systems, not platforms. Free 15-minute demo.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
@@ -24,17 +25,6 @@
         align-items: center;
         width: 100%;
     }
-    @media (max-width: 1024px) {
-        .hero-inner {
-            gap: 2.5rem;
-        }
-    }
-    @media (max-width: 768px) {
-        .hero-inner {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-    }
     .hero-eyebrow {
         display: inline-flex; align-items: center;
         background: rgba(196,151,90,0.12);
@@ -47,366 +37,229 @@
     }
     h1 {
         font-family: 'Fraunces', serif;
-        font-size: clamp(3rem, 5.5vw, 5.25rem);
+        font-size: clamp(2.75rem, 5vw, 4.75rem);
         font-weight: 400; line-height: 1.0; letter-spacing: -0.03em;
         color: #F5F0E8; font-variation-settings: 'opsz' 72;
+        text-wrap: balance;
     }
     .hero-sub {
-        font-size: 1rem; color: rgba(245,240,232,0.45); max-width: 400px;
-        margin: 1.625rem 0 2.25rem; line-height: 1.8; font-weight: 300;
+        font-size: 1.0625rem; color: rgba(245,240,232,0.5); max-width: 440px;
+        margin: 1.75rem 0 2.5rem; line-height: 1.8; font-weight: 300;
     }
     .hero-trust {
         font-size: 0.75rem; color: rgba(245,240,232,0.25);
         margin-top: 1.125rem; display: block;
     }
 
-    /* ── AGENT CARD ── */
-    .agent-card {
-        background: rgba(245,240,232,0.04);
-        border: 1px solid rgba(245,240,232,0.09);
+    /* ── AGENT PREVIEW ── */
+    .agent-preview {
+        background: #fff;
         border-radius: 14px;
         overflow: hidden;
-        box-shadow: 0 24px 64px rgba(0,0,0,0.4);
-    }
-    .agent-header {
-        display: flex; align-items: center; gap: 0.625rem;
-        padding: 0.875rem 1.25rem;
-        border-bottom: 1px solid rgba(245,240,232,0.07);
-        background: rgba(245,240,232,0.03);
-    }
-    .agent-status-dot {
-        width: 7px; height: 7px; border-radius: 50%; background: #28C840; flex-shrink: 0;
-    }
-    .agent-status-text {
-        font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
-        color: rgba(245,240,232,0.4); flex: 1;
-    }
-    .agent-live-tag {
-        font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
-        color: var(--sage); background: rgba(122,158,126,0.15);
-        padding: 0.2rem 0.5rem; border-radius: 10px;
-    }
-    .agent-msgs { padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
-    .agent-msg { display: flex; gap: 0.75rem; align-items: flex-start; }
-    .agent-avatar {
-        width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
-        background: var(--green); border: 1px solid rgba(245,240,232,0.1);
-        display: flex; align-items: center; justify-content: center;
-        font-size: 0.65rem; font-weight: 500; color: var(--gold);
+        box-shadow: 0 24px 64px rgba(0,0,0,0.28), 0 4px 16px rgba(0,0,0,0.12);
+        display: flex; flex-direction: column;
         font-family: 'Manrope', sans-serif;
     }
-    .agent-bubble { flex: 1; }
-    .agent-text {
-        font-size: 0.8125rem; color: rgba(245,240,232,0.78);
-        line-height: 1.6; font-weight: 300;
+    .ap-header {
+        display: flex; align-items: center; gap: 0.5rem;
+        padding: 0.875rem 1.125rem;
+        border-bottom: 1px solid #F0EFEd;
+        background: #FAFAF9;
     }
-    .agent-ts { font-size: 0.68rem; color: rgba(245,240,232,0.28); margin-top: 0.3rem; display: block; }
-    .agent-msg-live { display: flex; align-items: center; gap: 0.375rem; margin-bottom: 0.3rem; }
-    .agent-msg-live-dot {
-        width: 5px; height: 5px; border-radius: 50%; background: #28C840; flex-shrink: 0;
+    .ap-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #28C840; flex-shrink: 0; }
+    .ap-status-text { font-size: 0.72rem; font-weight: 500; color: #6B7A6D; flex: 1; letter-spacing: 0.02em; }
+    .ap-live-pill {
+        font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em;
+        text-transform: uppercase; color: #5E8A62;
+        background: rgba(94,138,98,0.1); border-radius: 20px;
+        padding: 0.2rem 0.55rem;
     }
-    .agent-msg-live-label {
-        font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--sage);
+    .ap-body { padding: 1.25rem 1.125rem; display: flex; flex-direction: column; gap: 1rem; }
+    .ap-message { display: flex; align-items: flex-start; gap: 0.625rem; }
+    .ap-message.ap-user { justify-content: flex-end; }
+    .ap-agent-icon {
+        width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+        background: var(--dark); display: flex; align-items: center; justify-content: center;
+        font-size: 0.6rem; font-weight: 600; color: var(--gold);
+        margin-top: 1px;
     }
-    .agent-footer {
-        padding: 0.75rem 1.25rem;
-        border-top: 1px solid rgba(245,240,232,0.06);
-        font-size: 0.7rem; color: rgba(245,240,232,0.25);
-        background: rgba(245,240,232,0.02);
+    .ap-bubble-group { display: flex; flex-direction: column; gap: 0.3rem; max-width: 78%; }
+    .ap-bubble {
+        padding: 0.625rem 0.875rem; border-radius: 10px;
+        font-size: 0.8125rem; line-height: 1.55;
     }
+    .ap-bubble-user {
+        background: #F4F3F1; color: #2A3A2C;
+        border-radius: 10px 10px 4px 10px;
+        max-width: 78%; margin-left: auto;
+    }
+    .ap-bubble-agent {
+        background: #fff; color: #2A3A2C;
+        border: 1px solid #EBEBEA;
+        border-radius: 10px 10px 10px 4px;
+    }
+    .ap-action-tag {
+        font-size: 0.7rem; color: #5E8A62; font-weight: 500;
+        display: flex; align-items: center; gap: 0.375rem;
+        padding-left: 0.25rem;
+    }
+    .ap-action-tag::before {
+        content: ''; display: inline-block; width: 12px; height: 12px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%235E8A62' d='M10 3L5 8.5 2 5.5 1 6.5 5 10.5 11 4z'/%3E%3C/svg%3E");
+        background-size: contain; flex-shrink: 0;
+    }
+    .ap-input {
+        display: flex; align-items: center; gap: 0.5rem;
+        padding: 0.75rem 1.125rem;
+        border-top: 1px solid #F0EFED;
+        background: #FAFAF9;
+    }
+    .ap-input-text {
+        flex: 1; font-size: 0.8125rem; color: #B5BDB6;
+        font-family: 'Manrope', sans-serif;
+    }
+    .ap-send {
+        width: 28px; height: 28px; border-radius: 7px;
+        background: var(--dark); display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0; cursor: pointer;
+    }
+    .ap-send svg { width: 13px; height: 13px; fill: none; stroke: rgba(245,240,232,0.7); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    /* ── STATS BAR ── */
-    .stats-bar {
-        background: var(--cream);
-        border-top: 1px solid var(--rule);
-        border-bottom: 1px solid var(--rule);
-        padding: 4.5rem 0;
-    }
-    .stats-inner {
-        display: grid; 
-        grid-template-columns: repeat(4, 1fr);
-    }
-    @media (max-width: 1024px) {
-        .stats-inner {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media (max-width: 768px) {
-        .stats-inner {
-            grid-template-columns: 1fr;
-        }
-    }
-    .stat-item {
-        text-align: center; padding: 0 2rem;
-        border-right: 1px solid var(--rule);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-accent {
-        width: 32px; height: 2px; background: var(--gold);
-        margin: 0 auto 1rem; border-radius: 2px;
-    }
-    .stat-num {
-        font-family: 'Fraunces', serif; font-size: clamp(2.25rem, 3.5vw, 3rem);
-        font-weight: 400; letter-spacing: -0.03em; line-height: 1;
-        color: var(--dark); font-variation-settings: 'opsz' 48;
-        display: block; margin-bottom: 0.625rem;
-    }
-    .stat-label { font-size: 0.8rem; color: var(--ink-mid); line-height: 1.5; max-width: 160px; margin: 0 auto; }
+    /* ── PROOF BAR ── */
+    .proof-bar { background: var(--surface-alt); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 3.25rem 0; }
+    .proof-text { font-family: 'Fraunces', serif; font-size: clamp(1rem, 1.5vw, 1.1875rem); font-weight: 300; line-height: 1.7; color: var(--ink-mid); max-width: 820px; letter-spacing: -0.01em; font-variation-settings: 'opsz' 24; }
+    .proof-text strong { font-weight: 400; color: var(--ink); }
+
+    /* ── CREDIBILITY ── */
+    .credibility { background: var(--surface); padding: 9rem 0; border-bottom: 1px solid var(--rule); }
+    .credibility-inner { display: grid; grid-template-columns: 1fr 2.5fr; gap: 6rem; align-items: start; }
+    .credibility-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); padding-top: 0.5rem; font-weight: 500; }
+    .credibility-body { font-family: 'Fraunces', serif; font-size: clamp(1.2rem, 1.8vw, 1.5625rem); font-weight: 300; line-height: 1.65; letter-spacing: -0.015em; color: var(--ink); font-variation-settings: 'opsz' 24; text-wrap: pretty; }
+    .credibility-body em { font-style: italic; color: var(--ink-mid); }
 
     /* ── WHAT WE DO ── */
-    #what-we-do { background: var(--cream-alt); padding: 7rem 0; scroll-margin-top: 5rem; }
-    .what-grid { 
-        display: grid; 
-        grid-template-columns: 1fr 1fr; 
-        gap: 6rem; 
-        align-items: start; 
-    }
-    @media (max-width: 768px) {
-        .what-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-    }
+    #what-we-do { background: var(--surface-alt); padding: 9rem 0; scroll-margin-top: 5rem; }
+    .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: start; }
     .what-body { margin-top: 1.5rem; }
-    .what-body p { font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.125rem; }
+    .what-body p { font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.125rem; }
     .what-body p:last-child { margin-bottom: 0; }
-    .cap-cards { display: flex; flex-direction: column; gap: 0; }
-    .cap-card {
-        background: var(--cream); border: 1px solid var(--rule);
-        padding: 1.75rem 2rem;
-        transition: all 0.2s ease;
-    }
-    .cap-card:first-child { border-radius: 8px 8px 0 0; }
-    .cap-card:last-child { border-radius: 0 0 8px 8px; }
-    .cap-card + .cap-card { border-top: none; }
-    .cap-card:hover { background: #fff; }
-    .cap-icon {
-        width: 36px; height: 36px; border-radius: 8px;
-        background: rgba(196,151,90,0.1);
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.0rem; margin-bottom: 0.875rem;
-    }
-    .cap-title {
-        font-family: 'Fraunces', serif; font-size: 1.125rem; font-weight: 400;
-        color: var(--ink); letter-spacing: -0.01em;
-        font-variation-settings: 'opsz' 24; margin-bottom: 0.5rem;
-    }
-    .cap-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.7; }
+    /* Features list — no card boxes */
+    .cap-features { display: flex; flex-direction: column; margin-top: 0.5rem; }
+    .cap-feature { display: flex; gap: 1.5rem; align-items: baseline; padding: 1.625rem 0; border-top: 1px solid var(--rule); }
+    .cap-feature:last-child { border-bottom: 1px solid var(--rule); }
+    .cap-feature-name { font-family: 'Fraunces', serif; font-size: 1.0625rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; font-variation-settings: 'opsz' 24; min-width: 90px; flex-shrink: 0; }
+    .cap-feature-desc { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.7; }
 
     /* ── HOW IT WORKS ── */
-    #how-it-works { background: var(--cream); padding: 7rem 0 0; scroll-margin-top: 5rem; }
-    .steps-grid {
-        display: grid; grid-template-columns: repeat(2, 1fr);
-        gap: 3rem 5rem; margin-top: 3.5rem; padding-bottom: 0;
-        position: relative;
-    }
-    .steps-grid::before { display: none; }
-    .step-num {
-        font-family: 'Fraunces', serif; font-size: 4rem; font-weight: 400;
-        color: rgba(196,151,90,0.2); letter-spacing: -0.04em; line-height: 1;
-        font-variation-settings: 'opsz' 48; display: block; margin-bottom: 1.5rem;
-        position: relative;
-    }
-    .step-title {
-        font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 400;
-        color: var(--ink); letter-spacing: -0.015em;
-        font-variation-settings: 'opsz' 24; margin-bottom: 0.625rem;
-    }
+    #how-it-works { background: var(--surface); padding: 9rem 0 0; scroll-margin-top: 5rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem 5rem; margin-top: 3.5rem; position: relative; }
+    .step-num { font-family: 'Fraunces', serif; font-size: 4rem; font-weight: 400; color: rgba(196,151,90,0.2); letter-spacing: -0.04em; line-height: 1; font-variation-settings: 'opsz' 48; display: block; margin-bottom: 1.5rem; }
+    .step-title { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 400; color: var(--ink); letter-spacing: -0.015em; font-variation-settings: 'opsz' 24; margin-bottom: 0.625rem; }
     .step-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.75; }
-    .steps-features {
-        display: grid; grid-template-columns: repeat(3, 1fr);
-        margin-top: 5rem;
-        border-top: 1px solid var(--rule);
-    }
-    .steps-feature {
-        padding: 2.25rem 2rem;
-        border-right: 1px solid var(--rule);
-        background: var(--cream-alt);
-    }
+    .steps-features { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 5rem; border-top: 1px solid var(--rule); }
+    .steps-feature { padding: 2.25rem 2rem; border-right: 1px solid var(--rule); background: var(--surface-alt); }
     .steps-feature:last-child { border-right: none; }
-    .steps-feature-icon {
-        font-size: 1.125rem; margin-bottom: 0.875rem; display: block;
-    }
-    .steps-feature-title {
-        font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400;
-        color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.375rem;
-        font-variation-settings: 'opsz' 18;
-    }
+    .steps-feature-icon { font-size: 1.125rem; margin-bottom: 0.875rem; display: block; }
+    .steps-feature-title { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0.375rem; font-variation-settings: 'opsz' 18; }
     .steps-feature-desc { font-size: 0.8125rem; color: var(--ink-mid); line-height: 1.6; }
 
-    /* ── AUTOMATIONS ── */
-    #automations { background: var(--cream-alt); padding: 7rem 0; }
-    .auto-grid {
-        display: grid; grid-template-columns: repeat(3, 1fr);
-        gap: 1.125rem; margin-top: 0;
+    /* ── VERTICALS ── */
+    #automations { background: var(--surface-alt); padding: 9rem 0; }
+    .verticals-list { margin-top: 3.5rem; }
+    .vertical-row {
+        display: grid; grid-template-columns: 180px 1fr auto;
+        gap: 2.5rem; align-items: baseline;
+        padding: 1.75rem 0; border-top: 1px solid var(--rule);
+        opacity: 0; transform: translateY(10px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
     }
-    .auto-card {
-        background: var(--cream); border: 1px solid var(--rule);
-        border-radius: 8px; padding: 2.25rem;
-        display: flex; flex-direction: column;
-        position: relative; overflow: hidden;
-        opacity: 0; transform: translateY(12px);
-        transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.25s ease;
-    }
-    .auto-card.on { opacity: 1; transform: none; }
-    .auto-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 32px rgba(13,31,26,0.09);
-    }
-    .auto-card-dot {
-        position: absolute; top: 1.25rem; right: 1.25rem;
-        width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
-    }
-    .auto-card-cat {
-        font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-        color: var(--ink-soft); margin-bottom: 0.5rem; display: block;
-    }
-    .auto-card-name {
-        font-family: 'Fraunces', serif; font-size: 1.125rem; font-weight: 400;
-        color: var(--ink); letter-spacing: -0.01em;
-        font-variation-settings: 'opsz' 24; margin-bottom: 0.75rem;
-    }
-    .auto-card-desc { font-size: 0.875rem; color: var(--ink-mid); line-height: 1.7; flex: 1; }
-    .auto-pill {
-        display: inline-block;
-        background: rgba(196,151,90,0.1);
-        color: var(--gold);
-        border: 1px solid rgba(196,151,90,0.2);
-        font-size: 0.7rem; font-weight: 400;
-        letter-spacing: 0.03em; padding: 0.3rem 0.75rem;
-        border-radius: 20px; margin-top: 1.25rem; align-self: flex-start;
-    }
+    .vertical-row:last-child { border-bottom: 1px solid var(--rule); }
+    .vertical-row.on { opacity: 1; transform: none; }
+    .vertical-sector { font-size: 0.75rem; color: var(--ink-soft); font-weight: 500; letter-spacing: 0.02em; }
+    .vertical-body {}
+    .vertical-name { font-family: 'Fraunces', serif; font-size: 1.0625rem; font-weight: 400; color: var(--ink); letter-spacing: -0.01em; font-variation-settings: 'opsz' 24; margin-bottom: 0.375rem; }
+    .vertical-desc { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.7; max-width: 480px; }
+    .vertical-result { font-size: 0.8rem; color: var(--gold); font-weight: 500; white-space: nowrap; text-align: right; }
 
     /* ── INTEGRATIONS ── */
-    #integrations { background: var(--cream); padding: 7rem 0; }
-    .integrations-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-        gap: 0.875rem; margin-top: 3rem;
-    }
-    .int-tile {
-        background: var(--cream-alt); border: 1px solid var(--rule);
-        border-radius: 8px; padding: 1.125rem 1.375rem;
-        display: flex; align-items: center; gap: 0.75rem;
-        transition: all 0.2s ease;
-    }
-    .int-tile:hover { background: var(--cream); border-color: var(--rule-md); }
-    .int-avatar {
-        width: 34px; height: 34px; border-radius: 8px;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 0.7rem; font-weight: 500; color: #fff; flex-shrink: 0;
-        font-family: 'Manrope', sans-serif;
-    }
+    #integrations { background: var(--surface); padding: 9rem 0; }
+    .integrations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.875rem; margin-top: 3rem; }
+    .int-tile { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; transition: all 0.2s ease; }
+    .int-tile:hover { border-color: var(--rule-md); box-shadow: 0 4px 16px rgba(13,31,26,0.07); }
+    .int-logo { width: 28px; height: 28px; object-fit: contain; border-radius: 6px; flex-shrink: 0; }
+    .int-logo-fallback { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 600; color: #fff; flex-shrink: 0; font-family: 'Manrope', sans-serif; }
     .int-name { font-size: 0.875rem; color: var(--ink); font-weight: 400; }
-    .int-note {
-        text-align: center; font-size: 0.8125rem; color: var(--ink-soft);
-        margin-top: 2rem;
-    }
+    .int-note { text-align: center; font-size: 0.8125rem; color: var(--ink-soft); margin-top: 2rem; }
 
     /* ── DEMO CTA ── */
-    .demo-cta {
-        background: var(--dark);
-        padding: 8rem 0;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-    .demo-cta::before {
-        content: '';
-        position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-        background: radial-gradient(ellipse at 50% 0%, rgba(196,151,90,0.07) 0%, transparent 65%);
-        pointer-events: none;
-    }
+    .demo-cta { background: var(--dark); padding: 10rem 0; text-align: center; position: relative; overflow: hidden; }
+    .demo-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 0%, rgba(196,151,90,0.07) 0%, transparent 65%); pointer-events: none; }
     .demo-cta-inner { position: relative; }
-    .demo-cta-trust {
-        font-size: 0.75rem; color: rgba(245,240,232,0.3);
-        letter-spacing: 0.04em; margin-bottom: 2rem; display: block;
-    }
-    .demo-cta h2 {
-        color: #F5F0E8; font-size: clamp(2rem, 4vw, 2.875rem);
-        max-width: 560px; margin: 0 auto 1.375rem;
-    }
+    .demo-cta-trust { font-size: 0.75rem; color: rgba(245,240,232,0.3); letter-spacing: 0.04em; margin-bottom: 2rem; display: block; }
+    .demo-cta h2 { color: #F5F0E8; font-size: clamp(2rem, 4vw, 2.875rem); max-width: 560px; margin: 0 auto 1.375rem; text-wrap: balance; }
     .demo-cta h2 em { color: var(--gold); }
-    .demo-cta-sub {
-        font-size: 0.9375rem; color: rgba(245,240,232,0.4);
-        max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.8;
-    }
+    .demo-cta-sub { font-size: 0.9375rem; color: rgba(245,240,232,0.4); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.8; }
     .demo-cta-note { display: block; font-size: 0.78rem; color: rgba(245,240,232,0.22); margin-top: 1.25rem; }
-    .cta-social {
-        display: flex; align-items: center; justify-content: center;
-        gap: 0.75rem; margin-top: 2rem;
-    }
+    .cta-social { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
     .cta-avatars { display: flex; }
-    .cta-avatar {
-        width: 30px; height: 30px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 0.65rem; font-weight: 500; color: #fff;
-        font-family: 'Manrope', sans-serif;
-        border: 2px solid var(--dark);
-    }
+    .cta-avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 500; color: #fff; font-family: 'Manrope', sans-serif; border: 2px solid var(--dark); }
     .cta-avatar + .cta-avatar { margin-left: -8px; }
     .cta-social-text { font-size: 0.8rem; color: rgba(245,240,232,0.35); }
 
     /* ── FAQ ── */
-    #faq { background: var(--cream-alt); padding: 7rem 0; }
+    #faq { background: var(--surface-alt); padding: 9rem 0; }
     .faq-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 6rem; align-items: start; }
     .faq-list { margin-top: 0; }
     .faq-item { border-bottom: 1px solid var(--rule); }
     .faq-item:first-child { border-top: 1px solid var(--rule); }
-    .faq-question {
-        width: 100%; background: none; border: none; cursor: pointer;
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 1.25rem 0; gap: 1.5rem; text-align: left;
-        font-family: 'Manrope', sans-serif; font-size: 0.9375rem; font-weight: 400;
-        color: var(--ink); transition: color 0.2s;
-    }
+    .faq-question { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 0; gap: 1.5rem; text-align: left; font-family: 'Manrope', sans-serif; font-size: 0.9375rem; font-weight: 400; color: var(--ink); transition: color 0.2s; }
     .faq-question:hover { color: var(--ink-mid); }
-    .faq-icon {
-        font-size: 1.25rem; color: var(--ink-soft); flex-shrink: 0;
-        transition: transform 0.3s ease, color 0.2s;
-        line-height: 1;
-    }
+    .faq-icon { font-size: 1.25rem; color: var(--ink-soft); flex-shrink: 0; transition: transform 0.3s ease, color 0.2s; line-height: 1; }
     .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--gold); }
-    .faq-answer {
-        max-height: 0; overflow: hidden;
-        transition: max-height 0.35s ease;
-    }
-    .faq-answer-inner {
-        padding: 0 0 1.5rem;
-        font-size: 0.9rem; color: var(--ink-mid); line-height: 1.8;
-    }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer-inner { padding: 0 0 1.5rem; font-size: 0.9rem; color: var(--ink-mid); line-height: 1.8; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
         .hero { padding: 7rem 0 4rem; }
         .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-        .agent-card { display: none; }
-        .stats-inner { grid-template-columns: 1fr 1fr; gap: 0; }
+        .agent-preview { display: none; }
+        .stats-inner { grid-template-columns: 1fr 1fr; }
         .stat-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 2rem; }
         .stat-item:nth-child(odd) { border-right: 1px solid var(--rule); }
         .stat-item:last-child { border-bottom: none; }
         .stat-item:nth-last-child(2) { border-bottom: none; }
-        #what-we-do, #how-it-works, #automations, #integrations, #faq { padding: 5rem 0; }
-        .what-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        .credibility { padding: 6rem 0; }
+        .credibility-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+        #what-we-do, #how-it-works, #automations, #integrations, #faq { padding: 6rem 0; }
+        .what-grid { grid-template-columns: 1fr; gap: 3rem; }
         .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
         .steps-features { grid-template-columns: 1fr; }
         .steps-feature { border-right: none; border-bottom: 1px solid var(--rule); }
         .steps-feature:last-child { border-bottom: none; }
-        .auto-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .vertical-row { grid-template-columns: 1fr; gap: 0.5rem; }
+        .vertical-result { text-align: left; }
         .faq-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-        .demo-cta { padding: 6rem 0; }
+        .demo-cta { padding: 7rem 0; }
     }
     @media (max-width: 580px) {
-        h1 { font-size: clamp(2.75rem, 10vw, 4rem); }
+        h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
         .stats-inner { grid-template-columns: 1fr; }
         .stat-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 1.75rem 0; }
         .stat-item:nth-child(odd) { border-right: none; }
         .stat-item:last-child { border-bottom: none; }
-        #what-we-do, #how-it-works, #automations, #integrations, #faq { padding: 4rem 0; }
-        .auto-grid { grid-template-columns: 1fr; }
+        .credibility { padding: 5rem 0; }
+        .credibility-body { font-size: clamp(1.1rem, 4vw, 1.375rem); }
+        #what-we-do, #how-it-works, #automations, #integrations, #faq { padding: 5rem 0; }
+        .vertical-row { grid-template-columns: 1fr; gap: 0.375rem; }
         .steps-features { grid-template-columns: 1fr; }
         .demo-cta { padding: 5rem 0; }
         .integrations-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .auto-card { transition: none; }
+        .fade { transition: none; opacity: 1; transform: none; }
     }
     </style>
 </head>
@@ -418,7 +271,7 @@
     <ul class="nav-links">
         <li><a href="index.html#what-we-do">What We Do</a></li>
         <li><a href="index.html#how-it-works">How It Works</a></li>
-        <li><a href="work.html">Work</a></li>
+        <li><a href="work.html">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
     <button onclick="openModal()" class="btn-nav">Schedule a Free Demo</button>
@@ -431,7 +284,7 @@
     <ul>
         <li><a href="index.html#what-we-do">What We Do</a></li>
         <li><a href="index.html#how-it-works">How It Works</a></li>
-        <li><a href="work.html">Work</a></li>
+        <li><a href="work.html">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
     <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Schedule a Free Demo</button>
@@ -462,26 +315,24 @@
             </div>
             <div class="form-group">
                 <label>Business Name</label>
-                <input type="text" name="business" placeholder="Sonoma Estate Winery" autocomplete="organization">
+                <input type="text" name="business" placeholder="Your Business" autocomplete="organization">
             </div>
             <div class="form-group">
                 <label>Industry</label>
                 <select name="industry">
                     <option value="" disabled selected>Select your industry</option>
-                    <option>Winery / Tasting Room</option>
-                    <option>Vineyard / Estate</option>
-                    <option>Wine Tour Operator</option>
-                    <option>Wine Club / DTC Brand</option>
-                    <option>Hospitality / Hotel / Restaurant</option>
-                    <option>Home Services (HVAC, Plumbing, Landscaping)</option>
+                    <option>Tour Operator</option>
+                    <option>HVAC / Plumbing</option>
                     <option>Real Estate</option>
-                    <option>Legal / Professional Services</option>
+                    <option>Landscaping / Outdoor Services</option>
+                    <option>Restaurant / Hospitality</option>
+                    <option>Contractor / Trades</option>
                     <option>Other (please specify below)</option>
                 </select>
             </div>
             <div class="form-group" style="margin-bottom:1.5rem;">
                 <label>What's eating your time right now?</label>
-                <textarea name="message" placeholder="Follow-ups, booking, wine club, reviews — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
+                <textarea name="message" placeholder="Follow-ups, bookings, scheduling, customer communication — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
             </div>
             <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Demo</button>
         </form>
@@ -500,80 +351,70 @@
     <div class="container">
         <div class="hero-inner">
 
-            <!-- Left: copy -->
             <div>
-                <span class="hero-eyebrow">Sonoma, CA &nbsp;·&nbsp; Winemaker-built AI for owner-operated businesses</span>
-                <h1>Your winery,<br>on autopilot.</h1>
-                <p class="hero-sub">I'm a winemaker who builds AI agents. I know how owner-operated businesses actually work — and I build custom systems that handle the admin so you can focus on what matters.</p>
+                <span class="hero-eyebrow">Sonoma, CA &nbsp;·&nbsp; Custom AI agents for owner-operated businesses</span>
+                <h1>Add an AI intelligence layer to your business.</h1>
+                <p class="hero-sub">I build AI agents that integrate with your CRM, booking system, email, and SMS — so your business handles follow-up, scheduling, and customer outreach without you in the middle.</p>
                 <button onclick="openModal()" class="btn-gold">Schedule a Free 15-Minute Demo</button>
                 <span class="hero-trust">Free demo first. You see it running before you pay a dollar.</span>
             </div>
 
-            <!-- Right: agent activity card -->
-            <div class="agent-card">
-                <div class="agent-header">
-                    <span class="agent-status-dot"></span>
-                    <span class="agent-status-text">Agent Active</span>
-                    <span class="agent-live-tag">Live</span>
+            <div class="agent-preview">
+                <div class="ap-header">
+                    <span class="ap-status-dot"></span>
+                    <span class="ap-status-text">Your agent</span>
+                    <span class="ap-live-pill">Active</span>
                 </div>
-                <div class="agent-msgs">
-                    <div class="agent-msg">
-                        <div class="agent-avatar">A</div>
-                        <div class="agent-bubble">
-                            <p class="agent-text">Follow-up sent to the Martinez group — 6 guests from Saturday's tasting. Wine club pitch included.</p>
-                            <span class="agent-ts">2 min ago</span>
+                <div class="ap-body">
+                    <div class="ap-message ap-user">
+                        <div class="ap-bubble ap-bubble-user">Send a follow-up to everyone from Tuesday's tour inquiry</div>
+                    </div>
+                    <div class="ap-message ap-agent">
+                        <div class="ap-agent-icon">A</div>
+                        <div class="ap-bubble-group">
+                            <div class="ap-bubble ap-bubble-agent">Done. Personalized follow-up sent to 6 contacts — availability and booking link included.</div>
+                            <span class="ap-action-tag">Email sent · 2 min ago</span>
                         </div>
                     </div>
-                    <div class="agent-msg">
-                        <div class="agent-avatar">A</div>
-                        <div class="agent-bubble">
-                            <p class="agent-text">Churn alert: Patricia W. hasn't engaged in 90 days. Re-engagement email queued for 9am.</p>
-                            <span class="agent-ts">1 hr ago</span>
-                        </div>
+                    <div class="ap-message ap-user">
+                        <div class="ap-bubble ap-bubble-user">Any leads gone quiet this week?</div>
                     </div>
-                    <div class="agent-msg">
-                        <div class="agent-avatar">A</div>
-                        <div class="agent-bubble">
-                            <div class="agent-msg-live">
-                                <span class="agent-msg-live-dot"></span>
-                                <span class="agent-msg-live-label">Live</span>
-                            </div>
-                            <p class="agent-text">Kunde Estate is running 4 active automations. 247 touchpoints sent this month.</p>
-                            <span class="agent-ts">Just now</span>
+                    <div class="ap-message ap-agent">
+                        <div class="ap-agent-icon">A</div>
+                        <div class="ap-bubble-group">
+                            <div class="ap-bubble ap-bubble-agent">3 contacts haven't responded in 5+ days. Re-engagement scheduled for tomorrow morning.</div>
+                            <span class="ap-action-tag">Queued · Just now</span>
                         </div>
                     </div>
                 </div>
-                <div class="agent-footer">247 touchpoints this month &nbsp;·&nbsp; 0 manual</div>
+                <div class="ap-input">
+                    <span class="ap-input-text">Ask your agent anything...</span>
+                    <div class="ap-send">
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 </section>
 
-<!-- ══════════════════════════════ STATS ══════════════════════════════ -->
-<div class="stats-bar">
+<!-- ══════════════════════════════ PROOF ══════════════════════════════ -->
+<div class="proof-bar">
     <div class="container">
-        <div class="stats-inner">
-            <div class="stat-item">
-                <div class="stat-accent"></div>
-                <span class="stat-num" data-count="847">847</span>
-                <p class="stat-label">Hours of admin automated per client, per year</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-accent"></div>
-                <span class="stat-num" data-count="3" data-suffix="x">3x</span>
-                <p class="stat-label">Average increase in wine club signups after follow-up automation</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-accent"></div>
-                <span class="stat-num" data-count="12">12</span>
-                <p class="stat-label">New Google reviews per month on average</p>
-            </div>
-            <div class="stat-item">
-                <div class="stat-accent"></div>
-                <span class="stat-num" data-count="48" data-suffix="hrs">48hrs</span>
-                <p class="stat-label">From first call to live, running automation</p>
-            </div>
+        <p class="proof-text">Clients recover <strong>847+ hours of admin per year.</strong> Lead response times drop from hours to under 10 minutes. Twelve new Google reviews per month on average. First automation live within <strong>48 hours of the first call.</strong></p>
+    </div>
+</div>
+
+<!-- ══════════════════════════════ CREDIBILITY ══════════════════════════════ -->
+<div class="credibility fade">
+    <div class="container">
+        <div class="credibility-inner">
+            <span class="credibility-label">About Jake</span>
+            <p class="credibility-body">
+                I spent 10 years making wine in Sonoma — harvests in France and Italy, running tasting room operations, managing club logistics. I watched brilliant, hardworking owners spend 20 hours a week on email follow-up, scheduling, and admin that <em>should never require a human.</em><br><br>
+                So I learned to build AI agents. Not generic templates. Custom systems built around how your specific operation works, connected to the tools you already use, tested before you pay a dollar. I stay involved after launch to keep it running and improving.
+            </p>
         </div>
     </div>
 </div>
@@ -583,28 +424,24 @@
     <div class="container">
         <div class="what-grid">
             <div>
-                <p class="section-label">What We Do</p>
-                <h2>AI that knows<br><em>wine country.</em></h2>
+                <h2>An intelligence layer,<br><em>not another platform.</em></h2>
                 <div class="what-body">
-                    <p>I spent 10 years as a winemaker in Sonoma. I worked harvests in France and Italy, managed wine clubs, and ran tasting room operations. I watched brilliant owners spend 20+ hours a week on admin that should never have required a human.</p>
-                    <p>So I learned to build AI agents. Not generic templates — custom systems built around how your business actually operates. You own what I build. I stay involved to optimize it. No platform, no black box.</p>
+                    <p>You don't need a new system. You need the systems you already have to talk to each other and act on your behalf. That's what an AI agent does.</p>
+                    <p>I connect your CRM, booking software, email platform, and SMS tools into a single coordinated layer that handles the repetitive work — follow-ups, reminders, status updates, review requests — without you touching any of it.</p>
                 </div>
             </div>
-            <div class="cap-cards">
-                <div class="cap-card">
-                    <div class="cap-icon">⚡</div>
-                    <p class="cap-title">Automate</p>
-                    <p class="cap-desc">Follow-ups, wine club comms, review requests. Running daily without you touching anything.</p>
+            <div class="cap-features">
+                <div class="cap-feature">
+                    <span class="cap-feature-name">Automate</span>
+                    <span class="cap-feature-desc">Follow-ups, reminders, review requests, lead responses — built once, running every day without you touching anything.</span>
                 </div>
-                <div class="cap-card">
-                    <div class="cap-icon">⇄</div>
-                    <p class="cap-title">Integrate</p>
-                    <p class="cap-desc">Connects to Tock, Commerce7, WineDirect, your email platform. You never see an API key.</p>
+                <div class="cap-feature">
+                    <span class="cap-feature-name">Integrate</span>
+                    <span class="cap-feature-desc">Connects to your booking system, CRM, and email platform on top of what you already have. No new logins.</span>
                 </div>
-                <div class="cap-card">
-                    <div class="cap-icon">◉</div>
-                    <p class="cap-title">Agent</p>
-                    <p class="cap-desc">Not just automation. An AI that monitors, decides, and acts on your behalf around the clock.</p>
+                <div class="cap-feature">
+                    <span class="cap-feature-name">Partner</span>
+                    <span class="cap-feature-desc">I stay involved after launch — new requests, optimizations, quarterly check-ins. You own the system; I keep it running.</span>
                 </div>
             </div>
         </div>
@@ -614,98 +451,99 @@
 <!-- ══════════════════════════════ HOW IT WORKS ══════════════════════════════ -->
 <section id="how-it-works">
     <div class="container">
-        <p class="section-label">How It Works</p>
         <h2>Transparent process.<br><em>No surprises.</em></h2>
         <div class="steps-grid">
             <div>
                 <span class="step-num">01</span>
-                <p class="step-title">Free demo (15 min)</p>
-                <p class="step-desc">I walk you through your current workflow, talk through what's slowing you down, and show you what's possible. No pitch. No pressure. Just a real conversation.</p>
+                <p class="step-title">Free demo — 15 minutes</p>
+                <p class="step-desc">I walk through your current workflow, ask what's slowing you down, and show you what's possible. No pitch, no pressure. Just a real conversation about your specific operation.</p>
             </div>
             <div>
                 <span class="step-num">02</span>
-                <p class="step-title">Custom build (1–2 weeks)</p>
-                <p class="step-desc">I design the AI agent around your business — connecting to your existing tools, testing edge cases, and running it live before you pay. Setup: $500–$8k depending on complexity.</p>
+                <p class="step-title">Custom build — 1 to 2 weeks</p>
+                <p class="step-desc">I design the AI agent around your business: connecting to your existing tools, testing edge cases, running it live. You see it working before you pay anything.</p>
             </div>
             <div>
                 <span class="step-num">03</span>
-                <p class="step-title">Launch & optimize</p>
-                <p class="step-desc">We go live. I monitor the first month closely, catch edge cases, and make sure your team knows how to use it. The goal is for it to run without you thinking about it.</p>
+                <p class="step-title">Launch and refine</p>
+                <p class="step-desc">We go live. I monitor the first month closely, catch edge cases, and make sure everything runs the way you need it to. The goal is a system that works without you thinking about it.</p>
             </div>
             <div>
                 <span class="step-num">04</span>
-                <p class="step-title">Ongoing support ($300–$1.5k/mo)</p>
-                <p class="step-desc">I stay involved. New automation requests, process improvements, quarterly reviews of what's working. You own the system. I stay to make it better.</p>
+                <p class="step-title">Ongoing partnership</p>
+                <p class="step-desc">I stay involved. New automation requests, process improvements, quarterly check-ins on what's working. You own the system. I stay to make it better over time.</p>
             </div>
         </div>
         <div class="steps-features">
             <div class="steps-feature">
-                <span class="steps-feature-icon">⚡</span>
                 <p class="steps-feature-title">Free demo first</p>
                 <p class="steps-feature-desc">You see it running before you pay anything</p>
             </div>
             <div class="steps-feature">
-                <span class="steps-feature-icon">◈</span>
                 <p class="steps-feature-title">Not a platform</p>
-                <p class="steps-feature-desc">No black box. Full transparency on everything I build</p>
+                <p class="steps-feature-desc">Full transparency on everything I build. No black box.</p>
             </div>
             <div class="steps-feature">
-                <span class="steps-feature-icon">◎</span>
                 <p class="steps-feature-title">You own it</p>
-                <p class="steps-feature-desc">No lock-in. Take it with you if you ever move on</p>
+                <p class="steps-feature-desc">No lock-in. Take it with you if you ever move on.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ══════════════════════════════ AUTOMATIONS ══════════════════════════════ -->
+<!-- ══════════════════════════════ WHAT WE BUILD ══════════════════════════════ -->
 <section id="automations">
     <div class="container">
-        <p class="section-label">What We Build</p>
-        <h2>Things we build<br><em>for wineries.</em></h2>
-        <p class="section-intro">Every automation is custom-built for your operation, connected to the tools you already use, and running within 48 hours of our first call.</p>
-        <div class="auto-grid">
-            <div class="auto-card">
-                <span class="auto-card-dot"></span>
-                <span class="auto-card-cat">Communication</span>
-                <p class="auto-card-name">Tasting Room Follow-Up Agent</p>
-                <p class="auto-card-desc">Personalized thank-you and wine club pitch, sent 24 hours after every visit. Automatic.</p>
-                <span class="auto-pill">~$800/mo recovered</span>
+        <h2>Built for businesses<br><em>like yours.</em></h2>
+        <p class="section-intro">Every system is custom-built, connected to the tools you already use, and running within 48 hours of the first call.</p>
+        <div class="verticals-list">
+            <div class="vertical-row">
+                <span class="vertical-sector">Tour Operators</span>
+                <div class="vertical-body">
+                    <p class="vertical-name">Booking Inquiry Agent</p>
+                    <p class="vertical-desc">Handles inquiries 24/7, qualifies group size and dates, confirms availability, and sends booking confirmations without you in the loop.</p>
+                </div>
+                <span class="vertical-result">50% faster response</span>
             </div>
-            <div class="auto-card">
-                <span class="auto-card-dot"></span>
-                <span class="auto-card-cat">Retention</span>
-                <p class="auto-card-name">Wine Club Churn Prevention</p>
-                <p class="auto-card-desc">Monitors inactive members and re-engages them before they cancel. No spreadsheets.</p>
-                <span class="auto-pill">~$1,200/mo retained</span>
+            <div class="vertical-row">
+                <span class="vertical-sector">HVAC &amp; Home Services</span>
+                <div class="vertical-body">
+                    <p class="vertical-name">Emergency Call Router</p>
+                    <p class="vertical-desc">Answers calls, collects service details, triages urgency, and routes to your dispatcher with full context. Zero missed calls after hours.</p>
+                </div>
+                <span class="vertical-result">Zero missed calls</span>
             </div>
-            <div class="auto-card">
-                <span class="auto-card-dot"></span>
-                <span class="auto-card-cat">Reputation</span>
-                <p class="auto-card-name">Review Request Automation</p>
-                <p class="auto-card-desc">Sends a Google review request at exactly the right moment after a tasting. Consistently.</p>
-                <span class="auto-pill">+12 reviews/month</span>
+            <div class="vertical-row">
+                <span class="vertical-sector">Real Estate</span>
+                <div class="vertical-body">
+                    <p class="vertical-name">Lead Nurture Agent</p>
+                    <p class="vertical-desc">Qualifies leads, runs a follow-up sequence based on intent signals, and escalates warm prospects at the right moment.</p>
+                </div>
+                <span class="vertical-result">More qualified meetings</span>
             </div>
-            <div class="auto-card">
-                <span class="auto-card-dot"></span>
-                <span class="auto-card-cat">Communication</span>
-                <p class="auto-card-name">Wine Club Release Comms</p>
-                <p class="auto-card-desc">Full release sequence: save-the-date, details, reminder, post-pickup follow-up. Handled.</p>
-                <span class="auto-pill">3 hrs saved per release</span>
+            <div class="vertical-row">
+                <span class="vertical-sector">Contractors</span>
+                <div class="vertical-body">
+                    <p class="vertical-name">Job Intake Agent</p>
+                    <p class="vertical-desc">Handles new job intake, follows up on estimates, manages scheduling, and sends proactive status updates so customers stop calling.</p>
+                </div>
+                <span class="vertical-result">5 hrs saved per week</span>
             </div>
-            <div class="auto-card">
-                <span class="auto-card-dot"></span>
-                <span class="auto-card-cat">Sales</span>
-                <p class="auto-card-name">Wholesale Buyer Outreach</p>
-                <p class="auto-card-desc">Tracks your restaurant and shop accounts. Drafts personalized reorder emails automatically.</p>
-                <span class="auto-pill">~$2,400/mo recovered</span>
+            <div class="vertical-row">
+                <span class="vertical-sector">Restaurants</span>
+                <div class="vertical-body">
+                    <p class="vertical-name">Reservation Agent</p>
+                    <p class="vertical-desc">Handles reservations, sends reminders, collects post-visit feedback, and tracks guest data so your marketing actually uses it.</p>
+                </div>
+                <span class="vertical-result">Better guest data</span>
             </div>
-            <div class="auto-card">
-                <span class="auto-card-dot"></span>
-                <span class="auto-card-cat">Events</span>
-                <p class="auto-card-name">Event RSVP &amp; Follow-Up</p>
-                <p class="auto-card-desc">Invites, RSVPs, waitlists, post-event surveys. All of it, without you in the middle.</p>
-                <span class="auto-pill">5 hrs saved per event</span>
+            <div class="vertical-row">
+                <span class="vertical-sector">Landscaping</span>
+                <div class="vertical-body">
+                    <p class="vertical-name">Quote Response Agent</p>
+                    <p class="vertical-desc">Responds to quote requests within minutes, asks qualifying questions, sends estimate ranges, and follows up until the customer decides.</p>
+                </div>
+                <span class="vertical-result">Higher close rate</span>
             </div>
         </div>
     </div>
@@ -714,48 +552,56 @@
 <!-- ══════════════════════════════ INTEGRATIONS ══════════════════════════════ -->
 <section id="integrations">
     <div class="container">
-        <p class="section-label">Connects To</p>
-        <h2>Plugs into the tools<br><em>you already use.</em></h2>
-        <p class="section-intro" style="margin-bottom:0;">We handle every connection. You never touch an API key.</p>
+        <h2>Built on tools you<br><em>already trust.</em></h2>
+        <p class="section-intro" style="margin-bottom:0;">I handle every connection and setup. You never touch an API key.</p>
         <div class="integrations-grid">
             <div class="int-tile">
-                <span class="int-avatar" style="background:#1B3F5C;">Tk</span>
-                <span class="int-name">Tock</span>
+                <img class="int-logo" src="https://logo.clearbit.com/n8n.io" alt="n8n" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#2D2D2D;">n8</span>
+                <span class="int-name">n8n</span>
             </div>
             <div class="int-tile">
-                <span class="int-avatar" style="background:#6B2418;">C7</span>
-                <span class="int-name">Commerce7</span>
+                <img class="int-logo" src="https://logo.clearbit.com/zapier.com" alt="Zapier" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#FF4A00;">Zp</span>
+                <span class="int-name">Zapier</span>
             </div>
             <div class="int-tile">
-                <span class="int-avatar" style="background:#1A4D32;">WD</span>
-                <span class="int-name">WineDirect</span>
+                <img class="int-logo" src="https://logo.clearbit.com/google.com" alt="Google Calendar" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#1A73E8;">Gc</span>
+                <span class="int-name">Google Calendar</span>
             </div>
             <div class="int-tile">
-                <span class="int-avatar" style="background:#5C2060;">VS</span>
-                <span class="int-name">VinoShipper</span>
+                <img class="int-logo" src="https://logo.clearbit.com/hubspot.com" alt="HubSpot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#FF7A59;">Hs</span>
+                <span class="int-name">HubSpot</span>
             </div>
             <div class="int-tile">
-                <span class="int-avatar" style="background:#1B3F5C;">MC</span>
-                <span class="int-name">Mailchimp</span>
-            </div>
-            <div class="int-tile">
-                <span class="int-avatar" style="background:#3D1F6B;">Kv</span>
+                <img class="int-logo" src="https://logo.clearbit.com/klaviyo.com" alt="Klaviyo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#000;">Kv</span>
                 <span class="int-name">Klaviyo</span>
             </div>
             <div class="int-tile">
-                <span class="int-avatar" style="background:#1A4020;">GB</span>
-                <span class="int-name">Google Business</span>
+                <img class="int-logo" src="https://logo.clearbit.com/mailchimp.com" alt="Mailchimp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#FFE01B;color:#241C15;">MC</span>
+                <span class="int-name">Mailchimp</span>
             </div>
             <div class="int-tile">
-                <span class="int-avatar" style="background:#1A2E5C;">St</span>
+                <img class="int-logo" src="https://logo.clearbit.com/twilio.com" alt="Twilio" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#F22F46;">Tw</span>
+                <span class="int-name">Twilio</span>
+            </div>
+            <div class="int-tile">
+                <img class="int-logo" src="https://logo.clearbit.com/stripe.com" alt="Stripe" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#635BFF;">St</span>
                 <span class="int-name">Stripe</span>
             </div>
             <div class="int-tile">
-                <span class="int-avatar" style="background:#5C1B1B;">Tw</span>
-                <span class="int-name">Twilio</span>
+                <img class="int-logo" src="https://logo.clearbit.com/calendly.com" alt="Calendly" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <span class="int-logo-fallback" style="display:none;background:#006BFF;">Ca</span>
+                <span class="int-name">Calendly</span>
             </div>
         </div>
-        <p class="int-note">And any tool with an API or Zapier connection.</p>
+        <p class="int-note">Plus Tock, FareHarbor, Jobber, Google Business, and any tool with an API.</p>
     </div>
 </section>
 
@@ -765,8 +611,8 @@
         <div class="demo-cta-inner">
             <span class="demo-cta-trust">Free demo &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; You see it running before you pay</span>
             <h2>15 minutes to see<br>what's <em>possible.</em></h2>
-            <p class="demo-cta-sub">The demo is free. I build it around your actual operation and show you exactly what would run, what it would say, and what it would handle — before you spend a dollar.</p>
-            <button onclick="openModal()" class="btn-gold">Schedule a Free 15-Minute Demo</button>
+            <p class="demo-cta-sub">The demo is free. I'll show you exactly what I'd build for your operation — what it would handle, what it would say, how it connects to your tools. You decide after you see it.</p>
+            <button onclick="openModal()" class="btn-gold">Schedule a Free Demo</button>
             <span class="demo-cta-note">Jake responds within a few hours. jake@appliedaiagent.ai</span>
             <div class="cta-social">
                 <div class="cta-avatars">
@@ -774,7 +620,7 @@
                     <span class="cta-avatar" style="background:#2D5040;">S</span>
                     <span class="cta-avatar" style="background:#1A3328;">M</span>
                 </div>
-                <p class="cta-social-text">Wineries already on autopilot</p>
+                <p class="cta-social-text">Businesses already running on autopilot</p>
             </div>
         </div>
     </div>
@@ -785,7 +631,6 @@
     <div class="container">
         <div class="faq-grid">
             <div>
-                <p class="section-label">FAQ</p>
                 <h2>Frequently<br>asked questions.</h2>
             </div>
             <div class="faq-list">
@@ -795,7 +640,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Not at all. You describe what's slowing you down and we handle everything else. You'll see exactly what we build before we build it.</div>
+                        <div class="faq-answer-inner">Not at all. You describe what's slowing you down and I handle everything else. You'll see exactly what I build before it goes live.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -804,7 +649,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Most clients have their first automation live within 48 hours of our initial call. Complex systems take up to a week.</div>
+                        <div class="faq-answer-inner">Most clients have their first automation live within 48 hours of the initial call. More complex systems take up to two weeks.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -813,7 +658,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Tock, Commerce7, WineDirect, VinoShipper, Mailchimp, Klaviyo, Google Business, Stripe, Twilio, and anything with an API or Zapier connection.</div>
+                        <div class="faq-answer-inner">Jobber, FareHarbor, HubSpot, ServiceTitan, Mailchimp, Klaviyo, Google Business, Stripe, Twilio, and anything with an API or Zapier connection. If you're already using it, I can most likely connect to it.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -822,7 +667,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Projects start at $500 setup plus a monthly retainer. Most winery clients are on our Growth plan at $2,000 setup and $400/month. The demo is always free.</div>
+                        <div class="faq-answer-inner">There's a one-time setup fee and a monthly retainer. Both depend on what we're building. The demo is free and you get a clear number before we start — no surprises.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -831,7 +676,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Call or email Jake. Changes are included in the retainer. There's no ticket system, no support queue.</div>
+                        <div class="faq-answer-inner">Call or email Jake directly. Changes are included in the retainer. There's no ticket system, no support queue.</div>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -840,7 +685,7 @@
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">No. Zapier connects triggers to actions. We build AI agents that monitor, decide, personalize, and act — including handling edge cases your rules never anticipated.</div>
+                        <div class="faq-answer-inner">No. Zapier connects triggers to actions. I build AI agents that monitor, decide, personalize, and act — including handling edge cases that rigid rules never anticipate.</div>
                     </div>
                 </div>
             </div>
@@ -855,8 +700,8 @@
         <span class="footer-location">Sonoma, CA &nbsp;·&nbsp; <a href="mailto:jake@appliedaiagent.ai" style="color:inherit;text-decoration:none;">jake@appliedaiagent.ai</a></span>
     </div>
     <nav class="footer-links">
-        <a href="#what-we-do">What We Do</a>
-        <a href="#how-it-works">How It Works</a>
+        <a href="index.html#what-we-do">What We Do</a>
+        <a href="index.html#how-it-works">How It Works</a>
         <a href="work.html">Work</a>
         <a href="contact.html">Contact</a>
     </nav>
