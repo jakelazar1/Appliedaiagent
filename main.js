@@ -115,6 +115,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade, .project').forEach(el => fadeObs.observe(el));
 
+    // CARD FADE-IN ON SCROLL (new cards)
+    const cardFadeObs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add('fade-in'), i * 100);
+                cardFadeObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.outcome-card, .step-card, .industry-card').forEach(el => cardFadeObs.observe(el));
+
     // STAGGERED ROW REVEAL
     const cards = document.querySelectorAll('.auto-card, .vertical-row, .use-case-card');
     if (cards.length) {
