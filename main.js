@@ -27,15 +27,17 @@ async function submitModal() {
     const btn = f ? f.querySelector('.btn-submit') : null;
     if (!f || !s) return;
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+    // Collect form data as JSON for FormSubmit
     const data = new FormData(f);
     try {
-        const res = await fetch('https://formspree.io/jake@appliedaiagent.ai', {
+        const res = await fetch('https://formspree.io/f/xlgkepla', {
             method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
-        if (res.ok || res.status === 0) { f.style.display = 'none'; s.style.display = 'block'; }
+        if (res.ok) { f.style.display = 'none'; s.style.display = 'block'; }
         else { if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; } }
     } catch (_) {
-        f.style.display = 'none'; s.style.display = 'block';
+        if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; }
     }
 }
 
@@ -47,13 +49,13 @@ async function submitContactForm() {
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     const data = new FormData(f);
     try {
-        const res = await fetch('https://formspree.io/jake@appliedaiagent.ai', {
+        const res = await fetch('https://formspree.io/f/xlgkepla', {
             method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
-        if (res.ok || res.status === 0) { f.style.display = 'none'; s.style.display = 'block'; }
-        else { if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; } }
+        if (res.ok) { f.style.display = 'none'; s.style.display = 'block'; }
+        else { if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; } }
     } catch (_) {
-        f.style.display = 'none'; s.style.display = 'block';
+        if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; }
     }
 }
 
@@ -102,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { threshold: 0 }).observe(hero);
     }
 
-    // FADE-IN OBSERVER — threshold 0 so even 1px triggers it
+    // FADE-IN OBSERVER
     const fadeObs = new IntersectionObserver((entries) => {
         entries.forEach((e, i) => {
             if (e.isIntersecting) {
@@ -113,8 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade, .project').forEach(el => fadeObs.observe(el));
 
-    // STAGGERED ROW REVEAL — threshold 0 + failsafe timeout
-    const cards = document.querySelectorAll('.auto-card, .vertical-row');
+    // STAGGERED ROW REVEAL
+    const cards = document.querySelectorAll('.auto-card, .vertical-row, .use-case-card');
     if (cards.length) {
         const cardObs = new IntersectionObserver((entries) => {
             entries.forEach((e, i) => {
@@ -126,9 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
         cards.forEach(el => cardObs.observe(el));
 
-        // Failsafe: force all visible after 3 seconds
         setTimeout(() => {
-            document.querySelectorAll('.auto-card, .vertical-row, .fade').forEach(el => el.classList.add('on'));
+            document.querySelectorAll('.auto-card, .vertical-row, .use-case-card, .fade').forEach(el => el.classList.add('on'));
         }, 3000);
     }
 
@@ -164,13 +165,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!btn || !answer) return;
         btn.addEventListener('click', () => {
             const isOpen = item.classList.contains('open');
-            // close all
             faqItems.forEach(i => {
                 i.classList.remove('open');
                 const a = i.querySelector('.faq-answer');
                 if (a) a.style.maxHeight = '0';
             });
-            // open clicked if it was closed
             if (!isOpen) {
                 item.classList.add('open');
                 answer.style.maxHeight = answer.scrollHeight + 'px';
