@@ -3,18 +3,18 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    --dark:      #0D1F1A;
-    --dark-mid:  #152B23;
-    --green:     #1E3D30;
-    --cream:     #F5F0E8;
-    --surface:   #ffffff;
-    --surface-alt: #F4F3F1;
-    --ink:       #0D1F1A;
-    --ink-mid:   #3D4E3F;
-    --ink-soft:  #647066;
-    --gold:      #B8813A;
-    --sage:      #5E8A62;
-    --rule:      rgba(13,31,26,0.09);
+    --dark:      #FFFBF7;
+    --dark-mid:  #FAF6F0;
+    --green:     #F9F2E8;
+    --cream:     #3D3D3D;  /* soft dark gray */
+    --surface:   #FEFDFB;  /* nearly white */
+    --surface-alt: #FFFBF7;  /* light cream */
+    --ink:       #FFFBF7;
+    --ink-mid:   #8B8680;
+    --ink-soft:  #8B8680;
+    --gold:      #E8845C;
+    --sage:      #9BA89C;  /* soft sage */
+    --rule:      rgba(0,0,0,0.06);  /* softer shadows */
     --rule-md:   rgba(13,31,26,0.16);
     --rule-dark: rgba(245,240,232,0.1);
 }
@@ -158,13 +158,13 @@ h2 em { font-style: italic; font-weight: 300; color: var(--ink-mid); font-variat
 /* ── BUTTONS ── */
 .btn-gold {
     display: inline-flex; align-items: center;
-    background: var(--gold); color: #fff;
+    background: linear-gradient(135deg, #E8845C 0%, #D97560 100%); color: #fff;
     padding: 0.875rem 2rem; border-radius: 6px;
     font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 500;
     text-decoration: none; transition: all 0.2s ease; border: none; cursor: pointer;
     letter-spacing: 0.005em;
 }
-.btn-gold:hover { background: #A57030; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(184,129,58,0.3); }
+.btn-gold:hover { background: #D97560; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(232,132,92,0.2); }
 .btn-ghost {
     display: inline-flex; align-items: center;
     color: rgba(245,240,232,0.8); padding: 0.875rem 2rem; border-radius: 6px;
@@ -191,7 +191,7 @@ h2 em { font-style: italic; font-weight: 300; color: var(--ink-mid); font-variat
     opacity: 0; transform: translateY(8px);
     transition: opacity 0.4s, transform 0.4s, background 0.2s;
     pointer-events: none;
-    box-shadow: 0 4px 20px rgba(13,31,26,0.25);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 .float-btn.visible { opacity: 1; transform: none; pointer-events: auto; }
 .float-btn:hover { background: var(--green); }
