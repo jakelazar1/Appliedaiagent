@@ -137,28 +137,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.outcome-card, .step-card, .industry-card').forEach(el => cardFadeObs.observe(el));
 
-    // DEMO CHAT ANIMATION TRIGGER
-    const demoRows = document.querySelectorAll('[data-demo]');
-    if (demoRows.length) {
-        const demoObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('demo-active')) {
-                    entry.target.classList.add('demo-active');
-                    demoObs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        demoRows.forEach(el => demoObs.observe(el));
-    }
-
-    // Failsafe: force all visible after 4 seconds
+    // Failsafe: force all fades visible after 3 seconds
     setTimeout(() => {
-        document.querySelectorAll('.fade, .chat-msg, .testimonial-quote').forEach(el => {
-            el.classList.add('on');
-            el.style.opacity = '1';
-        });
-        document.querySelectorAll('[data-demo]').forEach(el => el.classList.add('demo-active'));
-    }, 4000);
+        document.querySelectorAll('.fade').forEach(el => el.classList.add('on'));
+    }, 3000);
 
     // STATS COUNT-UP
     const statEls = document.querySelectorAll('[data-count]');
