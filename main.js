@@ -137,23 +137,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.outcome-card, .step-card, .industry-card').forEach(el => cardFadeObs.observe(el));
 
-    // STAGGERED ROW REVEAL
-    const cards = document.querySelectorAll('.auto-card, .vertical-row, .use-case-card');
-    if (cards.length) {
-        const cardObs = new IntersectionObserver((entries) => {
-            entries.forEach((e, i) => {
-                if (e.isIntersecting) {
-                    setTimeout(() => e.target.classList.add('on'), i * 80);
-                    cardObs.unobserve(e.target);
+    // DEMO CHAT ANIMATION TRIGGER
+    const demoRows = document.querySelectorAll('[data-demo]');
+    if (demoRows.length) {
+        const demoObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('demo-active')) {
+                    entry.target.classList.add('demo-active');
+                    demoObs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
-        cards.forEach(el => cardObs.observe(el));
-
-        setTimeout(() => {
-            document.querySelectorAll('.auto-card, .vertical-row, .use-case-card, .fade').forEach(el => el.classList.add('on'));
-        }, 3000);
+        }, { threshold: 0.3 });
+        demoRows.forEach(el => demoObs.observe(el));
     }
+
+    // Failsafe: force all visible after 4 seconds
+    setTimeout(() => {
+        document.querySelectorAll('.fade, .chat-msg, .testimonial-quote').forEach(el => {
+            el.classList.add('on');
+            el.style.opacity = '1';
+        });
+        document.querySelectorAll('[data-demo]').forEach(el => el.classList.add('demo-active'));
+    }, 4000);
 
     // STATS COUNT-UP
     const statEls = document.querySelectorAll('[data-count]');
