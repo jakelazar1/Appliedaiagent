@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Use Cases — Applied AI Agent</title>
-    <meta name="description" content="What I build: AI automation for scheduling, lead follow-up, customer communications, operations dashboards, retention, and reporting.">
+    <meta name="description" content="What I build: custom AI systems for scheduling, lead follow-up, communications, operations dashboards, retention, and reporting.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
 
@@ -17,20 +17,17 @@
         padding: 10rem 0 5rem;
         border-bottom: 1px solid var(--rule);
     }
-    .page-header-inner {
-        max-width: 680px;
-    }
+    .page-header-inner { max-width: 640px; }
     h1 {
-        font-family: 'Fraunces', serif;
-        font-size: clamp(2.75rem, 5.5vw, 4.25rem);
-        font-weight: 400; letter-spacing: -0.03em; line-height: 1.0;
-        color: var(--ink); font-variation-settings: 'opsz' 72;
-        text-wrap: balance;
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(2.5rem, 5.5vw, 4rem);
+        font-weight: 800; letter-spacing: -0.05em; line-height: 1.0;
+        color: var(--ink); text-wrap: balance;
     }
-    h1 em { font-style: italic; font-weight: 300; color: var(--ink-mid); }
     .page-header-sub {
-        font-size: 1.0625rem; color: var(--ink-soft);
-        line-height: 1.8; margin-top: 1.5rem; max-width: 520px;
+        font-size: 1.0625rem; font-weight: 400; letter-spacing: -0.01em;
+        color: var(--ink-soft); line-height: 1.75;
+        margin-top: 1.25rem; max-width: 500px;
     }
 
     /* ── USE CASES GRID ── */
@@ -38,153 +35,154 @@
     .use-cases-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
+        gap: 1.25rem;
         margin-top: 3.5rem;
     }
     .use-case-card {
         background: var(--surface);
         border: 1px solid var(--rule);
-        border-radius: 12px;
-        padding: 2.5rem;
-        display: flex;
-        flex-direction: column;
-        transition: box-shadow 0.25s ease, transform 0.25s ease;
-        opacity: 0; transform: translateY(12px);
-        transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.25s ease;
+        border-radius: 14px;
+        padding: 2.25rem;
+        display: flex; flex-direction: column;
+        transition: box-shadow 0.2s var(--ease-quart), transform 0.2s var(--ease-quart);
+        opacity: 0; transform: translateY(10px);
+        transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo),
+                    box-shadow 0.2s var(--ease-quart);
     }
     .use-case-card.on { opacity: 1; transform: none; }
     .use-case-card:hover {
-        box-shadow: 0 8px 32px rgba(13,31,26,0.1);
+        box-shadow: 0 8px 32px oklch(13% 0.012 255 / 0.08);
         transform: translateY(-2px);
     }
     .use-case-tag {
         display: inline-block;
-        font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+        font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.07em;
         text-transform: uppercase; color: var(--ink-soft);
-        margin-bottom: 1.25rem;
+        margin-bottom: 1rem;
     }
     .use-case-headline {
-        font-family: 'Fraunces', serif;
-        font-size: clamp(1.375rem, 2vw, 1.625rem);
-        font-weight: 400; letter-spacing: -0.02em; line-height: 1.15;
-        color: var(--ink); font-variation-settings: 'opsz' 32;
-        margin-bottom: 0.875rem;
-        text-wrap: balance;
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(1.25rem, 1.75vw, 1.5rem);
+        font-weight: 700; letter-spacing: -0.03em; line-height: 1.2;
+        color: var(--ink); margin-bottom: 0.75rem; text-wrap: balance;
     }
     .use-case-desc {
-        font-size: 0.9rem; color: var(--ink-soft);
-        line-height: 1.75; margin-bottom: 1.75rem; flex: 1;
+        font-size: 0.9rem; font-weight: 400; letter-spacing: -0.005em;
+        color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.75rem; flex: 1;
     }
     .use-case-handles {
         border-top: 1px solid var(--rule);
-        padding-top: 1.375rem;
+        padding-top: 1.25rem;
         list-style: none;
         display: flex; flex-direction: column; gap: 0.5rem;
     }
     .use-case-handles li {
-        font-size: 0.8125rem; color: var(--ink-mid);
+        font-size: 0.8125rem; font-weight: 400; letter-spacing: -0.005em;
+        color: var(--ink-mid);
         display: flex; align-items: baseline; gap: 0.625rem;
         line-height: 1.5;
     }
     .use-case-handles li::before {
         content: '';
         display: block; width: 4px; height: 4px;
-        border-radius: 50%; background: var(--gold);
+        border-radius: 50%; background: var(--accent);
         flex-shrink: 0; margin-top: 0.45rem;
     }
 
-    /* ── DASHBOARD CALLOUT ── (featured card, full width) */
+    /* ── FEATURED CARD (Operations Dashboard) ── */
     .use-case-card.featured {
         grid-column: 1 / -1;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: start;
+        gap: 3rem; align-items: start;
         background: var(--dark);
         border-color: transparent;
     }
-    .use-case-card.featured .use-case-tag { color: rgba(245,240,232,0.4); }
-    .use-case-card.featured .use-case-headline { color: #F5F0E8; }
-    .use-case-card.featured .use-case-desc { color: rgba(245,240,232,0.5); }
-    .use-case-card.featured .use-case-handles { border-color: rgba(245,240,232,0.1); }
-    .use-case-card.featured .use-case-handles li { color: rgba(245,240,232,0.65); }
-    .use-case-card.featured .use-case-handles li::before { background: var(--gold); }
-    .featured-right { display: flex; flex-direction: column; gap: 0; }
+    .use-case-card.featured .use-case-tag { color: var(--text-light-soft); }
+    .use-case-card.featured .use-case-headline { color: var(--text-light); }
+    .use-case-card.featured .use-case-desc { color: var(--text-light-mid); }
+    .use-case-card.featured .use-case-handles { border-color: var(--rule-dark); }
+    .use-case-card.featured .use-case-handles li { color: var(--text-light-mid); }
+    .use-case-card.featured .use-case-handles li::before { background: var(--accent); }
+
+    /* Dashboard preview */
     .dashboard-preview {
-        background: rgba(245,240,232,0.04);
-        border: 1px solid rgba(245,240,232,0.08);
-        border-radius: 8px;
-        overflow: hidden;
+        background: oklch(97% 0.004 240 / 0.05);
+        border: 1px solid var(--rule-dark);
+        border-radius: 10px; overflow: hidden;
     }
     .dp-header {
         padding: 0.75rem 1rem;
-        border-bottom: 1px solid rgba(245,240,232,0.07);
+        border-bottom: 1px solid var(--rule-dark);
         display: flex; align-items: center; gap: 0.5rem;
     }
-    .dp-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(245,240,232,0.15); }
-    .dp-title { font-size: 0.7rem; color: rgba(245,240,232,0.3); letter-spacing: 0.04em; }
+    .dp-dot { width: 6px; height: 6px; border-radius: 50%; background: oklch(97% 0.004 240 / 0.2); }
+    .dp-title { font-size: 0.7rem; font-weight: 500; color: var(--text-light-soft); letter-spacing: -0.005em; }
     .dp-metrics {
         display: grid; grid-template-columns: repeat(3, 1fr);
-        gap: 0; padding: 1.25rem;
+        padding: 1.25rem;
     }
     .dp-metric {
         padding: 0.75rem 1rem;
-        border-right: 1px solid rgba(245,240,232,0.07);
+        border-right: 1px solid var(--rule-dark);
     }
     .dp-metric:last-child { border-right: none; }
     .dp-metric-val {
-        font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 400;
-        color: #F5F0E8; letter-spacing: -0.03em; display: block;
-        font-variation-settings: 'opsz' 24;
+        font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 700;
+        color: var(--text-light); letter-spacing: -0.04em; display: block;
     }
-    .dp-metric-label { font-size: 0.7rem; color: rgba(245,240,232,0.3); margin-top: 0.25rem; display: block; }
+    .dp-metric-label { font-size: 0.7rem; color: var(--text-light-soft); margin-top: 0.25rem; display: block; letter-spacing: -0.005em; }
     .dp-activity { padding: 0 1.25rem 1.25rem; }
     .dp-row {
         display: flex; justify-content: space-between;
         padding: 0.5rem 0;
-        border-top: 1px solid rgba(245,240,232,0.05);
-        font-size: 0.75rem; color: rgba(245,240,232,0.4);
+        border-top: 1px solid oklch(97% 0.004 240 / 0.05);
+        font-size: 0.75rem; color: var(--text-light-soft);
+        letter-spacing: -0.005em;
     }
-    .dp-row-dot { width: 5px; height: 5px; border-radius: 50%; background: #5E8A62; margin-right: 0.5rem; flex-shrink: 0; margin-top: 0.35rem; }
-    .dp-row-text { display: flex; align-items: baseline; gap: 0; flex: 1; }
+    .dp-dot-green { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); margin-right: 0.5rem; flex-shrink: 0; margin-top: 0.35rem; }
+    .dp-row-text { display: flex; align-items: baseline; flex: 1; }
 
-    /* ── HOW I BUILD ── */
-    .how-i-build { background: var(--surface); padding: 7rem 0; border-top: 1px solid var(--rule); }
-    .build-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; margin-top: 3rem; }
-    .build-list { display: flex; flex-direction: column; }
-    .build-item { padding: 1.375rem 0; border-top: 1px solid var(--rule); }
-    .build-item:last-child { border-bottom: 1px solid var(--rule); }
-    .build-item-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.3rem; font-variation-settings: 'opsz' 18; }
-    .build-item-desc { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.65; }
-    .build-note { font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.85; }
-    .build-note p { margin-bottom: 1rem; }
-    .build-note p:last-child { margin-bottom: 0; }
-
-    /* ── DEMO CTA ── */
-    .work-demo { background: var(--dark); padding: 8rem 0; }
-    .work-demo-inner { max-width: 580px; }
-    .work-demo h2 { color: #F5F0E8; }
-    .work-demo h2 em { color: var(--gold); }
-    .work-demo-sub { font-size: 1rem; color: rgba(245,240,232,0.45); line-height: 1.8; margin-top: 1rem; margin-bottom: 2.5rem; max-width: 420px; }
+    /* ── CTA ── */
+    .work-demo {
+        position: relative; overflow: hidden;
+        background: var(--dark);
+        padding: 8rem 0;
+    }
+    .work-demo::before {
+        content: '';
+        position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 60% 70% at 50% 0%,
+            oklch(35% 0.26 272 / 0.4) 0%, transparent 65%);
+    }
+    .work-demo-inner { position: relative; z-index: 1; max-width: 560px; }
+    .work-demo h2 {
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        font-weight: 800; letter-spacing: -0.05em; line-height: 1.05;
+        color: var(--text-light); margin-bottom: 1rem;
+    }
+    .work-demo h2 span { color: oklch(75% 0.18 270); }
+    .work-demo-sub {
+        font-size: 1rem; font-weight: 400; letter-spacing: -0.01em;
+        color: var(--text-light-mid); line-height: 1.75;
+        margin-bottom: 2.25rem; max-width: 420px;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
         .page-header { padding: 8rem 0 4rem; }
         .use-cases-grid { grid-template-columns: 1fr; }
         .use-case-card.featured { grid-template-columns: 1fr; gap: 2rem; }
-        .build-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-        .use-cases { padding: 5rem 0 6rem; }
-        .how-i-build { padding: 5rem 0; }
         .work-demo { padding: 6rem 0; }
     }
     @media (max-width: 480px) {
         .page-header { padding: 7rem 0 3rem; }
-        h1 { font-size: clamp(2.25rem, 9vw, 3rem); }
-        .use-case-card { padding: 2rem 1.5rem; }
-        .use-case-card.featured { padding: 2rem 1.5rem; }
+        h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
+        .use-case-card { padding: 1.75rem 1.5rem; }
+        .use-case-card.featured { padding: 1.75rem 1.5rem; }
         .dp-metrics { grid-template-columns: 1fr 1fr; }
         .dp-metric:nth-child(2) { border-right: none; }
-        .work-demo { padding: 5rem 0; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -198,8 +196,8 @@
 <nav id="nav" class="over-light">
     <a href="index.html" class="logo">Applied AI Agent</a>
     <ul class="nav-links">
-        <li><a href="index.html#outcomes">What We Do</a></li>
-        <li><a href="index.html#how">How It Works</a></li>
+        <li><a href="index.html#features">What I Build</a></li>
+        <li><a href="index.html#process">How It Works</a></li>
         <li><a href="work.html" class="active">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -211,8 +209,8 @@
 
 <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li><a href="index.html#outcomes">What We Do</a></li>
-        <li><a href="index.html#how">How It Works</a></li>
+        <li><a href="index.html#features">What I Build</a></li>
+        <li><a href="index.html#process">How It Works</a></li>
         <li><a href="work.html">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -226,10 +224,10 @@
         <button class="modal-close" onclick="closeModal()">×</button>
         <p class="modal-header-label">Free 15-Minute Assessment</p>
         <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
-        <p class="modal-sub">15 minutes. No pitch, no pressure. I'll show you exactly what I'd build for your business.</p>
+        <p class="modal-sub">I'll learn your workflows, identify the highest-impact opportunity, and tell you exactly what I'd build. No pitch. No pressure.</p>
         <form id="modalForm">
             <input type="hidden" name="_replyto" value="jake@appliedaiagent.ai">
-            <input type="hidden" name="_subject" value="New demo request — Applied AI Agent">
+            <input type="hidden" name="_subject" value="New assessment request — Applied AI Agent">
             <div class="form-row">
                 <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="First name" autocomplete="given-name"></div>
                 <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Last name" autocomplete="family-name"></div>
@@ -251,9 +249,9 @@
                     <option>Other</option>
                 </select>
             </div>
-            <div class="form-group" style="margin-bottom:1.5rem;">
+            <div class="form-group" style="margin-bottom:1.25rem;">
                 <label>What's eating your time right now?</label>
-                <textarea name="message" placeholder="Follow-ups, bookings, scheduling, customer communication — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
+                <textarea name="message" placeholder="Follow-ups, bookings, scheduling — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
             </div>
             <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Assessment</button>
         </form>
@@ -264,14 +262,14 @@
     </div>
 </div>
 
-<button class="float-btn" id="floatBtn" onclick="openModal()">Free Demo</button>
+<button class="float-btn" id="floatBtn" onclick="openModal()">Free Assessment</button>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
     <div class="container">
         <div class="page-header-inner">
-            <h1>What I <em>build.</em></h1>
-            <p class="page-header-sub">Six categories of automation I build for owner-operated businesses. Each one is custom — connected to your tools, built around your workflow, running within 48 hours of the first call.</p>
+            <h1>What I build.</h1>
+            <p class="page-header-sub">Six categories of automation. Every system is custom-built, connected to your existing tools, and running within 48 hours of the first call.</p>
         </div>
     </div>
 </div>
@@ -281,77 +279,68 @@
     <div class="container">
         <div class="use-cases-grid">
 
-            <!-- Scheduling -->
-            <div class="use-case-card fade">
+            <div class="use-case-card">
                 <span class="use-case-tag">Scheduling</span>
                 <h2 class="use-case-headline">Your calendar, handled.</h2>
-                <p class="use-case-desc">New requests acknowledged in minutes. Confirmation and reminder sequences go out automatically. No more back-and-forth over availability, no more no-shows that catch you off guard.</p>
+                <p class="use-case-desc">New requests acknowledged in minutes. Confirmation and reminder sequences go out automatically. No more back-and-forth over availability.</p>
                 <ul class="use-case-handles">
                     <li>Booking confirmation sent immediately on request</li>
                     <li>Reminder sequence: 24 hrs out, 2 hrs out, post-appointment</li>
                     <li>Reschedule and cancellation handling without phone tag</li>
-                    <li>Capacity monitoring and waitlist management</li>
                     <li>Connects to Calendly, Google Calendar, Tock, FareHarbor</li>
                 </ul>
             </div>
 
-            <!-- Lead Follow-Up -->
-            <div class="use-case-card fade">
+            <div class="use-case-card">
                 <span class="use-case-tag">Lead Follow-Up</span>
                 <h2 class="use-case-headline">Your leads never go cold.</h2>
-                <p class="use-case-desc">Every new inquiry gets an instant, personal response. A follow-up sequence runs until they book or opt out. No leads falling through the cracks while you're on a job or running an event.</p>
+                <p class="use-case-desc">Every new inquiry gets an instant, personal response. A follow-up sequence runs until they book or opt out. No leads falling through the cracks.</p>
                 <ul class="use-case-handles">
                     <li>Response under 5 minutes, any hour, any day</li>
                     <li>Qualification questions asked automatically</li>
                     <li>Warm leads escalated to you at the right moment</li>
-                    <li>Dead leads archived, follow-up paused cleanly</li>
                     <li>Connects to HubSpot, Gmail, any CRM with an API</li>
                 </ul>
             </div>
 
-            <!-- Customer Communications -->
-            <div class="use-case-card fade">
-                <span class="use-case-tag">Customer Communications</span>
+            <div class="use-case-card">
+                <span class="use-case-tag">Communications</span>
                 <h2 class="use-case-headline">The right message, at the right time.</h2>
-                <p class="use-case-desc">Post-visit emails, review requests, seasonal outreach. Triggered by what your customers actually do — not a blast calendar you have to remember to update.</p>
+                <p class="use-case-desc">Post-visit emails, review requests, seasonal outreach. Triggered by what your customers actually do — not a blast calendar you have to remember.</p>
                 <ul class="use-case-handles">
                     <li>Post-visit thank-you and follow-up sequence</li>
                     <li>Review request timed for peak response rate</li>
                     <li>Re-engagement campaigns triggered by inactivity</li>
-                    <li>Seasonal and event-based outreach, automated</li>
                     <li>Connects to Mailchimp, Klaviyo, Twilio, Google Business</li>
                 </ul>
             </div>
 
-            <!-- Retention -->
-            <div class="use-case-card fade">
-                <span class="use-case-tag">Customer Retention</span>
+            <div class="use-case-card">
+                <span class="use-case-tag">Retention</span>
                 <h2 class="use-case-headline">Keep the customers you have.</h2>
-                <p class="use-case-desc">An agent that watches engagement signals, identifies at-risk customers before they quietly disappear, and triggers the right outreach before the relationship goes cold.</p>
+                <p class="use-case-desc">An agent that watches engagement signals, identifies at-risk customers before they disappear, and triggers the right outreach before the relationship goes cold.</p>
                 <ul class="use-case-handles">
                     <li>Engagement monitoring across email, bookings, and purchases</li>
                     <li>Churn signal detection before cancellation</li>
                     <li>Personalized re-engagement sequence triggered automatically</li>
                     <li>High-value accounts flagged for personal follow-up</li>
-                    <li>Win-back campaigns for lapsed customers</li>
                 </ul>
             </div>
 
-            <!-- Operations Dashboard — featured full-width card -->
-            <div class="use-case-card featured fade">
+            <!-- Featured: Operations Dashboard -->
+            <div class="use-case-card featured">
                 <div>
                     <span class="use-case-tag">Operations Dashboard</span>
                     <h2 class="use-case-headline">See your business in real time.</h2>
-                    <p class="use-case-desc">A custom dashboard showing everything happening in your operation — automations running, leads in progress, revenue trends, customer activity. Built for your business, not a generic template.</p>
+                    <p class="use-case-desc">A custom dashboard showing everything happening in your operation — automations running, leads in progress, revenue trends, customer activity. Built in React for your specific operation.</p>
                     <ul class="use-case-handles">
                         <li>Live automation activity feed</li>
                         <li>Key metric tracking: revenue, bookings, leads, engagement</li>
-                        <li>Weekly email digest delivered to your inbox Monday morning</li>
+                        <li>Weekly email digest delivered Monday morning</li>
                         <li>Custom reports for your specific operation</li>
-                        <li>Built in React — clean, fast, mobile-friendly</li>
                     </ul>
                 </div>
-                <div class="featured-right">
+                <div>
                     <div class="dashboard-preview">
                         <div class="dp-header">
                             <span class="dp-dot"></span>
@@ -375,24 +364,15 @@
                         </div>
                         <div class="dp-activity">
                             <div class="dp-row">
-                                <div class="dp-row-text">
-                                    <span class="dp-row-dot"></span>
-                                    Follow-up sent to Garcia group
-                                </div>
+                                <div class="dp-row-text"><span class="dp-dot-green"></span>Follow-up sent to Garcia group</div>
                                 <span>2m ago</span>
                             </div>
                             <div class="dp-row">
-                                <div class="dp-row-text">
-                                    <span class="dp-row-dot"></span>
-                                    Review request delivered — Martinez
-                                </div>
+                                <div class="dp-row-text"><span class="dp-dot-green"></span>Review request delivered — Martinez</div>
                                 <span>41m ago</span>
                             </div>
                             <div class="dp-row">
-                                <div class="dp-row-text">
-                                    <span class="dp-row-dot"></span>
-                                    Re-engagement email queued — David M.
-                                </div>
+                                <div class="dp-row-text"><span class="dp-dot-green"></span>Re-engagement queued — David M.</div>
                                 <span>1h ago</span>
                             </div>
                         </div>
@@ -400,20 +380,18 @@
                 </div>
             </div>
 
-            <!-- Reporting & Intelligence -->
-            <div class="use-case-card fade" style="grid-column: 1 / -1;">
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items:start;">
+            <div class="use-case-card" style="grid-column: 1 / -1;">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
                     <div>
                         <span class="use-case-tag">Reporting &amp; Intelligence</span>
                         <h2 class="use-case-headline">Your weekly briefing, written for you.</h2>
-                        <p class="use-case-desc">Every Monday morning: what came in, what was sent, what's trending, what needs attention. No dashboards to check, no reports to pull. It just arrives.</p>
+                        <p class="use-case-desc">Every Monday morning: what came in, what was sent, what's trending. No dashboards to check, no reports to pull. It just arrives.</p>
                     </div>
                     <ul class="use-case-handles" style="border-top:none; padding-top:0; margin-top:2rem;">
                         <li>Weekly performance summary emailed every Monday</li>
                         <li>Lead pipeline snapshot: new, active, converted, cold</li>
-                        <li>Automation health check: what ran, what didn't, why</li>
+                        <li>Automation health check: what ran, what didn't</li>
                         <li>Revenue and booking trends, week over week</li>
-                        <li>Flags for anything that needs your attention</li>
                     </ul>
                 </div>
             </div>
@@ -426,9 +404,9 @@
 <div class="work-demo">
     <div class="container">
         <div class="work-demo-inner">
-            <h2 class="h2-light">Every project starts<br><em>with a free demo.</em></h2>
+            <h2>Every project starts with a<br><span>free assessment.</span></h2>
             <p class="work-demo-sub">15 minutes. I'll show you what I'd build for your specific operation — connected to your actual tools, running on your data.</p>
-            <button onclick="openModal()" class="btn-gold">Schedule a free demo</button>
+            <button onclick="openModal()" class="btn-primary">Schedule a free assessment</button>
         </div>
     </div>
 </div>
@@ -438,13 +416,10 @@
     <div class="footer-brand">
         <a href="index.html" class="footer-logo">Applied AI Agent</a>
         <span class="footer-location">Sonoma, CA &nbsp;·&nbsp; <a href="mailto:jake@appliedaiagent.ai" style="color:inherit;text-decoration:none;">jake@appliedaiagent.ai</a></span>
-        <p style="font-size: 0.75rem; color: rgba(245,240,232,0.5); margin-top: 0.75rem; max-width: 300px; line-height: 1.5;">
-            Jake spent 10 years as a winemaker in Sonoma. Now he builds the AI systems that owner-operated businesses can't live without.
-        </p>
     </div>
     <nav class="footer-links">
-        <a href="index.html#outcomes">What We Do</a>
-        <a href="index.html#how">How It Works</a>
+        <a href="index.html#features">What I Build</a>
+        <a href="index.html#process">How It Works</a>
         <a href="work.html">Use Cases</a>
         <a href="contact.html">Contact</a>
     </nav>
