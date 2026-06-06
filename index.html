@@ -10,424 +10,379 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-    /* ── HERO SECTION ── */
-    .hero {
-        background: linear-gradient(135deg, #FFFBF7 0%, #FAF1E8 100%);
-        min-height: 90vh;
-        display: flex;
-        align-items: center;
-        padding: 8rem 0 6rem;
+
+    /* ─────────────────────────────────────────
+       HERO LOAD ANIMATIONS
+    ───────────────────────────────────────── */
+    @keyframes heroIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
-    .hero-inner {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-        align-items: center;
+
+    .hero-location {
+        animation: heroIn 0.5s var(--ease-expo) 0.05s both;
     }
-    .hero-eyebrow {
-        font-size: 0.7rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #8B8680;
-        margin-bottom: 2.5rem;
-        display: block;
-        font-weight: 500;
-    }
-    h1 {
-        font-family: 'Fraunces', serif;
-        font-size: clamp(2.75rem, 5vw, 3.5rem);
-        font-weight: 400;
-        line-height: 1.1;
-        letter-spacing: -0.03em;
-        color: #1A1A1A;
-        margin-bottom: 1.5rem;
-        text-wrap: balance;
-        font-variation-settings: 'opsz' 72;
+    .hero h1 {
+        animation: heroIn 0.75s var(--ease-expo) 0.15s both;
     }
     .hero-sub {
-        font-size: 1.125rem;
-        color: #3D3D3D;
-        line-height: 1.8;
-        margin-bottom: 2.5rem;
-        max-width: 500px;
+        animation: heroIn 0.65s var(--ease-expo) 0.30s both;
+    }
+    .hero-cta-group {
+        animation: heroIn 0.55s var(--ease-expo) 0.45s both;
+    }
+    .hero-credential {
+        animation: heroIn 0.5s var(--ease-expo) 0.55s both;
+    }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    .hero {
+        background: var(--dark);
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        padding: 10rem 0 8rem;
+    }
+    .hero-inner {
+        max-width: 820px;
+    }
+    .hero-location {
+        display: block;
+        font-family: 'Manrope', sans-serif;
+        font-size: 0.8125rem;
+        font-weight: 400;
+        color: var(--sage);
+        margin-bottom: 1.75rem;
+    }
+    .hero h1 {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(3.5rem, 7vw, 5.5rem);
+        font-weight: 400;
+        font-variation-settings: 'opsz' 96;
+        letter-spacing: -0.038em;
+        line-height: 1.04;
+        color: var(--text-light);
+        text-wrap: balance;
+        margin-bottom: 0;
+    }
+    .hero h1 em {
+        font-style: italic;
         font-weight: 300;
+    }
+    .hero-sub {
+        font-family: 'Manrope', sans-serif;
+        font-size: 1.125rem;
+        font-weight: 300;
+        color: var(--text-light-mid);
+        max-width: 540px;
+        line-height: 1.8;
+        margin-top: 2rem;
     }
     .hero-cta-group {
         display: flex;
         align-items: center;
-        gap: 2rem;
-        margin-bottom: 1.5rem;
+        gap: 2.25rem;
+        flex-wrap: wrap;
+        margin-top: 2.75rem;
     }
     .hero-trust {
-        font-size: 0.85rem;
-        color: #8B8680;
+        font-size: 0.875rem;
+        color: var(--text-light-soft);
         font-style: italic;
+        font-family: 'Manrope', sans-serif;
+    }
+    .hero-credential {
+        margin-top: 3rem;
+        padding-top: 3rem;
+        border-top: 1px solid var(--rule-dark);
+        font-family: 'Manrope', sans-serif;
+        font-size: 0.8125rem;
+        color: var(--text-light-soft);
+        line-height: 1.7;
     }
 
-    /* ── HERO IMAGE/PREVIEW ── */
-    .hero-preview {
-        position: relative;
-        height: 500px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-    .preview-icon {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-    }
-    .preview-text {
-        font-size: 1.125rem;
-        color: #1A1A1A;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-    }
-    .preview-subtext {
-        font-size: 0.9rem;
-        color: #8B8680;
-    }
-
-    /* ── SOCIAL PROOF ── */
+    /* ─────────────────────────────────────────
+       PROOF / TESTIMONIAL
+    ───────────────────────────────────────── */
     .proof-section {
-        background: #FFFBF7;
-        padding: 10rem 0;
-        border-top: 1px solid rgba(0,0,0,0.06);
-        border-bottom: 1px solid rgba(0,0,0,0.06);
+        background: var(--surface-warm);
+        padding: 7rem 0;
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
     }
-    .proof-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 3rem;
+    .testimonial-wrap {
+        max-width: 640px;
+        margin: 0 auto;
         text-align: center;
     }
-    .proof-stat {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .testimonial-rule {
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--sienna);
+        margin: 0 auto 2.5rem;
     }
-    .proof-number {
+    .testimonial-quote {
         font-family: 'Fraunces', serif;
-        font-size: 2.5rem;
-        font-weight: 400;
-        color: #E8845C;
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.02em;
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-weight: 300;
+        font-style: italic;
+        font-variation-settings: 'opsz' 36;
+        letter-spacing: -0.012em;
+        line-height: 1.45;
+        color: var(--ink);
+        margin-bottom: 2rem;
+        /* Testimonial reveal */
+        clip-path: inset(0 0 100% 0);
+        opacity: 0;
+        transition: clip-path 0.85s var(--ease-expo), opacity 0.85s var(--ease-expo);
     }
-    .proof-label {
-        font-size: 0.9rem;
-        color: #3D3D3D;
-        line-height: 1.4;
+    .testimonial-quote.on {
+        clip-path: inset(0 0 0% 0);
+        opacity: 1;
+    }
+    .testimonial-attr {
+        font-family: 'Manrope', sans-serif;
+        font-size: 0.875rem;
+        color: var(--ink-soft);
+        font-weight: 400;
     }
 
-    /* ── OUTCOMES SECTION ── */
+    /* ─────────────────────────────────────────
+       OUTCOMES
+    ───────────────────────────────────────── */
     .outcomes-section {
-        background: #FEFDFB;
-        padding: 10rem 0;
+        background: var(--surface);
+        padding: 8rem 0;
     }
-    .section-head {
+    .outcomes-head {
         text-align: center;
-        margin-bottom: 6rem;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+        max-width: 600px;
+        margin: 0 auto 5rem;
     }
-    .section-head h2 {
-        font-size: clamp(2rem, 4vw, 3rem);
-        color: #1A1A1A;
-        margin-bottom: 1.5rem;
-    }
-    .section-head p {
-        font-size: 1.1rem;
-        color: #3D3D3D;
+    .outcomes-head h2 { margin-bottom: 1.25rem; }
+    .outcomes-head p {
+        font-size: 1.0625rem;
+        font-weight: 300;
+        color: var(--ink-mid);
         line-height: 1.8;
     }
-    .outcomes-grid {
+
+    .outcome-row {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2.5rem;
+        gap: 5rem;
+        align-items: start;
+        padding: 4.5rem 0;
+        border-top: 1px solid var(--rule);
+        transition: border-left 0.2s var(--ease-quart), transform 0.2s var(--ease-quart);
     }
-    .outcome-card {
-        background: #fff;
-        border-radius: 10px;
-        padding: 3rem 2.5rem;
-        border: 1px solid rgba(0,0,0,0.05);
-        box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-        transition: all 0.3s ease;
-        opacity: 0;
-        transform: translateY(20px);
+    .outcome-row:last-child { border-bottom: 1px solid var(--rule); }
+    .outcome-row:hover {
+        border-left: 2px solid var(--sienna-light);
+        padding-left: 1rem;
     }
-    .outcome-card.fade-in {
-        animation: fadeInUp 0.6s ease-out forwards;
+    .outcome-row.row-1 { grid-template-columns: 55% 1fr; }
+    .outcome-row.row-2 { grid-template-columns: 1fr 55%; }
+    .outcome-row.row-3 { grid-template-columns: 1fr; max-width: 560px; }
+
+    .outcome-prose h3 {
+        margin-bottom: 1rem;
     }
-    .outcome-card:nth-child(2) { animation-delay: 0.1s; }
-    .outcome-card:nth-child(3) { animation-delay: 0.2s; }
-    .outcome-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+    .outcome-prose p {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--ink-mid);
+        line-height: 1.8;
+        max-width: 52ch;
     }
-    .outcome-icon {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-    }
-    .outcome-title {
+    .outcome-accent {
         font-family: 'Fraunces', serif;
-        font-size: 1.375rem;
-        color: #1A1A1A;
-        margin-bottom: 0.875rem;
-        font-weight: 400;
-        font-variation-settings: 'opsz' 24;
-    }
-    .outcome-desc {
-        font-size: 0.95rem;
-        color: #3D3D3D;
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
-    }
-    .outcome-link {
-        color: #E8845C;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: opacity 0.2s;
-    }
-    .outcome-link:hover {
-        opacity: 0.75;
-        text-decoration: underline;
+        font-size: clamp(1.75rem, 3vw, 2.375rem);
+        font-weight: 300;
+        font-style: italic;
+        font-variation-settings: 'opsz' 48;
+        letter-spacing: -0.02em;
+        line-height: 1.35;
+        color: var(--sienna);
     }
 
-    /* ── HOW IT WORKS ── */
+    /* ─────────────────────────────────────────
+       HOW IT WORKS
+    ───────────────────────────────────────── */
     .how-section {
-        background: linear-gradient(135deg, #FFFBF7 0%, #FEFDFB 100%);
-        padding: 10rem 0;
+        background: var(--surface-alt);
+        padding: 8rem 0;
+        scroll-margin-top: 5rem;
     }
-    .steps-grid {
+    .how-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
+        grid-template-columns: 55% 1fr;
+        gap: 6rem;
+        align-items: start;
+        margin-top: 4rem;
     }
-    .step-card {
-        text-align: center;
-        opacity: 0;
-        transform: translateY(20px);
+    .how-prose {
+        font-size: 1.0625rem;
+        font-weight: 300;
+        color: var(--ink-mid);
+        line-height: 1.8;
     }
-    .step-card.fade-in {
-        animation: fadeInUp 0.6s ease-out forwards;
+    .how-prose p { margin-bottom: 1.5rem; }
+    .how-prose p:last-child { margin-bottom: 0; }
+
+    .how-timeline {
+        position: relative;
+        padding-left: 1.75rem;
     }
-    .step-card:nth-child(2) { animation-delay: 0.1s; }
-    .step-card:nth-child(3) { animation-delay: 0.2s; }
-    .step-card:nth-child(4) { animation-delay: 0.3s; }
-    .step-number {
+    .how-timeline::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0.75rem; bottom: 0.75rem;
+        width: 1px;
+        background: var(--sage-light);
+    }
+    .timeline-marker {
+        position: relative;
+        padding-bottom: 2.5rem;
+    }
+    .timeline-marker:last-child { padding-bottom: 0; }
+    .timeline-marker::before {
+        content: '';
+        position: absolute;
+        left: -1.875rem;
+        top: 0.55rem;
+        width: 5px; height: 5px;
+        border-radius: 50%;
+        background: var(--sage);
+    }
+    .tm-day {
         font-family: 'Fraunces', serif;
-        font-size: 2.5rem;
-        color: #E8845C;
+        font-size: 1.75rem;
         font-weight: 400;
-        margin-bottom: 1rem;
         font-variation-settings: 'opsz' 48;
+        color: var(--sienna);
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        display: block;
+        margin-bottom: 0.375rem;
     }
-    .step-title {
-        font-family: 'Fraunces', serif;
-        font-size: 1.125rem;
-        color: #1A1A1A;
-        font-weight: 400;
-        margin-bottom: 0.75rem;
-        font-variation-settings: 'opsz' 18;
-    }
-    .step-desc {
-        font-size: 0.9rem;
-        color: #3D3D3D;
+    .tm-desc {
+        font-family: 'Manrope', sans-serif;
+        font-size: 0.875rem;
+        color: var(--ink-soft);
         line-height: 1.6;
     }
-    .step-connector {
-        display: none;
-        font-size: 1.5rem;
-        color: #E8845C;
-        margin-top: 1rem;
+
+    /* ─────────────────────────────────────────
+       INDUSTRIES
+    ───────────────────────────────────────── */
+    .industries-section {
+        background: var(--surface-warm);
+        padding: 8rem 0;
     }
-    .step-card:not(:last-child) .step-connector {
+    .industries-head {
+        max-width: 680px;
+        margin: 0 auto 4rem;
+        text-align: center;
+    }
+    .industries-head h2 { margin-bottom: 0; }
+
+    .scenario-list {
+        max-width: 680px;
+        margin: 0 auto;
+    }
+    .scenario-block {
+        padding: 3.5rem 0;
+    }
+    .scenario-block + .scenario-block {
+        border-top: 1px solid var(--rule);
+    }
+    .scenario-label {
+        font-family: 'Manrope', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--sage);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
         display: block;
     }
-
-    /* ── INDUSTRIES ── */
-    .industries-section {
-        background: #FFFBF7;
-        padding: 10rem 0;
-    }
-    .industries-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
-    .industry-card {
-        background: #fff;
-        border-radius: 10px;
-        padding: 2.5rem;
-        border: 1px solid rgba(0,0,0,0.05);
-        text-align: center;
-        transition: all 0.3s ease;
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    .industry-card.fade-in {
-        animation: fadeInUp 0.6s ease-out forwards;
-    }
-    .industry-card:nth-child(1) { animation-delay: 0s; }
-    .industry-card:nth-child(2) { animation-delay: 0.1s; }
-    .industry-card:nth-child(3) { animation-delay: 0.2s; }
-    .industry-card:nth-child(4) { animation-delay: 0.3s; }
-    .industry-card:nth-child(5) { animation-delay: 0.4s; }
-    .industry-card:nth-child(6) { animation-delay: 0.5s; }
-    .industry-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 36px rgba(0,0,0,0.1);
-    }
-    .industry-icon {
-        font-size: 2.5rem;
+    .scenario-block h3 {
         margin-bottom: 1rem;
     }
-    .industry-name {
-        font-family: 'Fraunces', serif;
-        font-size: 1.125rem;
-        color: #1A1A1A;
-        font-weight: 400;
-        margin-bottom: 0.5rem;
-        font-variation-settings: 'opsz' 18;
-    }
-    .industry-benefit {
-        font-size: 0.85rem;
-        color: #3D3D3D;
-        line-height: 1.5;
+    .scenario-block p {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--ink-mid);
+        line-height: 1.75;
+        max-width: 60ch;
     }
 
-    /* ── FINAL CTA ── */
+    /* ─────────────────────────────────────────
+       FINAL CTA
+    ───────────────────────────────────────── */
     .final-cta {
         background: var(--dark);
-        color: var(--text-light);
         padding: 8rem 0;
         text-align: center;
     }
     .final-cta h2 {
         color: var(--text-light);
+        font-size: clamp(2.125rem, 4vw, 3rem);
+        font-variation-settings: 'opsz' 48;
         margin-bottom: 1.5rem;
-        font-size: clamp(2rem, 4vw, 2.875rem);
     }
+    .final-cta h2 em { color: var(--sienna); }
     .final-cta-sub {
-        font-size: 1.1rem;
-        color: rgba(245,240,232,0.85);
-        max-width: 600px;
-        margin: 0 auto 2.5rem;
+        font-size: 1.0625rem;
+        font-weight: 300;
+        color: var(--text-light-mid);
+        max-width: 540px;
+        margin: 0 auto 2.75rem;
         line-height: 1.8;
     }
-    .final-cta .btn-gold {
-        padding: 1rem 2.5rem;
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
     .final-cta-note {
-        font-size: 0.85rem;
-        color: rgba(245,240,232,0.6);
         margin-top: 1.5rem;
+        font-family: 'Manrope', sans-serif;
+        font-size: 0.875rem;
+        color: var(--text-light-soft);
     }
     .final-cta-note a {
-        color: var(--gold);
+        color: var(--text-light-soft);
         text-decoration: none;
+        border-bottom: 1px solid var(--rule-dark);
+        transition: color 0.2s, border-color 0.2s;
     }
     .final-cta-note a:hover {
-        text-decoration: underline;
+        color: var(--text-light-mid);
+        border-color: var(--text-light-mid);
     }
 
-    /* ── RESPONSIVE ── */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
     @media (max-width: 1024px) {
-        .hero {
-            padding: 6rem 0 4rem;
-        }
-        .hero-inner {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-        .hero-preview {
-            display: none;
-        }
-        .outcomes-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        .steps-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        .industries-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .proof-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
+        .how-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+        .outcome-row.row-1,
+        .outcome-row.row-2 { grid-template-columns: 1fr; gap: 2rem; }
+        .outcome-row.row-2 .outcome-accent { order: -1; }
     }
-
     @media (max-width: 768px) {
-        .hero {
-            padding: 5rem 0 3rem;
-        }
-        h1 {
-            font-size: 2.25rem;
-        }
-        .hero-sub {
-            font-size: 1rem;
-        }
-        .hero-cta-group {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-        .hero-cta-group .btn-gold {
-            width: 100%;
-            text-align: center;
-        }
-        .outcomes-section,
-        .how-section,
-        .industries-section,
-        .proof-section {
-            padding: 6rem 0;
-        }
-        .section-head {
-            margin-bottom: 3rem;
-        }
-        .section-head h2 {
-            font-size: 1.75rem;
-        }
-        .steps-grid {
-            grid-template-columns: 1fr;
-        }
-        .industries-grid {
-            grid-template-columns: 1fr;
-        }
-        .proof-grid {
-            grid-template-columns: 1fr;
-        }
-        .proof-number {
-            font-size: 2rem;
-        }
-        .final-cta {
-            padding: 5rem 0;
-        }
+        .hero { padding: 8rem 0 5rem; min-height: auto; }
+        .hero h1 { font-size: clamp(2.75rem, 10vw, 3.5rem); }
+        .hero-cta-group { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+        .hero-cta-group .btn-primary { width: 100%; justify-content: center; }
+        .outcomes-section, .how-section, .industries-section, .proof-section, .final-cta { padding: 5rem 0; }
+        .outcomes-head { margin-bottom: 3.5rem; }
+        .outcome-row { padding: 3rem 0; gap: 1.5rem; }
+        .outcome-row:hover { border-left: none; padding-left: 0; }
+        .how-grid { margin-top: 2.5rem; }
+        .final-cta { padding: 5rem 0; }
+    }
+    @media (max-width: 480px) {
+        .hero h1 { font-size: clamp(2.25rem, 9vw, 3rem); letter-spacing: -0.03em; }
     }
     </style>
 </head>
@@ -467,6 +422,8 @@
         <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
         <p class="modal-sub">15 minutes. No pitch, no pressure. I'll show you exactly what I'd build for your business.</p>
         <form id="modalForm">
+            <input type="hidden" name="_replyto" value="jake@appliedaiagent.ai">
+            <input type="hidden" name="_subject" value="New demo request — Applied AI Agent">
             <div class="form-row">
                 <div class="form-group">
                     <label>First Name</label>
@@ -514,26 +471,20 @@
 </div>
 
 <!-- FLOATING BUTTON -->
-<button class="float-btn" id="floatBtn" onclick="openModal()">Free Demo →</button>
+<button class="float-btn" id="floatBtn" onclick="openModal()">Free Demo</button>
 
 <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
 <section class="hero" id="home">
     <div class="container">
         <div class="hero-inner">
-            <div>
-                <span class="hero-eyebrow">For owner-operated businesses that are tired of admin</span>
-                <h1>Add an intelligence layer to your business.</h1>
-                <p class="hero-sub">We handle the repetitive stuff. You focus on what matters—growth, relationships, your craft.</p>
-                <div class="hero-cta-group">
-                    <button onclick="openModal()" class="btn-gold">See It in Action</button>
-                    <span class="hero-trust">Free demo. No pitch. You see it running before you pay.</span>
-                </div>
+            <span class="hero-location">Sonoma, CA</span>
+            <h1>Add an intelligence layer<br>to your <em>business.</em></h1>
+            <p class="hero-sub">I handle the repetitive stuff. You focus on what your business actually needs from you.</p>
+            <div class="hero-cta-group">
+                <button onclick="openModal()" class="btn-primary">See It in Action</button>
+                <span class="hero-trust">Free 15 minutes. You see it running before you pay.</span>
             </div>
-            <div class="hero-preview">
-                <div class="preview-icon">🤖</div>
-                <p class="preview-text">Your AI Agent</p>
-                <p class="preview-subtext">Handles follow-ups, scheduling, and customer outreach 24/7</p>
-            </div>
+            <p class="hero-credential">Built by a winemaker. For businesses that don't have time for another platform.</p>
         </div>
     </div>
 </section>
@@ -541,23 +492,12 @@
 <!-- ══════════════════════════════ PROOF ══════════════════════════════ -->
 <section class="proof-section">
     <div class="container">
-        <div class="proof-grid">
-            <div class="proof-stat">
-                <div class="proof-number">847+</div>
-                <p class="proof-label">Hours recovered per year</p>
-            </div>
-            <div class="proof-stat">
-                <div class="proof-number">10min</div>
-                <p class="proof-label">Response time (was hours)</p>
-            </div>
-            <div class="proof-stat">
-                <div class="proof-number">12</div>
-                <p class="proof-label">New reviews per month</p>
-            </div>
-            <div class="proof-stat">
-                <div class="proof-number">48hrs</div>
-                <p class="proof-label">Time to first automation</p>
-            </div>
+        <div class="testimonial-wrap">
+            <span class="testimonial-rule"></span>
+            <blockquote class="testimonial-quote fade">
+                "I stopped dreading Monday mornings. The follow-ups go out, the reminders land, the reviews come in — and I didn't send any of them."
+            </blockquote>
+            <p class="testimonial-attr">Owner — Wine Country Tour Operator, Sonoma, CA</p>
         </div>
     </div>
 </section>
@@ -565,28 +505,38 @@
 <!-- ══════════════════════════════ OUTCOMES ══════════════════════════════ -->
 <section class="outcomes-section" id="outcomes">
     <div class="container">
-        <div class="section-head">
+        <div class="outcomes-head fade">
             <h2>What actually changes</h2>
             <p>You don't need another platform. You need your existing tools working together, 24/7, handling the work that kills your time.</p>
         </div>
-        <div class="outcomes-grid">
-            <div class="outcome-card">
-                <div class="outcome-icon">🎯</div>
-                <h3 class="outcome-title">More Qualified Leads</h3>
-                <p class="outcome-desc">Agent qualifies inquiries around the clock, so you only talk to serious prospects. No more cold calls on dead leads.</p>
-                <a href="#" class="outcome-link">See how →</a>
+
+        <!-- Row 1: prose left, accent right -->
+        <div class="outcome-row row-1 fade">
+            <div class="outcome-prose">
+                <h3>You stop taking calls from people who were never going to buy.</h3>
+                <p>Agent qualifies inquiries around the clock. It asks the right questions, filters the tire-kickers, and hands you the ones worth your time. You only talk to serious prospects.</p>
             </div>
-            <div class="outcome-card">
-                <div class="outcome-icon">⏱️</div>
-                <h3 class="outcome-title">Less Admin Work</h3>
-                <p class="outcome-desc">Booking confirmations, follow-ups, reminders, status updates—handled automatically. You get your time back.</p>
-                <a href="#" class="outcome-link">See how →</a>
+            <div class="outcome-accent">
+                Only serious prospects reach your phone.
             </div>
-            <div class="outcome-card">
-                <div class="outcome-icon">😊</div>
-                <h3 class="outcome-title">Better Customer Experience</h3>
-                <p class="outcome-desc">Instant responses, personalized interactions, zero dropped conversations. Customers feel taken care of.</p>
-                <a href="#" class="outcome-link">See how →</a>
+        </div>
+
+        <!-- Row 2: accent left, prose right -->
+        <div class="outcome-row row-2 fade">
+            <div class="outcome-accent">
+                Your follow-up went out Sunday night. You were at a barbecue.
+            </div>
+            <div class="outcome-prose">
+                <h3>Your follow-up goes out Sunday night. You were at a barbecue.</h3>
+                <p>Booking confirmations, post-visit check-ins, review requests — all timed and personalized. The right message lands when the customer is most likely to respond, not when you happen to remember.</p>
+            </div>
+        </div>
+
+        <!-- Row 3: single column -->
+        <div class="outcome-row row-3 fade">
+            <div class="outcome-prose">
+                <h3>They heard back in 8 minutes. You were in the barrel room.</h3>
+                <p>Instant responses, personalized outreach, zero dropped conversations. Customers feel taken care of. The ones who were going to go somewhere else — most of them don't.</p>
             </div>
         </div>
     </div>
@@ -595,33 +545,30 @@
 <!-- ══════════════════════════════ HOW IT WORKS ══════════════════════════════ -->
 <section class="how-section" id="how">
     <div class="container">
-        <div class="section-head">
-            <h2>How it actually works</h2>
-            <p>Simple. Transparent. No black boxes.</p>
-        </div>
-        <div class="steps-grid">
-            <div class="step-card">
-                <div class="step-number">01</div>
-                <h3 class="step-title">Discovery Call</h3>
-                <p class="step-desc">15-min conversation about what's slowing you down.</p>
-                <div class="step-connector">↓</div>
+        <h2 class="fade">How it actually works</h2>
+        <div class="how-grid">
+            <div class="how-prose fade">
+                <p>We start with a 15-minute call. No slides, no pitch. I ask what's slowing you down and listen for the patterns — the tasks you've been doing manually for years that a well-built agent could handle better.</p>
+                <p>Then I build it. Not a template, not a configured SaaS tool — a custom system wired into your actual workflow. You see a rough version on the call before you commit to anything.</p>
+                <p>By the end of the first week, it's running. I stay involved to catch edge cases and keep it improving. Most clients have something live within 48 hours of the first conversation.</p>
             </div>
-            <div class="step-card">
-                <div class="step-number">02</div>
-                <h3 class="step-title">Custom Build</h3>
-                <p class="step-desc">I design the agent around your specific workflow.</p>
-                <div class="step-connector">↓</div>
-            </div>
-            <div class="step-card">
-                <div class="step-number">03</div>
-                <h3 class="step-title">Live Demo</h3>
-                <p class="step-desc">See it working before you commit. No surprises.</p>
-                <div class="step-connector">↓</div>
-            </div>
-            <div class="step-card">
-                <div class="step-number">04</div>
-                <h3 class="step-title">Launch & Optimize</h3>
-                <p class="step-desc">Go live, then I stay involved to keep improving it.</p>
+            <div class="how-timeline">
+                <div class="timeline-marker fade">
+                    <span class="tm-day">Day 1</span>
+                    <span class="tm-desc">Discovery call — I learn your workflow</span>
+                </div>
+                <div class="timeline-marker fade">
+                    <span class="tm-day">Days 2–3</span>
+                    <span class="tm-desc">Custom build, connected to your tools</span>
+                </div>
+                <div class="timeline-marker fade">
+                    <span class="tm-day">Day 7</span>
+                    <span class="tm-desc">Live demo — you see it before paying</span>
+                </div>
+                <div class="timeline-marker fade">
+                    <span class="tm-day">Ongoing</span>
+                    <span class="tm-desc">I stay involved, optimize, expand</span>
+                </div>
             </div>
         </div>
     </div>
@@ -630,39 +577,24 @@
 <!-- ══════════════════════════════ INDUSTRIES ══════════════════════════════ -->
 <section class="industries-section">
     <div class="container">
-        <div class="section-head">
-            <h2>Built for businesses like yours</h2>
+        <div class="industries-head fade">
+            <h2>Built for operations like yours</h2>
         </div>
-        <div class="industries-grid">
-            <div class="industry-card">
-                <div class="industry-icon">🍷</div>
-                <h3 class="industry-name">Wineries</h3>
-                <p class="industry-benefit">Wine club automation, tour booking, event sequences</p>
+        <div class="scenario-list">
+            <div class="scenario-block fade">
+                <span class="scenario-label">Wineries</span>
+                <h3>A tasting room that follows up like a great salesperson — every time.</h3>
+                <p>Saturday afternoon, 40 visitors. By Sunday evening, every single one has a personalized thank-you, a wine club pitch written in your voice, and a reason to come back. You were home by 6.</p>
             </div>
-            <div class="industry-card">
-                <div class="industry-icon">🚤</div>
-                <h3 class="industry-name">Tour Operators</h3>
-                <p class="industry-benefit">Booking inquiries, confirmations, follow-ups 24/7</p>
+            <div class="scenario-block fade">
+                <span class="scenario-label">Tour Operators</span>
+                <h3>After-hours inquiries that don't go cold until Tuesday.</h3>
+                <p>The family of five submits a booking request at 10pm Friday. By 10:01, they have availability, a quote, and a booking link. Monday morning you have a confirmed reservation instead of a cold lead.</p>
             </div>
-            <div class="industry-card">
-                <div class="industry-icon">🏠</div>
-                <h3 class="industry-name">Real Estate</h3>
-                <p class="industry-benefit">Lead qualification, showing scheduling, follow-up sequences</p>
-            </div>
-            <div class="industry-card">
-                <div class="industry-icon">🔧</div>
-                <h3 class="industry-name">Home Services</h3>
-                <p class="industry-benefit">Service requests, appointment booking, dispatch routing</p>
-            </div>
-            <div class="industry-card">
-                <div class="industry-icon">🍽️</div>
-                <h3 class="industry-name">Restaurants</h3>
-                <p class="industry-benefit">Reservation management, reminders, loyalty follow-ups</p>
-            </div>
-            <div class="industry-card">
-                <div class="industry-icon">🌳</div>
-                <h3 class="industry-name">Landscaping</h3>
-                <p class="industry-benefit">Quote requests, job scheduling, progress updates</p>
+            <div class="scenario-block fade">
+                <span class="scenario-label">Home Services</span>
+                <h3>The competitor who answers first gets the job. Now that's you.</h3>
+                <p>A homeowner submits a quote request while you're under a sink. The agent responds in under two minutes, qualifies the job, and books a site visit. You find out when you check your calendar that evening.</p>
             </div>
         </div>
     </div>
@@ -671,10 +603,10 @@
 <!-- ══════════════════════════════ FINAL CTA ══════════════════════════════ -->
 <section class="final-cta">
     <div class="container">
-        <h2>See what's possible.</h2>
-        <p class="final-cta-sub">15 minutes. No obligation. Just you and the AI working together on your operation.</p>
-        <button onclick="openModal()" class="btn-gold">Schedule Your Free Demo</button>
-        <p class="final-cta-note">Jake responds within a few hours. <a href="mailto:jake@appliedaiagent.ai">jake@appliedaiagent.ai</a></p>
+        <h2 class="fade">Tell me what's eating your time.</h2>
+        <p class="final-cta-sub fade">I'll show you a rough version of your automation on the call. If it doesn't fit, we shake hands and you leave knowing exactly what's possible.</p>
+        <button onclick="openModal()" class="btn-primary fade">Schedule Your Free Demo</button>
+        <p class="final-cta-note fade">Jake responds within a few hours. <a href="mailto:jake@appliedaiagent.ai">jake@appliedaiagent.ai</a></p>
     </div>
 </section>
 
@@ -683,7 +615,7 @@
     <div class="footer-brand">
         <a href="index.html" class="footer-logo">Applied AI Agent</a>
         <span class="footer-location">Sonoma, CA &nbsp;·&nbsp; <a href="mailto:jake@appliedaiagent.ai" style="color:inherit;text-decoration:none;">jake@appliedaiagent.ai</a></span>
-        <p style="font-size: 0.75rem; color: rgba(245,240,232,0.5); margin-top: 0.75rem; max-width: 300px; line-height: 1.5;">
+        <p style="font-size: 0.75rem; color: var(--text-light-soft); margin-top: 0.75rem; max-width: 300px; line-height: 1.5;">
             Jake spent 10 years as a winemaker in Sonoma. Now he builds the AI systems that owner-operated businesses can't live without.
         </p>
     </div>

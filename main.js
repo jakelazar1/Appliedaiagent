@@ -63,22 +63,21 @@ async function submitContactForm() {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // NAV SCROLL BEHAVIOR
+    // NAV SCROLL BEHAVIOR — transparent over dark hero, white when scrolled
     const nav = document.getElementById('nav');
     const hero = document.querySelector('.hero');
-    if (nav) {
-        function updateNav() {
-            if (!hero) {
-                nav.classList.remove('over-dark');
-                nav.classList.add('over-light');
-                return;
-            }
-            const overHero = hero.getBoundingClientRect().bottom > 80;
-            nav.classList.toggle('over-dark', overHero);
-            nav.classList.toggle('over-light', !overHero);
-        }
-        window.addEventListener('scroll', updateNav, { passive: true });
-        updateNav();
+    if (nav && hero) {
+        const heroObs = new IntersectionObserver(
+            ([entry]) => {
+                nav.classList.toggle('over-dark', entry.isIntersecting);
+                nav.classList.toggle('over-light', !entry.isIntersecting);
+            },
+            { threshold: 0, rootMargin: '-80px 0px 0px 0px' }
+        );
+        heroObs.observe(hero);
+    } else if (nav) {
+        nav.classList.remove('over-dark');
+        nav.classList.add('over-light');
     }
 
     // HAMBURGER
@@ -104,13 +103,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { threshold: 0 }).observe(hero);
     }
 
-    // FADE-IN OBSERVER
+    // FADE-IN OBSERVER — with sibling stagger capped at 3
     const fadeObs = new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-            if (e.isIntersecting) {
-                setTimeout(() => e.target.classList.add('on'), i * 80);
-                fadeObs.unobserve(e.target);
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+
+            // Testimonial uses clip-path reveal — no stagger needed
+            if (el.classList.contains('testimonial-quote')) {
+                el.classList.add('on');
+                fadeObs.unobserve(el);
+                return;
             }
+
+            // Stagger siblings within same parent, cap at 3
+            const siblings = Array.from(el.parentElement.querySelectorAll('.fade:not(.on)'));
+            const idx = Math.min(siblings.indexOf(el), 2);
+            el.style.transitionDelay = (idx * 0.07) + 's';
+            el.classList.add('on');
+            fadeObs.unobserve(el);
         });
     }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade, .project').forEach(el => fadeObs.observe(el));
