@@ -35,9 +35,9 @@ async function submitModal() {
             method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
         if (res.ok) { f.style.display = 'none'; s.style.display = 'block'; }
-        else { if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; } }
+        else { if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Assessment'; } }
     } catch (_) {
-        if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; }
+        if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Assessment'; }
     }
 }
 
@@ -53,9 +53,9 @@ async function submitContactForm() {
             method: 'POST', body: data, headers: { 'Accept': 'application/json' }
         });
         if (res.ok) { f.style.display = 'none'; s.style.display = 'block'; }
-        else { if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; } }
+        else { if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Assessment'; } }
     } catch (_) {
-        if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Demo'; }
+        if (btn) { btn.disabled = false; btn.textContent = 'Schedule My Free Assessment'; }
     }
 }
 

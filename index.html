@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applied AI Agent — AI Automation for Owner-Operated Businesses</title>
-    <meta name="description" content="Custom AI agents that handle the admin work nobody loves. For wineries, tour operators, home services, and small businesses in Sonoma and beyond.">
+    <title>Applied AI Agent — Forward Deployment AI Engineer, Sonoma CA</title>
+    <meta name="description" content="I embed with your business, build a custom AI intelligence layer on top of your existing tools, and stay hands-on optimizing it until your business runs better.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
@@ -204,6 +204,35 @@
         animation: msgIn 0.4s var(--ease-expo) 2.3s both;
     }
 
+    /* ─── POSITIONING STATEMENT ─── */
+    .positioning-section {
+        background: var(--dark);
+        border-top: 1px solid var(--rule-dark);
+        padding: 5rem 0;
+    }
+    .positioning-inner {
+        max-width: 740px;
+    }
+    .positioning-label {
+        display: block;
+        font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--sage);
+        margin-bottom: 1.5rem;
+    }
+    .positioning-text {
+        font-family: 'Fraunces', serif;
+        font-size: clamp(1.125rem, 1.75vw, 1.375rem);
+        font-weight: 300; line-height: 1.7;
+        letter-spacing: -0.01em;
+        color: var(--text-light-mid);
+        font-variation-settings: 'opsz' 24;
+        text-wrap: pretty;
+    }
+    .positioning-text strong {
+        color: var(--text-light);
+        font-weight: 400;
+    }
+
     /* ─── TESTIMONIAL ─── */
     .proof-section {
         background: var(--surface-warm);
@@ -332,7 +361,7 @@
         <li><a href="work.html">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button onclick="openModal()" class="btn-nav">Schedule Demo</button>
+    <button onclick="openModal()" class="btn-nav">Free Assessment</button>
     <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
     </button>
@@ -345,7 +374,7 @@
         <li><a href="work.html">Use Cases</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Schedule a Free Demo</button>
+    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Schedule a Free Assessment</button>
 </div>
 
 <!-- DEMO MODAL -->
@@ -353,9 +382,9 @@
     <div class="modal-backdrop" onclick="closeModal()"></div>
     <div class="modal-card">
         <button class="modal-close" onclick="closeModal()">×</button>
-        <p class="modal-header-label">Schedule a Free 15-Minute Demo</p>
+        <p class="modal-header-label">Free 15-Minute Assessment</p>
         <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
-        <p class="modal-sub">15 minutes. No pitch, no pressure. I'll show you exactly what I'd build for your business.</p>
+        <p class="modal-sub">15 minutes. I'll learn your workflows, identify the highest-impact opportunity, and tell you exactly what I'd build. No pitch. No pressure.</p>
         <form id="modalForm">
             <input type="hidden" name="_replyto" value="jake@appliedaiagent.ai">
             <input type="hidden" name="_subject" value="New demo request — Applied AI Agent">
@@ -396,7 +425,7 @@
                 <label>What's eating your time right now?</label>
                 <textarea name="message" placeholder="Follow-ups, bookings, scheduling, customer communication — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
             </div>
-            <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Demo</button>
+            <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Assessment</button>
         </form>
         <div class="modal-success" id="modalSuccess">
             <p class="modal-title" style="text-align:center;">Message received.</p>
@@ -405,20 +434,32 @@
     </div>
 </div>
 
-<button class="float-btn" id="floatBtn" onclick="openModal()">Free Demo</button>
+<button class="float-btn" id="floatBtn" onclick="openModal()">Free Assessment</button>
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="home">
     <div class="container">
         <div class="hero-inner">
-            <span class="hero-location">Sonoma, CA</span>
-            <h1>I build AI that handles<br>the work you <em>don't want to do.</em></h1>
-            <p class="hero-sub">Custom agents for owner-operated businesses. Bookings answered at midnight. Follow-ups sent Sunday evening. Leads qualified while you're on a job.</p>
+            <span class="hero-location">Sonoma, CA — Forward Deployment AI Engineer</span>
+            <h1>I don't build AI products.<br>I build custom systems, then <em>stay embedded.</em></h1>
+            <p class="hero-sub">I embed with your team, build an AI intelligence layer on top of your existing tools, and stay hands-on optimizing it until your business runs better.</p>
             <div class="hero-cta-group">
-                <button onclick="openModal()" class="btn-primary">See It in Action</button>
-                <span class="hero-trust">Free 15 minutes. You see it running before you pay.</span>
+                <button onclick="openModal()" class="btn-primary">Schedule a Free Assessment</button>
+                <span class="hero-trust">15 minutes. I learn your workflows and tell you what I'd build.</span>
             </div>
-            <p class="hero-credential">Built by a winemaker. For businesses that don't have time for another platform.</p>
+            <p class="hero-credential">Not a consultant. Not a platform. An embedded engineering partnership.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══ POSITIONING ══ -->
+<section class="positioning-section">
+    <div class="container">
+        <div class="positioning-inner fade">
+            <span class="positioning-label">How I work</span>
+            <p class="positioning-text">
+                Unlike consultants who hand off reports, or vendors who sell platforms, <strong>I embed directly with your business.</strong> I build custom AI systems tailored to your specific workflows, implement them hands-on with your team, and stay involved in ongoing optimization. <strong>You own the system. I stay accountable for outcomes.</strong>
+            </p>
         </div>
     </div>
 </section>
@@ -427,8 +468,8 @@
 <section class="demos-section" id="demos">
     <div class="container">
         <div class="demos-head fade">
-            <h2>What this looks like in practice</h2>
-            <p>Real conversations, handled automatically. Every example below runs 24/7 without anyone on your team touching it.</p>
+            <h2>What I've built — and stayed embedded optimizing</h2>
+            <p>Every system below is custom-built for a specific operation. Not a template. Connected to their actual tools.</p>
         </div>
 
         <!-- Demo 1: Tour Operator -->
@@ -437,7 +478,7 @@
                 <span class="demo-label">Tour Operators</span>
                 <h3>Your phone rings all day with booking inquiries.</h3>
                 <p class="demo-result">Bookings confirmed 24/7. Your team gets the calendar, not the interruptions.</p>
-                <button onclick="openModal()" class="btn-demo">See how it works for your business</button>
+                <button onclick="openModal()" class="btn-demo">Schedule a free assessment</button>
             </div>
             <div class="demo-visual">
                 <div class="chat-interface">
@@ -474,7 +515,7 @@
                 <span class="demo-label">Wineries</span>
                 <h3>47 visitors on Saturday. 0 follow-ups sent by Monday.</h3>
                 <p class="demo-result">Every visitor gets a personalized note Sunday evening. You were home by 6.</p>
-                <button onclick="openModal()" class="btn-demo">See how it works for your business</button>
+                <button onclick="openModal()" class="btn-demo">Schedule a free assessment</button>
             </div>
             <div class="demo-visual">
                 <div class="chat-interface">
@@ -507,7 +548,7 @@
                 <span class="demo-label">Home Services</span>
                 <h3>A homeowner calls at 11pm. Your voicemail picks up.</h3>
                 <p class="demo-result">Zero missed calls. Your dispatcher gets full context before picking up the phone.</p>
-                <button onclick="openModal()" class="btn-demo">See how it works for your business</button>
+                <button onclick="openModal()" class="btn-demo">Schedule a free assessment</button>
             </div>
             <div class="demo-visual">
                 <div class="chat-interface">
@@ -540,7 +581,7 @@
                 <span class="demo-label">Real Estate</span>
                 <h3>A buyer submits a form Sunday night. By Monday they've gone elsewhere.</h3>
                 <p class="demo-result">Lead qualified and briefed to your agent by 8am Monday. Response time: 2 minutes.</p>
-                <button onclick="openModal()" class="btn-demo">See how it works for your business</button>
+                <button onclick="openModal()" class="btn-demo">Schedule a free assessment</button>
             </div>
             <div class="demo-visual">
                 <div class="chat-interface">
@@ -586,27 +627,27 @@
 <!-- ══ HOW IT WORKS ══ -->
 <section class="how-section" id="how">
     <div class="container">
-        <h2 class="fade">How it actually works</h2>
+        <h2 class="fade">The engagement model</h2>
         <div class="how-grid">
             <div class="how-intro fade">
-                <p>We start with a 15-minute call. I ask what's slowing you down. Then I build a custom agent wired into your actual workflow — not a template. You see it running before you pay anything. Most clients have something live within 48 hours of the first conversation.</p>
+                <p>This is not a SaaS subscription or a consulting engagement. I embed with your business as a technical partner — design, build, deploy, and stay involved optimizing. Every client gets a system built specifically for their operation. You own it. I stay accountable for it working.</p>
             </div>
             <div class="how-timeline">
                 <div class="timeline-marker fade">
-                    <span class="tm-day">Day 1</span>
-                    <span class="tm-desc">Discovery call — I learn your workflow</span>
+                    <span class="tm-day">Assessment</span>
+                    <span class="tm-desc">Free 15 min — I learn your workflows and identify the highest-impact opportunity</span>
                 </div>
                 <div class="timeline-marker fade">
-                    <span class="tm-day">Days 2–3</span>
-                    <span class="tm-desc">Custom build, connected to your tools</span>
+                    <span class="tm-day">Design &amp; Build</span>
+                    <span class="tm-desc">1–2 weeks — custom system connected to your existing tools, not a template</span>
                 </div>
                 <div class="timeline-marker fade">
-                    <span class="tm-day">Day 7</span>
-                    <span class="tm-desc">Live demo — you see it before paying</span>
+                    <span class="tm-day">Deploy &amp; Embed</span>
+                    <span class="tm-desc">Launch week — I'm hands-on with your team, troubleshoot live, get it production-ready</span>
                 </div>
                 <div class="timeline-marker fade">
                     <span class="tm-day">Ongoing</span>
-                    <span class="tm-desc">I stay involved, optimize, expand</span>
+                    <span class="tm-desc">Monthly optimization — new requests, process improvements, quarterly ROI reviews</span>
                 </div>
             </div>
         </div>
@@ -616,9 +657,9 @@
 <!-- ══ FINAL CTA ══ -->
 <section class="final-cta">
     <div class="container">
-        <h2 class="fade">Tell me what's eating<br><em>your time.</em></h2>
-        <p class="final-cta-sub fade">I'll show you a rough version of your automation on the call. If it doesn't fit, we shake hands and you leave knowing exactly what's possible.</p>
-        <button onclick="openModal()" class="btn-primary fade">Schedule Your Free Demo</button>
+        <h2 class="fade">Let's start with a free<br><em>15-minute assessment.</em></h2>
+        <p class="final-cta-sub fade">I'll learn your workflows, identify where an AI system would make the biggest impact, and show you what I'd build. If it doesn't fit, we shake hands and you leave with a clear picture of what's possible.</p>
+        <button onclick="openModal()" class="btn-primary fade">Schedule Your Free Assessment</button>
         <p class="final-cta-note fade">Jake responds within a few hours. <a href="mailto:jake@appliedaiagent.ai">jake@appliedaiagent.ai</a></p>
     </div>
 </section>
@@ -629,7 +670,7 @@
         <a href="index.html" class="footer-logo">Applied AI Agent</a>
         <span class="footer-location">Sonoma, CA &nbsp;·&nbsp; <a href="mailto:jake@appliedaiagent.ai" style="color:inherit;text-decoration:none;">jake@appliedaiagent.ai</a></span>
         <p style="font-size: 0.75rem; color: var(--text-light-soft); margin-top: 0.75rem; max-width: 300px; line-height: 1.5;">
-            Jake spent 10 years as a winemaker in Sonoma. Now he builds the AI systems that owner-operated businesses can't live without.
+            10 years in wine operations. Now embedded with owner-operated businesses building custom AI systems that actually work.
         </p>
     </div>
     <nav class="footer-links">
