@@ -31,9 +31,9 @@
     }
 
     /* ── USE CASES GRID ── */
-    .use-cases { background: var(--surface-alt); padding: 6rem 0 8rem; }
+    .use-cases { background: var(--surface-alt); padding: 6rem 0 8rem; display: block !important; visibility: visible !important; }
     .use-cases-grid {
-        display: grid;
+        display: grid !important;
         grid-template-columns: 1fr 1fr;
         gap: 1.25rem;
         margin-top: 3.5rem;
@@ -43,13 +43,12 @@
         border: 1px solid var(--rule);
         border-radius: 14px;
         padding: 2.25rem;
-        display: flex; flex-direction: column;
+        display: flex !important; flex-direction: column;
+        min-height: 160px;
+        visibility: visible !important;
+        opacity: 1 !important;
         transition: box-shadow 0.2s var(--ease-quart), transform 0.2s var(--ease-quart);
-        opacity: 0; transform: translateY(10px);
-        transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo),
-                    box-shadow 0.2s var(--ease-quart);
     }
-    .use-case-card.on { opacity: 1; transform: none; }
     .use-case-card:hover {
         box-shadow: 0 8px 32px oklch(13% 0.012 255 / 0.08);
         transform: translateY(-2px);
