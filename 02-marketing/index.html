@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applied AI Agent — Forward Deployment AI Engineer, Sonoma CA</title>
-    <meta name="description" content="I embed with your business, build a custom AI intelligence layer on top of your existing tools, and stay hands-on optimizing it until your business runs better.">
+    <title>Applied AI Agent — Custom AI systems that run your busywork</title>
+    <meta name="description" content="Most consultants leave you a slide deck. I leave you a running system. Custom AI that answers your phone, books your calendar, chases your leads, and reports back.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
     .hero {
         position: relative;
         overflow: hidden;
-        min-height: 100vh;
+        min-height: 100dvh;
         display: flex; align-items: center;
         padding: 9rem 0 6rem;
         background: var(--hero-bg);
@@ -73,7 +73,7 @@
     }
     .hero h1 {
         font-family: 'Inter', sans-serif;
-        font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+        font-size: clamp(2.375rem, 4.25vw, 3.5rem);
         font-weight: 800; letter-spacing: -0.05em; line-height: 1.0;
         color: var(--text-light); text-wrap: balance;
         margin-bottom: 1.5rem;
@@ -109,79 +109,8 @@
         letter-spacing: -0.005em;
     }
 
-    /* ─── HERO CARD ─── */
-    .hero-card {
-        background: #fff;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow:
-            0 0 0 1px oklch(13% 0.012 255 / 0.08),
-            0 24px 60px oklch(8% 0.04 275 / 0.5),
-            0 8px 20px oklch(8% 0.04 275 / 0.3);
-    }
-    .hc-bar {
-        background: var(--surface-alt);
-        border-bottom: 1px solid var(--rule);
-        padding: 0.75rem 1rem;
-        display: flex; align-items: center; gap: 0.5rem;
-    }
-    .hc-dots { display: flex; gap: 5px; margin-right: 0.25rem; }
-    .hc-dot {
-        width: 9px; height: 9px; border-radius: 50%;
-        background: var(--rule-md);
-    }
-    .hc-title { font-size: 0.7rem; font-weight: 500; color: var(--ink-soft); flex: 1; text-align: center; letter-spacing: -0.005em; }
-    .hc-status { display: flex; align-items: center; gap: 0.375rem; font-size: 0.6875rem; font-weight: 500; color: var(--sage); }
-    .hc-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
-    .hc-messages {
-        padding: 1rem; display: flex; flex-direction: column; gap: 0.625rem;
-        min-height: 200px;
-    }
-    .hc-msg { display: flex; flex-direction: column; max-width: 85%; }
-    .hc-msg--user { align-self: flex-end; align-items: flex-end; }
-    .hc-msg--agent { align-self: flex-start; }
-    .hc-msg--status { align-self: center; }
-    .hc-bubble {
-        padding: 0.5625rem 0.8125rem;
-        font-size: 0.8125rem; line-height: 1.5; font-weight: 400;
-    }
-    .hc-msg--user .hc-bubble {
-        background: var(--accent); color: #fff;
-        border-radius: 12px 12px 3px 12px;
-    }
-    .hc-msg--agent .hc-bubble {
-        background: var(--surface-alt); color: var(--ink);
-        border: 1px solid var(--rule);
-        border-radius: 12px 12px 12px 3px;
-    }
-    .hc-msg--status .hc-bubble {
-        background: transparent; border: none; padding: 0.25rem 0;
-        font-size: 0.7rem; color: var(--sage); font-weight: 500;
-        letter-spacing: -0.005em;
-    }
-    .hc-ts { font-size: 0.65rem; color: var(--ink-soft); margin-top: 0.2rem; }
-    .hc-input {
-        border-top: 1px solid var(--rule);
-        background: var(--surface-alt);
-        padding: 0.75rem 1rem;
-        display: flex; align-items: center; gap: 0.5rem;
-    }
-    .hc-input-field { flex: 1; font-size: 0.8125rem; color: var(--ink-soft); letter-spacing: -0.005em; }
-    .hc-send {
-        width: 28px; height: 28px; border-radius: 8px;
-        background: var(--accent); display: flex; align-items: center; justify-content: center;
-        border: none; cursor: pointer; flex-shrink: 0;
-        transition: background 0.15s;
-    }
-    .hc-send:hover { background: var(--accent-hover); }
-    .hc-send svg { width: 12px; height: 12px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-    /* Staggered message animation for hero card */
-    .hero-card .hc-msg:nth-child(1) { animation: msgIn 0.4s var(--ease-expo) 0.8s both; }
-    .hero-card .hc-msg:nth-child(2) { animation: msgIn 0.4s var(--ease-expo) 1.4s both; }
-    .hero-card .hc-msg:nth-child(3) { animation: msgIn 0.4s var(--ease-expo) 2.0s both; }
-    .hero-card .hc-msg:nth-child(4) { animation: msgIn 0.4s var(--ease-expo) 2.6s both; }
-    .hero-card .hc-msg:nth-child(5) { animation: msgIn 0.4s var(--ease-expo) 3.1s both; }
+    /* ─── HERO DEMO (engine mount) ─── */
+    .hero-card { justify-self: end; width: 100%; max-width: 420px; }
 
     /* ─── FEATURE TOGGLES ─── */
     .features-section {
@@ -199,148 +128,83 @@
         letter-spacing: -0.005em;
     }
 
-    /* Horizontal pill tabs */
-    .features-layout { display: flex; flex-direction: column; gap: 1.5rem; }
-    .features-tabs {
-        display: flex; flex-direction: row; gap: 0.5rem;
-        flex-wrap: wrap; justify-content: center;
+    /* Three pillars + chip-driven demo */
+    .pillars {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem; margin-bottom: 3rem;
     }
-    .feature-tab {
-        display: flex; align-items: center;
-        padding: 0.5rem 1.25rem;
-        border-radius: 100px;
-        border: 1px solid var(--rule-md);
-        background: var(--surface); cursor: pointer;
-        transition: background 0.15s var(--ease-quart),
-                    border-color 0.15s, color 0.15s;
-    }
-    .feature-tab:hover { background: var(--surface-alt); }
-    .feature-tab.active { background: var(--accent); border-color: var(--accent); }
-    .ft-label { display: none; }
-    .ft-name {
-        font-size: 0.875rem; font-weight: 500; letter-spacing: -0.015em;
-        color: var(--ink-mid);
-        transition: color 0.15s;
-    }
-    .feature-tab.active .ft-name { color: #fff; }
-
-    .features-preview {
-        position: relative;
-        background: #fff;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow:
-            0 0 0 1px var(--rule),
-            0 16px 48px oklch(13% 0.012 255 / 0.08);
-        min-height: 380px;
-    }
-    .fp-bar {
-        background: var(--surface-alt);
-        border-bottom: 1px solid var(--rule);
-        padding: 0.75rem 1rem;
-        display: flex; align-items: center; gap: 0.5rem;
-    }
-    .fp-dots { display: flex; gap: 5px; margin-right: 0.25rem; }
-    .fp-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-md); }
-    .fp-title-wrap { flex: 1; text-align: center; }
-    .fp-title { font-size: 0.7rem; font-weight: 500; color: var(--ink-soft); letter-spacing: -0.005em; }
-    .fp-live { display: flex; align-items: center; gap: 0.3rem; font-size: 0.65rem; font-weight: 500; color: var(--sage); }
-    .fp-live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); }
-
-    .fp-panels { position: relative; }
-    .fp-panel {
-        opacity: 0; pointer-events: none;
-        position: absolute; inset: 0;
-        padding: 1.25rem 1rem;
-        display: flex; flex-direction: column; gap: 0.625rem;
-        transition: opacity 0.25s var(--ease-expo);
-    }
-    .fp-panel.active {
-        opacity: 1; pointer-events: all;
-        position: relative;
-    }
-
-    /* Messages inside panels */
-    .fp-msg { display: flex; flex-direction: column; max-width: 85%; opacity: 0; }
-    .fp-msg--user { align-self: flex-end; align-items: flex-end; }
-    .fp-msg--agent { align-self: flex-start; }
-    .fp-msg--status { align-self: center; max-width: 100%; }
-
-    .fp-bubble {
-        padding: 0.5625rem 0.8125rem;
-        font-size: 0.8125rem; line-height: 1.5; font-weight: 400;
-    }
-    .fp-msg--user .fp-bubble {
-        background: var(--accent); color: #fff;
-        border-radius: 12px 12px 3px 12px;
-    }
-    .fp-msg--agent .fp-bubble {
-        background: var(--surface-alt); color: var(--ink);
+    .pillar {
+        background: var(--surface);
         border: 1px solid var(--rule);
-        border-radius: 12px 12px 12px 3px;
+        border-radius: 14px;
+        padding: 1.75rem;
+        transition: box-shadow 0.2s var(--ease-quart), transform 0.2s var(--ease-quart);
     }
-    .fp-msg--status .fp-bubble {
-        background: transparent; border: none;
-        padding: 0.25rem 0.5rem;
-        font-size: 0.7rem; color: var(--sage); font-weight: 500;
-        letter-spacing: -0.005em; text-align: center;
+    .pillar:hover {
+        box-shadow: 0 8px 32px oklch(13% 0.012 255 / 0.08);
+        transform: translateY(-2px);
     }
-    .fp-ts { font-size: 0.65rem; color: var(--ink-soft); margin-top: 0.2rem; }
+    .pillar h3 {
+        font-size: 1.125rem; font-weight: 700; letter-spacing: -0.03em;
+        color: var(--ink); margin-bottom: 0.5rem;
+    }
+    .pillar p {
+        font-size: 0.875rem; color: var(--ink-soft); line-height: 1.65;
+        letter-spacing: -0.005em; margin-bottom: 1.25rem;
+    }
+    .pillar .demo-chips { justify-content: flex-start; gap: 0.375rem; }
+    .pillar .demo-chip { min-height: 36px; padding: 0.25rem 0.875rem; font-size: 0.8125rem; }
 
-    /* Stagger animation when panel becomes active */
-    .fp-panel.active .fp-msg:nth-child(1) { animation: msgIn 0.35s var(--ease-expo) 0.05s both; }
-    .fp-panel.active .fp-msg:nth-child(2) { animation: msgIn 0.35s var(--ease-expo) 0.45s both; }
-    .fp-panel.active .fp-msg:nth-child(3) { animation: msgIn 0.35s var(--ease-expo) 0.85s both; }
-    .fp-panel.active .fp-msg:nth-child(4) { animation: msgIn 0.35s var(--ease-expo) 1.25s both; }
-    .fp-panel.active .fp-msg:nth-child(5) { animation: msgIn 0.35s var(--ease-expo) 1.65s both; }
+    .features-demo-wrap {
+        display: flex; justify-content: center;
+    }
 
-    .fp-input {
-        border-top: 1px solid var(--rule);
-        background: var(--surface-alt);
-        padding: 0.75rem 1rem;
-        display: flex; align-items: center; gap: 0.5rem;
-        position: absolute; bottom: 0; left: 0; right: 0;
-    }
-    .fp-input-field { flex: 1; font-size: 0.8rem; color: var(--ink-soft); letter-spacing: -0.005em; }
-    .fp-send {
-        width: 26px; height: 26px; border-radius: 7px;
-        background: var(--accent); display: flex; align-items: center; justify-content: center;
-        border: none; flex-shrink: 0;
-    }
-    .fp-send svg { width: 11px; height: 11px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
-    .features-desc {
-        margin-top: 2.5rem;
-        padding: 1.5rem;
-        background: var(--surface-alt);
-        border-radius: 12px;
-    }
-    .features-desc p {
-        font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.7; letter-spacing: -0.005em;
-    }
-    .features-desc strong { color: var(--ink); font-weight: 600; }
-
-    /* ─── POSITIONING ─── */
+    /* ─── THE DIFFERENCE ─── */
     .positioning-section {
         background: var(--dark);
-        padding: 5.5rem 0;
+        padding: 6.5rem 0;
         border-top: 1px solid var(--rule-dark);
     }
-    .pos-inner {
-        display: grid; grid-template-columns: 1fr 1fr;
-        gap: 5rem; align-items: center;
+    .pos-head { max-width: 560px; margin-bottom: 3.5rem; }
+    .pos-head h2 {
+        font-size: clamp(1.875rem, 3.25vw, 2.5rem);
+        color: var(--text-light); letter-spacing: -0.045em; line-height: 1.1;
+        margin-bottom: 0.875rem;
     }
-    .pos-left h2 {
-        font-size: clamp(1.75rem, 3vw, 2.25rem);
-        color: var(--text-light); letter-spacing: -0.04em; line-height: 1.15;
+    .pos-head h2 span { color: oklch(75% 0.18 270); }
+    .pos-head p {
+        font-size: 1rem; color: var(--text-light-mid); line-height: 1.75;
+        letter-spacing: -0.005em;
     }
-    .pos-left h2 span { color: oklch(75% 0.18 270); }
-    .pos-right p {
-        font-size: 1rem; font-weight: 400; color: var(--text-light-mid);
-        line-height: 1.8; letter-spacing: -0.005em; margin-bottom: 1.25rem;
+    .diff-cols {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
     }
-    .pos-right p:last-child { margin-bottom: 0; }
-    .pos-right strong { color: var(--text-light); font-weight: 600; }
+    .diff-col {
+        border: 1px solid var(--rule-dark);
+        border-radius: 14px;
+        padding: 2rem;
+    }
+    .diff-col--them { background: oklch(97% 0.004 240 / 0.03); }
+    .diff-col--me {
+        background: oklch(13% 0.07 272 / 0.5);
+        border-color: oklch(58% 0.22 268 / 0.35);
+    }
+    .diff-label {
+        font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.07em;
+        text-transform: uppercase; margin-bottom: 1.25rem; display: block;
+    }
+    .diff-col--them .diff-label { color: var(--text-light-soft); }
+    .diff-col--me .diff-label { color: oklch(75% 0.18 270); }
+    .diff-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.875rem; }
+    .diff-col li {
+        font-size: 0.9375rem; line-height: 1.6; letter-spacing: -0.005em;
+        display: flex; gap: 0.75rem; align-items: baseline;
+    }
+    .diff-col--them li { color: var(--text-light-soft); }
+    .diff-col--them li::before { content: '—'; flex-shrink: 0; }
+    .diff-col--me li { color: var(--text-light-mid); }
+    .diff-col--me li::before { content: '✓'; color: var(--sage); font-weight: 700; flex-shrink: 0; }
+    .diff-col--me li strong { color: var(--text-light); font-weight: 600; }
 
     /* ─── PROCESS ─── */
     .process-section {
@@ -416,10 +280,10 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
         .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-        .hero-card { max-width: 480px; }
-        .pos-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+        .hero-card { justify-self: start; }
+        .pillars { grid-template-columns: 1fr; }
+        .diff-cols { grid-template-columns: 1fr; }
         .process-steps { grid-template-columns: 1fr 1fr; }
-        .features-tabs { justify-content: flex-start; }
     }
     @media (max-width: 768px) {
         .hero { padding: 7rem 0 4rem; min-height: auto; }
@@ -429,16 +293,10 @@
         .hero-divider { flex-direction: column; gap: 1rem; }
         .process-steps { grid-template-columns: 1fr; }
         .features-section, .process-section, .positioning-section, .final-cta { padding: 5rem 0; }
-        .final-cta { padding: 5rem 0; }
-        .pos-inner { gap: 2rem; }
     }
     @media (max-width: 480px) {
         .hero h1 { font-size: clamp(2rem, 8vw, 2.5rem); letter-spacing: -0.04em; }
-        .features-preview { min-height: 320px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .hc-msg, .fp-msg { opacity: 1 !important; animation: none !important; }
+        .hero-card { max-width: 100%; }
     }
     </style>
 </head>
@@ -537,10 +395,10 @@
             <div>
                 <div class="hero-badge">
                     <span class="badge-dot"></span>
-                    Forward Deployment AI Engineer · Sonoma, CA
+                    Custom AI Systems · Sonoma, CA
                 </div>
-                <h1>I build custom AI systems.<br><span>Then I stay embedded.</span></h1>
-                <p class="hero-sub">I embed with your team, wire an intelligence layer on top of your existing tools, and stay hands-on optimizing it until your operation actually runs better.</p>
+                <h1>Most consultants leave a slide deck.<br><span>I leave a running system.</span></h1>
+                <p class="hero-sub">Custom AI that answers your phone, books your calendar, chases your leads, and reports back — built by one person who sticks around until it works.</p>
                 <div class="hero-actions">
                     <button onclick="openModal()" class="btn-primary">Schedule a Free Assessment</button>
                     <span class="hero-note">15 min · you see it running before you pay</span>
@@ -561,44 +419,8 @@
                 </div>
             </div>
 
-            <!-- Right: Live agent card -->
-            <div class="hero-card">
-                <div class="hc-bar">
-                    <div class="hc-dots">
-                        <div class="hc-dot"></div>
-                        <div class="hc-dot"></div>
-                        <div class="hc-dot"></div>
-                    </div>
-                    <span class="hc-title">Booking Agent</span>
-                    <div class="hc-status">
-                        <span class="hc-status-dot"></span>
-                        Active
-                    </div>
-                </div>
-                <div class="hc-messages">
-                    <div class="hc-msg hc-msg--status">
-                        <div class="hc-bubble">10:47 PM · Incoming inquiry</div>
-                    </div>
-                    <div class="hc-msg hc-msg--user">
-                        <div class="hc-bubble">Do you have tours Saturday for 8 people?</div>
-                    </div>
-                    <div class="hc-msg hc-msg--agent">
-                        <div class="hc-bubble">Yes — 10am and 2pm, up to 10 guests. Includes guide and private tasting. Which works?</div>
-                    </div>
-                    <div class="hc-msg hc-msg--user">
-                        <div class="hc-bubble">2pm perfect!</div>
-                    </div>
-                    <div class="hc-msg hc-msg--status">
-                        <div class="hc-bubble">Confirmed · Calendar invite sent · 10:49 PM</div>
-                    </div>
-                </div>
-                <div class="hc-input">
-                    <span class="hc-input-field">Ask your agent anything...</span>
-                    <button class="hc-send" aria-label="Send">
-                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    </button>
-                </div>
-            </div>
+            <!-- Right: live demo feed (demo-engine.js) -->
+            <div class="hero-card" id="hero-demo" aria-label="Live demo: an AI agent handling an after-hours booking"></div>
 
         </div>
     </div>
@@ -608,132 +430,42 @@
 <section class="features-section" id="features">
     <div class="container">
         <div class="features-head fade">
-            <h2>See it in action</h2>
-            <p>Pick an industry and watch a real automation play out. Every one of these runs 24/7 without anyone on your team touching it.</p>
+            <h2>Three jobs. One system.</h2>
+            <p>Every business I work with needs some mix of these. Pick your industry and watch what the system does with your busywork.</p>
         </div>
 
-        <div class="features-layout">
-            <!-- Tabs -->
-            <div class="features-tabs">
-                <button class="feature-tab active" data-panel="tour" onclick="switchPanel('tour', this)">
-                    <span class="ft-label">Hospitality</span>
-                    <span class="ft-name">Tour Operators</span>
-                </button>
-                <button class="feature-tab" data-panel="winery" onclick="switchPanel('winery', this)">
-                    <span class="ft-label">Wine Country</span>
-                    <span class="ft-name">Wineries</span>
-                </button>
-                <button class="feature-tab" data-panel="hvac" onclick="switchPanel('hvac', this)">
-                    <span class="ft-label">Trades</span>
-                    <span class="ft-name">Home Services</span>
-                </button>
-                <button class="feature-tab" data-panel="realestate" onclick="switchPanel('realestate', this)">
-                    <span class="ft-label">Property</span>
-                    <span class="ft-name">Real Estate</span>
-                </button>
-            </div>
-
-            <!-- Preview window -->
-            <div>
-                <div class="features-preview">
-                    <div class="fp-bar">
-                        <div class="fp-dots">
-                            <div class="fp-dot"></div>
-                            <div class="fp-dot"></div>
-                            <div class="fp-dot"></div>
-                        </div>
-                        <div class="fp-title-wrap">
-                            <span class="fp-title" id="fp-title">Booking Agent</span>
-                        </div>
-                        <div class="fp-live">
-                            <span class="fp-live-dot"></span>
-                            Active
-                        </div>
-                    </div>
-
-                    <div class="fp-panels" style="min-height:300px; padding-bottom:3.5rem;">
-
-                        <!-- Tour panel -->
-                        <div class="fp-panel active" id="panel-tour">
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">10:47 PM · Inquiry received</div>
-                            </div>
-                            <div class="fp-msg fp-msg--user">
-                                <div class="fp-bubble">Do you have tours Saturday for 8 people?</div>
-                            </div>
-                            <div class="fp-msg fp-msg--agent">
-                                <div class="fp-bubble">Yes — 10am and 2pm, both available for up to 10. Includes guide and private tasting. Which works?</div>
-                            </div>
-                            <div class="fp-msg fp-msg--user">
-                                <div class="fp-bubble">2pm is perfect!</div>
-                            </div>
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">Booking confirmed · Calendar invite sent · 10:49 PM</div>
-                            </div>
-                        </div>
-
-                        <!-- Winery panel -->
-                        <div class="fp-panel" id="panel-winery">
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">Saturday 5:00 PM · 47 visitors · Tasting room closes</div>
-                            </div>
-                            <div class="fp-msg fp-msg--agent">
-                                <div class="fp-bubble">Hi Sarah — thanks for visiting us yesterday. The Pinot you loved is available to ship, and if you join the club this week your first shipment is on us.</div>
-                            </div>
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">Sunday 8:12 PM · Opened · Wine club link clicked</div>
-                            </div>
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">47 sent · 31 opened · 9 club signups · 0 sent by you</div>
-                            </div>
-                        </div>
-
-                        <!-- HVAC panel -->
-                        <div class="fp-panel" id="panel-hvac">
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">11:04 PM · Incoming call · 742 Oak Lane</div>
-                            </div>
-                            <div class="fp-msg fp-msg--agent">
-                                <div class="fp-bubble">Hi, I'm with the service team. Can you describe what's happening?</div>
-                            </div>
-                            <div class="fp-msg fp-msg--user">
-                                <div class="fp-bubble">AC is totally out upstairs. It's 88 degrees in here.</div>
-                            </div>
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">Dispatcher notified · Full context attached · 4 min response</div>
-                            </div>
-                        </div>
-
-                        <!-- Real estate panel -->
-                        <div class="fp-panel" id="panel-realestate">
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">Sunday 9:47 PM · New form: "3BR under $800k, Sonoma"</div>
-                            </div>
-                            <div class="fp-msg fp-msg--agent">
-                                <div class="fp-bubble">Hi! Quick question — are you looking to buy in the next 30 days or still exploring?</div>
-                            </div>
-                            <div class="fp-msg fp-msg--user">
-                                <div class="fp-bubble">Actively looking. Pre-approved at $750k.</div>
-                            </div>
-                            <div class="fp-msg fp-msg--status">
-                                <div class="fp-bubble">Qualified · Agent briefed · Monday 8:00 AM meeting booked</div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="fp-input">
-                        <span class="fp-input-field">Ask your agent anything...</span>
-                        <div class="fp-send">
-                            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="features-desc fade">
-                    <p id="features-desc-text"><strong>Tour Operators:</strong> Inquiries handled 24/7 — qualified, confirmed, calendar invite sent. Your team sees the booking, not the back-and-forth.</p>
+        <div class="pillars">
+            <div class="pillar fade">
+                <h3>Answer &amp; book</h3>
+                <p>Inquiries answered in seconds, any hour. Availability checked, bookings confirmed, reminders sent — without anyone picking up a phone.</p>
+                <div class="demo-chips">
+                    <button class="demo-chip active" data-script="tour-operators">Tour Operators</button>
+                    <button class="demo-chip" data-script="salons">Salons &amp; Spas</button>
+                    <button class="demo-chip" data-script="hospitality">Hospitality</button>
                 </div>
             </div>
+            <div class="pillar fade">
+                <h3>Follow up &amp; close</h3>
+                <p>Every lead gets an instant, personal response and a follow-up sequence that runs until they book — so nothing goes cold over a weekend.</p>
+                <div class="demo-chips">
+                    <button class="demo-chip" data-script="real-estate">Real Estate</button>
+                    <button class="demo-chip" data-script="hvac">HVAC</button>
+                    <button class="demo-chip" data-script="auto-repair">Auto Repair</button>
+                    <button class="demo-chip" data-script="landscaping">Landscaping</button>
+                </div>
+            </div>
+            <div class="pillar fade">
+                <h3>Run the back office</h3>
+                <p>Status questions answered, documents chased, new clients onboarded, and a weekly briefing in your inbox — while your team stays focused.</p>
+                <div class="demo-chips">
+                    <button class="demo-chip" data-script="accounting">Accounting</button>
+                    <button class="demo-chip" data-script="coaching">Coaching</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-demo-wrap fade">
+            <div id="features-demo" aria-label="Live demo of the selected industry's automation"></div>
         </div>
     </div>
 </section>
@@ -741,13 +473,30 @@
 <!-- ══════════════════════════════ POSITIONING ══════════════════════════════ -->
 <section class="positioning-section">
     <div class="container">
-        <div class="pos-inner">
-            <div class="pos-left fade">
-                <h2>Not a consultant.<br>Not a platform.<br><span>An embedded partner.</span></h2>
+        <div class="pos-head fade">
+            <h2>You've been pitched AI before.<br><span>Here's what's different.</span></h2>
+            <p>Service businesses get two flavors of AI pitch: a consultant with a strategy deck, or a platform with a login and a help center. I'm the third option.</p>
+        </div>
+        <div class="diff-cols">
+            <div class="diff-col diff-col--them fade">
+                <span class="diff-label">What you usually get</span>
+                <ul>
+                    <li>A 40-page strategy deck and an invoice</li>
+                    <li>A platform login and a "knowledge base"</li>
+                    <li>Software your team has to learn around</li>
+                    <li>A handoff the day it launches</li>
+                    <li>A support ticket queue when it breaks</li>
+                </ul>
             </div>
-            <div class="pos-right fade">
-                <p>Unlike consultants who hand off reports, or vendors who sell platforms, <strong>I embed directly with your business.</strong> I build custom AI systems tailored to your workflows, implement them hands-on with your team, and stay involved in ongoing optimization.</p>
-                <p><strong>You own the system. I stay accountable for outcomes.</strong></p>
+            <div class="diff-col diff-col--me fade">
+                <span class="diff-label">What I leave you with</span>
+                <ul>
+                    <li><strong>A running system</strong> — answering, booking, and following up on day one</li>
+                    <li><strong>Built around your tools</strong> — your calendar, your inbox, your CRM</li>
+                    <li><strong>Me, in the trenches</strong> — hands-on through launch and the weeks after</li>
+                    <li><strong>You own it</strong> — the system is yours, not a subscription hostage</li>
+                    <li><strong>My cell number</strong> — when something needs attention, you text me</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -757,29 +506,29 @@
 <section class="process-section" id="process">
     <div class="container">
         <div class="process-head fade">
-            <h2>The engagement model</h2>
-            <p>This is not a SaaS subscription. It's an embedded engineering partnership — from assessment through ongoing optimization.</p>
+            <h2>How it works</h2>
+            <p>No discovery phases, no statements of work. Four steps, and the first one costs you fifteen minutes.</p>
         </div>
         <div class="process-steps fade">
             <div class="process-step">
                 <span class="ps-phase">Step 1</span>
-                <p class="ps-title">Assessment</p>
-                <p class="ps-desc">Free 15 min. I learn your workflows and identify the highest-impact opportunity. No pitch.</p>
+                <p class="ps-title">I learn your business</p>
+                <p class="ps-desc">A 15-minute call and a look at how work actually flows. I tell you exactly what I'd build. No pitch.</p>
             </div>
             <div class="process-step">
                 <span class="ps-phase">Step 2</span>
-                <p class="ps-title">Design &amp; Build</p>
-                <p class="ps-desc">1–2 weeks. Custom system connected to your existing tools. You see it working before you pay.</p>
+                <p class="ps-title">I build the system</p>
+                <p class="ps-desc">1–2 weeks. Custom, connected to the tools you already use. You see it running before you pay.</p>
             </div>
             <div class="process-step">
                 <span class="ps-phase">Step 3</span>
-                <p class="ps-title">Deploy &amp; Embed</p>
-                <p class="ps-desc">Launch week. I'm hands-on with your team, troubleshoot live, get it production-ready.</p>
+                <p class="ps-title">I run it with you</p>
+                <p class="ps-desc">I'm in the trenches for the first weeks — watching it work, fixing rough edges, not gone at launch.</p>
             </div>
             <div class="process-step">
                 <span class="ps-phase">Ongoing</span>
-                <p class="ps-title">Optimization</p>
-                <p class="ps-desc">Monthly reviews, new requests, process improvements. I stay involved — not a hand-off.</p>
+                <p class="ps-title">It keeps getting better</p>
+                <p class="ps-desc">I watch it, tune it, and add what you need next. When something needs attention, you text me.</p>
             </div>
         </div>
     </div>
@@ -814,56 +563,22 @@
 </footer>
 
 <script src="main.js"></script>
+<script src="demo-engine.js"></script>
 <script>
-// ── FEATURE PANEL SWITCHER ──
-const panelDescriptions = {
-    tour: '<strong>Tour Operators:</strong> Inquiries handled 24/7 — qualified, confirmed, calendar invite sent. Your team sees the booking, not the back-and-forth.',
-    winery: '<strong>Wineries:</strong> 47 visitors Saturday. Personalized follow-ups sent Sunday evening. Wine club pitches in your voice, for every single visitor. You were home by 6.',
-    hvac: '<strong>Home Services:</strong> 11pm call, no AC. Agent answers, collects details, routes dispatcher with full context. Zero missed calls. Response time: 4 minutes.',
-    realestate: '<strong>Real Estate:</strong> Form submitted Sunday 9pm. Agent responds in 2 minutes, qualifies the lead, briefs your agent by Monday 8am. They don\'t go elsewhere.'
-};
+// Hero: tour-operator script playing on load
+createDemoFeed(document.getElementById('hero-demo'), 'tour-operators');
 
-const panelTitles = {
-    tour: 'Booking Agent',
-    winery: 'Follow-Up Agent',
-    hvac: 'Call Routing Agent',
-    realestate: 'Lead Nurture Agent'
-};
-
-function switchPanel(id, tabEl) {
-    // Update tabs
-    document.querySelectorAll('.feature-tab').forEach(t => t.classList.remove('active'));
-    tabEl.classList.add('active');
-
-    // Update panels — remove active, then set new active (triggers CSS animation)
-    document.querySelectorAll('.fp-panel').forEach(p => {
-        p.classList.remove('active');
-        // Reset msg opacity so animation replays
-        p.querySelectorAll('.fp-msg').forEach(m => {
-            m.style.animation = 'none';
-            m.style.opacity = '0';
+// Features: shared feed driven by industry chips across all three pillars
+const featuresFeed = createDemoFeed(document.getElementById('features-demo'), 'tour-operators', { flat: true });
+document.querySelectorAll('.pillar .demo-chips').forEach(group => {
+    group.querySelectorAll('.demo-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            document.querySelectorAll('.pillar .demo-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            featuresFeed.play(chip.dataset.script);
         });
     });
-
-    const panel = document.getElementById('panel-' + id);
-    if (panel) {
-        // Brief delay so removing 'active' is processed before re-adding
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                // Re-enable animation
-                panel.querySelectorAll('.fp-msg').forEach(m => {
-                    m.style.animation = '';
-                    m.style.opacity = '';
-                });
-                panel.classList.add('active');
-            });
-        });
-    }
-
-    // Update title and description
-    document.getElementById('fp-title').textContent = panelTitles[id] || 'Agent';
-    document.getElementById('features-desc-text').innerHTML = panelDescriptions[id] || '';
-}
+});
 </script>
 </body>
 </html>

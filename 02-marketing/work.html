@@ -30,6 +30,16 @@
         margin-top: 1.25rem; max-width: 500px;
     }
 
+    /* ── LIVE DEMO ── */
+    .work-live-demo {
+        background: var(--surface);
+        padding: 4rem 0 5rem;
+    }
+    .work-demo-feed-wrap {
+        display: flex; justify-content: center;
+        margin-top: 2rem;
+    }
+
     /* ── USE CASES GRID ── */
     .use-cases { background: var(--surface-alt); padding: 6rem 0 8rem; display: block !important; visibility: visible !important; }
     .use-cases-grid {
@@ -268,7 +278,27 @@
     <div class="container">
         <div class="page-header-inner">
             <h1>What I build.</h1>
-            <p class="page-header-sub">Six categories of automation. Every system is custom-built, connected to your existing tools, and running within 48 hours of the first call.</p>
+            <p class="page-header-sub">One system, configured for your business. Pick your industry below and watch it handle a real night's work.</p>
+        </div>
+    </div>
+</div>
+
+<!-- LIVE DEMO -->
+<div class="work-live-demo">
+    <div class="container">
+        <div class="demo-chips" id="work-demo-chips">
+            <button class="demo-chip active" data-script="tour-operators">Tour Operators</button>
+            <button class="demo-chip" data-script="salons">Salons &amp; Spas</button>
+            <button class="demo-chip" data-script="hospitality">Hospitality</button>
+            <button class="demo-chip" data-script="real-estate">Real Estate</button>
+            <button class="demo-chip" data-script="hvac">HVAC</button>
+            <button class="demo-chip" data-script="auto-repair">Auto Repair</button>
+            <button class="demo-chip" data-script="landscaping">Landscaping</button>
+            <button class="demo-chip" data-script="accounting">Accounting</button>
+            <button class="demo-chip" data-script="coaching">Coaching</button>
+        </div>
+        <div class="work-demo-feed-wrap">
+            <div id="work-demo-feed" aria-label="Live demo of the selected industry's automation"></div>
         </div>
     </div>
 </div>
@@ -426,5 +456,10 @@
 </footer>
 
 <script src="main.js"></script>
+<script src="demo-engine.js"></script>
+<script>
+const workFeed = createDemoFeed(document.getElementById('work-demo-feed'), 'tour-operators', { flat: true });
+wireDemoChips(document.getElementById('work-demo-chips'), workFeed);
+</script>
 </body>
 </html>
