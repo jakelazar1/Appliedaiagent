@@ -199,6 +199,159 @@
     @media (max-width: 1024px) { .beyond-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 600px)  { .beyond-grid { grid-template-columns: 1fr; } }
 
+    /* ─── MISSION CONTROL ─── */
+    .mc-section {
+        position: relative; overflow: hidden;
+        background: var(--dark);
+        padding: 7rem 0;
+        border-top: 1px solid var(--rule-dark);
+    }
+    .mc-section::before {
+        content: '';
+        position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 55% 60% at 80% 10%,
+            oklch(30% 0.22 272 / 0.35) 0%, transparent 65%);
+    }
+    .mc-inner { position: relative; z-index: 1; }
+    .mc-head { max-width: 560px; margin-bottom: 3rem; }
+    .mc-label {
+        font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em;
+        text-transform: uppercase; color: oklch(75% 0.18 270);
+        display: block; margin-bottom: 1rem;
+    }
+    .mc-head h2 {
+        color: var(--text-light);
+        font-size: clamp(1.875rem, 3.25vw, 2.5rem);
+        letter-spacing: -0.045em; line-height: 1.1;
+        margin-bottom: 0.875rem;
+    }
+    .mc-head p {
+        font-size: 1rem; color: var(--text-light-mid); line-height: 1.75;
+        letter-spacing: -0.005em;
+    }
+    .mc-head p strong { color: var(--text-light); font-weight: 600; }
+
+    .mc-dash {
+        background: oklch(11% 0.05 272 / 0.75);
+        border: 1px solid oklch(97% 0.004 240 / 0.12);
+        border-radius: 18px;
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 32px 80px oklch(5% 0.03 275 / 0.6);
+        font-variant-numeric: tabular-nums;
+    }
+    .mc-bar {
+        display: flex; align-items: center; gap: 0.625rem;
+        padding: 0.875rem 1.25rem;
+        border-bottom: 1px solid var(--rule-dark);
+    }
+    .mc-bar-dots { display: flex; gap: 5px; }
+    .mc-bar-dot { width: 9px; height: 9px; border-radius: 50%; background: oklch(97% 0.004 240 / 0.15); }
+    .mc-bar-title { flex: 1; font-size: 0.75rem; font-weight: 500; color: var(--text-light-mid); letter-spacing: -0.005em; }
+    .mc-bar-live { display: flex; align-items: center; gap: 0.375rem; font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em; color: var(--sage); }
+    .mc-bar-live .df-live-dot { width: 6px; height: 6px; }
+
+    .mc-metrics {
+        display: grid; grid-template-columns: repeat(4, 1fr);
+        border-bottom: 1px solid var(--rule-dark);
+    }
+    .mc-metric {
+        padding: 1.5rem 1.5rem 1.375rem;
+        border-right: 1px solid var(--rule-dark);
+    }
+    .mc-metric:last-child { border-right: none; }
+    .mc-metric-val {
+        display: block;
+        font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700;
+        letter-spacing: -0.04em; color: var(--text-light); line-height: 1.1;
+    }
+    .mc-metric-label {
+        display: block; margin-top: 0.375rem;
+        font-size: 0.75rem; color: var(--text-light-soft); letter-spacing: -0.005em;
+    }
+    .mc-metric-delta {
+        display: inline-block; margin-top: 0.5rem;
+        font-size: 0.6875rem; font-weight: 600; color: var(--sage);
+    }
+
+    .mc-body {
+        display: grid; grid-template-columns: 1.2fr 1fr;
+    }
+    .mc-chart { padding: 1.5rem; border-right: 1px solid var(--rule-dark); }
+    .mc-panel-title {
+        font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.07em;
+        text-transform: uppercase; color: var(--text-light-soft);
+        display: block; margin-bottom: 1rem;
+    }
+    .mc-spark { width: 100%; height: auto; display: block; }
+    .mc-spark .spark-line {
+        fill: none; stroke: oklch(70% 0.2 270); stroke-width: 2.5;
+        stroke-linecap: round; stroke-linejoin: round;
+    }
+    .mc-spark .spark-fill { opacity: 0; transition: opacity 1s var(--ease-expo) 1.2s; }
+    .mc-on .mc-spark .spark-fill { opacity: 1; }
+    .mc-spark .spark-line {
+        stroke-dasharray: 1; stroke-dashoffset: 1;
+    }
+    .mc-on .mc-spark .spark-line { animation: sparkDraw 1.8s var(--ease-quart) 0.3s forwards; }
+    @keyframes sparkDraw { to { stroke-dashoffset: 0; } }
+    .mc-chart-foot {
+        display: flex; justify-content: space-between; margin-top: 0.625rem;
+        font-size: 0.6875rem; color: var(--text-light-soft);
+    }
+
+    .mc-activity { padding: 1.5rem; }
+    .mc-rows { display: flex; flex-direction: column; gap: 0.875rem; }
+    .mc-row {
+        display: flex; align-items: baseline; gap: 0.625rem;
+        font-size: 0.8125rem; color: var(--text-light-mid); letter-spacing: -0.005em;
+        opacity: 0; transform: translateY(6px);
+        transition: opacity 0.4s var(--ease-expo), transform 0.4s var(--ease-expo);
+    }
+    .mc-on .mc-row { opacity: 1; transform: none; }
+    .mc-on .mc-row:nth-child(1) { transition-delay: 0.5s; }
+    .mc-on .mc-row:nth-child(2) { transition-delay: 0.8s; }
+    .mc-on .mc-row:nth-child(3) { transition-delay: 1.1s; }
+    .mc-on .mc-row:nth-child(4) { transition-delay: 1.4s; }
+    .mc-row-dot {
+        width: 5px; height: 5px; border-radius: 50%;
+        background: var(--sage); flex-shrink: 0; align-self: center;
+    }
+    .mc-row-time { margin-left: auto; font-size: 0.6875rem; color: var(--text-light-soft); flex-shrink: 0; }
+
+    .mc-agents {
+        display: flex; gap: 0.5rem; flex-wrap: wrap;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid var(--rule-dark);
+    }
+    .mc-agent {
+        display: inline-flex; align-items: center; gap: 0.45rem;
+        padding: 0.3125rem 0.75rem; border-radius: 100px;
+        border: 1px solid var(--rule-dark);
+        font-size: 0.6875rem; font-weight: 500; color: var(--text-light-mid);
+    }
+    .mc-agent-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); }
+
+    .mc-note {
+        margin-top: 1.5rem;
+        font-size: 0.875rem; color: var(--text-light-soft);
+        letter-spacing: -0.005em; text-align: center;
+    }
+    .mc-note strong { color: var(--text-light-mid); font-weight: 600; }
+
+    @media (max-width: 960px) {
+        .mc-metrics { grid-template-columns: 1fr 1fr; }
+        .mc-metric:nth-child(2) { border-right: none; }
+        .mc-metric:nth-child(-n+2) { border-bottom: 1px solid var(--rule-dark); }
+        .mc-body { grid-template-columns: 1fr; }
+        .mc-chart { border-right: none; border-bottom: 1px solid var(--rule-dark); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .mc-spark .spark-line { stroke-dasharray: none; stroke-dashoffset: 0; animation: none; }
+        .mc-spark .spark-fill, .mc-row { opacity: 1; transform: none; transition: none; }
+    }
+
     /* ─── THE DIFFERENCE ─── */
     .positioning-section {
         background: var(--dark);
@@ -559,6 +712,89 @@
     </div>
 </section>
 
+<!-- ══════════════════════════════ MISSION CONTROL ══════════════════════════════ -->
+<section class="mc-section" id="dashboard">
+    <div class="container">
+        <div class="mc-inner">
+            <div class="mc-head fade">
+                <span class="mc-label">Mission Control</span>
+                <h2>Every client gets a window into the machine.</h2>
+                <p>A live dashboard built for your operation — every booking, lead, and dollar the system touches, in real time. <strong>I run the machinery behind it.</strong> You watch it work.</p>
+            </div>
+
+            <div class="mc-dash fade" id="mc-dash">
+                <div class="mc-bar">
+                    <div class="mc-bar-dots">
+                        <span class="mc-bar-dot"></span><span class="mc-bar-dot"></span><span class="mc-bar-dot"></span>
+                    </div>
+                    <span class="mc-bar-title">Operations — This Week</span>
+                    <span class="mc-bar-live"><span class="df-live-dot"></span>LIVE</span>
+                </div>
+
+                <div class="mc-metrics">
+                    <div class="mc-metric">
+                        <span class="mc-metric-val" data-mc-count="47">0</span>
+                        <span class="mc-metric-label">Bookings confirmed</span>
+                        <span class="mc-metric-delta">↑ 12 vs last week</span>
+                    </div>
+                    <div class="mc-metric">
+                        <span class="mc-metric-val" data-mc-count="132">0</span>
+                        <span class="mc-metric-label">Leads answered</span>
+                        <span class="mc-metric-delta">avg reply 41 sec</span>
+                    </div>
+                    <div class="mc-metric">
+                        <span class="mc-metric-val" data-mc-count="18.4" data-mc-prefix="$" data-mc-suffix="k" data-mc-decimals="1">$0k</span>
+                        <span class="mc-metric-label">Revenue recovered</span>
+                        <span class="mc-metric-delta">after-hours + follow-ups</span>
+                    </div>
+                    <div class="mc-metric">
+                        <span class="mc-metric-val" data-mc-count="312">0</span>
+                        <span class="mc-metric-label">Hours given back</span>
+                        <span class="mc-metric-delta">this quarter</span>
+                    </div>
+                </div>
+
+                <div class="mc-body">
+                    <div class="mc-chart">
+                        <span class="mc-panel-title">Revenue influenced — last 12 weeks</span>
+                        <svg class="mc-spark" viewBox="0 0 480 140" preserveAspectRatio="none" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="oklch(58% 0.22 268)" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="oklch(58% 0.22 268)" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="spark-fill" fill="url(#sparkGrad)" stroke="none"
+                                d="M0,118 L40,108 L80,112 L120,96 L160,100 L200,82 L240,88 L280,64 L320,70 L360,46 L400,52 L440,28 L480,18 L480,140 L0,140 Z"/>
+                            <path class="spark-line" pathLength="1"
+                                d="M0,118 L40,108 L80,112 L120,96 L160,100 L200,82 L240,88 L280,64 L320,70 L360,46 L400,52 L440,28 L480,18"/>
+                        </svg>
+                        <div class="mc-chart-foot"><span>March</span><span>Today</span></div>
+                    </div>
+                    <div class="mc-activity">
+                        <span class="mc-panel-title">Happening now</span>
+                        <div class="mc-rows">
+                            <div class="mc-row"><span class="mc-row-dot"></span>Booking confirmed — party of 6, Saturday<span class="mc-row-time">2m</span></div>
+                            <div class="mc-row"><span class="mc-row-dot"></span>Follow-up #3 sent — Hendricks estate lead<span class="mc-row-time">11m</span></div>
+                            <div class="mc-row"><span class="mc-row-dot"></span>Review request delivered — Martinez party<span class="mc-row-time">38m</span></div>
+                            <div class="mc-row"><span class="mc-row-dot"></span>Weekly briefing drafted — ready Monday 6 AM<span class="mc-row-time">1h</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-agents">
+                    <span class="mc-agent"><span class="mc-agent-dot"></span>Booking Agent · running</span>
+                    <span class="mc-agent"><span class="mc-agent-dot"></span>Follow-Up Agent · running</span>
+                    <span class="mc-agent"><span class="mc-agent-dot"></span>Review Agent · running</span>
+                    <span class="mc-agent"><span class="mc-agent-dot"></span>Briefing Agent · scheduled</span>
+                </div>
+            </div>
+
+            <p class="mc-note fade">Built custom for each client, managed by me month to month — <strong>you check the score, I keep the machine running.</strong></p>
+        </div>
+    </div>
+</section>
+
 <!-- ══════════════════════════════ POSITIONING ══════════════════════════════ -->
 <section class="positioning-section">
     <div class="container">
@@ -661,6 +897,43 @@
 <script>
 // Hero: tour-operator script playing on load
 createDemoFeed(document.getElementById('hero-demo'), 'tour-operators');
+
+// Mission control: trigger spark draw, row stagger, and metric count-up on scroll-in
+(function () {
+    const dash = document.getElementById('mc-dash');
+    if (!dash) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ease = t => 1 - Math.pow(1 - t, 3);
+
+    function countUp(el) {
+        const target = parseFloat(el.dataset.mcCount);
+        const prefix = el.dataset.mcPrefix || '';
+        const suffix = el.dataset.mcSuffix || '';
+        const decimals = parseInt(el.dataset.mcDecimals || '0', 10);
+        const start = performance.now();
+        (function tick(now) {
+            const p = Math.min((now - start) / 1400, 1);
+            el.textContent = prefix + (ease(p) * target).toFixed(decimals) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+        })(performance.now());
+    }
+
+    function fire() {
+        dash.classList.add('mc-on');
+        dash.querySelectorAll('[data-mc-count]').forEach(el => {
+            if (reduced) {
+                el.textContent = (el.dataset.mcPrefix || '') + el.dataset.mcCount + (el.dataset.mcSuffix || '');
+            } else countUp(el);
+        });
+    }
+
+    if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver(([e]) => {
+            if (e.isIntersecting) { fire(); obs.disconnect(); }
+        }, { threshold: 0.3 });
+        obs.observe(dash);
+    } else fire();
+})();
 
 // Features: shared feed driven by industry chips across all three pillars
 const featuresFeed = createDemoFeed(document.getElementById('features-demo'), 'tour-operators', { flat: true });
