@@ -207,6 +207,42 @@ function createDemoFeed(container, scriptId, opts) {
   return { play: render };
 }
 
+/* ── Mission-control dashboard: count-ups + spark/row reveal on scroll-in ── */
+function initMcDash(dash) {
+  if (!dash) return;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ease = t => 1 - Math.pow(1 - t, 3);
+
+  function countUp(el) {
+    const target = parseFloat(el.dataset.mcCount);
+    const prefix = el.dataset.mcPrefix || '';
+    const suffix = el.dataset.mcSuffix || '';
+    const decimals = parseInt(el.dataset.mcDecimals || '0', 10);
+    const start = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - start) / 1400, 1);
+      el.textContent = prefix + (ease(p) * target).toFixed(decimals) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(performance.now());
+  }
+
+  function fire() {
+    dash.classList.add('mc-on');
+    dash.querySelectorAll('[data-mc-count]').forEach(el => {
+      if (reduced) {
+        el.textContent = (el.dataset.mcPrefix || '') + el.dataset.mcCount + (el.dataset.mcSuffix || '');
+      } else countUp(el);
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { fire(); obs.disconnect(); }
+    }, { threshold: 0.3 });
+    obs.observe(dash);
+  } else fire();
+}
+
 /* ── Chip wiring helper ── */
 function wireDemoChips(chipContainer, feedApi) {
   chipContainer.querySelectorAll('.demo-chip').forEach(chip => {

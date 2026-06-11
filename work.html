@@ -14,8 +14,7 @@
     /* ── PAGE HEADER ── */
     .page-header {
         background: var(--surface);
-        padding: 10rem 0 5rem;
-        border-bottom: 1px solid var(--rule);
+        padding: 8.5rem 0 3.5rem;
     }
     .page-header-inner { max-width: 640px; }
     h1 {
@@ -30,35 +29,53 @@
         margin-top: 1.25rem; max-width: 500px;
     }
 
-    /* ── LIVE DEMO ── */
+    /* ── LIVE DEMO — dark band ── */
     .work-live-demo {
-        background: var(--surface);
-        padding: 4rem 0 5rem;
+        position: relative; overflow: hidden;
+        background: var(--dark);
+        padding: 4.5rem 0 5rem;
     }
+    .work-live-demo::before {
+        content: '';
+        position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 60% 75% at 50% -10%,
+            oklch(32% 0.24 272 / 0.4) 0%, transparent 65%);
+    }
+    .work-live-demo .container { position: relative; z-index: 1; }
     .work-demo-feed-wrap {
         display: flex; justify-content: center;
-        margin-top: 2rem;
+        margin-top: 2.25rem;
     }
 
     /* ── USE CASES GRID ── */
-    .use-cases { background: var(--surface-alt); padding: 6rem 0 8rem; display: block !important; visibility: visible !important; }
+    .use-cases { background: var(--surface-alt); padding: 4.5rem 0 6rem; }
     .use-cases-grid {
-        display: grid !important;
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1.25rem;
-        margin-top: 3.5rem;
+    }
+    .uc-group-label {
+        grid-column: 1 / -1;
+        display: flex; align-items: center; gap: 1rem;
+        margin: 2.25rem 0 0.25rem;
+        font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em;
+        text-transform: uppercase; color: var(--ink-soft);
+        white-space: nowrap;
+    }
+    .uc-group-label:first-child { margin-top: 0; }
+    .uc-group-label::after {
+        content: ''; height: 1px; width: 100%;
+        background: var(--rule-md);
     }
     .use-case-card {
         background: var(--surface);
         border: 1px solid var(--rule);
         border-radius: 14px;
         padding: 2.25rem;
-        display: flex !important; flex-direction: column;
-        min-height: 160px;
-        visibility: visible !important;
-        opacity: 1 !important;
+        display: flex; flex-direction: column;
         transition: box-shadow 0.2s var(--ease-quart), transform 0.2s var(--ease-quart);
     }
+    .use-case-card.featured { display: grid; }
     .use-case-card:hover {
         box-shadow: 0 8px 32px oklch(13% 0.012 255 / 0.08);
         transform: translateY(-2px);
@@ -114,43 +131,10 @@
     .use-case-card.featured .use-case-handles li { color: var(--text-light-mid); }
     .use-case-card.featured .use-case-handles li::before { background: var(--accent); }
 
-    /* Dashboard preview */
-    .dashboard-preview {
-        background: oklch(97% 0.004 240 / 0.05);
-        border: 1px solid var(--rule-dark);
-        border-radius: 10px; overflow: hidden;
+    /* Featured card hosts the shared mc-dash component (style.css) */
+    .use-case-card.featured .mc-dash {
+        box-shadow: 0 16px 48px oklch(5% 0.03 275 / 0.5);
     }
-    .dp-header {
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid var(--rule-dark);
-        display: flex; align-items: center; gap: 0.5rem;
-    }
-    .dp-dot { width: 6px; height: 6px; border-radius: 50%; background: oklch(97% 0.004 240 / 0.2); }
-    .dp-title { font-size: 0.7rem; font-weight: 500; color: var(--text-light-soft); letter-spacing: -0.005em; }
-    .dp-metrics {
-        display: grid; grid-template-columns: repeat(3, 1fr);
-        padding: 1.25rem;
-    }
-    .dp-metric {
-        padding: 0.75rem 1rem;
-        border-right: 1px solid var(--rule-dark);
-    }
-    .dp-metric:last-child { border-right: none; }
-    .dp-metric-val {
-        font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 700;
-        color: var(--text-light); letter-spacing: -0.04em; display: block;
-    }
-    .dp-metric-label { font-size: 0.7rem; color: var(--text-light-soft); margin-top: 0.25rem; display: block; letter-spacing: -0.005em; }
-    .dp-activity { padding: 0 1.25rem 1.25rem; }
-    .dp-row {
-        display: flex; justify-content: space-between;
-        padding: 0.5rem 0;
-        border-top: 1px solid oklch(97% 0.004 240 / 0.05);
-        font-size: 0.75rem; color: var(--text-light-soft);
-        letter-spacing: -0.005em;
-    }
-    .dp-dot-green { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); margin-right: 0.5rem; flex-shrink: 0; margin-top: 0.35rem; }
-    .dp-row-text { display: flex; align-items: baseline; flex: 1; }
 
     /* ── CTA ── */
     .work-demo {
@@ -186,16 +170,14 @@
         .work-demo { padding: 6rem 0; }
     }
     @media (max-width: 480px) {
-        .page-header { padding: 7rem 0 3rem; }
+        .page-header { padding: 7rem 0 2.5rem; }
         h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
         .use-case-card { padding: 1.75rem 1.5rem; }
         .use-case-card.featured { padding: 1.75rem 1.5rem; }
-        .dp-metrics { grid-template-columns: 1fr 1fr; }
-        .dp-metric:nth-child(2) { border-right: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-        .use-case-card { transition: none; opacity: 1; transform: none; }
+        .use-case-card { transition: none; }
     }
     </style>
 </head>
@@ -286,7 +268,7 @@
 <!-- LIVE DEMO -->
 <div class="work-live-demo">
     <div class="container">
-        <div class="demo-chips" id="work-demo-chips">
+        <div class="demo-chips demo-chips--dark" id="work-demo-chips">
             <button class="demo-chip active" data-script="tour-operators">Tour Operators</button>
             <button class="demo-chip" data-script="salons">Salons &amp; Spas</button>
             <button class="demo-chip" data-script="hospitality">Hospitality</button>
@@ -307,6 +289,8 @@
 <div class="use-cases">
     <div class="container">
         <div class="use-cases-grid">
+
+            <div class="uc-group-label">The day-to-day, handled</div>
 
             <div class="use-case-card">
                 <span class="use-case-tag">Scheduling</span>
@@ -356,6 +340,8 @@
                 </ul>
             </div>
 
+            <div class="uc-group-label">The visibility layer</div>
+
             <!-- Featured: Operations Dashboard -->
             <div class="use-case-card featured">
                 <div>
@@ -370,39 +356,49 @@
                     </ul>
                 </div>
                 <div>
-                    <div class="dashboard-preview">
-                        <div class="dp-header">
-                            <span class="dp-dot"></span>
-                            <span class="dp-dot"></span>
-                            <span class="dp-dot"></span>
-                            <span class="dp-title" style="margin-left:0.5rem;">Operations Dashboard</span>
+                    <div class="mc-dash mc-dash--compact" id="work-mc-dash">
+                        <div class="mc-bar">
+                            <div class="mc-bar-dots">
+                                <span class="mc-bar-dot"></span><span class="mc-bar-dot"></span><span class="mc-bar-dot"></span>
+                            </div>
+                            <span class="mc-bar-title">Operations — This Month</span>
+                            <span class="mc-bar-live"><span class="df-live-dot"></span>LIVE</span>
                         </div>
-                        <div class="dp-metrics">
-                            <div class="dp-metric">
-                                <span class="dp-metric-val">183</span>
-                                <span class="dp-metric-label">Touchpoints this month</span>
+                        <div class="mc-metrics mc-metrics--3">
+                            <div class="mc-metric">
+                                <span class="mc-metric-val" data-mc-count="183">0</span>
+                                <span class="mc-metric-label">Touchpoints</span>
                             </div>
-                            <div class="dp-metric">
-                                <span class="dp-metric-val">94%</span>
-                                <span class="dp-metric-label">Automation uptime</span>
+                            <div class="mc-metric">
+                                <span class="mc-metric-val" data-mc-count="99.2" data-mc-suffix="%" data-mc-decimals="1">0%</span>
+                                <span class="mc-metric-label">Uptime</span>
                             </div>
-                            <div class="dp-metric">
-                                <span class="dp-metric-val">3</span>
-                                <span class="dp-metric-label">Active agents</span>
+                            <div class="mc-metric">
+                                <span class="mc-metric-val" data-mc-count="4">0</span>
+                                <span class="mc-metric-label">Agents running</span>
                             </div>
                         </div>
-                        <div class="dp-activity">
-                            <div class="dp-row">
-                                <div class="dp-row-text"><span class="dp-dot-green"></span>Follow-up sent to Garcia group</div>
-                                <span>2m ago</span>
-                            </div>
-                            <div class="dp-row">
-                                <div class="dp-row-text"><span class="dp-dot-green"></span>Review request delivered — Martinez</div>
-                                <span>41m ago</span>
-                            </div>
-                            <div class="dp-row">
-                                <div class="dp-row-text"><span class="dp-dot-green"></span>Re-engagement queued — David M.</div>
-                                <span>1h ago</span>
+                        <div class="mc-chart" style="border-right:none; border-bottom:1px solid var(--rule-dark);">
+                            <span class="mc-panel-title">Bookings — last 12 weeks</span>
+                            <svg class="mc-spark" viewBox="0 0 480 110" preserveAspectRatio="none" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="workSparkGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="oklch(58% 0.22 268)" stop-opacity="0.35"/>
+                                        <stop offset="100%" stop-color="oklch(58% 0.22 268)" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                                <path class="spark-fill" fill="url(#workSparkGrad)" stroke="none"
+                                    d="M0,92 L40,84 L80,88 L120,72 L160,78 L200,60 L240,66 L280,48 L320,54 L360,34 L400,40 L440,22 L480,14 L480,110 L0,110 Z"/>
+                                <path class="spark-line" pathLength="1"
+                                    d="M0,92 L40,84 L80,88 L120,72 L160,78 L200,60 L240,66 L280,48 L320,54 L360,34 L400,40 L440,22 L480,14"/>
+                            </svg>
+                        </div>
+                        <div class="mc-activity">
+                            <span class="mc-panel-title">Happening now</span>
+                            <div class="mc-rows">
+                                <div class="mc-row"><span class="mc-row-dot"></span>Follow-up sent — Garcia group<span class="mc-row-time">2m</span></div>
+                                <div class="mc-row"><span class="mc-row-dot"></span>Review request delivered — Martinez<span class="mc-row-time">41m</span></div>
+                                <div class="mc-row"><span class="mc-row-dot"></span>Re-engagement queued — David M.<span class="mc-row-time">1h</span></div>
                             </div>
                         </div>
                     </div>
@@ -460,6 +456,7 @@
 <script>
 const workFeed = createDemoFeed(document.getElementById('work-demo-feed'), 'tour-operators', { flat: true });
 wireDemoChips(document.getElementById('work-demo-chips'), workFeed);
+initMcDash(document.getElementById('work-mc-dash'));
 </script>
 </body>
 </html>
