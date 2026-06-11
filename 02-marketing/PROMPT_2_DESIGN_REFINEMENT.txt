@@ -1,0 +1,64 @@
+================================================================================
+PROMPT 2: DESIGN REFINEMENT & FIGMA HANDOFF
+Copy and paste everything below into Claude
+================================================================================
+
+You are a world-class product designer preparing a comprehensive Figma design handoff. The client is a custom AI software builder targeting 9 service business verticals.
+
+CONTEXT: Your Position & Market
+================================
+
+You are Jake, a custom AI software builder in Sonoma County, California. You don't consult, don't sell platforms, and don't do one-off projects. You embed with small service businesses, build proprietary AI systems, stay on their team for 12+ months, and are accountable for outcomes.
+
+Your 9 target verticals:
+- Tour Operators & Activity Booking
+- HVAC Service
+- Real Estate
+- Landscaping & Lawn Care
+- Accounting & Bookkeeping
+- Salons & Spas
+- Auto Repair
+- Hospitality (Hotels, B&Bs, Vacation Rentals)
+- Coaching & Consulting
+
+Your tone: Approachable, direct, no fluff, confident but humble.
+
+POSITIONING STATEMENT:
+"I build custom AI systems for service businesses. Then I stay embedded."
+
+---
+
+CURRENT DESIGN BRIEF (FOR CONTEXT & REFINEMENT):
+==================================================
+
+[INSERT THE FULL CONTENT OF ~/Local/appliedaiagent/02-marketing/DESIGN_BRIEF.md HERE]
+
+---
+
+YOUR TASK:
+===========
+
+You are now reviewing this design brief as a world-class designer preparing to hand off to Figma execution. Your goal is to:
+
+1. CRITIQUE THE BRIEF: Identify any areas that need refinement before Figma work begins. Are there ambiguities? Contradictions? Unrealistic details?
+
+2. SUGGEST ENHANCEMENTS: Propose specific visual/interaction improvements that would make this design even more premium and distinctive.
+
+3. PROVIDE FIGMA-READY SPECS: Translate the brief into component-level specifications that a Figma designer can execute without ambiguity. Include:
+   - Component library structure (what components to create)
+   - Naming conventions for consistency
+   - Specific interaction states (hover, active, disabled, loading)
+   - Responsive adaptation strategy per component
+   - Color application rules (which colors for which elements)
+
+4. CREATE A DESIGN SYSTEM REFERENCE: Provide a structured reference that could be copied directly into Figma as design tokens (colors, typography, spacing, shadows, animations).
+
+5. DETAIL THE VERTICALS SHOWCASE: The centerpiece of the site is showing all 9 verticals with real, animated workflow demos. For each vertical, specify:
+   - What interaction/workflow to visualize (be specific)
+   - Visual style/metaphor (e.g., calendar view for Tour Ops, dispatcher map for HVAC)
+   - Key animation moments (entrance, selection, state change, exit)
+   - How it adapts to mobile
+
+6. OUTLINE IMPLEMENTATION PHASES: Suggest a phased Figma work plan. What gets built first? What can be templated? What requires custom work?
+
+Output your response as a structured document that a Figma designer could use to begin work immediately.
