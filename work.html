@@ -268,7 +268,7 @@
 <!-- LIVE DEMO -->
 <div class="work-live-demo">
     <div class="container">
-        <div class="demo-chips demo-chips--dark" id="work-demo-chips">
+        <div class="demo-chips demo-chips--dark demo-chips--scroll" id="work-demo-chips">
             <button class="demo-chip active" data-script="tour-operators">Tour Operators</button>
             <button class="demo-chip" data-script="salons">Salons &amp; Spas</button>
             <button class="demo-chip" data-script="hospitality">Hospitality</button>
@@ -346,8 +346,8 @@
             <div class="use-case-card featured">
                 <div>
                     <span class="use-case-tag">Operations Dashboard</span>
-                    <h2 class="use-case-headline">See your business in real time.</h2>
-                    <p class="use-case-desc">A custom dashboard showing everything happening in your operation — automations running, leads in progress, revenue trends, customer activity. Built in React for your specific operation.</p>
+                    <h2 class="use-case-headline">Your week, scored and explained.</h2>
+                    <p class="use-case-desc">The homepage shows the machine running in real time. This is the other half — a weekly read on your operation that flags what needs your judgment: who's going quiet, what's filling up, what's trending. Built custom for your business.</p>
                     <ul class="use-case-handles">
                         <li>Live automation activity feed</li>
                         <li>Key metric tracking: revenue, bookings, leads, engagement</li>
@@ -361,44 +361,46 @@
                             <div class="mc-bar-dots">
                                 <span class="mc-bar-dot"></span><span class="mc-bar-dot"></span><span class="mc-bar-dot"></span>
                             </div>
-                            <span class="mc-bar-title">Operations — This Month</span>
+                            <span class="mc-bar-title">Weekly Report — Week 24</span>
                             <span class="mc-bar-live"><span class="df-live-dot"></span>LIVE</span>
                         </div>
                         <div class="mc-metrics mc-metrics--3">
                             <div class="mc-metric">
                                 <span class="mc-metric-val" data-mc-count="183">0</span>
-                                <span class="mc-metric-label">Touchpoints</span>
+                                <span class="mc-metric-label">Touchpoints handled</span>
                             </div>
                             <div class="mc-metric">
-                                <span class="mc-metric-val" data-mc-count="99.2" data-mc-suffix="%" data-mc-decimals="1">0%</span>
-                                <span class="mc-metric-label">Uptime</span>
+                                <span class="mc-metric-val" data-mc-count="4.8" data-mc-decimals="1">0</span>
+                                <span class="mc-metric-label">Avg review rating</span>
                             </div>
                             <div class="mc-metric">
-                                <span class="mc-metric-val" data-mc-count="4">0</span>
-                                <span class="mc-metric-label">Agents running</span>
+                                <span class="mc-metric-val" data-mc-count="0">0</span>
+                                <span class="mc-metric-label">Missed inquiries</span>
                             </div>
                         </div>
                         <div class="mc-chart" style="border-right:none; border-bottom:1px solid var(--rule-dark);">
-                            <span class="mc-panel-title">Bookings — last 12 weeks</span>
-                            <svg class="mc-spark" viewBox="0 0 480 110" preserveAspectRatio="none" aria-hidden="true">
-                                <defs>
-                                    <linearGradient id="workSparkGrad" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="oklch(58% 0.22 268)" stop-opacity="0.35"/>
-                                        <stop offset="100%" stop-color="oklch(58% 0.22 268)" stop-opacity="0"/>
-                                    </linearGradient>
-                                </defs>
-                                <path class="spark-fill" fill="url(#workSparkGrad)" stroke="none"
-                                    d="M0,92 L40,84 L80,88 L120,72 L160,78 L200,60 L240,66 L280,48 L320,54 L360,34 L400,40 L440,22 L480,14 L480,110 L0,110 Z"/>
-                                <path class="spark-line" pathLength="1"
-                                    d="M0,92 L40,84 L80,88 L120,72 L160,78 L200,60 L240,66 L280,48 L320,54 L360,34 L400,40 L440,22 L480,14"/>
-                            </svg>
+                            <span class="mc-panel-title">Bookings by week</span>
+                            <div class="mc-bars" aria-hidden="true">
+                                <span style="--h:38; --d:1"></span>
+                                <span style="--h:46; --d:2"></span>
+                                <span style="--h:42; --d:3"></span>
+                                <span style="--h:55; --d:4"></span>
+                                <span style="--h:50; --d:5"></span>
+                                <span style="--h:63; --d:6"></span>
+                                <span style="--h:58; --d:7"></span>
+                                <span style="--h:72; --d:8"></span>
+                                <span style="--h:67; --d:9"></span>
+                                <span style="--h:80; --d:10"></span>
+                                <span style="--h:76; --d:11"></span>
+                                <span class="hot" style="--h:92; --d:12"></span>
+                            </div>
                         </div>
                         <div class="mc-activity">
-                            <span class="mc-panel-title">Happening now</span>
+                            <span class="mc-panel-title">Flagged for you</span>
                             <div class="mc-rows">
-                                <div class="mc-row"><span class="mc-row-dot"></span>Follow-up sent — Garcia group<span class="mc-row-time">2m</span></div>
-                                <div class="mc-row"><span class="mc-row-dot"></span>Review request delivered — Martinez<span class="mc-row-time">41m</span></div>
-                                <div class="mc-row"><span class="mc-row-dot"></span>Re-engagement queued — David M.<span class="mc-row-time">1h</span></div>
+                                <div class="mc-row"><span class="mc-row-dot mc-row-dot--amber"></span>3 regulars going quiet — win-back running</div>
+                                <div class="mc-row"><span class="mc-row-dot mc-row-dot--amber"></span>Saturday near capacity — waitlist opened</div>
+                                <div class="mc-row"><span class="mc-row-dot"></span>Review rating up 0.3 since launch</div>
                             </div>
                         </div>
                     </div>
