@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applied AI Agent — Custom AI systems that run your busywork</title>
-    <meta name="description" content="Most consultants leave you a slide deck. I leave you a running system. Custom AI that answers your phone, books your calendar, chases your leads, and reports back.">
+    <meta name="description" content="Most consultants leave you a slide deck. I leave you a running system — and I stay to run it with you. Custom AI that answers your phone, books your calendar, chases your leads, and reports back.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -159,6 +159,46 @@
         display: flex; justify-content: center;
     }
 
+    /* Beyond conversations — the quiet systems */
+    .beyond {
+        margin-top: 5rem;
+        padding-top: 4rem;
+        border-top: 1px solid var(--rule);
+    }
+    .beyond-head { max-width: 520px; margin-bottom: 2.5rem; }
+    .beyond-head h3 {
+        font-size: clamp(1.375rem, 2.25vw, 1.75rem);
+        font-weight: 700; letter-spacing: -0.035em;
+        color: var(--ink); margin-bottom: 0.625rem;
+    }
+    .beyond-head p {
+        font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.7;
+        letter-spacing: -0.005em;
+    }
+    .beyond-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 1px;
+        background: var(--rule);
+        border: 1px solid var(--rule);
+        border-radius: 14px; overflow: hidden;
+    }
+    .beyond-item {
+        background: var(--surface);
+        padding: 1.5rem 1.625rem;
+        transition: background 0.2s;
+    }
+    .beyond-item:hover { background: var(--surface-warm); }
+    .beyond-item h4 {
+        font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.02em;
+        color: var(--ink); margin-bottom: 0.375rem;
+    }
+    .beyond-item p {
+        font-size: 0.8125rem; color: var(--ink-soft); line-height: 1.6;
+        letter-spacing: -0.005em;
+    }
+    @media (max-width: 1024px) { .beyond-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px)  { .beyond-grid { grid-template-columns: 1fr; } }
+
     /* ─── THE DIFFERENCE ─── */
     .positioning-section {
         background: var(--dark);
@@ -176,35 +216,51 @@
         font-size: 1rem; color: var(--text-light-mid); line-height: 1.75;
         letter-spacing: -0.005em;
     }
-    .diff-cols {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
-    }
-    .diff-col {
+    .diff-table {
         border: 1px solid var(--rule-dark);
-        border-radius: 14px;
-        padding: 2rem;
+        border-radius: 16px;
+        overflow: hidden;
+        background: oklch(97% 0.004 240 / 0.02);
     }
-    .diff-col--them { background: oklch(97% 0.004 240 / 0.03); }
-    .diff-col--me {
-        background: oklch(13% 0.07 272 / 0.5);
-        border-color: oklch(58% 0.22 268 / 0.35);
+    .diff-row {
+        display: grid;
+        grid-template-columns: 1fr 2.5rem 1fr;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.375rem 2rem;
+        border-bottom: 1px solid var(--rule-dark);
     }
-    .diff-label {
+    .diff-row:last-child { border-bottom: none; }
+    .diff-row--head {
+        padding: 1rem 2rem;
+        background: oklch(97% 0.004 240 / 0.03);
+    }
+    .diff-row--head span {
         font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.07em;
-        text-transform: uppercase; margin-bottom: 1.25rem; display: block;
+        text-transform: uppercase; color: var(--text-light-soft);
     }
-    .diff-col--them .diff-label { color: var(--text-light-soft); }
-    .diff-col--me .diff-label { color: oklch(75% 0.18 270); }
-    .diff-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.875rem; }
-    .diff-col li {
-        font-size: 0.9375rem; line-height: 1.6; letter-spacing: -0.005em;
-        display: flex; gap: 0.75rem; align-items: baseline;
+    .diff-row--head span:last-child { color: oklch(75% 0.18 270); }
+    .diff-them {
+        font-size: 0.9375rem; line-height: 1.55; letter-spacing: -0.005em;
+        color: var(--text-light-soft);
     }
-    .diff-col--them li { color: var(--text-light-soft); }
-    .diff-col--them li::before { content: '—'; flex-shrink: 0; }
-    .diff-col--me li { color: var(--text-light-mid); }
-    .diff-col--me li::before { content: '✓'; color: var(--sage); font-weight: 700; flex-shrink: 0; }
-    .diff-col--me li strong { color: var(--text-light); font-weight: 600; }
+    .diff-arrow {
+        color: oklch(75% 0.18 270);
+        font-size: 0.9375rem; text-align: center;
+        opacity: 0.7;
+    }
+    .diff-me {
+        font-size: 0.9375rem; font-weight: 600; line-height: 1.55;
+        letter-spacing: -0.01em; color: var(--text-light);
+    }
+    @media (max-width: 768px) {
+        .diff-row { grid-template-columns: 1fr; gap: 0.375rem; padding: 1.25rem 1.5rem; }
+        .diff-arrow { display: none; }
+        .diff-them { font-size: 0.875rem; }
+        .diff-them::after { content: ''; }
+        .diff-row--head { display: none; }
+        .diff-me::before { content: '→ '; color: oklch(75% 0.18 270); }
+    }
 
     /* ─── PROCESS ─── */
     .process-section {
@@ -398,7 +454,7 @@
                     Custom AI Systems · Sonoma, CA
                 </div>
                 <h1>Most consultants leave a slide deck.<br><span>I leave a running system.</span></h1>
-                <p class="hero-sub">Custom AI that answers your phone, books your calendar, chases your leads, and reports back — built by one person who sticks around until it works.</p>
+                <p class="hero-sub">Custom AI that answers your phone, books your calendar, chases your leads, and reports back — built and run by one person who stays with your business as it grows.</p>
                 <div class="hero-actions">
                     <button onclick="openModal()" class="btn-primary">Schedule a Free Assessment</button>
                     <span class="hero-note">15 min · you see it running before you pay</span>
@@ -467,6 +523,39 @@
         <div class="features-demo-wrap fade">
             <div id="features-demo" aria-label="Live demo of the selected industry's automation"></div>
         </div>
+
+        <div class="beyond fade">
+            <div class="beyond-head">
+                <h3>Not everything is a conversation.</h3>
+                <p>The feeds above are one slice. Some of the most valuable systems never send a message — they watch, build, and report so you don't have to.</p>
+            </div>
+            <div class="beyond-grid">
+                <div class="beyond-item">
+                    <h4>Operations dashboard</h4>
+                    <p>Your whole business on one screen — bookings, leads, revenue, and every automation running live.</p>
+                </div>
+                <div class="beyond-item">
+                    <h4>Monday-morning briefing</h4>
+                    <p>What came in, what went out, what's trending. Written for you, in your inbox before coffee.</p>
+                </div>
+                <div class="beyond-item">
+                    <h4>Quote builder</h4>
+                    <p>Estimates drafted from your own price book the moment a request lands — reviewed by you, not written by you.</p>
+                </div>
+                <div class="beyond-item">
+                    <h4>Review engine</h4>
+                    <p>Every happy customer asked at the right moment. Your rating climbs while you run the business.</p>
+                </div>
+                <div class="beyond-item">
+                    <h4>Document chaser</h4>
+                    <p>Missing paperwork requested, tracked, and filed without a single reminder email from your team.</p>
+                </div>
+                <div class="beyond-item">
+                    <h4>Whatever eats your week</h4>
+                    <p>These are patterns, not a menu. If it's repetitive and on a computer, it can probably be a system.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -477,26 +566,31 @@
             <h2>You've been pitched AI before.<br><span>Here's what's different.</span></h2>
             <p>Service businesses get two flavors of AI pitch: a consultant with a strategy deck, or a platform with a login and a help center. I'm the third option.</p>
         </div>
-        <div class="diff-cols">
-            <div class="diff-col diff-col--them fade">
-                <span class="diff-label">What you usually get</span>
-                <ul>
-                    <li>A 40-page strategy deck and an invoice</li>
-                    <li>A platform login and a "knowledge base"</li>
-                    <li>Software your team has to learn around</li>
-                    <li>A handoff the day it launches</li>
-                    <li>A support ticket queue when it breaks</li>
-                </ul>
+        <div class="diff-table fade">
+            <div class="diff-row diff-row--head">
+                <span>The usual pitch</span>
+                <span></span>
+                <span>Working with me</span>
             </div>
-            <div class="diff-col diff-col--me fade">
-                <span class="diff-label">What I leave you with</span>
-                <ul>
-                    <li><strong>A running system</strong> — answering, booking, and following up on day one</li>
-                    <li><strong>Built around your tools</strong> — your calendar, your inbox, your CRM</li>
-                    <li><strong>Me, in the trenches</strong> — hands-on through launch and the weeks after</li>
-                    <li><strong>You own it</strong> — the system is yours, not a subscription hostage</li>
-                    <li><strong>My cell number</strong> — when something needs attention, you text me</li>
-                </ul>
+            <div class="diff-row">
+                <span class="diff-them">A 40-page strategy deck and an invoice</span>
+                <span class="diff-arrow">→</span>
+                <span class="diff-me">A running system, working on day one</span>
+            </div>
+            <div class="diff-row">
+                <span class="diff-them">A platform login and a help center</span>
+                <span class="diff-arrow">→</span>
+                <span class="diff-me">Your own tools, wired together</span>
+            </div>
+            <div class="diff-row">
+                <span class="diff-them">A handoff the day it launches</span>
+                <span class="diff-arrow">→</span>
+                <span class="diff-me">A partner who stays, month after month</span>
+            </div>
+            <div class="diff-row">
+                <span class="diff-them">A support ticket queue</span>
+                <span class="diff-arrow">→</span>
+                <span class="diff-me">My cell number</span>
             </div>
         </div>
     </div>
