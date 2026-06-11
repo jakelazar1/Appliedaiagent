@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied AI Agent — Forward Deployment AI Engineer, Sonoma CA</title>
+    <meta name="description" content="I embed with your business, build a custom AI intelligence layer on top of your existing tools, and stay hands-on optimizing it until your business runs better.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    /* ─── HERO LOAD ─── */
+    @keyframes heroIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-badge    { animation: heroIn 0.45s var(--ease-expo) 0.05s both; }
+    .hero h1       { animation: heroIn 0.65s var(--ease-expo) 0.15s both; }
+    .hero-sub      { animation: heroIn 0.55s var(--ease-expo) 0.28s both; }
+    .hero-actions  { animation: heroIn 0.5s  var(--ease-expo) 0.42s both; }
+    .hero-card     { animation: heroIn 0.7s  var(--ease-expo) 0.35s both; }
+
+    /* ─── CHAT MSG ─── */
+    @keyframes msgIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex; align-items: center;
+        padding: 9rem 0 6rem;
+        background: var(--hero-bg);
+    }
+    /* Indigo radial glow — the gradient that gives depth */
+    .hero::before {
+        content: '';
+        position: absolute; inset: 0; pointer-events: none;
+        background:
+            radial-gradient(ellipse 70% 60% at 65% -5%,
+                oklch(38% 0.28 272 / 0.55) 0%,
+                transparent 65%),
+            radial-gradient(ellipse 40% 40% at 15% 90%,
+                oklch(28% 0.18 268 / 0.30) 0%,
+                transparent 60%);
+    }
+    .hero-inner {
+        position: relative; z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 5rem;
+        align-items: center;
+    }
+    .hero-badge {
+        display: inline-flex; align-items: center; gap: 0.5rem;
+        background: oklch(97% 0.004 240 / 0.08);
+        border: 1px solid oklch(97% 0.004 240 / 0.14);
+        border-radius: 100px;
+        padding: 0.3125rem 0.875rem;
+        font-size: 0.75rem; font-weight: 500; letter-spacing: -0.01em;
+        color: var(--text-light-mid);
+        margin-bottom: 1.75rem;
+        width: fit-content;
+    }
+    .badge-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--accent); flex-shrink: 0;
+    }
+    .hero h1 {
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+        font-weight: 800; letter-spacing: -0.05em; line-height: 1.0;
+        color: var(--text-light); text-wrap: balance;
+        margin-bottom: 1.5rem;
+    }
+    .hero h1 span { color: oklch(75% 0.18 270); }
+    .hero-sub {
+        font-size: 1.0625rem; font-weight: 400; letter-spacing: -0.01em;
+        color: var(--text-light-mid); max-width: 480px;
+        line-height: 1.75; margin-bottom: 0;
+    }
+    .hero-actions {
+        display: flex; align-items: center; gap: 1.25rem;
+        flex-wrap: wrap; margin-top: 2.5rem;
+    }
+    .hero-note {
+        font-size: 0.8125rem; color: var(--text-light-soft);
+        letter-spacing: -0.005em;
+    }
+    .hero-divider {
+        margin-top: 3.5rem; padding-top: 2rem;
+        border-top: 1px solid var(--rule-dark);
+        display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .hero-stat {
+        display: flex; align-items: baseline; gap: 0.5rem;
+    }
+    .hero-stat-num {
+        font-size: 1.25rem; font-weight: 700; letter-spacing: -0.04em;
+        color: var(--text-light);
+    }
+    .hero-stat-label {
+        font-size: 0.8125rem; color: var(--text-light-soft);
+        letter-spacing: -0.005em;
+    }
+
+    /* ─── HERO CARD ─── */
+    .hero-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow:
+            0 0 0 1px oklch(13% 0.012 255 / 0.08),
+            0 24px 60px oklch(8% 0.04 275 / 0.5),
+            0 8px 20px oklch(8% 0.04 275 / 0.3);
+    }
+    .hc-bar {
+        background: var(--surface-alt);
+        border-bottom: 1px solid var(--rule);
+        padding: 0.75rem 1rem;
+        display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hc-dots { display: flex; gap: 5px; margin-right: 0.25rem; }
+    .hc-dot {
+        width: 9px; height: 9px; border-radius: 50%;
+        background: var(--rule-md);
+    }
+    .hc-title { font-size: 0.7rem; font-weight: 500; color: var(--ink-soft); flex: 1; text-align: center; letter-spacing: -0.005em; }
+    .hc-status { display: flex; align-items: center; gap: 0.375rem; font-size: 0.6875rem; font-weight: 500; color: var(--sage); }
+    .hc-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
+    .hc-messages {
+        padding: 1rem; display: flex; flex-direction: column; gap: 0.625rem;
+        min-height: 200px;
+    }
+    .hc-msg { display: flex; flex-direction: column; max-width: 85%; }
+    .hc-msg--user { align-self: flex-end; align-items: flex-end; }
+    .hc-msg--agent { align-self: flex-start; }
+    .hc-msg--status { align-self: center; }
+    .hc-bubble {
+        padding: 0.5625rem 0.8125rem;
+        font-size: 0.8125rem; line-height: 1.5; font-weight: 400;
+    }
+    .hc-msg--user .hc-bubble {
+        background: var(--accent); color: #fff;
+        border-radius: 12px 12px 3px 12px;
+    }
+    .hc-msg--agent .hc-bubble {
+        background: var(--surface-alt); color: var(--ink);
+        border: 1px solid var(--rule);
+        border-radius: 12px 12px 12px 3px;
+    }
+    .hc-msg--status .hc-bubble {
+        background: transparent; border: none; padding: 0.25rem 0;
+        font-size: 0.7rem; color: var(--sage); font-weight: 500;
+        letter-spacing: -0.005em;
+    }
+    .hc-ts { font-size: 0.65rem; color: var(--ink-soft); margin-top: 0.2rem; }
+    .hc-input {
+        border-top: 1px solid var(--rule);
+        background: var(--surface-alt);
+        padding: 0.75rem 1rem;
+        display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hc-input-field { flex: 1; font-size: 0.8125rem; color: var(--ink-soft); letter-spacing: -0.005em; }
+    .hc-send {
+        width: 28px; height: 28px; border-radius: 8px;
+        background: var(--accent); display: flex; align-items: center; justify-content: center;
+        border: none; cursor: pointer; flex-shrink: 0;
+        transition: background 0.15s;
+    }
+    .hc-send:hover { background: var(--accent-hover); }
+    .hc-send svg { width: 12px; height: 12px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Staggered message animation for hero card */
+    .hero-card .hc-msg:nth-child(1) { animation: msgIn 0.4s var(--ease-expo) 0.8s both; }
+    .hero-card .hc-msg:nth-child(2) { animation: msgIn 0.4s var(--ease-expo) 1.4s both; }
+    .hero-card .hc-msg:nth-child(3) { animation: msgIn 0.4s var(--ease-expo) 2.0s both; }
+    .hero-card .hc-msg:nth-child(4) { animation: msgIn 0.4s var(--ease-expo) 2.6s both; }
+    .hero-card .hc-msg:nth-child(5) { animation: msgIn 0.4s var(--ease-expo) 3.1s both; }
+
+    /* ─── FEATURE TOGGLES ─── */
+    .features-section {
+        background: var(--surface);
+        padding: 7rem 0;
+        border-top: 1px solid var(--rule);
+    }
+    .features-head {
+        max-width: 560px; margin: 0 auto 3rem;
+        text-align: center;
+    }
+    .features-head h2 { margin-bottom: 0.875rem; }
+    .features-head p {
+        font-size: 1rem; color: var(--ink-soft); line-height: 1.7;
+        letter-spacing: -0.005em;
+    }
+
+    /* Horizontal pill tabs */
+    .features-layout { display: flex; flex-direction: column; gap: 1.5rem; }
+    .features-tabs {
+        display: flex; flex-direction: row; gap: 0.5rem;
+        flex-wrap: wrap; justify-content: center;
+    }
+    .feature-tab {
+        display: flex; align-items: center;
+        padding: 0.5rem 1.25rem;
+        border-radius: 100px;
+        border: 1px solid var(--rule-md);
+        background: var(--surface); cursor: pointer;
+        transition: background 0.15s var(--ease-quart),
+                    border-color 0.15s, color 0.15s;
+    }
+    .feature-tab:hover { background: var(--surface-alt); }
+    .feature-tab.active { background: var(--accent); border-color: var(--accent); }
+    .ft-label { display: none; }
+    .ft-name {
+        font-size: 0.875rem; font-weight: 500; letter-spacing: -0.015em;
+        color: var(--ink-mid);
+        transition: color 0.15s;
+    }
+    .feature-tab.active .ft-name { color: #fff; }
+
+    .features-preview {
+        position: relative;
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow:
+            0 0 0 1px var(--rule),
+            0 16px 48px oklch(13% 0.012 255 / 0.08);
+        min-height: 380px;
+    }
+    .fp-bar {
+        background: var(--surface-alt);
+        border-bottom: 1px solid var(--rule);
+        padding: 0.75rem 1rem;
+        display: flex; align-items: center; gap: 0.5rem;
+    }
+    .fp-dots { display: flex; gap: 5px; margin-right: 0.25rem; }
+    .fp-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule-md); }
+    .fp-title-wrap { flex: 1; text-align: center; }
+    .fp-title { font-size: 0.7rem; font-weight: 500; color: var(--ink-soft); letter-spacing: -0.005em; }
+    .fp-live { display: flex; align-items: center; gap: 0.3rem; font-size: 0.65rem; font-weight: 500; color: var(--sage); }
+    .fp-live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage); }
+
+    .fp-panels { position: relative; }
+    .fp-panel {
+        opacity: 0; pointer-events: none;
+        position: absolute; inset: 0;
+        padding: 1.25rem 1rem;
+        display: flex; flex-direction: column; gap: 0.625rem;
+        transition: opacity 0.25s var(--ease-expo);
+    }
+    .fp-panel.active {
+        opacity: 1; pointer-events: all;
+        position: relative;
+    }
+
+    /* Messages inside panels */
+    .fp-msg { display: flex; flex-direction: column; max-width: 85%; opacity: 0; }
+    .fp-msg--user { align-self: flex-end; align-items: flex-end; }
+    .fp-msg--agent { align-self: flex-start; }
+    .fp-msg--status { align-self: center; max-width: 100%; }
+
+    .fp-bubble {
+        padding: 0.5625rem 0.8125rem;
+        font-size: 0.8125rem; line-height: 1.5; font-weight: 400;
+    }
+    .fp-msg--user .fp-bubble {
+        background: var(--accent); color: #fff;
+        border-radius: 12px 12px 3px 12px;
+    }
+    .fp-msg--agent .fp-bubble {
+        background: var(--surface-alt); color: var(--ink);
+        border: 1px solid var(--rule);
+        border-radius: 12px 12px 12px 3px;
+    }
+    .fp-msg--status .fp-bubble {
+        background: transparent; border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.7rem; color: var(--sage); font-weight: 500;
+        letter-spacing: -0.005em; text-align: center;
+    }
+    .fp-ts { font-size: 0.65rem; color: var(--ink-soft); margin-top: 0.2rem; }
+
+    /* Stagger animation when panel becomes active */
+    .fp-panel.active .fp-msg:nth-child(1) { animation: msgIn 0.35s var(--ease-expo) 0.05s both; }
+    .fp-panel.active .fp-msg:nth-child(2) { animation: msgIn 0.35s var(--ease-expo) 0.45s both; }
+    .fp-panel.active .fp-msg:nth-child(3) { animation: msgIn 0.35s var(--ease-expo) 0.85s both; }
+    .fp-panel.active .fp-msg:nth-child(4) { animation: msgIn 0.35s var(--ease-expo) 1.25s both; }
+    .fp-panel.active .fp-msg:nth-child(5) { animation: msgIn 0.35s var(--ease-expo) 1.65s both; }
+
+    .fp-input {
+        border-top: 1px solid var(--rule);
+        background: var(--surface-alt);
+        padding: 0.75rem 1rem;
+        display: flex; align-items: center; gap: 0.5rem;
+        position: absolute; bottom: 0; left: 0; right: 0;
+    }
+    .fp-input-field { flex: 1; font-size: 0.8rem; color: var(--ink-soft); letter-spacing: -0.005em; }
+    .fp-send {
+        width: 26px; height: 26px; border-radius: 7px;
+        background: var(--accent); display: flex; align-items: center; justify-content: center;
+        border: none; flex-shrink: 0;
+    }
+    .fp-send svg { width: 11px; height: 11px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .features-desc {
+        margin-top: 2.5rem;
+        padding: 1.5rem;
+        background: var(--surface-alt);
+        border-radius: 12px;
+    }
+    .features-desc p {
+        font-size: 0.9375rem; color: var(--ink-mid); line-height: 1.7; letter-spacing: -0.005em;
+    }
+    .features-desc strong { color: var(--ink); font-weight: 600; }
+
+    /* ─── POSITIONING ─── */
+    .positioning-section {
+        background: var(--dark);
+        padding: 5.5rem 0;
+        border-top: 1px solid var(--rule-dark);
+    }
+    .pos-inner {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 5rem; align-items: center;
+    }
+    .pos-left h2 {
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        color: var(--text-light); letter-spacing: -0.04em; line-height: 1.15;
+    }
+    .pos-left h2 span { color: oklch(75% 0.18 270); }
+    .pos-right p {
+        font-size: 1rem; font-weight: 400; color: var(--text-light-mid);
+        line-height: 1.8; letter-spacing: -0.005em; margin-bottom: 1.25rem;
+    }
+    .pos-right p:last-child { margin-bottom: 0; }
+    .pos-right strong { color: var(--text-light); font-weight: 600; }
+
+    /* ─── PROCESS ─── */
+    .process-section {
+        background: var(--surface-alt);
+        padding: 7rem 0;
+    }
+    .process-head { max-width: 520px; margin-bottom: 4rem; }
+    .process-head h2 { margin-bottom: 0.75rem; }
+    .process-head p {
+        font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.7; letter-spacing: -0.005em;
+    }
+    .process-steps {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+        background: var(--rule);
+        border: 1px solid var(--rule);
+        border-radius: 16px; overflow: hidden;
+    }
+    .process-step {
+        background: var(--surface);
+        padding: 2rem 1.75rem;
+        transition: background 0.2s;
+    }
+    .process-step:hover { background: var(--surface-warm); }
+    .ps-phase {
+        font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.07em;
+        text-transform: uppercase; color: var(--accent);
+        margin-bottom: 0.75rem; display: block;
+    }
+    .ps-title {
+        font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.025em;
+        color: var(--ink); line-height: 1.3; margin-bottom: 0.625rem;
+    }
+    .ps-desc {
+        font-size: 0.875rem; color: var(--ink-soft); line-height: 1.65; letter-spacing: -0.005em;
+    }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+        position: relative; overflow: hidden;
+        background: var(--hero-bg);
+        padding: 8rem 0; text-align: center;
+    }
+    .final-cta::before {
+        content: '';
+        position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(ellipse 60% 70% at 50% 0%,
+            oklch(35% 0.26 272 / 0.45) 0%, transparent 65%);
+    }
+    .final-cta-inner { position: relative; z-index: 1; }
+    .final-cta h2 {
+        color: var(--text-light);
+        font-size: clamp(2rem, 4vw, 3rem);
+        letter-spacing: -0.05em; line-height: 1.0;
+        margin-bottom: 1.25rem;
+    }
+    .final-cta h2 span { color: oklch(75% 0.18 270); }
+    .final-cta-sub {
+        font-size: 1.0625rem; font-weight: 400; letter-spacing: -0.01em;
+        color: var(--text-light-mid); max-width: 500px;
+        margin: 0 auto 2.5rem; line-height: 1.75;
+    }
+    .final-cta-note {
+        margin-top: 1.25rem; font-size: 0.875rem;
+        color: var(--text-light-soft); letter-spacing: -0.005em;
+    }
+    .final-cta-note a {
+        color: var(--text-light-soft); text-decoration: none;
+        border-bottom: 1px solid var(--rule-dark);
+        transition: color 0.15s, border-color 0.15s;
+    }
+    .final-cta-note a:hover { color: var(--text-light-mid); border-color: var(--text-light-mid); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+        .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+        .hero-card { max-width: 480px; }
+        .pos-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+        .process-steps { grid-template-columns: 1fr 1fr; }
+        .features-tabs { justify-content: flex-start; }
+    }
+    @media (max-width: 768px) {
+        .hero { padding: 7rem 0 4rem; min-height: auto; }
+        .hero h1 { font-size: clamp(2.25rem, 9vw, 3rem); }
+        .hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        .hero-actions .btn-primary { width: 100%; justify-content: center; }
+        .hero-divider { flex-direction: column; gap: 1rem; }
+        .process-steps { grid-template-columns: 1fr; }
+        .features-section, .process-section, .positioning-section, .final-cta { padding: 5rem 0; }
+        .final-cta { padding: 5rem 0; }
+        .pos-inner { gap: 2rem; }
+    }
+    @media (max-width: 480px) {
+        .hero h1 { font-size: clamp(2rem, 8vw, 2.5rem); letter-spacing: -0.04em; }
+        .features-preview { min-height: 320px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .hc-msg, .fp-msg { opacity: 1 !important; animation: none !important; }
+    }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="over-dark">
+    <a href="index.html" class="logo">Applied AI Agent</a>
+    <ul class="nav-links">
+        <li><a href="#features">What I Build</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="work.html">Use Cases</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button onclick="openModal()" class="btn-nav">Free Assessment</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="#features">What I Build</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="work.html">Use Cases</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button onclick="closeMobileMenu(); setTimeout(openModal, 350);" class="mobile-menu-cta">Schedule a Free Assessment</button>
+</div>
+
+<!-- DEMO MODAL -->
+<div id="demoModal" class="modal-overlay">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-card">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <p class="modal-header-label">Free 15-Minute Assessment</p>
+        <h3 class="modal-title">Tell me about your <em>operation.</em></h3>
+        <p class="modal-sub">I'll learn your workflows, identify the highest-impact opportunity, and tell you exactly what I'd build. No pitch. No pressure.</p>
+        <form id="modalForm">
+            <input type="hidden" name="_replyto" value="jake@appliedaiagent.ai">
+            <input type="hidden" name="_subject" value="New assessment request — Applied AI Agent">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" placeholder="First name" autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Business Email</label>
+                <input type="email" name="email" placeholder="you@yourbusiness.com" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+                <label>Business Name</label>
+                <input type="text" name="business" placeholder="Your Business" autocomplete="organization">
+            </div>
+            <div class="form-group">
+                <label>Industry</label>
+                <select name="industry">
+                    <option value="" disabled selected>Select your industry</option>
+                    <option>Winery / Tasting Room</option>
+                    <option>Wine Tour Operator</option>
+                    <option>Vineyard / Estate</option>
+                    <option>Hospitality / Hotel</option>
+                    <option>Restaurant / Bar</option>
+                    <option>Home Services</option>
+                    <option>Real Estate</option>
+                    <option>Legal / Professional Services</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-bottom:1.25rem;">
+                <label>What's eating your time right now?</label>
+                <textarea name="message" placeholder="Follow-ups, bookings, scheduling — tell me what you wish you didn't have to deal with..." rows="3"></textarea>
+            </div>
+            <button type="button" class="btn-submit" onclick="submitModal()">Schedule My Free Assessment</button>
+        </form>
+        <div class="modal-success" id="modalSuccess">
+            <p class="modal-title" style="text-align:center;">Message received.</p>
+            <p class="modal-sub" style="text-align:center;margin-bottom:0;">Jake will be in touch within a few hours.</p>
+        </div>
+    </div>
+</div>
+
+<button class="float-btn" id="floatBtn" onclick="openModal()">Free Assessment</button>
+
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-inner">
+
+            <!-- Left: Copy -->
+            <div>
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Forward Deployment AI Engineer · Sonoma, CA
+                </div>
+                <h1>I build custom AI systems.<br><span>Then I stay embedded.</span></h1>
+                <p class="hero-sub">I embed with your team, wire an intelligence layer on top of your existing tools, and stay hands-on optimizing it until your operation actually runs better.</p>
+                <div class="hero-actions">
+                    <button onclick="openModal()" class="btn-primary">Schedule a Free Assessment</button>
+                    <span class="hero-note">15 min · you see it running before you pay</span>
+                </div>
+                <div class="hero-divider">
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">48hrs</span>
+                        <span class="hero-stat-label">to first automation live</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">100%</span>
+                        <span class="hero-stat-label">custom-built, nothing templated</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">Ongoing</span>
+                        <span class="hero-stat-label">I stay involved, not hand-off</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Live agent card -->
+            <div class="hero-card">
+                <div class="hc-bar">
+                    <div class="hc-dots">
+                        <div class="hc-dot"></div>
+                        <div class="hc-dot"></div>
+                        <div class="hc-dot"></div>
+                    </div>
+                    <span class="hc-title">Booking Agent</span>
+                    <div class="hc-status">
+                        <span class="hc-status-dot"></span>
+                        Active
+                    </div>
+                </div>
+                <div class="hc-messages">
+                    <div class="hc-msg hc-msg--status">
+                        <div class="hc-bubble">10:47 PM · Incoming inquiry</div>
+                    </div>
+                    <div class="hc-msg hc-msg--user">
+                        <div class="hc-bubble">Do you have tours Saturday for 8 people?</div>
+                    </div>
+                    <div class="hc-msg hc-msg--agent">
+                        <div class="hc-bubble">Yes — 10am and 2pm, up to 10 guests. Includes guide and private tasting. Which works?</div>
+                    </div>
+                    <div class="hc-msg hc-msg--user">
+                        <div class="hc-bubble">2pm perfect!</div>
+                    </div>
+                    <div class="hc-msg hc-msg--status">
+                        <div class="hc-bubble">Confirmed · Calendar invite sent · 10:49 PM</div>
+                    </div>
+                </div>
+                <div class="hc-input">
+                    <span class="hc-input-field">Ask your agent anything...</span>
+                    <button class="hc-send" aria-label="Send">
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ FEATURE TOGGLES ══════════════════════════════ -->
+<section class="features-section" id="features">
+    <div class="container">
+        <div class="features-head fade">
+            <h2>See it in action</h2>
+            <p>Pick an industry and watch a real automation play out. Every one of these runs 24/7 without anyone on your team touching it.</p>
+        </div>
+
+        <div class="features-layout">
+            <!-- Tabs -->
+            <div class="features-tabs">
+                <button class="feature-tab active" data-panel="tour" onclick="switchPanel('tour', this)">
+                    <span class="ft-label">Hospitality</span>
+                    <span class="ft-name">Tour Operators</span>
+                </button>
+                <button class="feature-tab" data-panel="winery" onclick="switchPanel('winery', this)">
+                    <span class="ft-label">Wine Country</span>
+                    <span class="ft-name">Wineries</span>
+                </button>
+                <button class="feature-tab" data-panel="hvac" onclick="switchPanel('hvac', this)">
+                    <span class="ft-label">Trades</span>
+                    <span class="ft-name">Home Services</span>
+                </button>
+                <button class="feature-tab" data-panel="realestate" onclick="switchPanel('realestate', this)">
+                    <span class="ft-label">Property</span>
+                    <span class="ft-name">Real Estate</span>
+                </button>
+            </div>
+
+            <!-- Preview window -->
+            <div>
+                <div class="features-preview">
+                    <div class="fp-bar">
+                        <div class="fp-dots">
+                            <div class="fp-dot"></div>
+                            <div class="fp-dot"></div>
+                            <div class="fp-dot"></div>
+                        </div>
+                        <div class="fp-title-wrap">
+                            <span class="fp-title" id="fp-title">Booking Agent</span>
+                        </div>
+                        <div class="fp-live">
+                            <span class="fp-live-dot"></span>
+                            Active
+                        </div>
+                    </div>
+
+                    <div class="fp-panels" style="min-height:300px; padding-bottom:3.5rem;">
+
+                        <!-- Tour panel -->
+                        <div class="fp-panel active" id="panel-tour">
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">10:47 PM · Inquiry received</div>
+                            </div>
+                            <div class="fp-msg fp-msg--user">
+                                <div class="fp-bubble">Do you have tours Saturday for 8 people?</div>
+                            </div>
+                            <div class="fp-msg fp-msg--agent">
+                                <div class="fp-bubble">Yes — 10am and 2pm, both available for up to 10. Includes guide and private tasting. Which works?</div>
+                            </div>
+                            <div class="fp-msg fp-msg--user">
+                                <div class="fp-bubble">2pm is perfect!</div>
+                            </div>
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">Booking confirmed · Calendar invite sent · 10:49 PM</div>
+                            </div>
+                        </div>
+
+                        <!-- Winery panel -->
+                        <div class="fp-panel" id="panel-winery">
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">Saturday 5:00 PM · 47 visitors · Tasting room closes</div>
+                            </div>
+                            <div class="fp-msg fp-msg--agent">
+                                <div class="fp-bubble">Hi Sarah — thanks for visiting us yesterday. The Pinot you loved is available to ship, and if you join the club this week your first shipment is on us.</div>
+                            </div>
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">Sunday 8:12 PM · Opened · Wine club link clicked</div>
+                            </div>
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">47 sent · 31 opened · 9 club signups · 0 sent by you</div>
+                            </div>
+                        </div>
+
+                        <!-- HVAC panel -->
+                        <div class="fp-panel" id="panel-hvac">
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">11:04 PM · Incoming call · 742 Oak Lane</div>
+                            </div>
+                            <div class="fp-msg fp-msg--agent">
+                                <div class="fp-bubble">Hi, I'm with the service team. Can you describe what's happening?</div>
+                            </div>
+                            <div class="fp-msg fp-msg--user">
+                                <div class="fp-bubble">AC is totally out upstairs. It's 88 degrees in here.</div>
+                            </div>
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">Dispatcher notified · Full context attached · 4 min response</div>
+                            </div>
+                        </div>
+
+                        <!-- Real estate panel -->
+                        <div class="fp-panel" id="panel-realestate">
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">Sunday 9:47 PM · New form: "3BR under $800k, Sonoma"</div>
+                            </div>
+                            <div class="fp-msg fp-msg--agent">
+                                <div class="fp-bubble">Hi! Quick question — are you looking to buy in the next 30 days or still exploring?</div>
+                            </div>
+                            <div class="fp-msg fp-msg--user">
+                                <div class="fp-bubble">Actively looking. Pre-approved at $750k.</div>
+                            </div>
+                            <div class="fp-msg fp-msg--status">
+                                <div class="fp-bubble">Qualified · Agent briefed · Monday 8:00 AM meeting booked</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="fp-input">
+                        <span class="fp-input-field">Ask your agent anything...</span>
+                        <div class="fp-send">
+                            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-desc fade">
+                    <p id="features-desc-text"><strong>Tour Operators:</strong> Inquiries handled 24/7 — qualified, confirmed, calendar invite sent. Your team sees the booking, not the back-and-forth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ POSITIONING ══════════════════════════════ -->
+<section class="positioning-section">
+    <div class="container">
+        <div class="pos-inner">
+            <div class="pos-left fade">
+                <h2>Not a consultant.<br>Not a platform.<br><span>An embedded partner.</span></h2>
+            </div>
+            <div class="pos-right fade">
+                <p>Unlike consultants who hand off reports, or vendors who sell platforms, <strong>I embed directly with your business.</strong> I build custom AI systems tailored to your workflows, implement them hands-on with your team, and stay involved in ongoing optimization.</p>
+                <p><strong>You own the system. I stay accountable for outcomes.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ PROCESS ══════════════════════════════ -->
+<section class="process-section" id="process">
+    <div class="container">
+        <div class="process-head fade">
+            <h2>The engagement model</h2>
+            <p>This is not a SaaS subscription. It's an embedded engineering partnership — from assessment through ongoing optimization.</p>
+        </div>
+        <div class="process-steps fade">
+            <div class="process-step">
+                <span class="ps-phase">Step 1</span>
+                <p class="ps-title">Assessment</p>
+                <p class="ps-desc">Free 15 min. I learn your workflows and identify the highest-impact opportunity. No pitch.</p>
+            </div>
+            <div class="process-step">
+                <span class="ps-phase">Step 2</span>
+                <p class="ps-title">Design &amp; Build</p>
+                <p class="ps-desc">1–2 weeks. Custom system connected to your existing tools. You see it working before you pay.</p>
+            </div>
+            <div class="process-step">
+                <span class="ps-phase">Step 3</span>
+                <p class="ps-title">Deploy &amp; Embed</p>
+                <p class="ps-desc">Launch week. I'm hands-on with your team, troubleshoot live, get it production-ready.</p>
+            </div>
+            <div class="process-step">
+                <span class="ps-phase">Ongoing</span>
+                <p class="ps-title">Optimization</p>
+                <p class="ps-desc">Monthly reviews, new requests, process improvements. I stay involved — not a hand-off.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════ FINAL CTA ══════════════════════════════ -->
+<section class="final-cta">
+    <div class="container">
+        <div class="final-cta-inner">
+            <h2 class="fade">Tell me what's eating<br><span>your time.</span></h2>
+            <p class="final-cta-sub fade">I'll learn your workflows and show you what I'd build. If it doesn't fit, we shake hands and you leave knowing exactly what's possible.</p>
+            <button onclick="openModal()" class="btn-primary fade">Schedule a Free Assessment</button>
+            <p class="final-cta-note fade">Jake responds within a few hours. <a href="mailto:jake@appliedaiagent.ai">jake@appliedaiagent.ai</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Applied AI Agent</a>
+        <span class="footer-location">Sonoma, CA &nbsp;·&nbsp; <a href="mailto:jake@appliedaiagent.ai" style="color:inherit;text-decoration:none;">jake@appliedaiagent.ai</a></span>
+        <p style="font-size:0.75rem;color:var(--text-light-soft);margin-top:0.625rem;max-width:280px;line-height:1.55;">10 years in wine ops. Now embedded with owner-operated businesses building custom AI systems.</p>
+    </div>
+    <nav class="footer-links">
+        <a href="#features">What I Build</a>
+        <a href="#process">How It Works</a>
+        <a href="work.html">Use Cases</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <p class="footer-copy">© 2026 Applied AI Agent</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+// ── FEATURE PANEL SWITCHER ──
+const panelDescriptions = {
+    tour: '<strong>Tour Operators:</strong> Inquiries handled 24/7 — qualified, confirmed, calendar invite sent. Your team sees the booking, not the back-and-forth.',
+    winery: '<strong>Wineries:</strong> 47 visitors Saturday. Personalized follow-ups sent Sunday evening. Wine club pitches in your voice, for every single visitor. You were home by 6.',
+    hvac: '<strong>Home Services:</strong> 11pm call, no AC. Agent answers, collects details, routes dispatcher with full context. Zero missed calls. Response time: 4 minutes.',
+    realestate: '<strong>Real Estate:</strong> Form submitted Sunday 9pm. Agent responds in 2 minutes, qualifies the lead, briefs your agent by Monday 8am. They don\'t go elsewhere.'
+};
+
+const panelTitles = {
+    tour: 'Booking Agent',
+    winery: 'Follow-Up Agent',
+    hvac: 'Call Routing Agent',
+    realestate: 'Lead Nurture Agent'
+};
+
+function switchPanel(id, tabEl) {
+    // Update tabs
+    document.querySelectorAll('.feature-tab').forEach(t => t.classList.remove('active'));
+    tabEl.classList.add('active');
+
+    // Update panels — remove active, then set new active (triggers CSS animation)
+    document.querySelectorAll('.fp-panel').forEach(p => {
+        p.classList.remove('active');
+        // Reset msg opacity so animation replays
+        p.querySelectorAll('.fp-msg').forEach(m => {
+            m.style.animation = 'none';
+            m.style.opacity = '0';
+        });
+    });
+
+    const panel = document.getElementById('panel-' + id);
+    if (panel) {
+        // Brief delay so removing 'active' is processed before re-adding
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                // Re-enable animation
+                panel.querySelectorAll('.fp-msg').forEach(m => {
+                    m.style.animation = '';
+                    m.style.opacity = '';
+                });
+                panel.classList.add('active');
+            });
+        });
+    }
+
+    // Update title and description
+    document.getElementById('fp-title').textContent = panelTitles[id] || 'Agent';
+    document.getElementById('features-desc-text').innerHTML = panelDescriptions[id] || '';
+}
+</script>
+</body>
+</html>

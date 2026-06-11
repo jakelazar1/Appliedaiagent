@@ -1,0 +1,138 @@
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Morning Brief</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box}
+        body {font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#f5f5f5;color:#333;line-height:1.6}
+        .container {max-width:800px;margin:0 auto;padding:20px}
+        .header {background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:40px 20px;border-radius:8px;text-align:center;margin-bottom:30px;box-shadow:0 4px 15px rgba(102,126,234,0.4)}
+        .header h1 {font-size:2.2em;margin-bottom:8px;font-weight:700}
+        .header .date {font-size:1em;opacity:0.95}
+        .section {background:white;margin-bottom:20px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);overflow:hidden}
+        .section-header {background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:15px 20px;font-size:1.3em;font-weight:600}
+        .section-content {padding:20px}
+        .item {margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f0f0}
+        .item:last-child {margin-bottom:0;padding-bottom:0;border-bottom:none}
+        .item-title {font-weight:600;color:#667eea;margin-bottom:6px;font-size:1.05em}
+        .item-desc {color:#666;font-size:0.95em;line-height:1.5}
+        .vibe-section {background:linear-gradient(135deg,rgba(102,126,234,0.1) 0%,rgba(118,75,162,0.1) 100%);padding:20px;border-radius:8px;font-style:italic;color:#555;line-height:1.8}
+        .pipeline-box {background:#f9f9f9;padding:15px;border-left:4px solid #667eea;margin-bottom:15px;border-radius:4px}
+        .pipeline-box h3 {color:#667eea;font-size:1.1em;margin-bottom:10px}
+        .pipeline-box ul {list-style:none;margin-left:0}
+        .pipeline-box li {margin-bottom:8px;font-size:0.95em;color:#555}
+        .status-pending {color:#f59e0b;font-weight:600}
+        .footer {text-align:center;padding:20px;color:#999;font-size:0.9em;border-top:1px solid #f0f0f0;margin-top:30px}
+        @media (max-width:600px) {.container {padding:12px} .header {padding:30px 15px} .header h1 {font-size:1.8em} .section-header {font-size:1.1em} .section-content {padding:15px}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌅 Daily Morning Brief</h1>
+            <div class="date">Monday, June 08, 2026</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">🤖 AI & AGENTS</div>
+            <div class="section-content">
+                <div class="item">
+                    <div class="item-title">Agent Teams & Autonomy Surge in 2026</div>
+                    <div class="item-desc">Claude Opus 4.6 introduces agent teams with 1M token context window. OpenAI and Anthropic released frontier models Feb 5—autonomy is no longer theoretical. The shift from models to systems is the real 2026 story.</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">5 Key AI Agent Trends Emerging</div>
+                    <div class="item-desc">Integration with physical world, agent building frameworks, and deep research agents leading the charge. Google Cloud and industry leaders publishing comprehensive 2026 trend reports.</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Microsoft AI CEO Unveils 7 New Models</div>
+                    <div class="item-desc">Mustafa Suleyman at Microsoft Build 2026 announced expansion of AI model portfolio. LangChain ecosystem updates continue to accelerate agent deployment at scale.</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Enterprise Agent Adoption Accelerating</div>
+                    <div class="item-desc">Businesses quietly deploying multi-agent systems across operations. 2026 marks the inflection point where agentic AI moves from research labs to production workflows.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">📈 MARKETS & INVESTING</div>
+            <div class="section-content">
+                <div class="item">
+                    <div class="item-title">Chip Stocks Rebound on Huang Optimism</div>
+                    <div class="item-desc">NVIDIA CEO Jensen Huang signals investors should be "very happy" with semiconductor outlook. Chip sector bouncing back amid AI infrastructure buildout.</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Bitcoin Shows Diversification Potential</div>
+                    <div class="item-desc">Analysts suggest Bitcoin "may offer some diversification" in AI-driven markets. Digital assets gaining traction as portfolio hedge amid tech volatility.</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Bank of America: Take Profits, Red Flags Present</div>
+                    <div class="item-desc">Major bank warning investors to lock in gains. Multiple risk signals suggest caution in current market environment—defensive positioning recommended.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">🏀 LAKERS</div>
+            <div class="section-content">
+                <div class="item">
+                    <div class="item-title">Lakers Offseason: Center Search Underway</div>
+                    <div class="item-desc">LA exploring options beyond DeAndre Ayton this summer. LeBron James reflects on 23rd season milestone. Front office preparing roster adjustments for championship push.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">✨ VIBE</div>
+            <div class="section-content">
+                <div class="vibe-section">Monday vibes: The AI world is moving fast—agents are becoming real, markets are consolidating the hype into actual earnings, and the Lakers are gearing up for a real summer. Week ahead looks like a mix of consolidation and innovation. Stay sharp, stay curious, and remember: the best opportunities come when everyone else is deciding what to do next.</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header">📧 OUTREACH PIPELINE</div>
+            <div class="section-content">
+                <div class="pipeline-box">
+                    <h3>Summary (All Verticals)</h3>
+                    <ul>
+                        <li>68 sent • 0 replied (0%) • 0 follow-ups pending</li>
+                        <li>25 bounced (invalid emails)</li>
+                    </ul>
+                </div>
+                <div class="pipeline-box">
+                    <h3>By Vertical</h3>
+                    <ul>
+                        <li><span class="status-pending">⏳ Landscaping</span> — 26 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Tour Operators</span> — 17 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Auto Repair Services</span> — 7 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ HVAC/Pest/Services</span> — 6 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Real Estate</span> — 3 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Salons & Spas</span> — 3 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Accounting & Tax Services</span> — 1 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Professional Services - Law</span> — 1 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Hospitality & Lodging</span> — 1 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Fitness & Wellness</span> — 1 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Retail & Boutique</span> — 1 sent • 0 replied • 0 follow-ups</li>
+                        <li><span class="status-pending">⏳ Business Coaching & Consulting</span> — 1 sent • 0 replied • 0 follow-ups</li>
+                    </ul>
+                </div>
+                <div style="margin-top:15px;padding:12px;background:#f0f4ff;border-radius:4px;border-left:4px solid #764ba2">
+                    <strong style="color:#764ba2">Next Steps:</strong> Follow-up sequences begin mid-week. Monitor bounce rate (26.5%)—may need email validation refresh on landscaping and HVAC verticals.
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Generated Monday, June 08, 2026 • Applied AI Agent</p>
+            <p style="margin-top:8px;font-size:0.85em">Delivered to jake@appliedaiagent.ai</p>
+        </div>
+    </div>
+</body>
+</html>"""
+
+with open("daily_morning_brief.html", "w") as f:
+    f.write(html_content)
+print("✓ Daily Morning Brief created successfully!")
