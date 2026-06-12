@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Outreach Campaign Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; }
+        .header h1 { font-size: 28px; margin-bottom: 10px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .summary-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); text-align: center; }
+        .summary-card .number { font-size: 32px; font-weight: bold; color: #667eea; }
+        .summary-card .label { font-size: 12px; color: #666; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .verticals { display: grid; gap: 20px; }
+        .vertical-section { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .vertical-header { background: #f9f9f9; padding: 15px 20px; border-left: 4px solid #667eea; font-weight: 600; font-size: 14px; }
+        .vertical-stats { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; }
+        .stat { text-align: center; }
+        .stat .value { font-size: 24px; font-weight: bold; color: #667eea; }
+        .stat .label { font-size: 11px; color: #999; margin-top: 4px; }
+        .stat.sent .value { color: #4CAF50; }
+        .stat.replied .value { color: #2196F3; }
+        .stat.bounced .value { color: #f44336; }
+        .vertical-prospects { padding: 0 20px 20px 20px; }
+        .prospect-list { display: grid; gap: 8px; max-height: 200px; overflow-y: auto; }
+        .prospect-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #fafafa; border-radius: 4px; font-size: 12px; }
+        .prospect-company { font-weight: 500; color: #333; }
+        .prospect-status { padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: 600; }
+        .status-sent { background: #E8F5E9; color: #2E7D32; }
+        .status-replied { background: #E3F2FD; color: #1565C0; }
+        .status-bounced { background: #FFEBEE; color: #C62828; }
+        .footer { text-align: center; margin-top: 30px; color: #999; font-size: 12px; }
+        .progress-bar { background: #eee; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 10px; }
+        .progress-fill { background: #667eea; height: 100%; }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 20px; }
+            .summary { grid-template-columns: repeat(2, 1fr); }
+            .vertical-prospects { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Outreach Campaign Dashboard</h1>
+            <p>Track all B2B outreach by vertical • Updated June 07, 2026 at 10:56 AM</p>
+        </div>
+        
+        <div class="summary">
+            <div class="summary-card">
+                <div class="number">93</div>
+                <div class="label">Total Prospects</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">49</div>
+                <div class="label">Sent</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">0</div>
+                <div class="label">Replied</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">20</div>
+                <div class="label">Bounced</div>
+            </div>
+        </div>
+        
+        <div class="verticals">
+
+        <div class="vertical-section">
+            <div class="vertical-header">Tour Operators</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">24</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">17</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">7</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Landscaping</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">22</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">15</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">4</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">HVAC/Pest/Services</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">19</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">6</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">7</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Real Estate</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">5</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">3</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">2</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Accounting & Tax Services</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">6</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">1</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">0</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Auto Repair Services</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">7</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">1</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">0</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Professional Services - Law</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">2</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">1</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">0</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Hospitality & Lodging</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">1</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">1</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">0</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Fitness & Wellness</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">2</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">1</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">0</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Salons & Spas</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">3</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">1</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">0</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Retail & Boutique</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">1</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">1</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">0</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-section">
+            <div class="vertical-header">Business Coaching & Consulting</div>
+            <div class="vertical-stats">
+                <div class="stat">
+                    <div class="value">1</div>
+                    <div class="label">Total</div>
+                </div>
+                <div class="stat sent">
+                    <div class="value">1</div>
+                    <div class="label">Sent</div>
+                </div>
+                <div class="stat replied">
+                    <div class="value">0</div>
+                    <div class="label">Replied</div>
+                </div>
+                <div class="stat bounced">
+                    <div class="value">0</div>
+                    <div class="label">Bounced</div>
+                </div>
+            </div>
+            <div style="padding: 0 20px;">
+                <div style="font-size: 12px; color: #666; margin-top: 10px;">Response Rate: <strong>0.0%</strong></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0.0%"></div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        
+        <div class="footer">
+            <p>Track responses in your Gmail Outreach labels. Update your prospect database when you get replies.</p>
+        </div>
+    </div>
+</body>
+</html>

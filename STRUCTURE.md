@@ -1,112 +1,151 @@
-# Applied AI Agent — Folder Structure
+# Applied AI Agent — Current Structure
 
-## Organization Hierarchy
+**Last Updated:** June 11, 2026  
+**Status:** Live website deployed to AppliedAIAgent.ai (deployed via Claude Code)
+
+---
+
+## Folder Organization
 
 ```
 appliedaiagent/
-├── 01-product/           Product strategy & core concepts
+├── 01-product/              Product strategy & core concepts
 │   └── PRODUCT.md
 │
-├── 02-marketing/         Website, design, copy, marketing materials
-│   ├── index.html (LIVE landing page)
-│   ├── contact.html (LIVE contact form)
-│   ├── work.html (LIVE portfolio/case studies)
-│   ├── main.js (website JavaScript)
-│   ├── style.css (website styling)
-│   ├── CNAME (GitHub Pages domain config)
-│   │
-│   ├── CLAUDE-FORWARD-DEPLOYED-POSITIONING.md (positioning brief)
-│   ├── CLAUDE-CODE-REDESIGN-PROMPT.md (code redesign instructions)
-│   ├── CLAUDE-REFINEMENT-PROMPT.md (iterative refinement guide)
-│   ├── CLAUDE-UI-REDESIGN-BRIEF.md (UI redesign guide)
-│   │
-│   ├── COLOR-PALETTE-REVISED-WARM.md (current color scheme)
-│   ├── COMPREHENSIVE-REDESIGN-BRIEF.md (full redesign strategy)
-│   ├── DESIGN-BRIEF-BASE44-WARM.md (base design system)
-│   ├── REDESIGN-COMPLETE.md (completion notes)
-│   └── REDESIGN-PROMPT-WARM-LIGHT.md (warm aesthetic guide)
-│   └── FRAMER-DESIGN-BRIEF.md (Framer/design tool reference)
+├── 02-marketing/            Marketing materials (empty - briefs are in live-website/)
 │
-├── 03-operations/        Internal operations & processes
+├── 03-operations/           Internal operations & processes
 │   └── (not yet used)
 │
-├── 04-outreach/          Sales & client outreach
+├── 04-outreach/             Sales & client outreach
+│   ├── 01-OUTREACH-STRATEGY.md
+│   ├── 02-IMPLEMENTATION-TOOLKIT.md
+│   ├── 03-QUICK-REFERENCE.md
+│   ├── QUICK-START.txt
+│   ├── README.md
+│   ├── DELIVERY-SUMMARY.txt
+│   └── outreach_dashboard.html
+│
+├── 05-research/             Market research & competitive analysis
 │   └── (not yet used)
 │
-├── 05-research/          Market research & competitive analysis
+├── live-website/            ⭐ LIVE DEPLOYED WEBSITE (GitHub Pages)
+│   ├── index.html           (35K - homepage with Mission Control dashboard)
+│   ├── work.html            (24K - use cases/portfolio page)
+│   ├── contact.html         (12K - contact form)
+│   ├── style.css            (34K - styling with OKLCH colors)
+│   ├── main.js              (7.3K - core interactivity)
+│   ├── demo-engine.js       (11K - demo functionality)
+│   ├── CNAME                (GitHub Pages domain config)
+│   ├── create_brief.py      (morning brief generator)
+│   └── daily_morning_brief.html (morning brief template)
+│
+├── assets/                  Images, logos, icons
 │   └── (not yet used)
 │
-├── assets/               Images, logos, icons
-│   └── (not yet used)
+├── docs/                    Project documentation
+│   └── CLAUDE.md            (Claude Code project context)
 │
-├── docs/                 Project documentation
-│   ├── CLAUDE.md (Claude Code project context)
-│   └── (reference materials)
+├── .claude/                 Claude Code configuration
+│   ├── launch.json          (project launcher)
+│   ├── settings.local.json  (local settings)
+│   ├── commands/            (custom commands)
+│   └── rewrite-prompt.txt   (rewrite instructions)
 │
-├── .claude/              Claude Code configuration
-│   └── (project settings, MCP servers, custom commands)
+├── .git/                    Git repository (DO NOT EDIT)
+│   └── (version control)
 │
-└── .git/                 Git repository (DO NOT EDIT)
+└── .gitignore               Git ignore rules
+
 ```
 
-## How to Use
+---
+
+## Quick Reference
 
 ### I Want to...
 
 **...review the live website**
-→ Open: `02-marketing/index.html` in your browser
+→ Open: `live-website/index.html` in your browser (or visit AppliedAIAgent.ai)
 
-**...modify the website design**
-→ Edit: `02-marketing/style.css` (styles) & `02-marketing/main.js` (interactivity)
+**...modify the homepage**
+→ Edit: `live-website/index.html`
+
+**...update the use cases page**
+→ Edit: `live-website/work.html`
+
+**...change the styling**
+→ Edit: `live-website/style.css` (OKLCH color system)
+
+**...add interactivity**
+→ Edit: `live-website/main.js` or `live-website/demo-engine.js`
 
 **...update the contact form**
-→ Edit: `02-marketing/contact.html`
+→ Edit: `live-website/contact.html`
 
-**...show client work/case studies**
-→ Edit: `02-marketing/work.html`
+**...view outreach strategy**
+→ Read: `04-outreach/01-OUTREACH-STRATEGY.md`
 
-**...understand the current positioning**
-→ Read: `02-marketing/CLAUDE-FORWARD-DEPLOYED-POSITIONING.md`
+**...understand the product**
+→ Read: `01-product/PRODUCT.md`
 
-**...understand the current color palette**
-→ Read: `02-marketing/COLOR-PALETTE-REVISED-WARM.md`
+---
 
-**...redesign the website**
-→ Read: `02-marketing/COMPREHENSIVE-REDESIGN-BRIEF.md` first, then follow `02-marketing/CLAUDE-CODE-REDESIGN-PROMPT.md`
+## Design System
 
-**...refine an existing design**
-→ Follow: `02-marketing/CLAUDE-REFINEMENT-PROMPT.md`
+**Colors:** OKLCH (warm indigo hero + paper surfaces)  
+**Font:** Inter  
+**Dashboard:** Mission Control (animated metrics + activity feed)  
+**Layout:** Responsive, mobile-first
 
-## Naming Convention
+---
 
-- **Numbered folders** (01-, 02-, 03-) = main categories (don't change)
-- **UPPERCASE filenames** = reference docs (PRODUCT.md, CLAUDE-*.md, COLOR-PALETTE-*.md)
-- **lowercase filenames** = live/working files (index.html, main.js, style.css)
+## Deployment & Workflow
 
-## Workflow
+### Local Development
+1. Edit files in `~/Local/appliedaiagent/live-website/`
+2. Test locally in browser
 
-1. **Work locally** in `~/Local/appliedaiagent/` (this folder)
-2. **Git commit** your changes: `git add . && git commit -m "message"`
-3. **Cron syncs daily** to `~/Desktop/jake-hub/appliedaiagent/` at midnight
-4. **GitHub Pages auto-deploys** when you push to `main` branch
-5. **iCloud backs up** Desktop to the cloud
+### Git & GitHub
+1. Commit changes: `git add . && git commit -m "message"`
+2. Push to main: `git push origin main`
+3. GitHub Pages auto-deploys (1-2 minutes)
 
-All files in this folder are version-controlled by git. Changes are automatically synced to Desktop/iCloud daily.
+### Backup Sync
+- **Daily (midnight):** `~/Local/appliedaiagent/` → `~/Desktop/jake-hub/appliedaiagent/` (cron job)
+- **Weekly (Sundays 2 AM):** Full ~/.hermes backup → Desktop/iCloud
 
-## Live Website
+### Live Site
+- **URL:** AppliedAIAgent.ai
+- **Hosted on:** GitHub Pages
+- **Domain:** Configured in `live-website/CNAME`
 
-The website is hosted on **GitHub Pages** at your domain (configured in `02-marketing/CNAME`).
+---
 
-To deploy changes:
-1. Make changes locally
-2. Commit: `git add . && git commit -m "Update website"`
-3. Push: `git push origin main`
-4. Site deploys automatically (usually within 1-2 minutes)
+## Important Notes
 
-## Pro Tips
+- **All live website files are in `live-website/` folder** — This is the source of truth
+- **No old design briefs or iterations** — All outdated documents deleted (June 11, 2026)
+- **GitHub Pages deploys on every push** — Changes live within 1-2 minutes
+- **Git tracks all changes** — Check history: `git log --oneline`
+- **Don't edit on Desktop** — Always work in `~/Local/appliedaiagent/`
 
-- Keep briefs and strategy docs separate from the actual website files
-- Use git commits to track design iterations: `git log --oneline`
-- Check sync status: `git status`
-- Don't edit files on Desktop directly — always work in Local
-- Use `/effort high` when using Claude Code for design work
+---
+
+## Future Structure Updates
+
+**⚠️ IMPORTANT:** If you update the website structure in the future, I will ask you to confirm:
+- New constraints or requirements
+- Which old documents should be deleted
+- How to reorganize files
+- What the new structure should document
+
+This prevents outdated files from confusing Hermes and giving incorrect instructions.
+
+---
+
+**Next Steps:**
+- Website is live and deployed
+- Use `live-website/` folder for all updates
+- Commit and push changes to auto-deploy
+- Backup syncs daily to Desktop/iCloud
