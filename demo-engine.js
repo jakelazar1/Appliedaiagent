@@ -256,6 +256,12 @@ function createDemoFeed(container, scriptId, opts) {
 
     const rows = feed.querySelectorAll('.df-event');
 
+    // Typing indicator — the teammate "thinks" before it speaks
+    const typing = document.createElement('div');
+    typing.className = 'df-typing';
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    feed.appendChild(typing);
+
     if (reduced) {
       rows.forEach(r => r.classList.add('on'));
       feed.querySelectorAll('.df-pill--yes').forEach(p => p.classList.add('picked'));
@@ -264,7 +270,19 @@ function createDemoFeed(container, scriptId, opts) {
     }
 
     s.events.forEach((ev, i) => {
-      timers.push(setTimeout(() => rows[i].classList.add('on'), ev.t + 400));
+      const fromTeammate = ev.type !== 'inbound' && ev.type !== 'reply';
+      if (fromTeammate && ev.t > 0) {
+        const prevT = i > 0 ? s.events[i - 1].t : 0;
+        const showAt = Math.max(prevT + 550, ev.t - 800);
+        timers.push(setTimeout(() => {
+          feed.insertBefore(typing, rows[i]);   // dots appear where the message will land
+          typing.classList.add('on');
+        }, showAt));
+      }
+      timers.push(setTimeout(() => {
+        typing.classList.remove('on');
+        rows[i].classList.add('on');
+      }, ev.t + 400));
       if (ev.type === 'ask') {
         // owner taps Yes a beat after the question lands
         timers.push(setTimeout(() => {

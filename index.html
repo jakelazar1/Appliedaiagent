@@ -39,10 +39,10 @@
         position: absolute; inset: 0; pointer-events: none;
         background:
             radial-gradient(ellipse 75% 65% at 70% -8%,
-                oklch(42% 0.085 48 / 0.6) 0%,
+                oklch(38% 0.055 130 / 0.6) 0%,
                 transparent 65%),
             radial-gradient(ellipse 45% 40% at 10% 95%,
-                oklch(35% 0.05 45 / 0.35) 0%,
+                oklch(30% 0.04 140 / 0.4) 0%,
                 transparent 60%);
     }
     .hero-inner {
@@ -54,8 +54,8 @@
     }
     .hero-badge {
         display: inline-flex; align-items: center; gap: 0.5rem;
-        background: oklch(96% 0.009 85 / 0.07);
-        border: 1px solid oklch(96% 0.009 85 / 0.14);
+        background: oklch(96% 0.010 105 / 0.07);
+        border: 1px solid oklch(96% 0.010 105 / 0.14);
         border-radius: 100px;
         padding: 0.3125rem 0.875rem;
         font-size: 0.75rem; font-weight: 500; letter-spacing: -0.005em;
@@ -98,6 +98,7 @@
     .week-section {
         background: var(--surface);
         padding: 7rem 0;
+        overflow: hidden;
     }
     .week-head {
         max-width: 560px; margin: 0 auto 2.5rem;
@@ -108,7 +109,20 @@
         font-size: 1rem; color: var(--ink-soft); line-height: 1.7;
         letter-spacing: -0.005em;
     }
-    .week-demo-wrap { display: flex; justify-content: center; }
+    .week-demo-wrap { display: flex; justify-content: center; position: relative; }
+    .week-demo-wrap::before, .week-demo-wrap::after {
+        content: '';
+        position: absolute; z-index: -1; border-radius: 50%;
+        filter: blur(70px); pointer-events: none;
+    }
+    .week-demo-wrap::before {
+        width: 340px; height: 280px; top: -8%; left: 22%;
+        background: oklch(80% 0.10 150 / 0.18);
+    }
+    .week-demo-wrap::after {
+        width: 300px; height: 260px; bottom: -10%; right: 24%;
+        background: oklch(88% 0.07 95 / 0.2);
+    }
 
     /* ─── TEAMMATE RECORD (the evolved Mission Control) ─── */
     .mc-section {
@@ -121,7 +135,7 @@
         content: '';
         position: absolute; inset: 0; pointer-events: none;
         background: radial-gradient(ellipse 55% 60% at 80% 8%,
-            oklch(40% 0.08 48 / 0.45) 0%, transparent 65%);
+            oklch(37% 0.055 132 / 0.5) 0%, transparent 65%);
     }
     .mc-inner { position: relative; z-index: 1; }
     .mc-head { max-width: 560px; margin-bottom: 3rem; }
@@ -168,7 +182,7 @@
         border: 1px solid var(--rule-dark);
         border-radius: 16px;
         overflow: hidden;
-        background: oklch(96% 0.009 85 / 0.02);
+        background: oklch(96% 0.010 105 / 0.02);
     }
     .diff-row {
         display: grid;
@@ -181,7 +195,7 @@
     .diff-row:last-child { border-bottom: none; }
     .diff-row--head {
         padding: 1rem 2rem;
-        background: oklch(96% 0.009 85 / 0.03);
+        background: oklch(96% 0.010 105 / 0.03);
     }
     .diff-row--head span {
         font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.07em;
@@ -254,7 +268,7 @@
         content: '';
         position: absolute; inset: 0; pointer-events: none;
         background: radial-gradient(ellipse 60% 70% at 50% 0%,
-            oklch(42% 0.085 48 / 0.5) 0%, transparent 65%);
+            oklch(38% 0.055 130 / 0.55) 0%, transparent 65%);
     }
     .final-cta-inner { position: relative; z-index: 1; }
     .final-cta h2 {
@@ -424,10 +438,11 @@
                     </div>
                     <div class="sms-thread">
                         <span class="sms-day">Tuesday 4:42 PM</span>
-                        <div class="sms-msg sms-msg--them">
+                        <div class="sms-typing t1" aria-hidden="true"><span></span><span></span><span></span></div>
+                        <div class="sms-msg sms-msg--them m1">
                             <div class="sms-bubble voice">Heads-up — the Marshall invoice is 45 days out. I drafted a firm-but-friendly nudge.</div>
                         </div>
-                        <div class="sms-msg sms-msg--them">
+                        <div class="sms-msg sms-msg--them m2">
                             <div class="sms-bubble">
                                 Send it?
                                 <span class="sms-pills">
@@ -437,10 +452,12 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="sms-msg sms-msg--me">
+                        <div class="sms-msg sms-msg--me m3">
                             <div class="sms-bubble">Yes</div>
                         </div>
-                        <div class="sms-msg sms-msg--them">
+                        <span class="sms-receipt">Delivered</span>
+                        <div class="sms-typing t2" aria-hidden="true"><span></span><span></span><span></span></div>
+                        <div class="sms-msg sms-msg--them m4">
                             <div class="sms-bubble voice">Sent. If it's quiet by Friday, I'll follow up.</div>
                         </div>
                     </div>
@@ -596,8 +613,8 @@
                         <svg class="mc-spark" viewBox="0 0 480 140" preserveAspectRatio="none" aria-hidden="true">
                             <defs>
                                 <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stop-color="oklch(60% 0.14 45)" stop-opacity="0.35"/>
-                                    <stop offset="100%" stop-color="oklch(60% 0.14 45)" stop-opacity="0"/>
+                                    <stop offset="0%" stop-color="oklch(68% 0.13 150)" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="oklch(68% 0.13 150)" stop-opacity="0"/>
                                 </linearGradient>
                             </defs>
                             <path class="spark-fill" fill="url(#sparkGrad)" stroke="none"
