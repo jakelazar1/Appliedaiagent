@@ -592,10 +592,7 @@ I'm not looking to sell you anything today. Just curious if this is something yo
 
 Are you open to a quick 15-minute conversation about how this might work for your business?
 
-Jake
----
-Forward Deployment AI Engineer
-Sonoma, CA
+Jake, hoping to hear back from you
 ```
 
 **Why This Works:**
@@ -630,10 +627,7 @@ If that's interesting, let's talk for 15 minutes. I can show you exactly how it 
 
 Open to a quick call this week?
 
-Jake
----
-Forward Deployment AI Engineer
-Sonoma, CA
+Jake, hoping to hear back from you
 ```
 
 **Why This Works:**
@@ -672,10 +666,7 @@ I'm opening availability for 2-3 new custom builds in Q3. If [Company] is intere
 
 15-minute call to see if it's a fit?
 
-Jake
----
-Forward Deployment AI Engineer
-Sonoma, CA
+Jake, hoping to hear back from you
 
 P.S. If this isn't relevant to you right now, that's totally fine. Just let me know and I'll stop reaching out.
 ```
@@ -724,10 +715,7 @@ Interested in exploring this?
 
 15 minutes?
 
-Jake
----
-Forward Deployment AI Engineer
-Sonoma, CA
+Jake, hoping to hear back from you
 ```
 
 **Why This Works:**
@@ -768,10 +756,7 @@ Two options:
 
 Either way is totally fine. Just let me know.
 
-Jake
----
-Forward Deployment AI Engineer
-Sonoma, CA
+Jake, hoping to hear back from you
 ```
 
 **Why This Works:**
@@ -819,10 +804,7 @@ Most [Vertical] owners I talk to don't realize there's a difference. That guide 
 
 Check it out if you have time.
 
-Jake
----
-Forward Deployment AI Engineer
-Sonoma, CA
+Jake, hoping to hear back from you
 ```
 
 **Why This Works:**
@@ -879,10 +861,7 @@ Interested in me doing a quick analysis to find out?
 
 15 minutes?
 
-Jake
----
-Forward Deployment AI Engineer
-Sonoma, CA
+Jake, hoping to hear back from you
 ```
 
 **Why This Works:**
@@ -920,10 +899,7 @@ So here's the deal: I'm going to stop reaching out. But I want to stay connected
 
 Which works better for you?
 
-Jake
----
-Forward Deployment AI Engineer
-Sonoma, CA
+Jake, hoping to hear back from you
 
 P.S. If neither of these appeal to you, that's fine too. Just let me know and I'll take you off all lists.
 ```
