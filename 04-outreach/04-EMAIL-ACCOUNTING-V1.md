@@ -39,8 +39,7 @@ some template.
 
 Worth a 15-minute call to see if the math is there for you?
 
-Jake
-AppliedAIAgent.ai
+Jake, hoping to hear back from you
 
 ---
 
@@ -62,8 +61,7 @@ client.
 I'm Jake, based in Sonoma. I build these one practice at a time and stay
 responsible for them. Worth 15 minutes to see if the math works for [Firm]?
 
-Jake
-AppliedAIAgent.ai
+Jake, hoping to hear back from you
 
 ---
 
